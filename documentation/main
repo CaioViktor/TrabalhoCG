@@ -1,0 +1,3 @@
+Exemplo de código para teste utilizando a openGL no linux 
+comando executado para compilar:
+g++ main.cpp -lGL -lglut -o ../bin/main

@@ -1,4 +1,4 @@
-Trabalho de Computação Gráfica
+Trabalho de Computação Gráfica<br/>
 Computação-UFC
 Equipe:
 Caio Viktor

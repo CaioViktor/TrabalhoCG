@@ -1,0 +1,47 @@
+Implemanta a estrutra de vértice utilizada na construção de figuras geométricas pelo OpenGl
+Autor: Caio Viktor
+
+Vertex():
+constroi um vertice na origem do sistema de coodenadas
+
+Vertex(double coordinateX,double coordinateY,double coordinateZ):
+constroi um vertice nos pontos especificados pelos parâmetros, apenas as três dimensões serão levadas em consideração a quarta coordenada será setada como 0.
+
+Vertex(double coordinateX,double coordinateY,double coordinateZ,double coordinateW):
+constroi um vertice nos pontos especificados pelos parâmetros. É necessário que seja passada a quata coordena
+
+void setCoordinateX(double X):
+Método de atualização da Coordenada X
+
+void setCoordinateY(double Y):
+Método de atualização da Coordenada Y
+
+void setCoordinateZ(double Z):
+Método de atualização da Coordenada Z
+
+void setCoordinateW(double W):
+Método de atualização da Coordenada Z
+
+double getCoordinateXd():
+Método de retorno da coordenada X no formato double
+
+double getCoordinateYd():
+Método de retorno da coordenada Y no formato double
+
+double getCoordinateZd():
+Método de retorno da coordenada Z no formato double
+
+double getCoordinateWd():
+Método de retorno da coordenada W no formato double
+
+float getCoordinateXf():
+Método de retorno da coordenada X no formato float
+
+float getCoordinateYf();
+Método de retorno da coordenada Y no formato float
+
+float getCoordinateZf():
+Método de retorno da coordenada Z no formato float
+
+float getCoordinateWf():
+Método de retorno da coordenada W no formato float

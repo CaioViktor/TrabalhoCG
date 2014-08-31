@@ -1,0 +1,34 @@
+//Essa é uma implementação de uma Matriz de tamanho fixo 4x4
+//A limitação dimensional pode ser alterada com poucas modificações
+
+
+Matrix():
+Constrói um matriz 4x4 com todos os elementos iguais a 0.
+
+
+Matrix(double c[4][4]):
+Constrói uma matriz 4x4 a partir de um array2d.
+
+
+double** getConteudo():
+Retorna o um ponteiro para on os valores da matriz estão armazenados.
+
+
+void  setConteudo(double **c):
+Atualiza o conteudo da matriz por completo. Espera como entrada um ponteiro para uma matriz.
+
+
+void setPosition(int linha,int coluna, double value):
+Atualiza uma única posição da matriz.
+
+
+void printMatrix():
+Exibe na tela o conteúdo da matriz
+
+
+Matrix getTransposed():
+Retorna a matriz transposta da matriz armazenada em conteúdo.
+
+
+Matrix Matrix::getIdentity():
+Retorna a matriz identidade.

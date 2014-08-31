@@ -28,7 +28,7 @@ métodos:
 
 
 	void ListVertex::addVertex(Vertex *vertex):
-	adiciona um vertice passado como parâmetro na ultima posição da lista
+	adiciona um vertice passado como parâmetro na ultima posição da lista caso ele ainda não exista na lista. caso ele já exista ele retorna uma mensagem informando.
 	entrada: ponteiro para Vertex
 	saída: null, mas imprime nó console caso haja sucesso
 

@@ -3,6 +3,7 @@ int main(){
 	Vertex *v  = new Vertex( (double) 1,(double) 3,(double) 5);
 	Vertex *v2 = new Vertex( (double) 2,(double) 3,(double) 5, 2);
 	Vertex *v3 = new Vertex( (double) 3,(double) 7,(double) 9, 3);
+	Vertex *v4 = new Vertex( (double) 4,(double) 7,(double) 9, 3);
 	ListVertex *l1 = new ListVertex();
 	cout << l1->isempty() << endl;
 	l1->addVertex(v);
@@ -24,5 +25,13 @@ int main(){
 	Vertex *f2 = l1->first->vertex;
 	cout << "Lista 1: " << f2->getCoordinateXd() << endl;
 	cout << "Vertice: " << v->getCoordinateXd() << endl;	
+	cout << "lista 1:\n";
+	l1->list();
+	cout << "tenta adicionar vertice: " << v->getCoordinateXd() << endl;
+	l1->addVertex(v);
+	l1->list();
+	cout << "tenta adicionar vertice: " << v4->getCoordinateXd() << endl;
+	l1->addVertex(v4);
+	l1->list();
 	return 0;
 }

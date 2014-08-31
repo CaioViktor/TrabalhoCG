@@ -24,7 +24,7 @@ bool ListVertex::isempty(){
 	else
 		return false;
 }
-//adiciona um vertice passado como parâmetro na ultima posição da lista
+//adiciona um vertice passado como parâmetro na ultima posição da lista caso ele ainda não exista na lista. caso ele já exista ele retorna uma mensagem informando
 void ListVertex::addVertex(Vertex *vertex){
 	Node *node = (Node *) malloc(sizeof(Node));
 	node->vertex = vertex;
@@ -32,13 +32,26 @@ void ListVertex::addVertex(Vertex *vertex){
 	if(this->isempty()){
 		this->first = node;
 		this->last = node;
+		cout << "Vertice adicionado com sucesso" << endl;
 	}
 	else{
-		Node *last = this->last;
-		last->next = node;
-		this->last = node;
+		Node *current = this->first;
+		int elementsInList = 0;
+		while(current != NULL){
+			Vertex *currentVertex = current->vertex;
+			if(currentVertex == vertex)
+				elementsInList++;
+			current = current->next;
+		}
+		if(elementsInList == 0){
+			Node *last = this->last;
+			last->next = node;
+			this->last = node;
+			cout << "Vertice adicionado com sucesso" << endl;
+		}
+		else
+			cout << "Vertice já existente" << endl;
 	}
-	cout << "Vertice adicionado com sucesso" << endl;
 }
 //Printa as coordenadas X de todos os vértices da lista (Utilizada para teste). protótipo da função de transformação.
 void ListVertex::list(){

@@ -33,5 +33,8 @@ int main(){
 	cout << "tenta adicionar vertice: " << v4->getCoordinateXd() << endl;
 	l1->addVertex(v4);
 	l1->list();
+	cout << "tenta adicionar vertice: " << v4->getCoordinateXd() << endl;
+	l1->addVertex(v4);
+	l1->list();
 	return 0;
 }

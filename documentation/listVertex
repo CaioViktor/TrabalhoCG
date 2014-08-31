@@ -1,0 +1,39 @@
+implementa estrutura de lista encadeada de vertices utilizada na classe objeto.
+autor: Caio Viktor
+códigos: /lib/listVertex.h
+		 /src/listVertex.cpp
+		 /src/testeList.cpp
+atributos:
+	struct Node:
+		estrutura que armazena um vertice e um ponteiro para um próximo nó.
+	class ListVertex:
+		classe que armazena dois ponteiro para o primeiro(first) e ultimo(last) nó presentes na lista.Ambos são públicos.
+métodos:
+	ListVertex::ListVertex():
+	Construtor da classe ListVertex. Inicia uma lista vazia
+	entrada: null
+	saída: null, mas imprime nó console caso haja sucesso
+
+
+	ListVertex::ListVertex(Vertex *vertex):
+	Construtor da classe ListVertex, inicia a lista com um vertice passado como parâmetro
+	entrada: ponteiro para Vertex
+	saída: null, mas imprime nó console caso haja sucesso
+
+
+	bool ListVertex::isempty():
+	retorna true caso a lista esteja vazia e false caso o contrário
+	entrada:null
+	saída: valor booleano (inteiro 0 = false , resto = true)
+
+
+	void ListVertex::addVertex(Vertex *vertex):
+	adiciona um vertice passado como parâmetro na ultima posição da lista
+	entrada: ponteiro para Vertex
+	saída: null, mas imprime nó console caso haja sucesso
+
+
+	void ListVertex::list():
+	Printa as coordenadas X de todos os vértices da lista (Utilizada para teste). protótipo da função de transformação.
+	entrada: null
+	saída: null.

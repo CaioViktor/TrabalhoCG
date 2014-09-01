@@ -1,5 +1,9 @@
 Implemanta a estrutra de vértice utilizada na construção de figuras geométricas pelo OpenGl
 Autor: Caio Viktor
+códigos: /lib/vertex.h
+		 /src/Vertex.cpp
+		 /src/testeVertex.cpp
+possui os atributos x,y,w e z do tipo double que guardam as coordenadas do vértice.
 
 Vertex():
 constroi um vertice na origem do sistema de coodenadas

@@ -20,4 +20,5 @@ public:
 	float getCoordinateYf();
 	float getCoordinateZf();
 	float getCoordinateWf();
+	//Vector* toVector();
 };

@@ -10,6 +10,7 @@ public:
 	// double* getVector();
 	// double* getValue(int);
 	// void setValue(int,double);
+	// void setValue(int,double*);
 	// void showVector();
 	// void multiplicationMatrix(Matrix*);
 };

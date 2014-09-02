@@ -1,0 +1,45 @@
+classe responsável pela implementação de estrutura de vetores de coordenadas 4X1 
+finalidade simplificar as operações matemáticas com um vértice
+Autor:Caio Viktor
+Código: /lib/vector.h
+		/src/vector.cpp 
+		/src/testeVector.cpp 
+Atributos:
+	double **vector:
+		Vetor de ponteiro de double, responsável por guarda as referências para os dados contidos.
+		finalidade simplificar as operações matemáticas com um vértice
+
+Métodos:
+	Vector::Vector():
+	Cria vetor double* de 4 posições e o seta em vecto  ou seja um vetor de ponteiros de double 
+	entrada: null
+	saída: null
+
+
+	Verctor::getVector():
+	retorna o vetor de ponteiros double onde os valores estão armazenados
+	entrada: null
+	saída: double** ponteiro para ponteiro de double (um ponteiro para um array de double com 4 posições)
+
+
+	double Vector::getValue(int position):
+	retorna o valor da posição passada por parâmetro
+	entrada: inteiro que é a posição desejada de 0 a 4 , sendo 0 = x, 1 = y, 2 = z, 3 = w
+	saída: valor double contido na posição
+
+	void Vector::setValue(int position,double value):
+	atualiza a posição passada por parâmetro para o valor passado por parâmetro
+	entrada: inteiro que é a posição desejada de 0 a 4 , sendo 0 = x, 1 = y, 2 = z, 3 = w . e um valor double a ser armazenado
+	saída: null
+
+
+	void Vector::setValue(int position,double *value):
+	atualiza o ponteiro da posição passada por parâmetro para o ponteiro passado por parâmetro ou seja guarda uma referência no vetor
+	entrada: inteiro que é a posição desejada de 0 a 4 , sendo 0 = x, 1 = y, 2 = z, 3 = w . e um ponteiro double a ser referenciado
+	saída: null
+
+
+	void Vector::showVector():
+	exibe os valores contidos no vetor
+	entrada: null
+	saída: null

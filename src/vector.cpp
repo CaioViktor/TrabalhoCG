@@ -2,40 +2,62 @@
 *  classe responsável pela implementação de estrutura de vetores de coordenadas 4X1 
 */
 #include "../lib/main.h"
-//
+//Cria vetor double* de 4 posições e o seta em vecto  ou seja um vetor de ponteiros de double 
 Vector::Vector(){
 	double **newVector = new double*[4];
-	for(int i=0;i<4;i++)
-		newVector[i] = 0;
+	newVector[0] = (double*) malloc(sizeof(double));
+	newVector[1] = (double*) malloc(sizeof(double));
+	newVector[2] = (double*) malloc(sizeof(double));
+	newVector[3] = (double*) malloc(sizeof(double));
 	this->vector = newVector;
 }
+
 //
 // Vector::Vector(Vertex *vertex){
 	
-// 	vertex->toVector()
-
-
 // }
- //
-// Vector::Vector(double[4] vector){
 
-// }
-// //
-// double* Vector::getVector(){
+//retorna o vetor de ponteiros double onde os valores estão armazenados
+double** Vector::getVector(){
+	return this->vector;
+}
 
-// }
-// //
-// double* Vector::getValue(int position){
+// retorna o valor da posição passada por parâmetro
+double Vector::getValue(int position){
+	if(position >= 0 && position < 4){
+		double **newVector = this->vector;
+		return *newVector[position];
+	}
+	else
+		return 0;
+}
 
-// }
-// //
-// void Vector::setValue(int position,double value){
-
-// }
-// //
-// void Vector::showVector(){
-
-// }
+//atualiza a posição passada por parâmetro para o valor passado por parâmetro
+void Vector::setValue(int position,double value){
+	if(position >= 0 && position < 4){
+		double **newVector = this->vector;
+		*newVector[position] = value;
+		cout << "Valor armazenado no vetor\n";
+	}
+	else
+		cout << "Erro posição inexistente\n";
+}
+//atualiza o ponteiro da posição passada por parâmetro para o ponteiro passado por parâmetro ou seja guarda uma referência no vetor
+void Vector::setValue(int position,double *value){
+	if(position >= 0 && position < 4){
+		double **newVector = this->vector;
+		newVector[position] = value;
+		cout << "Ponteiro armazenado no vetor\n";
+	}
+	else
+		cout << "Erro posição inexistente\n";	
+}
+//exibe os valores contidos no vetor
+void Vector::showVector(){
+	for(int i=0;i<4;i++){
+		cout << this->getValue(i)<<endl;	
+	}
+}
 // //
 // void multiplicationMatrix(Matrix *matrix){
 

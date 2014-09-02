@@ -87,7 +87,11 @@ float Vertex::getCoordinateWf(){
 }
 
 //retorna um objeto da classe Vector representando o vétice
-// Vector* Vertex::toVector(){
-// 	Vector *newVector = new Vector(this);
-// 	return newVector;
-// }
+Vector* Vertex::toVector(){
+	Vector *newVector = new Vector();
+	newVector->setValue(0,&this->x);
+	newVector->setValue(1,&this->y);
+	newVector->setValue(2,&this->z);
+	newVector->setValue(3,&this->w);
+	return newVector;
+}

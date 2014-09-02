@@ -49,3 +49,6 @@ Método de retorno da coordenada Z no formato float
 
 float getCoordinateWf():
 Método de retorno da coordenada W no formato float
+
+Vector* Vertex::toVector():
+retorna um objeto da classe Vector representando o vétice

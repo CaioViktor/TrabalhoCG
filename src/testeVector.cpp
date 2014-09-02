@@ -37,6 +37,19 @@ int main(){
 	v3->showVector();
 	cout << "Vertex: \n" << ve->getCoordinateXd() << endl << ve->getCoordinateYd() << endl << ve->getCoordinateZd() << endl << ve->getCoordinateWd() << endl;
 
-
+	cout << "Multiplicação de vector por matriz matrix:\n";
+	double m[4][4]=
+	{
+		{1,2,3,4},
+		{5,6,7,8},
+		{9,10,11,12},
+		{13,14,15,16}
+	};
+	Matrix *matrix = new Matrix(m);
+	matrix->printMatrix();
+	v3->multiplicationMatrix(matrix);
+	cout << "Vector:\n";
+	v3->showVector();
+	cout << "Vertex: \n" << ve->getCoordinateXd() << endl << ve->getCoordinateYd() << endl << ve->getCoordinateZd() << endl << ve->getCoordinateWd() << endl;
 	return 0;
 }

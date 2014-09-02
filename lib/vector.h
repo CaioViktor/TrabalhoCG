@@ -11,5 +11,5 @@ public:
 	void setValue(int,double);
 	void setValue(int,double*);
 	void showVector();
-	// void multiplicationMatrix(Matrix*);
+	void multiplicationMatrix(Matrix*);
 };

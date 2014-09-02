@@ -43,3 +43,9 @@ Métodos:
 	exibe os valores contidos no vetor
 	entrada: null
 	saída: null
+
+
+	void Vector::multiplicationMatrix(Matrix *matrix):
+	multiplica vector por matrix e armazena o resultado na própria matriz. após completar a multiplicação armazena os valores na própria estrutura de vector que refleritar no vertex original, assim aplicando a transformação.
+	entrada: um ponteiro para Matrix
+	saída: null

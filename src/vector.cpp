@@ -58,7 +58,14 @@ void Vector::showVector(){
 		cout << this->getValue(i)<<endl;	
 	}
 }
-// //
-// void multiplicationMatrix(Matrix *matrix){
-
-// }
+//multiplica vector por matrix e armazena o resultado na própria matriz
+void Vector::multiplicationMatrix(Matrix *matrix){
+	double vector[4];
+	for(int i = 0; i < 4; i++)
+		vector[i] = 0;
+	for(int i = 0; i < 4; i++)
+		for(int j = 0; j< 4; j++)
+			vector[i] = vector[i] + matrix->getPosition(i,j) * this->getValue(j);
+	for(int i = 0; i < 4; i++)
+		this->setValue(i,vector[i]);
+}

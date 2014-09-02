@@ -1,22 +1,24 @@
 //Author: Matheus Mayron
-#include "../lib/main.h"
 class Matrix
 {
     double **content;
 
 public:
 
-    Matrix(void);
-    Matrix(double c[4][4]);
+    Matrix();
+    Matrix(double array2d[4][4]);
 
-    static Matrix getIdentity(void);
-    Matrix getTransposed(void);
+    ~Matrix();
 
-    double **getContent(void);
-    double getPosition(int,int);
+    double **getContent();
+    double getPosition(int lin, int col);
 
-    void setContent(double**);
-    void setPosition(int,int,double);
+    static Matrix getIdentity();
+    Matrix getTransposed();
+    Matrix multiplyMatrix(Matrix B);
+
+    void setContent(double **c);
+    void setPosition(int lin, int col, double value);
     void printMatrix();
 
 };

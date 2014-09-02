@@ -7,29 +7,31 @@
 
 //Constrói um matriz 4x4 com todos os elementos iguais a 0;
 Matrix::Matrix(){
-    double **matrix4x4;
-
-	matrix4x4 = new double*[4];
-	for(int i=0 ;i<4 ;i++){
-		matrix4x4[i] = new double[4];
-		for(int j=0; j<4; j++){
-			matrix4x4[i][j] = 0;
-		}
-	}
-	content = matrix4x4;
+    content = new double*[4];
+    for(int i=0 ;i<4 ;i++){
+        content[i] = new double[4];
+        for(int j=0; j<4; j++){
+            content[i][j] = 0;
+        }
+    }
 }
 
 //Constrói uma matriz 4x4 a partir de um array2d;
 Matrix::Matrix(double c[4][4]){
-    double **matrix4x4;
-	matrix4x4 = new double*[4];
-	for(int i=0; i<4; i++){
-		matrix4x4[i] = new double[4];
-		for(int j=0; j<4; j++){
-			matrix4x4[i][j] = c[i][j];
-		}
-	}
-	content = matrix4x4;
+    content = new double*[4];
+    for(int i=0; i<4; i++){
+        content[i] = new double[4];
+        for(int j=0; j<4; j++){
+            content[i][j] = c[i][j];
+        }
+    }
+}
+
+Matrix::~Matrix(){
+    for(int i=0;i<4;i++){
+        delete [] content[i];
+    }
+    delete [] content;
 }
 
 
@@ -40,6 +42,10 @@ double** Matrix::getContent(){return content;}
 void  Matrix::setContent(double **c){content = c;};
 
 
+double Matrix::getPosition(int lin, int col){
+        return content[lin][col];
+}
+
 //Atualiza uma única posição da matriz.
 void Matrix::setPosition(int lin,int col, double value){
     if((lin>=0) & (lin<4) & (col>=0) & (col<4)){
@@ -49,13 +55,13 @@ void Matrix::setPosition(int lin,int col, double value){
 
 //Exibe na tela o conteúdo da matriz
 void Matrix::printMatrix(){
-	cout << endl;
-	for(int i=0; i<4; i++){
-		for(int j=0 ;j<4; j++){
-			cout << content[i][j] << " ";
-		}
-	cout << endl;
-	}
+    cout << endl;
+    for(int i=0; i<4; i++){
+        for(int j=0 ;j<4; j++){
+            cout << content[i][j] << " ";
+        }
+    cout << endl;
+    }
 
 }
 
@@ -63,14 +69,31 @@ void Matrix::printMatrix(){
 Matrix Matrix::getTransposed()
 {
     Matrix trans;
-    double** contTrans = trans.getContent();
-	for(int i=0; i<4 ; i++){
-		for(int j=i; j<4; j++){
-			contTrans[j][i] = content[i][j];
-			contTrans[i][j] = content[j][i];
-		}
-	}
-	return trans;
+    for(int i=0; i<4 ; i++){
+        for(int j=i; j<4; j++){
+            trans.setPosition(j,i,content[i][j]);
+            trans.setPosition(i,j,content[j][i]);
+        }
+    }
+    return trans;
+}
+
+
+//Função que faz o produto de duas matrizes.
+Matrix Matrix::multiplyMatrix( Matrix B ){
+       Matrix C;
+       int i, j , k;
+       double temp;
+       for( i = 0; i < 4; i++ ){
+            for( j = 0; j < 4; j++ ){
+                 temp = 0;
+                 for( k = 0; k < 4; k++ ){
+                      temp += this->getPosition(i,k) * B.getPosition(k,j);
+                 }
+                 C.setPosition( i, j, temp );
+            }
+       }
+      return C;
 }
 
 
@@ -78,9 +101,9 @@ Matrix Matrix::getTransposed()
 //TODO: Melhorar isso.
 Matrix Matrix::getIdentity()
 {
-	Matrix matrixId;
-	for(int i=0; i<4; i++){
-		matrixId.setPosition(i,i,1);
-	}
-	return matrixId;
+    Matrix matrixId;
+    for(int i=0; i<4; i++){
+        matrixId.setPosition(i,i,1);
+    }
+    return matrixId;
 }

@@ -1,35 +1,83 @@
 //Autor: Matheus Mayron
-//Essa � uma implementa��o de uma Matriz de tamanho fixo 4x4
-//A limita��o dimensional pode ser alterada com poucas modifica��es
+//Essa é uma implementação de uma Matriz de tamanho fixo 4x4
+//A limitação dimensional pode ser alterada com poucas modificações
 
+****Nome da classe: Matrix;
+****Função: Armazenar matrizes e facilitar as operações feitas com matrizes.
+
+****Construtores e Destrutores****
 
 Matrix():
-Constr�i um matriz 4x4 com todos os elementos iguais a 0.
+	Constrói um matriz 4x4 com todos os elementos iguais a 0.
 
 
 Matrix(double c[4][4]):
-Constr�i uma matriz 4x4 a partir de um array2d.
+	Constrói uma matriz 4x4 a partir de um array2d.
 
+~Matrix():
+	Destroi o objeto, desalocando também o que foi alocado em seu interior.
 
-double** getConteudo():
-Retorna o um ponteiro para on os valores da matriz est�o armazenados.
+****Funções de acesso.
+
+double **getConteudo():
+	Retorna o um ponteiro para os valores da matriz estão armazenados.
 
 
 void  setConteudo(double **c):
-Atualiza o conteudo da matriz por completo. Espera como entrada um ponteiro para uma matriz.
+	Atualiza o conteudo da matriz por completo. 
+	Espera como entrada um ponteiro para uma matriz.
 
 
 void setPosition(int linha,int coluna, double value):
-Atualiza uma �nica posi��o da matriz.
+	Atualiza uma única posição da matriz.
+	Espera como entrada a linha e coluna do da posição que será atualizada, e o novo valor.
 
 
-void printMatrix():
-Exibe na tela o conte�do da matriz
 
 
+
+****Funções Utilitarias
 Matrix getTransposed():
-Retorna a matriz transposta da matriz armazenada em conte�do.
+	Retorna a matriz transposta da matriz armazenada em conteúdo.
 
 
-Matrix Matrix::getIdentity():
-Retorna a matriz identidade.
+Matrix Matrix::getIdentity():		
+	Retorna uma matriz identidade.
+	//OBS: É uma funçao estática.
+	
+	
+void printMatrix():
+	Exibe na tela o conteúdo da matriz.
+
+	
+Matrix multiplyMatrix(Matrix B):
+	Retorna como resultado a multiplicação entre a matriz armazenada no próprio objeto e a matriz da Matrix B.
+	
+
+
+static Matrix getTranslation(double x, double y, double z):
+	Retorna uma matriz para necessaria para realizar a transformação de translação. 
+	Os três parâmetros de entradas são os deslocamentos desejados nos eixos X,Y,Z.
+
+	
+//OBS: getRotationX, getRotationY e getRotationZ esperam como entrada um ângulo em RADIANOS.
+
+static Matrix getRotationX(double angle);
+	Retorna uma matriz para necessaria para realizar a transformação de rotação sobre o eixo X. 
+	Recebe como entrada o ângulo da rotação sobre o eixo X.
+
+
+static Matrix getRotationY(double angle);
+	Retorna uma matriz para necessaria para realizar a transformação de rotação sobre o eixo Y. 
+	Recebe como entrada o ângulo da rotação sobre o eixo Y.
+
+	
+static Matrix getRotationZ(double angle);
+	Retorna uma matriz para necessaria para realizar a transformação de rotação sobre o eixo Z. 
+	Recebe como entrada o ângulo da rotação sobre o eixo Z.
+
+
+static Matrix getScale(double dx, double dy, double dz, double xf, double yf, double zf);
+	Retorna uma matriz para necessaria para realizar a transformação de Escala em relação a um ponto fixo. 
+	Os três primeiros parâmetros (dx, dy, dz) são relacionados ao quanto o objeto irá se expandir sobre determinado eixo.
+	Os três últimos (xf,yf,zf) são as coordenas do ponto fixo.

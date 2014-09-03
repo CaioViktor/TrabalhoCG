@@ -1,7 +1,7 @@
 classe responsável pela implementação de estrutura de vetores de coordenadas 4X1 
 finalidade simplificar as operações matemáticas com um vértice
 Autor:Caio Viktor
-Código: /lib/vector.h
+Códigos: /lib/vector.h
 		/src/vector.cpp 
 		/src/testeVector.cpp 
 Atributos:

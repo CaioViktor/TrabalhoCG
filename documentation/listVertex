@@ -37,3 +37,9 @@ métodos:
 	Printa as coordenadas X de todos os vértices da lista (Utilizada para teste). protótipo da função de transformação.
 	entrada: null
 	saída: null.
+
+
+	void ListVertex::transformation(Matrix *matrix):
+	Aplica uma transformação em todos os vértices da lista. Percorre a lista de vertices e os multiplica pela matriz passada como parâmetro
+	entrada: Matrix*. ponteiro para Matrix.
+	saída: null.

@@ -3,52 +3,100 @@ Autor: Caio Viktor
 códigos: /lib/vertex.h
 		 /src/Vertex.cpp
 		 /src/testeVertex.cpp
-possui os atributos x,y,w e z do tipo double que guardam as coordenadas do vértice.
+Atributos:
+	 x,y,w e z do tipo double que guardam as coordenadas do vértice.
+Métodos:
+	Vertex():
+	constroi um vertice na origem do sistema de coodenadas
+	entrada: null
+	saída: null
 
-Vertex():
-constroi um vertice na origem do sistema de coodenadas
 
-Vertex(double coordinateX,double coordinateY,double coordinateZ):
-constroi um vertice nos pontos especificados pelos parâmetros, apenas as três dimensões serão levadas em consideração a quarta coordenada será setada como 0.
+	Vertex(double coordinateX,double coordinateY,double coordinateZ):
+	constroi um vertice nos pontos especificados pelos parâmetros, apenas as três dimensões serão levadas em consideração a quarta coordenada será setada como 0.
+	entrada: 3 double indicando cada coordenada do vértice na ordem: x,y,z
+	saída: null
 
-Vertex(double coordinateX,double coordinateY,double coordinateZ,double coordinateW):
-constroi um vertice nos pontos especificados pelos parâmetros. É necessário que seja passada a quata coordena
 
-void setCoordinateX(double X):
-Método de atualização da Coordenada X
+	Vertex(double coordinateX,double coordinateY,double coordinateZ,double coordinateW):
+	constroi um vertice nos pontos especificados pelos parâmetros. É necessário que seja passada a quata coordena
+	entrada: 4 double indicando cada coordenada do vértice na ordem: x,y,z e w
+	saída: null
 
-void setCoordinateY(double Y):
-Método de atualização da Coordenada Y
 
-void setCoordinateZ(double Z):
-Método de atualização da Coordenada Z
+	void setCoordinateX(double X):
+	Método de atualização da Coordenada X
+	entrada: double indicando o novo valor da coordenada X
+	saída: null
 
-void setCoordinateW(double W):
-Método de atualização da Coordenada Z
 
-double getCoordinateXd():
-Método de retorno da coordenada X no formato double
+	void setCoordinateY(double Y):
+	Método de atualização da Coordenada Y
+	entrada: double indicando o novo valor da coordenada Y
+	saída: null
 
-double getCoordinateYd():
-Método de retorno da coordenada Y no formato double
 
-double getCoordinateZd():
-Método de retorno da coordenada Z no formato double
+	void setCoordinateZ(double Z):
+	Método de atualização da Coordenada Z
+	entrada: double indicando o novo valor da coordenada Z
+	saída: null
 
-double getCoordinateWd():
-Método de retorno da coordenada W no formato double
 
-float getCoordinateXf():
-Método de retorno da coordenada X no formato float
+	void setCoordinateW(double W):
+	Método de atualização da Coordenada W
+	entrada: double indicando o novo valor da coordenada W
+	saída: null
 
-float getCoordinateYf();
-Método de retorno da coordenada Y no formato float
 
-float getCoordinateZf():
-Método de retorno da coordenada Z no formato float
+	double getCoordinateXd():
+	Método de retorno da coordenada X no formato double
+	entrada: null
+	saída: double com o valor da coordenada X
 
-float getCoordinateWf():
-Método de retorno da coordenada W no formato float
 
-Vector* Vertex::toVector():
-retorna um objeto da classe Vector representando o vétice
+	double getCoordinateYd():
+	Método de retorno da coordenada Y no formato double
+	entrada: null
+	saída: double com o valor da coordenada Y
+
+
+	double getCoordinateZd():
+	Método de retorno da coordenada Z no formato double
+	entrada: null
+	saída: double com o valor da coordenada Z
+
+
+	double getCoordinateWd():
+	Método de retorno da coordenada W no formato double
+	entrada: null
+	saída: double com o valor da coordenada W
+
+
+	float getCoordinateXf():
+	Método de retorno da coordenada X no formato float
+	entrada: null
+	saída: float com o valor da coordenada X
+
+
+	float getCoordinateYf();
+	Método de retorno da coordenada Y no formato float
+	entrada: null
+	saída: float com o valor da coordenada Y
+
+
+	float getCoordinateZf():
+	Método de retorno da coordenada Z no formato float
+	entrada: null
+	saída: float com o valor da coordenada Z
+
+
+	float getCoordinateWf():
+	Método de retorno da coordenada W no formato float
+	entrada: null
+	saída: float com o valor da coordenada W
+
+
+	Vector* toVector():
+	retorna um objeto da classe Vector representando o vétice
+	entrada: null
+	saída: ponteiro para um Vector representando as coordenadas do vértice

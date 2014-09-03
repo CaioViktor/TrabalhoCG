@@ -13,5 +13,5 @@ public:
 	bool isempty();
 	void addVertex(Vertex *vertex);
 	void list();
-	//void tranformation(double matrix[4][4]);
+	void transformation(Matrix*);
 };

@@ -53,13 +53,23 @@ void ListVertex::addVertex(Vertex *vertex){
 			cout << "Vertice já existente" << endl;
 	}
 }
-//Printa as coordenadas X de todos os vértices da lista (Utilizada para teste). protótipo da função de transformação.
+//Printa as coordenadas de todos os vértices da lista (Utilizada para teste). protótipo da função de transformação.
 void ListVertex::list(){
 	Node *current = this->first;
 	while(current != NULL){
 		Vertex *currentVertex = current->vertex;
-		cout << currentVertex->getCoordinateXd() << endl;
+		cout << currentVertex->getCoordinateXd() << "  " <<currentVertex->getCoordinateYd() << "  " << currentVertex->getCoordinateZd() << "  " <<currentVertex->getCoordinateWd() <<endl;
 		current = current->next;
 	}
 }
-//TODO:Método de transformação que recebe como parâmetro a matriz de transformação e a aplica em todos os vertices da lista
+//Aplica uma transformação em todos os vértices da lista
+void ListVertex::transformation(Matrix *matrix){
+	Node *currentNode = this->first;
+	while(currentNode != NULL){
+		Vertex *current = currentNode->vertex;
+		Vector *currentVector = current->toVector();
+		currentVector->multiplicationMatrix(matrix);
+		currentNode = currentNode->next;
+	}
+	cout << "Transformação aplicada com sucesso sobre a lista de vertices\n";
+}

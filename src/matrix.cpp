@@ -84,7 +84,7 @@ Matrix* Matrix::getTransposed(){
 
 
 //Função que faz o produto de duas matrizes.
-Matrix* Matrix::multiplyMatrix( Matrix B ){
+Matrix* Matrix::multiplyMatrix( Matrix *B ){
        Matrix *C = new Matrix();
        int i, j , k;
        double temp;
@@ -145,7 +145,7 @@ Matrix* Matrix::getRotationY(double angle){
 
 //Retorna uma matriz para que seja realizada uma rotação em torno do eixo z;
 Matrix* Matrix::getRotationZ(double angle){
-    Matrix rotatez = getIdentity();
+    Matrix *rotatez = getIdentity();
     rotatez->setPosition(0,0,cos(angle));
     rotatez->setPosition(0,1,-sin(angle));
     rotatez->setPosition(1,0,sin(angle));

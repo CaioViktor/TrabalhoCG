@@ -1,6 +1,6 @@
 #include "../lib/main.h"
 GLfloat eyex,eyey,eyez,centrox, centroy, centroz;
-
+int sizeX,sizeY;
 void draw(void) {
 
     // Black background
@@ -167,11 +167,15 @@ void input(unsigned char tecla, int x, int y)
     glutPostRedisplay();
 }
 
-
+void func(){
+    cout << "click!\n";
+}
 //Main program
 
 int main(int argc, char **argv) {
-
+    sizeX = 1000;
+    sizeY = 1000;
+    int mainWindow;
     glutInit(&argc, argv);
 
     /*Setting up  The Display
@@ -180,19 +184,23 @@ int main(int argc, char **argv) {
     glutInitDisplayMode(GLUT_RGBA|GLUT_SINGLE);
 
     //Configure Window Postion
-    glutInitWindowPosition(50, 25);
+    glutInitWindowPosition(0, 0);
 
     //Configure Window Size
-    glutInitWindowSize(1000,1000);
+    glutInitWindowSize(sizeX,sizeY);
 
     //Create Window
-    glutCreateWindow("CG");
-
+    mainWindow = glutCreateWindow("CG");
     glutKeyboardFunc(input);
     init();
     glutReshapeFunc(reshape);
     //Call to the drawing function
     glutDisplayFunc(draw);
+
+    //GLUI
+    GLUI *glui = GLUI_Master.create_glui ("CG_GUI",0,sizeX+1,0);
+    glui->add_button("Click me",0,(GLUI_Update_CB) func); 
+    glui->set_main_gfx_window(mainWindow);
     // Loop require by OpenGL
     glutMainLoop();
     return 0;

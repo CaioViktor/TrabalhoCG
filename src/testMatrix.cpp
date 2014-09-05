@@ -53,6 +53,14 @@ int main()
     //Matrizes de Transformação - Falta testar as outras operações.
     Matrix *rotx = Matrix::getRotationX(0.7853);
     rotx->printMatrix();
+    cout << "em torno de Y:\n";
+    Matrix *roty = Matrix::getRotationY(0.7853);
+    roty->printMatrix();
+    cout << "em torno de Z:\n";
+    Matrix *rotz = Matrix::getRotationZ(0.7853);
+    rotz->printMatrix();
+
+    //A de escala depois eu reviso
 
     cout << "\n**Fim do testMatrix**" << endl;
 }

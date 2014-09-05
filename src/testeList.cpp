@@ -39,22 +39,14 @@ int main(){
 
 
 	cout << "Teste transformação:\n";
-	double m[4][4] =
-	{
-		{1,2,3,4},
-		{5,6,7,8},
-		{9,10,11,12},
-		{13,14,15,16}
-	};
 	cout << "Antes:\n";
-	Matrix *matrix = new Matrix(m);
 	ListVertex *list = new ListVertex(v);
 	list->addVertex(v2);
 	list->addVertex(v3);
 	list->addVertex(v4);
 	list->list();
 	cout << "Depois:\n";
-	list->transformation(matrix);
+	list->transformation(Matrix::getRotationX(0.7853));
 	list->list();
 
 	return 0;

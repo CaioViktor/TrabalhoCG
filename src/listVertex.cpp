@@ -10,7 +10,7 @@ ListVertex::ListVertex(){
 }
 //Construtor da classe ListVertex, inicia a lista com um vertice passado como parâmetro
 ListVertex::ListVertex(Vertex *vertex){
-	Node *node = (Node *) malloc(sizeof(Node));
+	Node *node = new Node;
 	node->vertex = vertex;
 	node->next = NULL;
 	this->first = node;
@@ -26,7 +26,7 @@ bool ListVertex::isempty(){
 }
 //adiciona um vertice passado como parâmetro na ultima posição da lista caso ele ainda não exista na lista. caso ele já exista ele retorna uma mensagem informando
 void ListVertex::addVertex(Vertex *vertex){
-	Node *node = (Node *) malloc(sizeof(Node));
+	Node *node = new Node;
 	node->vertex = vertex;
 	node->next = NULL;
 	if(this->isempty()){

@@ -71,12 +71,12 @@ void Matrix::printMatrix(){
 
 
 //Retorna a matriz transposta da matriz armazenada em conteúdo.
-Matrix Matrix::getTransposed(){
-    Matrix trans;
+Matrix* Matrix::getTransposed(){
+    Matrix *trans = new Matrix();
     for(int i=0; i<4 ; i++){
         for(int j=i; j<4; j++){
-            trans.setPosition(j,i,content[i][j]);
-            trans.setPosition(i,j,content[j][i]);
+            trans->setPosition(j,i,content[i][j]);
+            trans->setPosition(i,j,content[j][i]);
         }
     }
     return trans;
@@ -84,17 +84,17 @@ Matrix Matrix::getTransposed(){
 
 
 //Função que faz o produto de duas matrizes.
-Matrix Matrix::multiplyMatrix( Matrix B ){
-       Matrix C;
+Matrix* Matrix::multiplyMatrix( Matrix B ){
+       Matrix *C = new Matrix();
        int i, j , k;
        double temp;
        for( i = 0; i < 4; i++ ){
             for( j = 0; j < 4; j++ ){
                  temp = 0;
                  for( k = 0; k < 4; k++ ){
-                      temp += this->getPosition(i,k) * B.getPosition(k,j);
+                      temp += this->getPosition(i,k) * B->getPosition(k,j);
                  }
-                 C.setPosition( i, j, temp );
+                 C->setPosition( i, j, temp );
             }
        }
       return C;
@@ -102,10 +102,10 @@ Matrix Matrix::multiplyMatrix( Matrix B ){
 
 
 //Retorna a matriz identidade.
-Matrix Matrix::getIdentity(){
-    Matrix matrixId;
+Matrix* Matrix::getIdentity(){
+    Matrix* matrixId = new Matrix();
     for(int i=0; i<4; i++){
-        matrixId.setPosition(i,i,1);
+        matrixId->setPosition(i,i,1);
     }
     return matrixId;
 }
@@ -113,54 +113,54 @@ Matrix Matrix::getIdentity(){
 
 
 //Retorna uma matriz para que seja realizada uma translação
-Matrix Matrix::getTranslation(double x,double y,double z){
-    Matrix translate = getIdentity();
-    translate.setPosition(0,3,x);
-    translate.setPosition(1,3,y);
-    translate.setPosition(2,3,z);
+Matrix* Matrix::getTranslation(double x,double y,double z){
+    Matrix* translate = getIdentity();
+    translate->setPosition(0,3,x);
+    translate->setPosition(1,3,y);
+    translate->setPosition(2,3,z);
     return translate;
 }
 
 // PONTO IMPORTANTE: o parâmetro angle das funções de rotação espera receber um ângulo em RADIANOS.
 
 //Retorna uma matriz para que seja realizada uma rotação em torno do eixo x;
-Matrix Matrix::getRotationX(double angle){
-    Matrix rotatex = getIdentity();
-    rotatex.setPosition(1,1,cos(angle));
-    rotatex.setPosition(1,2,-sin(angle));
-    rotatex.setPosition(2,1,sin(angle));
-    rotatex.setPosition(2,2,cos(angle));
+Matrix* Matrix::getRotationX(double angle){
+    Matrix* rotatex = getIdentity();
+    rotatex->setPosition(1,1,cos(angle));
+    rotatex->setPosition(1,2,-sin(angle));
+    rotatex->setPosition(2,1,sin(angle));
+    rotatex->setPosition(2,2,cos(angle));
     return rotatex;
 }
 
 //Retorna uma matriz para que seja realizada uma rotação em torno do eixo y;
-Matrix Matrix::getRotationY(double angle){
-    Matrix rotatey = getIdentity();
-    rotatey.setPosition(0,0,cos(angle));
-    rotatey.setPosition(0,2,sin(angle));
-    rotatey.setPosition(2,0,-sin(angle));
-    rotatey.setPosition(2,2,cos(angle));
+Matrix* Matrix::getRotationY(double angle){
+    Matrix* rotatey = getIdentity();
+    rotatey->setPosition(0,0,cos(angle));
+    rotatey->setPosition(0,2,sin(angle));
+    rotatey->setPosition(2,0,-sin(angle));
+    rotatey->setPosition(2,2,cos(angle));
     return rotatey;
 }
 
 //Retorna uma matriz para que seja realizada uma rotação em torno do eixo z;
-Matrix Matrix::getRotationZ(double angle){
+Matrix* Matrix::getRotationZ(double angle){
     Matrix rotatez = getIdentity();
-    rotatez.setPosition(0,0,cos(angle));
-    rotatez.setPosition(0,1,-sin(angle));
-    rotatez.setPosition(1,0,sin(angle));
-    rotatez.setPosition(1,1,cos(angle));
+    rotatez->setPosition(0,0,cos(angle));
+    rotatez->setPosition(0,1,-sin(angle));
+    rotatez->setPosition(1,0,sin(angle));
+    rotatez->setPosition(1,1,cos(angle));
     return rotatez;
 }
 
 //Retorna uma matriz para que seja realizada a transformação de escala em relação a um ponto fixo.
-Matrix Matrix::getScale(double dx, double dy, double dz, double xf, double yf, double zf){
-    Matrix scale = getIdentity();
-    scale.setPosition(0,0,dx);
-    scale.setPosition(1,1,dy);
-    scale.setPosition(2,2,dz);
-    scale.setPosition(0,3,xf);
-    scale.setPosition(1,3,yf);
-    scale.setPosition(2,3,zf);
+Matrix* Matrix::getScale(double dx, double dy, double dz, double xf, double yf, double zf){
+    Matrix* scale = getIdentity();
+    scale->setPosition(0,0,dx);
+    scale->setPosition(1,1,dy);
+    scale->setPosition(2,2,dz);
+    scale->setPosition(0,3,xf);
+    scale->setPosition(1,3,yf);
+    scale->setPosition(2,3,zf);
     return scale;
 }

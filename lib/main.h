@@ -6,4 +6,5 @@
 #include "vector.h"
 #include "vertex.h"
 #include "listVertex.h"
+#include "objectClass.h"
 using namespace std;

@@ -2,17 +2,17 @@
 *  Implemanta a estrutra de objeto
 */
 class ObjectClass{
-	string name;
+	char* name;
 	ListVertex *list ;
 	Vertex *Centroid;
 	
 public:
 	//Builders	
 	ObjectClass();
-	ObjectClass( string name, ListVertex list, Vertex Centroid );
+	ObjectClass( char* name, ListVertex list, Vertex Centroid );
 	
-	void setName( string Name );
-	string getName();
+	void setName( char* Name );
+	char* getName();
 	void setListVertex( ListVertex *list );
 	ListVertex* getListVertex();
 };

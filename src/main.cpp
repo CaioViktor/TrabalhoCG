@@ -166,7 +166,9 @@ void input(unsigned char tecla, int x, int y)
     cout << "teclou\n";
     glutPostRedisplay();
 }
-
+void func(){
+    cout << "click!\n";
+}
 //Main program
 
 int main(int argc, char **argv) {
@@ -193,6 +195,11 @@ int main(int argc, char **argv) {
     glutReshapeFunc(reshape);
     //Call to the drawing function
     glutDisplayFunc(draw);
+
+    //GLUI
+    GLUI *glui = GLUI_Master.create_glui ("CG_GUI",0,sizeX+1,0);
+    glui->add_button("Click",0,(GLUI_Update_CB) func); 
+    glui->set_main_gfx_window(mainWindow);
     // Loop require by OpenGL
     glutMainLoop();
     return 0;

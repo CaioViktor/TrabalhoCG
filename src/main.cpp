@@ -190,23 +190,56 @@ void selectObject(){
 }
 
 //Seleção de tranformação
-int transformationSelected;
+int transformationSelected,opRotation;
+GLUI_Spinner *coordinateX,*coordinateY,*coordinateZ,*radians,*scaleX,*scaleY,*scaleZ;
+GLUI_RadioGroup *group3;
 void selectTransformation(){
     switch(transformationSelected){
         //Translação
         case 0:
+            coordinateX->enable();
+            coordinateY->enable();
+            coordinateZ->enable();
+
+            group3->disable();
+            radians->disable();
+
+            scaleX->disable();
+            scaleY->disable();
+            scaleZ->disable();
             break;
         //Rotação
         case 1:
+            coordinateX->disable();
+            coordinateY->disable();
+            coordinateZ->disable();
+
+            group3->enable();
+            radians->enable();
+
+            scaleX->disable();
+            scaleY->disable();
+            scaleZ->disable();
             break;
         //Escalamento
         case 2:
+            coordinateX->disable();
+            coordinateY->disable();
+            coordinateZ->disable();
+
+            group3->disable();
+            radians->disable();
+
+            scaleX->enable();
+            scaleY->enable();
+            scaleZ->enable();
             break;
     }
     cout << transformationSelected << endl;
 }
 
 //Confirmar Transformação
+
 void confirmTransformation(){
     //TODO:resto.
     cout << "transformações confirmadas\n";
@@ -223,6 +256,19 @@ void cancelTransformation(){
     //TODO:resto.
     cout << "transformações canceladas\n";      
 }
+
+//Matriz de transformação
+GLUI_StaticText *row1, *row2, *row3, *row4;
+string row1Text = "1 0 0 0", row2Text = "0 1 0 0", row3Text = "0 0 1 0", row4Text = "0 0 0 1";
+void showMatrix(){
+    //TODO: imprimir matriz
+
+    row1->set_text( row1Text.c_str() );
+    row2->set_text( row2Text.c_str() );
+    row3->set_text( row3Text.c_str() );
+    row4->set_text( row4Text.c_str() );
+}
+
 // int check;
 // void func1(){
 //     cout << check << endl;
@@ -247,7 +293,7 @@ int main(int argc, char **argv) {
     glutInitWindowSize(sizeX,sizeY);
 
     //Criação da janela
-    mainWindow = glutCreateWindow("CG");
+    mainWindow = glutCreateWindow("Mosqueteiros da Rainha");
     glutKeyboardFunc(input);
     init();
     glutReshapeFunc(reshape);
@@ -260,10 +306,6 @@ int main(int argc, char **argv) {
     
     //painel de objetos em cena
     GLUI_Panel *objPanel = glui->add_panel( "Objetos em cena" );
-    //GLUI_RadioGroup *group1 = glui->add_radiogroup_to_panel(objPanel,&objSelected,3,(GLUI_Update_CB)selectObject);
-    //TODO:Criação dinâmica
-    //glui->add_radiobutton_to_group( group1, "Sphere" );
-    //glui->add_radiobutton_to_group( group1, "Torus" );
     GLUI_Listbox *listObjects = glui->add_listbox_to_panel( objPanel,"lista de Objetos",&objSelected, 0, (GLUI_Update_CB) selectObject );
     for(int c =0; c<=20;c++){
         //inclusão dinâmica
@@ -301,16 +343,54 @@ int main(int argc, char **argv) {
     glui->add_column(true); 
 
     //parâmetros
-    glui->add_statictext( "Parametros" );
+    GLUI_Panel *parametersPanel = glui->add_panel( "Parametros" );
+    //translação
+    glui->add_statictext_to_panel(parametersPanel, "Translacao" );
+    coordinateX = glui->add_spinner_to_panel(parametersPanel , "X" ,GLUI_SPINNER_FLOAT);
+    coordinateX->disable();
     
+    coordinateY = glui->add_spinner_to_panel(parametersPanel , "Y" ,GLUI_SPINNER_FLOAT);
+    coordinateY->disable();
 
+    coordinateZ = glui->add_spinner_to_panel(parametersPanel , "Z" ,GLUI_SPINNER_FLOAT);
+    coordinateZ->disable();
+    //translação
+    glui->add_column_to_panel(parametersPanel);
+    glui->add_statictext_to_panel( parametersPanel,"Rotacao" );
+    group3 = glui->add_radiogroup_to_panel(parametersPanel,&opRotation);
+    glui->add_radiobutton_to_group( group3, "X" );
+    glui->add_radiobutton_to_group( group3, "Y" );
+    glui->add_radiobutton_to_group( group3, "Z" );
+    group3->disable();
+    radians= glui->add_spinner_to_panel(parametersPanel , "Radianos:" ,GLUI_SPINNER_FLOAT);
+    radians->disable();
+
+    //escalamento
+    glui->add_column_to_panel(parametersPanel);
+    glui->add_statictext_to_panel( parametersPanel,"Escala" );
+    scaleX = glui->add_spinner_to_panel(parametersPanel , "X" ,GLUI_SPINNER_FLOAT);
+    scaleX->disable();
+    
+    scaleY = glui->add_spinner_to_panel(parametersPanel , "Y" ,GLUI_SPINNER_FLOAT);
+    scaleY->disable();
+
+    scaleZ = glui->add_spinner_to_panel(parametersPanel , "Z" ,GLUI_SPINNER_FLOAT);
+    scaleZ->disable();
     //TODO: Entradas de parâmetros para cada transformação
 
 
     glui->add_button("Confirmar",0,(GLUI_Update_CB) confirmTransformation); 
     glui->add_button("Aplicar",0,(GLUI_Update_CB) applyTransformation); 
     glui->add_button("Anular",0,(GLUI_Update_CB) cancelTransformation); 
-    //glui->add_checkbox("click me",&check,187,(GLUI_Update_CB)func1);
+
+
+    //Matriz de transformação
+    glui->add_column(true); 
+    glui->add_statictext( "Matriz:" );
+    row1 = glui->add_statictext( row1Text.c_str() );
+    row2 = glui->add_statictext( row2Text.c_str() );
+    row3 = glui->add_statictext( row3Text.c_str() );
+    row4 = glui->add_statictext( row4Text.c_str() );
     
     // Loop require by OpenGL
     glutMainLoop();

@@ -181,6 +181,7 @@ int objSelected;
 string objectName = "NULL",objectPosition = "X:0;Y:0;Z:0", objectFaces = "0",objectVertex = "0";
 void selectObject(){
     objectName = "oi";
+    cout << objSelected << endl;
     //TODO: tratamento de informações
     textName->set_text(objectName.c_str());
     textPosition->set_text(objectPosition.c_str());
@@ -254,15 +255,23 @@ int main(int argc, char **argv) {
     glutDisplayFunc(draw);
 
     //GLUI
-    glui = GLUI_Master.create_glui_subwindow( mainWindow,GLUI_SUBWINDOW_RIGHT );
+    glui = GLUI_Master.create_glui_subwindow( mainWindow,GLUI_SUBWINDOW_BOTTOM );
     glui->set_main_gfx_window(mainWindow);
     
     //painel de objetos em cena
     GLUI_Panel *objPanel = glui->add_panel( "Objetos em cena" );
-    GLUI_RadioGroup *group1 = glui->add_radiogroup_to_panel(objPanel,&objSelected,3,(GLUI_Update_CB)selectObject);
+    //GLUI_RadioGroup *group1 = glui->add_radiogroup_to_panel(objPanel,&objSelected,3,(GLUI_Update_CB)selectObject);
     //TODO:Criação dinâmica
-    glui->add_radiobutton_to_group( group1, "Sphere" );
-    glui->add_radiobutton_to_group( group1, "Torus" );
+    //glui->add_radiobutton_to_group( group1, "Sphere" );
+    //glui->add_radiobutton_to_group( group1, "Torus" );
+    GLUI_Listbox *listObjects = glui->add_listbox_to_panel( objPanel,"lista de Objetos",&objSelected, 0, (GLUI_Update_CB) selectObject );
+    for(int c =0; c<=20;c++){
+        //inclusão dinâmica
+        string label = "Sphere ";
+        listObjects->add_item(c,label.c_str());    
+    }
+
+
 
     //dados do objeto selecionado
     glui->add_statictext( "Nome:" );

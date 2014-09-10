@@ -1,0 +1,38 @@
+implementa estrutura de topologia contendo os array de objetos,faces e vértices.
+autor: Caio Viktor
+códigos: lib/topology.h 
+
+estrutura:
+Topology
+	ObjectArray:
+	Vetor contendo todos os objetos criados
+	Tipo:ObjectClass**
+
+
+	ObjectNumber
+	número de objetos criados
+	Tipo:int 
+
+
+
+	FaceArray:
+	vetor contendo todas as faces criadas
+	Tipo:Face**
+
+
+	FaceNumber:
+	número de faces criadas
+	Tipo:int
+
+
+
+	VertexArray:
+	vetor contendo todos os vértices criados
+	Tipo:Vertex **
+
+
+	VertexNumber:
+	número de vértices criados
+	Tipo:int 
+
+

@@ -49,6 +49,10 @@ void Vertex::setCoordinateZ(double Z){
 void Vertex::setCoordinateW(double W){
 	this->w = W;
 }
+//mostra as coordenadas do vértice
+void Vertex::showVertex(){
+	cout << "X: " << this->x << "    Y: " << this->y << "   Z: " << this->z << "   W: " << this->w << endl;
+}
 
 
 //Método de retorno da coordenada X no formato double
@@ -85,6 +89,8 @@ float Vertex::getCoordinateZf(){
 float Vertex::getCoordinateWf(){
 	return (float) (this->w);
 }
+
+
 
 //retorna um objeto da classe Vector representando o vétice
 Vector* Vertex::toVector(){

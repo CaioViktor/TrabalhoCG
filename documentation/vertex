@@ -48,6 +48,12 @@ Métodos:
 	saída: null
 
 
+	void showVertex():
+	Imprime as coordenadas do vértice
+	entrada: null
+	saída: null, mas imprime as coordenadas do vértice
+
+
 	double getCoordinateXd():
 	Método de retorno da coordenada X no formato double
 	entrada: null

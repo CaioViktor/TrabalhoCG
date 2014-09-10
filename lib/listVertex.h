@@ -14,4 +14,5 @@ public:
 	void addVertex(Vertex *vertex);
 	void list();
 	void transformation(Matrix*);
+	int numberVertex();
 };

@@ -48,6 +48,7 @@ int main(){
 	cout << "Depois:\n";
 	list->transformation(Matrix::getRotationX(0.7853));
 	list->list();
+	cout << "Número de faces: " << l1->numberVertex() << endl;
 
 	return 0;
 }

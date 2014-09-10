@@ -12,6 +12,7 @@ public:
 	void setCoordinateY(double Y);
 	void setCoordinateZ(double Z);
 	void setCoordinateW(double W);
+	void showVertex();
 	double getCoordinateXd();
 	double getCoordinateYd();
 	double getCoordinateZd();

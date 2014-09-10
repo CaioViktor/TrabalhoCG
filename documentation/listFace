@@ -1,0 +1,59 @@
+implementa estrutura de lista encadeada de vertices utilizada na classe objeto 
+autor: Caio Viktor
+códigos: /lib/listFace.h
+		 /src/listFace.cpp
+		 /src/testeListFace.cpp
+atributos:
+	struct Node:
+		estrutura que armazena um vertice e um ponteiro para um próximo nó.
+	class ListVertex:
+		classe que armazena dois ponteiro para o primeiro(first) e ultimo(last) nó presentes na lista.Ambos são públicos.
+
+métodos:
+
+
+	ListFace::ListFace():
+	Construtor da classe ListFace. Inicia uma lista vazia
+	Entrada: null.
+	Saída: null.
+
+
+	ListFace::ListFace(Face *face):
+	Construtor da classe ListFace, inicia a lista com uma face passado como parâmetro
+	Entrada: ponteiro para face.
+	Saída: null.
+
+
+	bool ListFace::isempty():
+	retorna true caso a lista esteja vazia e false caso o contrário
+	Entrada: null.
+	Saída: booleano. true: vazia, false: povoada.
+
+
+	void ListFace::addFace(Face *face):
+	adiciona uma face passado como parâmetro na ultima posição da lista caso ele ainda não exista na lista. caso ele já exista ele retorna uma mensagem informando
+	Entrada:ponteiro para face
+	Saída: null.
+
+	void ListFace::list():
+	Printa as coordenadas de todos os vértices da lista (Utilizada para teste). protótipo da função de transformação.
+	Entrada: null.
+	Saída: null.
+
+
+	void ListFace::drawWired():
+	Pinta todos as faces da lista em aramado
+	Entrada: null.
+	Saída: null.
+
+
+	void ListFace::drawSolid():
+	Pinta todos as faces da lista em sólido
+	Entrada: null.
+	Saída: null.
+
+
+	int ListFace::numberFaces():
+	Retorna o número de faces existentes na lista
+	Entrada: null.
+	Saída: int contendo o número de faces contididas na lista.

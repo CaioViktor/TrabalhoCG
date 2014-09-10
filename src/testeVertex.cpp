@@ -25,9 +25,11 @@ int main(){
 	cout << v->getCoordinateWd() << endl;
 	cout << v->getCoordinateWf() << endl;
 
-	cout << "V2: " << v2->getCoordinateXd() << " " << v2->getCoordinateYd() << " " << v2->getCoordinateZd() << " " << v2->getCoordinateWd() << "\n";
+	cout << "V2: ";
+	v2->showVertex();
 
-	cout << "V3: " << v3->getCoordinateXd() << " " << v3->getCoordinateYd() << " " << v3->getCoordinateZd() << " " << v3->getCoordinateWd() << "\n";
+	cout << "V3: ";
+	v3->showVertex();	
 
 	free(v);
 	free(v2);

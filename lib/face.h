@@ -1,6 +1,7 @@
 class Face{
 
 public:
+	Face();
 	Face(Vertex *vertice1, Vertex *vertice2, Vertex *vertice3);
 
 	void setVertice1(Vertex *vertice);
@@ -16,7 +17,7 @@ public:
 //	Vector* getNormal();
 
 	void desenhar();
-
+	void showVertexs();
 private:
 	Vertex *vertice1;
 	Vertex *vertice2;

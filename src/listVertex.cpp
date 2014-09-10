@@ -58,7 +58,7 @@ void ListVertex::list(){
 	Node *current = this->first;
 	while(current != NULL){
 		Vertex *currentVertex = current->vertex;
-		cout << currentVertex->getCoordinateXd() << "  " <<currentVertex->getCoordinateYd() << "  " << currentVertex->getCoordinateZd() << "  " <<currentVertex->getCoordinateWd() <<endl;
+		currentVertex->showVertex();
 		current = current->next;
 	}
 }
@@ -72,4 +72,15 @@ void ListVertex::transformation(Matrix *matrix){
 		currentNode = currentNode->next;
 	}
 	cout << "Transformação aplicada com sucesso sobre a lista de vertices\n";
+}
+//Retorna o número de vértices existentes na lista
+int ListVertex::numberVertex(){
+	Node *currentNode = this->first;
+	int number = 0;
+	while(currentNode != NULL){
+		Vertex *current = currentNode->vertex;
+		number++;
+		currentNode = currentNode->next;
+	}
+	return number;
 }

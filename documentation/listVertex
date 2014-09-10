@@ -43,3 +43,9 @@ métodos:
 	Aplica uma transformação em todos os vértices da lista. Percorre a lista de vertices e os multiplica pela matriz passada como parâmetro
 	entrada: Matrix*. ponteiro para Matrix.
 	saída: null.
+
+
+	int ListVertex::numberVertex():
+	Retorna o número de vértices existentes na lista
+	entrada:null
+	saída: valor inteiro contendo o número de vétices

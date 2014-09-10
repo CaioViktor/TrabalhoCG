@@ -1,3 +1,6 @@
+/* main.cpp - Caio Viktor
+Controle da window, inteface de usuário e chamadas de procedimentos
+*/
 #include "../lib/main.h"
 GLfloat eyex,eyey,eyez,centrox, centroy, centroz;
 int sizeX,sizeY;
@@ -293,7 +296,7 @@ int main(int argc, char **argv) {
     glutInitWindowSize(sizeX,sizeY);
 
     //Criação da janela
-    mainWindow = glutCreateWindow("Mosqueteiros da Rainha");
+    mainWindow = glutCreateWindow("Imperio Britanico");
     glutKeyboardFunc(input);
     init();
     glutReshapeFunc(reshape);
@@ -307,7 +310,7 @@ int main(int argc, char **argv) {
     //painel de objetos em cena
     GLUI_Panel *objPanel = glui->add_panel( "Objetos em cena" );
     GLUI_Listbox *listObjects = glui->add_listbox_to_panel( objPanel,"lista de Objetos",&objSelected, 0, (GLUI_Update_CB) selectObject );
-    for(int c =0; c<=20;c++){
+    for(int c = 0; c <= 20;c++){
         //inclusão dinâmica
         string label = "Sphere ";
         listObjects->add_item(c,label.c_str());    

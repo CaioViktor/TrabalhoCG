@@ -3,7 +3,7 @@
 //Construtor da classe Object. 
 ObjectClass::ObjectClass(){
 	
-	string name;
+	char *name;
 		
 	//Lista de Vertices
 	ListVertex *list = new ListVertex();
@@ -14,16 +14,16 @@ ObjectClass::ObjectClass(){
 	
 }
 
-ObjectClass::ObjectClass( string name, ListVertex *list ){
+ObjectClass::ObjectClass( char *name, ListVertex *list ){
 	this->name = name;
 	this->list = list;	
 }
 
-void ObjectClass::setName( string Name ){
+void ObjectClass::setName( char *Name ){
 	this->name = Name;
 }
 
-string ObjectClass::getName(){
+char* ObjectClass::getName(){
 	return this->name;
 }
 

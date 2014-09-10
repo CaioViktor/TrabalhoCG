@@ -11,4 +11,5 @@
 #include "face.h"
 #include "listFace.h"
 #include "objectClass.h"
+#include "topology.h"
 using namespace std;

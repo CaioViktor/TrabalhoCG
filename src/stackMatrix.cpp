@@ -15,10 +15,13 @@ stackMatrix::stackMatrix(){
 }
 
 stackMatrix::~stackMatrix(){
-    while(height>0){
-        delete this->pull();
+
+    while(height>=0){
+        NoStack *aux = this->top;
+        this->top = aux->botton;
+        delete aux;
+        height--;
     }
-    delete top;
 }
 
 

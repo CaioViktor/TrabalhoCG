@@ -13,12 +13,12 @@ void display(void){
 
 	Face *face2 = new Face(vertice4, vertice5, vertice6);	
 
-	Vertex *vet = face1->getVertice1();
-
-	cout<< "Vertice 1 x: " << vet->getCoordinateXd() << endl;
+	cout<< "Face 1, Vertice 1 x: " << face1->getVertice1()->getCoordinateXd() << endl;
+	cout<< "Face 2, Vertice 1 x: " << face2->getVertice1()->getCoordinateXd() << endl;
 
 	face1->draw(GL_LINE_LOOP);	
 	face2->draw(GL_POLYGON);
+
 	glFlush();
 }
 

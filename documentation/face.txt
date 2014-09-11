@@ -1,0 +1,5 @@
+draw(unsigned int mode)
+
+mode:
+GL_LINE_LOOP - Desenha face "aramada".
+GL_POLYGON -   Desenha face preenchida.

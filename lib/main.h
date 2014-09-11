@@ -12,4 +12,5 @@
 #include "listFace.h"
 #include "objectClass.h"
 #include "topology.h"
+#include "stackMatrix.h"
 using namespace std;

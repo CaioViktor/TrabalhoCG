@@ -13,15 +13,14 @@ public:
 	void setVertice3(Vertex *vertice);
 	Vertex* getVertice3();
 
-//	void setNormal(Vector vnormal);
-//	Vector* getNormal();
+	Vector* getNormal();
 
-	void desenhar();
+	void desenhar(void);
 	void showVertexs();
 private:
 	Vertex *vertice1;
 	Vertex *vertice2;
 	Vertex *vertice3;
-//	Vector *normal;
+	Vector *normal;
 
 };

@@ -38,16 +38,23 @@ Vertex* Face::getVertice3(){
 	return vertice3;
 }	
 
-
-/*void Face::setNormal(Vector *vnormal){
-	this->normal = vnormal;
+Vector* Face::getNormal(){
+	return normal;
 }
 
-Vector Face::getNormal(){
-	return normal;
-}*/
-void Face::desenhar(){
-	
+void Face::desenhar(void){
+	glClear (GL_COLOR_BUFFER_BIT);
+	glColor3f (1.0, 1.0, 1.0);
+
+	glBegin(GL_POLYGON);
+
+	glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
+	glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
+	glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateZd(),vertice3->getCoordinateZd());
+
+	glEnd();
+
+	glFlush();
 }
 // Autor: Caio Viktor. imprime as coordenadas dos vértices contidos na face
 void Face::showVertexs(){

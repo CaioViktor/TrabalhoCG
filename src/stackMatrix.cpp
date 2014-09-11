@@ -4,19 +4,19 @@ stackMatrix::stackMatrix(){
      NoStack* no;
      Matrix* m;
 
-     no=new NoStack;
-     m=Matrix::getIdentity();
+     no = new NoStack;
+     m = Matrix::getIdentity();
 
-     no->content=m;
-     no->botton=NULL;
+     no->content = m;
+     no->botton = NULL;
 
-     this->height=0;
+     this->height = 0;
      this->top = no;
 }
 
 stackMatrix::~stackMatrix(){
 
-    while(height>=0){
+    while(height >= 0){
         NoStack *aux = this->top;
         this->top = aux->botton;
         delete aux;
@@ -36,9 +36,9 @@ Matrix* stackMatrix::pull(){
         result = top->content;
     }
     else{
-        height=height-1;
+        height = height - 1;
         result = top->content;
-        top=top->botton;
+        top = top->botton;
     }
     return result;
 }
@@ -46,8 +46,8 @@ Matrix* stackMatrix::pull(){
 
 void stackMatrix::push(Matrix *m){
     NoStack *newTop = new NoStack;
-    newTop->content=m;
-    newTop->botton=top;
-    top=newTop;
-    height=height+1;
+    newTop->content = m;
+    newTop->botton = top;
+    top = newTop;
+    height = height+1;
 }

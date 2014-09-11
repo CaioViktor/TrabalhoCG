@@ -15,7 +15,7 @@ public:
 
 	Vector* getNormal();
 
-	void desenhar(void);
+	void draw(void);
 	void showVertexs();
 private:
 	Vertex *vertice1;

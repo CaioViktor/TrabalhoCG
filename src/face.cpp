@@ -50,8 +50,6 @@ void Face::draw(unsigned int mode){
 	glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateZd(),vertice3->getCoordinateZd());
 
 	glEnd();
-
-	glFlush();
 }
 
 // Autor: Caio Viktor. imprime as coordenadas dos vértices contidos na face

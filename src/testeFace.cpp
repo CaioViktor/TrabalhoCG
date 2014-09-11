@@ -17,8 +17,8 @@ void display(void){
 
 	cout<< "Vertice 1 x: " << vet->getCoordinateXd() << endl;
 
-	face1->draw();	
-	face2->drawWire();
+	face1->draw(GL_LINE_LOOP);	
+	face2->draw(GL_POLYGON);
 	glFlush();
 }
 

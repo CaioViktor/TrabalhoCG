@@ -18,7 +18,8 @@ void display(void){
 	cout<< "Vertice 1 x: " << vet->getCoordinateXd() << endl;
 
 	face1->draw();	
-	face2->drawWire();	
+	face2->drawWire();
+	glFlush();
 }
 
 int main(int argc, char **argv){

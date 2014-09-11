@@ -2,16 +2,23 @@
 
 void display(void){
 	Vertex *vertice1 = new Vertex( (double) 0.7,(double) 0.7,(double) 0);
-	Vertex *vertice2 = new Vertex( (double) 0.2,(double) 0.2,(double) 0);
-	Vertex *vertice3 = new Vertex( (double) 0.3,(double) 0.3,(double) 0);
+	Vertex *vertice2 = new Vertex( (double) 0.9,(double) 0.9,(double) 0);
+	Vertex *vertice3 = new Vertex( (double) 0.8,(double) 0.8,(double) 0);
 
 	Face *face1 = new Face(vertice1, vertice2, vertice3);
+
+	Vertex *vertice4 = new Vertex( (double) 0.1,(double) 0.1,(double) 0);
+	Vertex *vertice5 = new Vertex( (double) 0.2,(double) 0.2,(double) 0);
+	Vertex *vertice6 = new Vertex( (double) 0.3,(double) 0.3,(double) 0);
+
+	Face *face2 = new Face(vertice4, vertice5, vertice6);	
 
 	Vertex *vet = face1->getVertice1();
 
 	cout<< "Vertice 1 x: " << vet->getCoordinateXd() << endl;
 
-	face1->desenhar();	
+	face1->draw();	
+	face2->drawWire();	
 }
 
 int main(int argc, char **argv){
@@ -20,9 +27,7 @@ int main(int argc, char **argv){
     double sizeY = 400;
     
 	glutInit(&argc, argv);
-
   
-    
     /*Configura a tela
     /    -RGB color model + Alpha Channel = GLUT_RGBA
     */
@@ -41,19 +46,7 @@ int main(int argc, char **argv){
 /* inicializa os valores de visualização */
 	glMatrixMode(GL_PROJECTION);
 
-/*	    // Black background
-    glClearColor(0.0f,0.0f,0.0f,1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    // carrega matriz identidade para não acumular transformações na câmera
-    glLoadIdentity();
-    // posiciona câmera
-    gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
-    //Draw i
-    // Define a cor padrão como verde
-    glColor3f (0.5, 0.0, 0.);
-*/	
     glClear (GL_COLOR_BUFFER_BIT);
-
 
 
     glutDisplayFunc(display);

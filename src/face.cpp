@@ -42,11 +42,8 @@ Vector* Face::getNormal(){
 	return normal;
 }
 
-void Face::desenhar(void){
-	glClear (GL_COLOR_BUFFER_BIT);
-	glColor3f (1.0, 1.0, 1.0);
-
-	glBegin(GL_POLYGON);
+void Face::draw(unsigned int mode){
+	glBegin(mode);
 
 	glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
 	glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
@@ -56,6 +53,7 @@ void Face::desenhar(void){
 
 	glFlush();
 }
+
 // Autor: Caio Viktor. imprime as coordenadas dos vértices contidos na face
 void Face::showVertexs(){
 	if(this->vertice1 != NULL)

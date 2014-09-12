@@ -9,6 +9,7 @@ class ObjectClass{
 public:
 	//Builders	
 	ObjectClass();
+	ObjectClass( char *name, ListVertex *list );
 	ObjectClass( char* name, ListVertex list, Vertex Centroid );
 	
 	void setName( char* Name );

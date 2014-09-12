@@ -67,7 +67,7 @@ void ListFace::drawWired(){
 	NodeFace *currentNode = this->first;
 	while(currentNode != NULL){
 		Face *current = currentNode->face;
-		current->desenhar();
+		current->draw(GL_LINE_LOOP);
 		currentNode = currentNode->next;
 	}
 	cout << "Face desenhada aramada\n";
@@ -77,7 +77,7 @@ void ListFace::drawSolid(){
 	NodeFace *currentNode = this->first;
 	while(currentNode != NULL){
 		Face *current = currentNode->face;
-		current->desenhar();
+		current->draw(GL_POLYGON);
 		currentNode = currentNode->next;
 	}
 	cout << "Face desenhada sólida\n";

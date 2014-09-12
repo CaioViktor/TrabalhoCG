@@ -6,6 +6,7 @@ GLfloat eyex,eyey,eyez,centrox, centroy, centroz;
 int sizeX,sizeY;
 int mainWindow;
 GLUI *glui;
+
 void draw(void) {
 
     // Black background
@@ -70,8 +71,7 @@ void draw(void) {
     cout << "Display!" << endl;
 }
 
-void init (void)
-{
+void init (void){
     /* Seleciona a cor de fundo para limpeza da tela */
     glClearColor (0.0, 0.0, 0.0, 0.0);
     glShadeModel (GL_FLAT);
@@ -95,8 +95,7 @@ void init (void)
     glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
 }
 
-void reshape (int w, int h)
-{   
+void reshape (int w, int h){   
     cout << "Reshape!\n";
     glViewport (0, 0, (GLsizei) w, (GLsizei) h);
     glMatrixMode (GL_PROJECTION);
@@ -105,8 +104,8 @@ void reshape (int w, int h)
     //glFrustum (-1.0, 1.0:são o volume dos lados, -1.0, 1.0:são o volume da altura, 1.0 : proximidade da câmera, 50.0:volume de profundidade);
     glMatrixMode (GL_MODELVIEW);
 }
-void input(unsigned char tecla, int x, int y)
-{
+
+void input(unsigned char tecla, int x, int y){
     // deveria ser assim, mas pelo modelo do blender não
     // switch (tecla) {
     //     case 'w':
@@ -276,33 +275,7 @@ void showMatrix(){
 // void func1(){
 //     cout << check << endl;
 // }
-
-//Main program
-int main(int argc, char **argv) {
-    sizeX = 1000;
-    sizeY = 1000;
-    
-    glutInit(&argc, argv);
-    
-    /*Configura a tela
-    /    -RGB color model + Alpha Channel = GLUT_RGBA
-    */
-    glutInitDisplayMode(GLUT_RGBA|GLUT_SINGLE);
-
-    //Configura a posição da janela
-    glutInitWindowPosition(0, 0);
-
-    //Configura o tamanho da janela
-    glutInitWindowSize(sizeX,sizeY);
-
-    //Criação da janela
-    mainWindow = glutCreateWindow("Imperio Britanico");
-    glutKeyboardFunc(input);
-    init();
-    glutReshapeFunc(reshape);
-    //Chamada da função de desenhar
-    glutDisplayFunc(draw);
-
+void initGLUI(){
     //GLUI
     glui = GLUI_Master.create_glui_subwindow( mainWindow,GLUI_SUBWINDOW_BOTTOM );
     glui->set_main_gfx_window(mainWindow);
@@ -394,6 +367,36 @@ int main(int argc, char **argv) {
     row2 = glui->add_statictext( row2Text.c_str() );
     row3 = glui->add_statictext( row3Text.c_str() );
     row4 = glui->add_statictext( row4Text.c_str() );
+    
+}
+
+
+//Main program
+int main(int argc, char **argv) {
+    sizeX = 1000;
+    sizeY = 1000;
+    
+    glutInit(&argc, argv);
+    
+    /*Configura a tela
+    /    -RGB color model + Alpha Channel = GLUT_RGBA
+    */
+    glutInitDisplayMode(GLUT_RGBA|GLUT_SINGLE);
+
+    //Configura a posição da janela
+    glutInitWindowPosition(0, 0);
+
+    //Configura o tamanho da janela
+    glutInitWindowSize(sizeX,sizeY);
+
+    //Criação da janela
+    mainWindow = glutCreateWindow("Imperio Britanico");
+    glutKeyboardFunc(input);
+    init();
+    glutReshapeFunc(reshape);
+    //Chamada da função de desenhar
+    glutDisplayFunc(draw);
+    initGLUI();
     
     // Loop require by OpenGL
     glutMainLoop();

@@ -3,6 +3,9 @@ Autor: Caio Viktor
 códigos: /lib/vertex.h
 		 /src/Vertex.cpp
 		 /src/testeVertex.cpp
+
+Alocar array de vértices:
+	Vertex **arrayVertex = new Vertex*[Tamanho];
 Atributos:
 	 x,y,w e z do tipo double que guardam as coordenadas do vértice.
 Métodos:

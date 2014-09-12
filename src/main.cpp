@@ -2,10 +2,33 @@
 Controle da window, inteface de usuário e chamadas de procedimentos
 */
 #include "../lib/main.h"
+//Declarações da Janela
 GLfloat eyex,eyey,eyez,centrox, centroy, centroz;
 int sizeX,sizeY;
-int mainWindow;
+int mainWindow,objSelected,modeExibitionFlag;
+unsigned int modeExibitionValue = GL_LINE_LOOP;
+//Declarações da Janela FIM
+
+
+// Declarações de variáveis da interface
+int transformationSelected,opRotation;
+string objectName = "NULL",objectPosition = "X:0;Y:0;Z:0", objectFaces = "0",objectVertex = "0",row1Text = "1 0 0 0", row2Text = "0 1 0 0", row3Text = "0 0 1 0", row4Text = "0 0 0 1";
 GLUI *glui;
+GLUI_StaticText *textName, *textPosition, *textFace, *textVertex,*row1, *row2, *row3, *row4;;
+GLUI_Spinner *coordinateX,*coordinateY,*coordinateZ,*radians,*scaleX,*scaleY,*scaleZ,*colorR,*colorG,*colorB;
+GLUI_RadioGroup *group3;
+// Declarações de variáveis da interface FIM
+
+//Declarações Gerais
+int indexObjectSelected;
+Matrix *transformationMatrix = Matrix::getIdentity(), *partialTransformationMatrix = Matrix::getIdentity();
+stackMatrix *stackTransformation,*partialStackTransformation;
+Vertex **arrayVertex;
+Face **arrayFace;
+ObjectClass **arrayObject;
+
+//Declarações Gerais FIM
+
 
 void draw(void) {
 
@@ -178,9 +201,7 @@ void render(){
 }
 
 //Seleção de objetos
-GLUI_StaticText *textName, *textPosition, *textFace, *textVertex;
-int objSelected;
-string objectName = "NULL",objectPosition = "X:0;Y:0;Z:0", objectFaces = "0",objectVertex = "0";
+
 void selectObject(){
     objectName = "oi";
     cout << objSelected << endl;
@@ -192,9 +213,7 @@ void selectObject(){
 }
 
 //Seleção de tranformação
-int transformationSelected,opRotation;
-GLUI_Spinner *coordinateX,*coordinateY,*coordinateZ,*radians,*scaleX,*scaleY,*scaleZ;
-GLUI_RadioGroup *group3;
+
 void selectTransformation(){
     switch(transformationSelected){
         //Translação
@@ -243,7 +262,34 @@ void selectTransformation(){
 //Confirmar Transformação
 
 void confirmTransformation(){
-    //TODO:resto.
+    Matrix *auxMatrix;
+    switch(transformationSelected){
+        //Translação
+        case 0:
+            auxMatrix = Matrix::getTranslation((double)coordinateX->get_float_val(),(double)coordinateY->get_float_val(),(double)coordinateZ->get_float_val());
+            break;
+        //Rotação
+        case 1:
+            switch(group3->get_int_val()){
+                case 0:
+                    auxMatrix = Matrix::getRotationX((double) radians->get_float_val());
+                    break;
+                case 1:
+                    auxMatrix = Matrix::getRotationY((double) radians->get_float_val());
+                    break;
+                case 2:
+                    auxMatrix = Matrix::getRotationZ((double) radians->get_float_val());
+                    break;
+            }
+            break;
+        //Escalamento
+        case 2:
+            //TODO: no lugar dos 0 pôr a centroide do objeto
+            auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleY->get_float_val(), (double) scaleZ->get_float_val(), 0, 0, 0);
+            break;
+    }
+    auxMatrix->printMatrix();
+
     cout << "transformações confirmadas\n";
 }
 
@@ -260,29 +306,36 @@ void cancelTransformation(){
 }
 
 //Matriz de transformação
-GLUI_StaticText *row1, *row2, *row3, *row4;
-string row1Text = "1 0 0 0", row2Text = "0 1 0 0", row3Text = "0 0 1 0", row4Text = "0 0 0 1";
-void showMatrix(){
-    //TODO: imprimir matriz
 
+void showMatrix(){
+    //TODO: imprimir matriz partialTransformatiom
     row1->set_text( row1Text.c_str() );
     row2->set_text( row2Text.c_str() );
     row3->set_text( row3Text.c_str() );
     row4->set_text( row4Text.c_str() );
+}
+void selectModeExibition(){
+    if(modeExibitionFlag == 0)
+        modeExibitionValue = GL_LINE_LOOP;
+    else
+        modeExibitionValue = GL_POLYGON;
+    cout << modeExibitionValue << endl;
+    render();
 }
 
 // int check;
 // void func1(){
 //     cout << check << endl;
 // }
+
+
 void initGLUI(){
     //GLUI
     glui = GLUI_Master.create_glui_subwindow( mainWindow,GLUI_SUBWINDOW_BOTTOM );
     glui->set_main_gfx_window(mainWindow);
     
     //painel de objetos em cena
-    GLUI_Panel *objPanel = glui->add_panel( "Objetos em cena" );
-    GLUI_Listbox *listObjects = glui->add_listbox_to_panel( objPanel,"lista de Objetos",&objSelected, 0, (GLUI_Update_CB) selectObject );
+    GLUI_Listbox *listObjects = glui->add_listbox("lista de Objetos: ",&objSelected, 0, (GLUI_Update_CB) selectObject );
     for(int c = 0; c <= 20;c++){
         //inclusão dinâmica
         string label = "Sphere ";
@@ -292,15 +345,23 @@ void initGLUI(){
 
 
     //dados do objeto selecionado
-    glui->add_statictext( "Nome:" );
-    textName = glui->add_statictext( objectName.c_str() );
-    glui->add_statictext( "Posicao:" );
-    textPosition = glui->add_statictext( objectPosition.c_str() );
-    glui->add_statictext( "Faces:" );
-    textFace = glui->add_statictext( objectFaces.c_str() );
-    glui->add_statictext( "Vertices:" );
-    textVertex = glui->add_statictext( objectVertex.c_str() );
-    glui->add_separator();
+    GLUI_Panel *objDataPanel = glui->add_panel( "Dados:" );
+    glui->add_statictext_to_panel(objDataPanel, "Nome:" );
+    textName = glui->add_statictext_to_panel(objDataPanel,objectName.c_str() );
+    glui->add_statictext_to_panel(objDataPanel, "Posicao:" );
+    textPosition = glui->add_statictext_to_panel(objDataPanel, objectPosition.c_str() );
+    glui->add_statictext_to_panel(objDataPanel, "Faces:" );
+    textFace = glui->add_statictext_to_panel(objDataPanel, objectFaces.c_str() );
+    glui->add_statictext_to_panel(objDataPanel, "Vertices:" );
+    textVertex = glui->add_statictext_to_panel(objDataPanel, objectVertex.c_str() );
+    glui->add_column_to_panel(objDataPanel,false); 
+    colorR = glui->add_spinner_to_panel(objDataPanel , "R:" ,GLUI_SPINNER_FLOAT);
+    colorR->set_float_limits( 0, 1 ,GLUI_LIMIT_CLAMP );
+    colorG = glui->add_spinner_to_panel(objDataPanel , "G:" ,GLUI_SPINNER_FLOAT);
+    colorG->set_float_limits( 0, 1 ,GLUI_LIMIT_CLAMP );
+    colorB = glui->add_spinner_to_panel(objDataPanel , "B:" ,GLUI_SPINNER_FLOAT);
+    colorB->set_float_limits( 0, 1 ,GLUI_LIMIT_CLAMP );
+    glui->add_button_to_panel(objDataPanel,"Renderizar",0,(GLUI_Update_CB) render); 
     //dados do objeto selecionado
     glui->add_column(true); 
     
@@ -314,8 +375,9 @@ void initGLUI(){
     glui->add_radiobutton_to_group( group2, "Escala" );
     glui->add_button("Adicionar",0,(GLUI_Update_CB)selectTransformation); 
     glui->add_separator();
-    glui->add_button("Renderizar",0,(GLUI_Update_CB) render); 
-
+    GLUI_Listbox *modeExibition = glui->add_listbox("Modo de Exibicao: ",&modeExibitionFlag, 0, (GLUI_Update_CB) selectModeExibition );
+    modeExibition->add_item(0,"Aramado");
+    modeExibition->add_item(1,"Solido");
     glui->add_column(true); 
 
     //parâmetros
@@ -362,7 +424,7 @@ void initGLUI(){
 
     //Matriz de transformação
     glui->add_column(true); 
-    glui->add_statictext( "Matriz:" );
+    glui->add_statictext( "Matriz: " );
     row1 = glui->add_statictext( row1Text.c_str() );
     row2 = glui->add_statictext( row2Text.c_str() );
     row3 = glui->add_statictext( row3Text.c_str() );
@@ -371,9 +433,11 @@ void initGLUI(){
 }
 
 
+
+
 //Main program
 int main(int argc, char **argv) {
-    sizeX = 1000;
+    sizeX = 1010;
     sizeY = 1000;
     
     glutInit(&argc, argv);

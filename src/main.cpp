@@ -12,9 +12,9 @@ unsigned int modeExibitionValue = GL_LINE_LOOP;
 
 // Declarações de variáveis da interface
 int transformationSelected,opRotation;
-string objectName = "NULL",objectPosition = "X:0;Y:0;Z:0", objectFaces = "0",objectVertex = "0",row1Text = "1 0 0 0", row2Text = "0 1 0 0", row3Text = "0 0 1 0", row4Text = "0 0 0 1";
+string objectName = "NULL",objectPosition = "X:0;Y:0;Z:0", objectFaces = "0",objectVertex = "0";
 GLUI *glui;
-GLUI_StaticText *textName, *textPosition, *textFace, *textVertex,*row1, *row2, *row3, *row4;;
+GLUI_StaticText *textName, *textPosition, *textFace, *textVertex;
 GLUI_Spinner *coordinateX,*coordinateY,*coordinateZ,*radians,*scaleX,*scaleY,*scaleZ,*colorR,*colorG,*colorB;
 GLUI_RadioGroup *group3;
 // Declarações de variáveis da interface FIM
@@ -22,9 +22,8 @@ GLUI_RadioGroup *group3;
 //Declarações Gerais
 int indexObjectSelected;
 Matrix *transformationMatrix = Matrix::getIdentity(), *partialTransformationMatrix = Matrix::getIdentity();
-stackMatrix *stackTransformation,*partialStackTransformation;
+stackMatrix *stackTransformation = new stackMatrix(),*partialStackTransformation = new stackMatrix();
 Vertex **arrayVertex;
-Face **arrayFace;
 ObjectClass **arrayObject;
 
 //Declarações Gerais FIM
@@ -122,10 +121,12 @@ void reshape (int w, int h){
     cout << "Reshape!\n";
     glViewport (0, 0, (GLsizei) w, (GLsizei) h);
     glMatrixMode (GL_PROJECTION);
+    GLUI_Master.auto_set_viewport();
     glLoadIdentity ();
     glFrustum (-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
     //glFrustum (-1.0, 1.0:são o volume dos lados, -1.0, 1.0:são o volume da altura, 1.0 : proximidade da câmera, 50.0:volume de profundidade);
     glMatrixMode (GL_MODELVIEW);
+
 }
 
 void input(unsigned char tecla, int x, int y){
@@ -273,12 +274,15 @@ void confirmTransformation(){
             switch(group3->get_int_val()){
                 case 0:
                     auxMatrix = Matrix::getRotationX((double) radians->get_float_val());
+                    //TODO: trazer o objeto para o cetro e concatenar matrizes
                     break;
                 case 1:
                     auxMatrix = Matrix::getRotationY((double) radians->get_float_val());
+                    //TODO: trazer o objeto para o cetro e concatenar matrizes
                     break;
                 case 2:
                     auxMatrix = Matrix::getRotationZ((double) radians->get_float_val());
+                    //TODO: trazer o objeto para o cetro e concatenar matrizes
                     break;
             }
             break;
@@ -288,8 +292,12 @@ void confirmTransformation(){
             auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleY->get_float_val(), (double) scaleZ->get_float_val(), 0, 0, 0);
             break;
     }
-    auxMatrix->printMatrix();
+    stackTransformation->push(auxMatrix);
+    *partialStackTransformation = *stackTransformation;
 
+    *partialTransformationMatrix = *stackMatrix::concatenate(partialStackTransformation);
+    partialTransformationMatrix->printMatrix();
+    *partialTransformationMatrix = *Matrix::getIdentity();
     cout << "transformações confirmadas\n";
 }
 
@@ -305,15 +313,6 @@ void cancelTransformation(){
     cout << "transformações canceladas\n";      
 }
 
-//Matriz de transformação
-
-void showMatrix(){
-    //TODO: imprimir matriz partialTransformatiom
-    row1->set_text( row1Text.c_str() );
-    row2->set_text( row2Text.c_str() );
-    row3->set_text( row3Text.c_str() );
-    row4->set_text( row4Text.c_str() );
-}
 void selectModeExibition(){
     if(modeExibitionFlag == 0)
         modeExibitionValue = GL_LINE_LOOP;
@@ -327,7 +326,6 @@ void selectModeExibition(){
 // void func1(){
 //     cout << check << endl;
 // }
-
 
 void initGLUI(){
     //GLUI
@@ -419,17 +417,7 @@ void initGLUI(){
 
     glui->add_button("Confirmar",0,(GLUI_Update_CB) confirmTransformation); 
     glui->add_button("Aplicar",0,(GLUI_Update_CB) applyTransformation); 
-    glui->add_button("Anular",0,(GLUI_Update_CB) cancelTransformation); 
-
-
-    //Matriz de transformação
-    glui->add_column(true); 
-    glui->add_statictext( "Matriz: " );
-    row1 = glui->add_statictext( row1Text.c_str() );
-    row2 = glui->add_statictext( row2Text.c_str() );
-    row3 = glui->add_statictext( row3Text.c_str() );
-    row4 = glui->add_statictext( row4Text.c_str() );
-    
+    glui->add_button("Anular",0,(GLUI_Update_CB) cancelTransformation);     
 }
 
 
@@ -437,10 +425,11 @@ void initGLUI(){
 
 //Main program
 int main(int argc, char **argv) {
-    sizeX = 1010;
+    sizeX = 1000;
     sizeY = 1000;
-    
     glutInit(&argc, argv);
+    // sizeX = glutGet(GLUT_SCREEN_WIDTH);
+    // sizeY = glutGet(GLUT_SCREEN_HEIGHT);
     
     /*Configura a tela
     /    -RGB color model + Alpha Channel = GLUT_RGBA

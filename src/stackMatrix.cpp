@@ -51,3 +51,15 @@ void stackMatrix::push(Matrix *m){
     top = newTop;
     height = height+1;
 }
+
+/*Autor:Caio Viktor
+    método estático que recebe uma pilha de matrizes e faz a concatenação das mesmas
+*/
+Matrix* stackMatrix::concatenate(stackMatrix* s){
+    Matrix *concatenated = Matrix::getIdentity();
+    while(s->getHeight() > 0){
+        concatenated = s->pull()->multiplyMatrix(concatenated);
+    }
+    return concatenated;
+}
+

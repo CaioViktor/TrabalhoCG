@@ -18,4 +18,5 @@ public:
     Matrix* pull();
     void push(Matrix* m);
 
+    static Matrix* concatenate(stackMatrix* s);
 };

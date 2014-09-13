@@ -6,12 +6,14 @@ typedef struct NodeFace_{
 	struct NodeFace_ *next;
 } NodeFace;
 class ListFace{
-public:
+	int number;
 	NodeFace *first, *last;
+public:
 	ListFace();
 	ListFace(Face *face);
 	bool isempty();
 	void addFace(Face *face);
+	Face* getFace(int index);
 	void list();
 	void drawWired();
 	void drawSolid();

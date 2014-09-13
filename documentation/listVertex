@@ -33,6 +33,11 @@ métodos:
 	saída: null, mas imprime nó console caso haja sucesso
 
 
+	Vertex* ListVertex::getVertex(int index):
+	Retorna o vértice na posição passada por parâmetro
+	entrada: inteiro com a posição desejada iniciando-se de 0;
+	saída: um ponteiro para o vértice ou null caso ele não exista 
+
 	void ListVertex::list():
 	Printa as coordenadas X de todos os vértices da lista (Utilizada para teste). protótipo da função de transformação.
 	entrada: null

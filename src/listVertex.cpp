@@ -58,6 +58,7 @@ void ListVertex::addVertex(Vertex *vertex){
 			cout << "Vertice já existente" << endl;
 	}
 }
+//Retorna o vértice na posição passada por parâmetro
 Vertex* ListVertex::getVertex(int index){
 	if(index < this->number){
 		Node *current = this->first;

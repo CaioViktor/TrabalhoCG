@@ -320,7 +320,6 @@ void cancelTransformation(){
 //Aplicar Transformação
 void applyTransformation(){
     //TODO:resto.
-    listVertex->list();
     transformationMatrix = stackMatrix::concatenate(stackTransformation);
     listVertex->transformation(transformationMatrix);
     render();

@@ -6,6 +6,7 @@
 ListFace::ListFace(){
 	this->first = NULL;
 	this->last = NULL;
+	this->number = 0;
 	//cout << "Lista de Faces criada com sucesso" << endl;
 }
 //Construtor da classe ListFace, inicia a lista com uma face passado como parâmetro
@@ -15,6 +16,7 @@ ListFace::ListFace(Face *face){
 	node->next = NULL;
 	this->first = node;
 	this->last = node;
+	this->number = 1;
 	//cout << "Lista de Faces criada com sucesso" << endl;
 }
 //retorna true caso a lista esteja vazia e false caso o contrário
@@ -32,6 +34,7 @@ void ListFace::addFace(Face *face){
 	if(this->isempty()){
 		this->first = node;
 		this->last = node;
+		this->number++;
 		//cout << "Face adicionado com sucesso" << endl;
 	}
 	else{
@@ -48,10 +51,27 @@ void ListFace::addFace(Face *face){
 			last->next = node;
 			this->last = node;
 			//cout << "Face adicionado com sucesso" << endl;
+			this->number++;
 		}
 		else
 			cout << "Face já existente" << endl;
 	}
+}
+//Retorna a face na posição passada por parâmetro
+Face* ListFace::getFace(int index){
+	if(index < this->number){
+		NodeFace *current = this->first;
+		int indexCurrent = 0;
+		Face *currentFace = NULL;
+		while(indexCurrent <= index){
+			currentFace = current->face;
+			current = current->next;
+			indexCurrent++;
+		}
+		return currentFace;
+	}
+	else
+		return NULL;
 }
 //Printa as coordenadas de todos os vértices da lista (Utilizada para teste). protótipo da função de transformação.
 void ListFace::list(){
@@ -84,12 +104,5 @@ void ListFace::drawSolid(){
 }
 //Retorna o número de faces existentes na lista
 int ListFace::numberFaces(){
-	NodeFace *currentNode = this->first;
-	int number = 0;
-	while(currentNode != NULL){
-		Face *current = currentNode->face;
-		number++;
-		currentNode = currentNode->next;
-	}
-	return number;
+	this->number;
 }

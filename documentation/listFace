@@ -35,6 +35,11 @@ métodos:
 	Entrada:ponteiro para face
 	Saída: null.
 
+	Face* ListFace::getFace(int index):
+	Retorna o face na posição passada por parâmetro
+	entrada: inteiro com a posição desejada iniciando-se de 0;
+	saída: um ponteiro para o face ou null caso ele não exista
+
 	void ListFace::list():
 	Printa as coordenadas de todos os vértices da lista (Utilizada para teste). protótipo da função de transformação.
 	Entrada: null.

@@ -274,15 +274,12 @@ void confirmTransformation(){
             switch(group3->get_int_val()){
                 case 0:
                     auxMatrix = Matrix::getRotationX((double) radians->get_float_val());
-                    //TODO: trazer o objeto para o cetro e concatenar matrizes
                     break;
                 case 1:
                     auxMatrix = Matrix::getRotationY((double) radians->get_float_val());
-                    //TODO: trazer o objeto para o cetro e concatenar matrizes
                     break;
                 case 2:
                     auxMatrix = Matrix::getRotationZ((double) radians->get_float_val());
-                    //TODO: trazer o objeto para o cetro e concatenar matrizes
                     break;
             }
             break;
@@ -309,7 +306,13 @@ void applyTransformation(){
 
 //Anular Transformação
 void cancelTransformation(){
-    //TODO:resto.
+    delete stackTransformation;
+    stackTransformation = new stackMatrix();
+    *partialStackTransformation = *stackTransformation;
+    *transformationMatrix = *Matrix::getIdentity();
+    *partialTransformationMatrix = *Matrix::getIdentity();
+    transformationMatrix->printMatrix();
+    partialTransformationMatrix->printMatrix();
     cout << "transformações canceladas\n";      
 }
 
@@ -425,7 +428,7 @@ void initGLUI(){
 
 //Main program
 int main(int argc, char **argv) {
-    sizeX = 1000;
+    sizeX = 950;
     sizeY = 1000;
     glutInit(&argc, argv);
     // sizeX = glutGet(GLUT_SCREEN_WIDTH);

@@ -7,7 +7,7 @@ Vertex::Vertex(){
 	this->x = 0;
 	this->y = 0;
 	this->z = 0;
-	this->w = 0;
+	this->w = 1;
 	//cout << "Vertice construido com sucesso." << endl;
 }
 //constroi um vertice nos pontos especificados pelos parâmetros, apenas as três dimensões serão levadas em consideração a quarta coordenada será setada como 0.
@@ -15,7 +15,7 @@ Vertex::Vertex(double coordinateX,double coordinateY,double coordinateZ){
 	this->x = coordinateX;
 	this->y = coordinateY;
 	this->z = coordinateZ;
-	this->w = 0;
+	this->w = 1;
 	//cout << "Vertice construido com sucesso." << endl;
 }
 //constroi um vertice nos pontos especificados pelos parâmetros. É necessário que seja passada a quata coordena

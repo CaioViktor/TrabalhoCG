@@ -104,5 +104,5 @@ void ListFace::drawSolid(){
 }
 //Retorna o número de faces existentes na lista
 int ListFace::numberFaces(){
-	this->number;
+	return this->number;
 }

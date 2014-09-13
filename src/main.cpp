@@ -341,11 +341,6 @@ void selectModeExibition(){
     render();
 }
 
-// int check;
-// void func1(){
-//     cout << check << endl;
-// }
-
 void initGLUI(){
     //GLUI
     glui = GLUI_Master.create_glui_subwindow( mainWindow,GLUI_SUBWINDOW_BOTTOM );
@@ -479,7 +474,6 @@ void teste(){
     listFace->addFace(f11);
     Face *f12 = new Face(arrayVertex[7],arrayVertex[4],arrayVertex[3]);
     listFace->addFace(f12);
-    cout << listFace->numberFaces();
 }
 
 

@@ -430,16 +430,6 @@ int main(int argc, char **argv) {
     glutInit(&argc, argv);
     // sizeX = glutGet(GLUT_SCREEN_WIDTH);
     // sizeY = glutGet(GLUT_SCREEN_HEIGHT);
-    arrayObject = new ObjectClass*[4];
-    for(int c=0;c<4;c++)
-        arrayObject[c] = new ObjectClass();
-    
-     arrayObject[0]->setName("objeto1");
-    arrayObject[1]->setName("objeto2");
-    arrayObject[2]->setName("objeto3");
-    arrayObject[3]->setName("objeto4");
-    for(int c=0;c<4;c++)
-        cout << arrayObject[c]->getName() << endl;
     /*Configura a tela
     /    -RGB color model + Alpha Channel = GLUT_RGBA
     */

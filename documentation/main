@@ -1,3 +1,19 @@
 Exemplo de código para teste utilizando a openGL no linux 
 comando executado para compilar:
 g++ src/*.cpp -lGL -lGLU -lglut -lglui -o bin/main 
+
+
+
+
+
+definição de um vetor de objetos:
+arrayObject = new ObjectClass*[4];
+for(int c=0;c<4;c++)
+    arrayObject[c] = new ObjectClass();
+
+arrayObject[0]->setName("objeto1");
+arrayObject[1]->setName("objeto2");
+arrayObject[2]->setName("objeto3");
+arrayObject[3]->setName("objeto4");
+for(int c=0;c<4;c++)
+    cout << arrayObject[c]->getName() << endl;

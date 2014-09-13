@@ -235,8 +235,8 @@ void selectTransformation(){
             radians->disable();
 
             scaleX->disable();
-            scaleY->disable();
-            scaleZ->disable();
+            // scaleY->disable();
+            // scaleZ->disable();
             break;
         //Rotação
         case 1:
@@ -248,8 +248,8 @@ void selectTransformation(){
             radians->enable();
 
             scaleX->disable();
-            scaleY->disable();
-            scaleZ->disable();
+            // scaleY->disable();
+            // scaleZ->disable();
             break;
         //Escalamento
         case 2:
@@ -261,8 +261,8 @@ void selectTransformation(){
             radians->disable();
 
             scaleX->enable();
-            scaleY->enable();
-            scaleZ->enable();
+            // scaleY->enable();
+            // scaleZ->enable();
             break;
     }
     cout << transformationSelected << endl;
@@ -294,7 +294,8 @@ void confirmTransformation(){
         //Escalamento
         case 2:
             //TODO: no lugar dos 0 pôr a centroide do objeto
-            auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleY->get_float_val(), (double) scaleZ->get_float_val(), 0, 0, 0);
+            //auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleY->get_float_val(), (double) scaleZ->get_float_val(), 0, 0, 0);
+            auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleX->get_float_val(), (double) scaleX->get_float_val(), 0, 0, 0);
             break;
     }
 
@@ -315,6 +316,9 @@ void cancelTransformation(){
     *partialTransformationMatrix = *Matrix::getIdentity();
     transformationMatrix->printMatrix();
     partialTransformationMatrix->printMatrix();
+    scaleX->set_float_val(1);
+    // scaleY->set_float_val(1);
+    // scaleZ->set_float_val(1);
     cout << "transformações canceladas\n";      
 }
 //Aplicar Transformação
@@ -420,14 +424,17 @@ void initGLUI(){
     glui->add_column_to_panel(parametersPanel);
     glui->add_statictext_to_panel( parametersPanel,"Escala" );
     scaleX = glui->add_spinner_to_panel(parametersPanel , "X" ,GLUI_SPINNER_FLOAT);
+    scaleX->set_float_val(1);
+    scaleX->set_float_limits(0.0001,99,GLUI_LIMIT_CLAMP);
     scaleX->disable();
     
-    scaleY = glui->add_spinner_to_panel(parametersPanel , "Y" ,GLUI_SPINNER_FLOAT);
-    scaleY->disable();
+    // scaleY = glui->add_spinner_to_panel(parametersPanel , "Y" ,GLUI_SPINNER_FLOAT);
+    // scaleY->set_float_val(1);
+    // scaleY->disable();
 
-    scaleZ = glui->add_spinner_to_panel(parametersPanel , "Z" ,GLUI_SPINNER_FLOAT);
-    scaleZ->disable();
-    //TODO: Entradas de parâmetros para cada transformação
+    // scaleZ = glui->add_spinner_to_panel(parametersPanel , "Z" ,GLUI_SPINNER_FLOAT);
+    // scaleZ->set_float_val(1);
+    // scaleZ->disable();
 
 
     glui->add_button("Confirmar",0,(GLUI_Update_CB) confirmTransformation); 

@@ -3,10 +3,10 @@
 //Construtor da classe Object. 
 ObjectClass::ObjectClass(){
 	
-	char *name;
+	this->name = "";
 		
 	//Lista de Vertices
-	ListVertex *list = new ListVertex();
+	this->list = NULL;
 	
 	//Lista de Faces
 
@@ -14,16 +14,16 @@ ObjectClass::ObjectClass(){
 	
 }
 
-ObjectClass::ObjectClass( char *name, ListVertex *list ){
+ObjectClass::ObjectClass( std::string name, ListVertex *list ){
 	this->name = name;
 	this->list = list;	
 }
 
-void ObjectClass::setName( char *Name ){
+void ObjectClass::setName( std::string Name ){
 	this->name = Name;
 }
 
-char* ObjectClass::getName(){
+std::string ObjectClass::getName(){
 	return this->name;
 }
 

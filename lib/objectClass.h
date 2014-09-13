@@ -2,18 +2,18 @@
 *  Implemanta a estrutra de objeto
 */
 class ObjectClass{
-	char* name;
+	std::string name;
 	ListVertex *list ;
 	Vertex *Centroid;
 	
 public:
 	//Builders	
 	ObjectClass();
-	ObjectClass( char *name, ListVertex *list );
-	ObjectClass( char* name, ListVertex list, Vertex Centroid );
+	ObjectClass(std::string name, ListVertex *list );
+	ObjectClass(std::string name, ListVertex list, Vertex Centroid );
 	
-	void setName( char* Name );
-	char* getName();
+	void setName(std::string Name );
+	std::string getName();
 	void setListVertex( ListVertex *list );
 	ListVertex* getListVertex();
 };

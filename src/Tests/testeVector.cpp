@@ -51,5 +51,6 @@ int main(){
 	cout << "Vector:\n";
 	v3->showVector();
 	cout << "Vertex: \n" << ve->getCoordinateXd() << endl << ve->getCoordinateYd() << endl << ve->getCoordinateZd() << endl << ve->getCoordinateWd() << endl;
+	cout << v3->getValue(0)<< "  " << v3->getValue(1)<<"  " << v3->getValue(2) <<"  "<< v3->getValue(3)<<endl;
 	return 0;
 }

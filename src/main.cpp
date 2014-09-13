@@ -24,6 +24,10 @@ int indexObjectSelected;
 Matrix *transformationMatrix = Matrix::getIdentity(), *partialTransformationMatrix = Matrix::getIdentity();
 stackMatrix *stackTransformation = new stackMatrix(),*partialStackTransformation = new stackMatrix();
 Vertex **arrayVertex;
+//para teste
+ListVertex *listVertex = new ListVertex();
+ListFace *listFace = new ListFace();
+//para teste
 ObjectClass **arrayObject;
 
 //Declarações Gerais FIM
@@ -40,7 +44,11 @@ void draw(void) {
     gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
     //Draw i
     // Define a cor padrão como verde
-    glColor3f (0.5, 0.0, 0.);
+    glColor3f (0.0, 0.5, 0.0);
+    if(modeExibitionValue == GL_POLYGON)
+        listFace->drawSolid();
+    else
+        listFace->drawWired();
 
     glBegin(GL_LINE_LOOP);
         glVertex3d( 1.007973, 0.225403,2.654285);
@@ -289,19 +297,13 @@ void confirmTransformation(){
             auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleY->get_float_val(), (double) scaleZ->get_float_val(), 0, 0, 0);
             break;
     }
+
     stackTransformation->push(auxMatrix);
     *partialStackTransformation = *stackTransformation;
-
     *partialTransformationMatrix = *stackMatrix::concatenate(partialStackTransformation);
     partialTransformationMatrix->printMatrix();
     *partialTransformationMatrix = *Matrix::getIdentity();
     cout << "transformações confirmadas\n";
-}
-
-//Aplicar Transformação
-void applyTransformation(){
-    //TODO:resto.
-    cout << "transformações aplicadas\n";   
 }
 
 //Anular Transformação
@@ -315,6 +317,17 @@ void cancelTransformation(){
     partialTransformationMatrix->printMatrix();
     cout << "transformações canceladas\n";      
 }
+//Aplicar Transformação
+void applyTransformation(){
+    //TODO:resto.
+    listVertex->list();
+    transformationMatrix = stackMatrix::concatenate(stackTransformation);
+    listVertex->transformation(transformationMatrix);
+    render();
+    cancelTransformation();
+    cout << "transformações aplicadas\n";   
+}
+
 
 void selectModeExibition(){
     if(modeExibitionFlag == 0)
@@ -423,7 +436,45 @@ void initGLUI(){
     glui->add_button("Anular",0,(GLUI_Update_CB) cancelTransformation);     
 }
 
-
+void teste(){
+    //teste de transformações
+    arrayVertex = new Vertex*[8];
+    arrayVertex[0] = new Vertex(1.000000 ,-1.000000 ,-1.000000);
+    arrayVertex[1] = new Vertex(1.000000 ,-1.000000 ,1.000000);
+    arrayVertex[2] = new Vertex(-1.000000, -1.000000 ,1.000000);
+    arrayVertex[3] = new Vertex(-1.000000, -1.000000 ,-1.000000);
+    arrayVertex[4] = new Vertex(1.000000 ,1.000000 ,-0.999999);
+    arrayVertex[5] = new Vertex(0.999999 ,1.000000 ,1.000001);
+    arrayVertex[6] = new Vertex(-1.000000, 1.000000 ,1.000000);
+    arrayVertex[7] = new Vertex(-1.000000, 1.000000 ,-1.000000);
+    for(int c=0;c<8;c++)
+        listVertex->addVertex(arrayVertex[c]);
+    Face *f1 = new Face(arrayVertex[1],arrayVertex[2],arrayVertex[3]);
+    listFace->addFace(f1);
+    Face *f2 = new Face(arrayVertex[7],arrayVertex[6],arrayVertex[5]);
+    listFace->addFace(f2);
+    Face *f3 = new Face(arrayVertex[0],arrayVertex[4],arrayVertex[5]);
+    listFace->addFace(f3);
+    Face *f4 = new Face(arrayVertex[1],arrayVertex[5],arrayVertex[6]);
+    listFace->addFace(f4);
+    Face *f5= new Face(arrayVertex[6],arrayVertex[7],arrayVertex[3]);
+    listFace->addFace(f5);
+    Face *f6 = new Face(arrayVertex[4],arrayVertex[0],arrayVertex[3]);
+    listFace->addFace(f6);
+    Face *f7 = new Face(arrayVertex[0],arrayVertex[1],arrayVertex[3]);
+    listFace->addFace(f7);
+    Face *f8 = new Face(arrayVertex[4],arrayVertex[7],arrayVertex[5]);
+    listFace->addFace(f8);
+    Face *f9 = new Face(arrayVertex[1],arrayVertex[0],arrayVertex[5]);
+    listFace->addFace(f9);
+    Face *f10 = new Face(arrayVertex[2],arrayVertex[1],arrayVertex[6]);
+    listFace->addFace(f10);
+    Face *f11 = new Face(arrayVertex[2],arrayVertex[6],arrayVertex[3]);
+    listFace->addFace(f11);
+    Face *f12 = new Face(arrayVertex[7],arrayVertex[4],arrayVertex[3]);
+    listFace->addFace(f12);
+    cout << listFace->numberFaces();
+}
 
 
 //Main program
@@ -436,6 +487,7 @@ int main(int argc, char **argv) {
     /*Configura a tela
     /    -RGB color model + Alpha Channel = GLUT_RGBA
     */
+    teste();
     glutInitDisplayMode(GLUT_RGBA|GLUT_SINGLE);
 
     //Configura a posição da janela

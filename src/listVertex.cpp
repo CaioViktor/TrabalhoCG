@@ -6,7 +6,8 @@
 ListVertex::ListVertex(){
 	this->first = NULL;
 	this->last = NULL;
-	cout << "Lista de Vertices criada com sucesso" << endl;
+	this->number = 0;
+	//cout << "Lista de Vertices criada com sucesso" << endl;
 }
 //Construtor da classe ListVertex, inicia a lista com um vertice passado como parâmetro
 ListVertex::ListVertex(Vertex *vertex){
@@ -15,7 +16,8 @@ ListVertex::ListVertex(Vertex *vertex){
 	node->next = NULL;
 	this->first = node;
 	this->last = node;
-	cout << "Lista de Vertices criada com sucesso" << endl;
+	this->number = 1;
+	//cout << "Lista de Vertices criada com sucesso" << endl;
 }
 //retorna true caso a lista esteja vazia e false caso o contrário
 bool ListVertex::isempty(){
@@ -32,13 +34,15 @@ void ListVertex::addVertex(Vertex *vertex){
 	if(this->isempty()){
 		this->first = node;
 		this->last = node;
-		cout << "Vertice adicionado com sucesso" << endl;
+		this->number++;
+		//cout << "Vertice adicionado com sucesso" << endl;
 	}
 	else{
 		Node *current = this->first;
 		int elementsInList = 0;
+		Vertex *currentVertex = NULL;
 		while(current != NULL){
-			Vertex *currentVertex = current->vertex;
+			currentVertex = current->vertex;
 			if(currentVertex == vertex)
 				elementsInList++;
 			current = current->next;
@@ -47,11 +51,27 @@ void ListVertex::addVertex(Vertex *vertex){
 			Node *last = this->last;
 			last->next = node;
 			this->last = node;
-			cout << "Vertice adicionado com sucesso" << endl;
+			this->number++;
+			//cout << "Vertice adicionado com sucesso" << endl;
 		}
 		else
 			cout << "Vertice já existente" << endl;
 	}
+}
+Vertex* ListVertex::getVertex(int index){
+	if(index < this->number){
+		Node *current = this->first;
+		int indexCurrent = 0;
+		Vertex *currentVertex = NULL;
+		while(indexCurrent <= index){
+			currentVertex = current->vertex;
+			current = current->next;
+			indexCurrent++;
+		}
+		return currentVertex;
+	}
+	else
+		return NULL;
 }
 //Printa as coordenadas de todos os vértices da lista (Utilizada para teste). protótipo da função de transformação.
 void ListVertex::list(){
@@ -75,12 +95,5 @@ void ListVertex::transformation(Matrix *matrix){
 }
 //Retorna o número de vértices existentes na lista
 int ListVertex::numberVertex(){
-	Node *currentNode = this->first;
-	int number = 0;
-	while(currentNode != NULL){
-		Vertex *current = currentNode->vertex;
-		number++;
-		currentNode = currentNode->next;
-	}
-	return number;
-}
+	return this->number;
+};

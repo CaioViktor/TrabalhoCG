@@ -6,12 +6,14 @@ typedef struct Node_{
 	struct Node_ *next;
 } Node;
 class ListVertex{
-public:
+	int number;
 	Node *first, *last;
+public:
 	ListVertex();
 	ListVertex(Vertex *vertex);
 	bool isempty();
 	void addVertex(Vertex *vertex);
+	Vertex* getVertex(int index);
 	void list();
 	void transformation(Matrix*);
 	int numberVertex();

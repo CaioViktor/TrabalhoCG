@@ -37,7 +37,7 @@ void Vector::setValue(int position,double value){
 	if(position >= 0 && position < 4){
 		double **newVector = this->vector;
 		*newVector[position] = value;
-		cout << "Valor armazenado no vetor\n";
+		//cout << "Valor armazenado no vetor\n";
 	}
 	else
 		cout << "Erro posição inexistente\n";
@@ -47,7 +47,7 @@ void Vector::setValue(int position,double *value){
 	if(position >= 0 && position < 4){
 		double **newVector = this->vector;
 		newVector[position] = value;
-		cout << "Ponteiro armazenado no vetor\n";
+		//cout << "Ponteiro armazenado no vetor\n";
 	}
 	else
 		cout << "Erro posição inexistente\n";	

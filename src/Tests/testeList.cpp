@@ -44,11 +44,12 @@ int main(){
 	list->addVertex(v2);
 	list->addVertex(v3);
 	list->addVertex(v4);
+	cout << "Matriz:\n";
+	Matrix::getRotationX(0.7853)->printMatrix();
 	list->list();
 	cout << "Depois:\n";
 	list->transformation(Matrix::getRotationX(0.7853));
 	list->list();
 	cout << "Número de faces: " << l1->numberVertex() << endl;
-
 	return 0;
 }

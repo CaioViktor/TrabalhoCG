@@ -8,7 +8,7 @@ Vertex::Vertex(){
 	this->y = 0;
 	this->z = 0;
 	this->w = 0;
-	cout << "Vertice construido com sucesso." << endl;
+	//cout << "Vertice construido com sucesso." << endl;
 }
 //constroi um vertice nos pontos especificados pelos parâmetros, apenas as três dimensões serão levadas em consideração a quarta coordenada será setada como 0.
 Vertex::Vertex(double coordinateX,double coordinateY,double coordinateZ){
@@ -16,7 +16,7 @@ Vertex::Vertex(double coordinateX,double coordinateY,double coordinateZ){
 	this->y = coordinateY;
 	this->z = coordinateZ;
 	this->w = 0;
-	cout << "Vertice construido com sucesso." << endl;
+	//cout << "Vertice construido com sucesso." << endl;
 }
 //constroi um vertice nos pontos especificados pelos parâmetros. É necessário que seja passada a quata coordena
 Vertex::Vertex(double coordinateX,double coordinateY,double coordinateZ,double coordinateW){
@@ -24,7 +24,7 @@ Vertex::Vertex(double coordinateX,double coordinateY,double coordinateZ,double c
 	this->y = coordinateY;
 	this->z = coordinateZ;
 	this->w = coordinateW;
-	cout << "Vertice construido com sucesso." << endl;
+	//cout << "Vertice construido com sucesso." << endl;
 }
 //destrutor da classe Vertex
 // Vertex::~Vertex(){
@@ -98,6 +98,9 @@ Vector* Vertex::toVector(){
 	newVector->setValue(0,&this->x);
 	newVector->setValue(1,&this->y);
 	newVector->setValue(2,&this->z);
-	newVector->setValue(3,&this->w);
+	if(this->w != 0)
+		newVector->setValue(3,&this->w);
+	else
+		newVector->setValue(3,1);
 	return newVector;
 }

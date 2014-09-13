@@ -6,7 +6,7 @@
 ListFace::ListFace(){
 	this->first = NULL;
 	this->last = NULL;
-	cout << "Lista de Faces criada com sucesso" << endl;
+	//cout << "Lista de Faces criada com sucesso" << endl;
 }
 //Construtor da classe ListFace, inicia a lista com uma face passado como parâmetro
 ListFace::ListFace(Face *face){
@@ -15,7 +15,7 @@ ListFace::ListFace(Face *face){
 	node->next = NULL;
 	this->first = node;
 	this->last = node;
-	cout << "Lista de Faces criada com sucesso" << endl;
+	//cout << "Lista de Faces criada com sucesso" << endl;
 }
 //retorna true caso a lista esteja vazia e false caso o contrário
 bool ListFace::isempty(){
@@ -32,7 +32,7 @@ void ListFace::addFace(Face *face){
 	if(this->isempty()){
 		this->first = node;
 		this->last = node;
-		cout << "Face adicionado com sucesso" << endl;
+		//cout << "Face adicionado com sucesso" << endl;
 	}
 	else{
 		NodeFace *current = this->first;
@@ -47,7 +47,7 @@ void ListFace::addFace(Face *face){
 			NodeFace *last = this->last;
 			last->next = node;
 			this->last = node;
-			cout << "Face adicionado com sucesso" << endl;
+			//cout << "Face adicionado com sucesso" << endl;
 		}
 		else
 			cout << "Face já existente" << endl;
@@ -70,7 +70,7 @@ void ListFace::drawWired(){
 		current->draw(GL_LINE_LOOP);
 		currentNode = currentNode->next;
 	}
-	cout << "Face desenhada aramada\n";
+	//cout << "Face desenhada aramada\n";
 }
 //Pinta todos as faces da lista em sólido
 void ListFace::drawSolid(){
@@ -80,7 +80,7 @@ void ListFace::drawSolid(){
 		current->draw(GL_POLYGON);
 		currentNode = currentNode->next;
 	}
-	cout << "Face desenhada sólida\n";
+	//cout << "Face desenhada sólida\n";
 }
 //Retorna o número de faces existentes na lista
 int ListFace::numberFaces(){

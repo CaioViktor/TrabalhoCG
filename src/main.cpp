@@ -20,15 +20,14 @@ GLUI_RadioGroup *group3;
 // Declarações de variáveis da interface FIM
 
 //Declarações Gerais
-int indexObjectSelected;
+int numberObjects = 0,numberVertex = 0,numberFace = 0;
 Matrix *transformationMatrix = Matrix::getIdentity(), *partialTransformationMatrix = Matrix::getIdentity();
 stackMatrix *stackTransformation = new stackMatrix(),*partialStackTransformation = new stackMatrix();
 Vertex **arrayVertex;
-//para teste
-ListVertex *listVertex = new ListVertex();
-ListFace *listFace = new ListFace();
-//para teste
 ObjectClass **arrayObject;
+Face **arrayFace;
+Topology *topology;
+
 
 //Declarações Gerais FIM
 
@@ -42,63 +41,12 @@ void draw(void) {
     glLoadIdentity();
     // posiciona câmera
     gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
-    //Draw i
-    // Define a cor padrão como verde
-    glColor3f (0.0, 0.5, 0.0);
-    if(modeExibitionValue == GL_POLYGON)
-        listFace->drawSolid();
-    else
-        listFace->drawWired();
-
-    glBegin(GL_LINE_LOOP);
-        glVertex3d( 1.007973, 0.225403,2.654285);
-        glVertex3d( 1.007973, -1.774597,2.654285);
-        glVertex3d( -0.992027, -1.774597,2.654285);
-        glVertex3d( -0.992027, 0.225403,2.654285);
-    glEnd();
-
-    glColor3f (0.0, 0.5, 0.0);
-    glBegin(GL_LINE_LOOP);
-        glVertex3d( 1.007973, -1.774597,2.654285);
-        glVertex3d( 1.007973, -1.774597,4.654285);
-        glVertex3d( -0.992027, -1.774597,4.654285);
-        glVertex3d( -0.992027, -1.774597,2.654285);
-    glEnd();
-
-    glColor3f (0.0, 0.0, 0.5);
-    glBegin(GL_LINE_LOOP);
-        glVertex3d( 1.007973, -1.774597,4.654285);
-        glVertex3d( 1.007973, 0.225403,4.654285);
-        glVertex3d( -0.992027, 0.225403,4.654285);
-        glVertex3d( -0.992027, -1.774597,4.654285);
-    glEnd();
-
-    glColor3f (1.0, 0.0, 0.0);
-    glBegin(GL_LINE_LOOP);
-        glVertex3d( 1.007973, 0.225403,4.654285);
-        glVertex3d( 1.007973, 0.225403,2.654285);
-        glVertex3d( -0.992027, 0.225403,2.654285);
-        glVertex3d( -0.992027, 0.225403,4.654285);
-    glEnd();
-
-    glColor3f (0.0, 1.0, 0.0);
-    glBegin(GL_LINE_LOOP);
-        glVertex3d( -0.992027, 0.225403,2.654285);
-        glVertex3d( -0.992027, -1.774597,2.654285);
-        glVertex3d( -0.992027, -1.774597,4.654285);
-        glVertex3d( -0.992027, 0.225403,4.654285);
-    glEnd();
-
-    glColor3f (0.0, 0.0, 1.0);
-    glBegin(GL_LINE_LOOP);
-        glVertex3d( 1.007973, 0.225403,4.654285);
-        glVertex3d( 1.007973, -1.774597,4.654285);
-        glVertex3d( 1.007973, -1.774597,2.654285);
-        glVertex3d( 1.007973, 0.225403,2.654285);
-    glEnd();
+    //Desenha cena
+    for(int c = 0;c<numberObjects;c++)
+        arrayObject[c]->drawObject(modeExibitionValue);
 
     glFlush();
-    cout << "Display!" << endl;
+    //cout << "Display!" << endl;
 }
 
 void init (void){
@@ -126,7 +74,7 @@ void init (void){
 }
 
 void reshape (int w, int h){   
-    cout << "Reshape!\n";
+    //cout << "Reshape!\n";
     glViewport (0, 0, (GLsizei) w, (GLsizei) h);
     glMatrixMode (GL_PROJECTION);
     GLUI_Master.auto_set_viewport();
@@ -199,12 +147,15 @@ void input(unsigned char tecla, int x, int y){
             centroz=0.0;
         break;    
     }
-    cout << "teclou\n";
+    //cout << "teclou\n";
     glutPostRedisplay();
 }
 
 //callbacks GLUI interface
 void render(){
+    arrayObject[objSelected]->setColorR(colorR->get_float_val());
+    arrayObject[objSelected]->setColorG(colorG->get_float_val());
+    arrayObject[objSelected]->setColorB(colorB->get_float_val());
     glutSetWindow(mainWindow);
     glutPostRedisplay();
 }
@@ -212,13 +163,27 @@ void render(){
 //Seleção de objetos
 
 void selectObject(){
-    objectName = "oi";
-    cout << objSelected << endl;
-    //TODO: tratamento de informações
+    ostringstream convert;
+    objectName = arrayObject[objSelected]->getName();
+    convert << arrayObject[objSelected]->getNumberFace();
+    objectFaces = convert.str();
+    convert.str("");
+    convert.clear();
+    convert << arrayObject[objSelected]->getNumberVertex();
+    objectVertex = convert.str();
+    convert.str("");
+    convert.clear();
+
+    //TODO: posição
+
+
     textName->set_text(objectName.c_str());
     textPosition->set_text(objectPosition.c_str());
     textFace->set_text(objectFaces.c_str());
     textVertex->set_text(objectVertex.c_str());
+    colorR->set_float_val(arrayObject[objSelected]->getCollorR());
+    colorG->set_float_val(arrayObject[objSelected]->getCollorG());
+    colorB->set_float_val(arrayObject[objSelected]->getCollorB());
 }
 
 //Seleção de tranformação
@@ -265,7 +230,7 @@ void selectTransformation(){
             // scaleZ->enable();
             break;
     }
-    cout << transformationSelected << endl;
+    //cout << transformationSelected << endl;
 }
 
 //Confirmar Transformação
@@ -302,9 +267,9 @@ void confirmTransformation(){
     stackTransformation->push(auxMatrix);
     *partialStackTransformation = *stackTransformation;
     *partialTransformationMatrix = *stackMatrix::concatenate(partialStackTransformation);
+    cout << "transformações confirmadas Matriz Parcial:\n";
     partialTransformationMatrix->printMatrix();
     *partialTransformationMatrix = *Matrix::getIdentity();
-    cout << "transformações confirmadas\n";
 }
 
 //Anular Transformação
@@ -314,21 +279,21 @@ void cancelTransformation(){
     *partialStackTransformation = *stackTransformation;
     *transformationMatrix = *Matrix::getIdentity();
     *partialTransformationMatrix = *Matrix::getIdentity();
-    transformationMatrix->printMatrix();
+    cout << "transformações limpadas:\n";      
     partialTransformationMatrix->printMatrix();
     scaleX->set_float_val(1);
     // scaleY->set_float_val(1);
     // scaleZ->set_float_val(1);
-    cout << "transformações canceladas\n";      
 }
 //Aplicar Transformação
 void applyTransformation(){
     //TODO:resto.
     transformationMatrix = stackMatrix::concatenate(stackTransformation);
-    listVertex->transformation(transformationMatrix);
+    arrayObject[objSelected]->applyTransformation(transformationMatrix);
     render();
+    cout << "transformações aplicadas:\n";   
+    transformationMatrix->printMatrix();
     cancelTransformation();
-    cout << "transformações aplicadas\n";   
 }
 
 
@@ -337,7 +302,7 @@ void selectModeExibition(){
         modeExibitionValue = GL_LINE_LOOP;
     else
         modeExibitionValue = GL_POLYGON;
-    cout << modeExibitionValue << endl;
+    //cout << modeExibitionValue << endl;
     render();
 }
 
@@ -348,10 +313,9 @@ void initGLUI(){
     
     //painel de objetos em cena
     GLUI_Listbox *listObjects = glui->add_listbox("Lista de Objetos: ",&objSelected, 0, (GLUI_Update_CB) selectObject );
-    for(int c = 0; c <= 20;c++){
+    for(int c = 0; c < numberObjects;c++){
         //inclusão dinâmica
-        string label = "Sphere ";
-        listObjects->add_item(c,label.c_str());    
+        listObjects->add_item(c,arrayObject[c]->getName().c_str());    
     }
 
 
@@ -435,59 +399,34 @@ void initGLUI(){
     glui->add_button("Confirmar",0,(GLUI_Update_CB) confirmTransformation); 
     glui->add_button("Aplicar",0,(GLUI_Update_CB) applyTransformation); 
     glui->add_button("Anular",0,(GLUI_Update_CB) cancelTransformation);     
+    selectObject();
 }
-
-void teste(){
-    //teste de transformações
-    arrayVertex = new Vertex*[8];
-    arrayVertex[0] = new Vertex(1.000000 ,-1.000000 ,-1.000000);
-    arrayVertex[1] = new Vertex(1.000000 ,-1.000000 ,1.000000);
-    arrayVertex[2] = new Vertex(-1.000000, -1.000000 ,1.000000);
-    arrayVertex[3] = new Vertex(-1.000000, -1.000000 ,-1.000000);
-    arrayVertex[4] = new Vertex(1.000000 ,1.000000 ,-0.999999);
-    arrayVertex[5] = new Vertex(0.999999 ,1.000000 ,1.000001);
-    arrayVertex[6] = new Vertex(-1.000000, 1.000000 ,1.000000);
-    arrayVertex[7] = new Vertex(-1.000000, 1.000000 ,-1.000000);
-    for(int c=0;c<8;c++)
-        listVertex->addVertex(arrayVertex[c]);
-    Face *f1 = new Face(arrayVertex[1],arrayVertex[2],arrayVertex[3]);
-    listFace->addFace(f1);
-    Face *f2 = new Face(arrayVertex[7],arrayVertex[6],arrayVertex[5]);
-    listFace->addFace(f2);
-    Face *f3 = new Face(arrayVertex[0],arrayVertex[4],arrayVertex[5]);
-    listFace->addFace(f3);
-    Face *f4 = new Face(arrayVertex[1],arrayVertex[5],arrayVertex[6]);
-    listFace->addFace(f4);
-    Face *f5= new Face(arrayVertex[6],arrayVertex[7],arrayVertex[3]);
-    listFace->addFace(f5);
-    Face *f6 = new Face(arrayVertex[4],arrayVertex[0],arrayVertex[3]);
-    listFace->addFace(f6);
-    Face *f7 = new Face(arrayVertex[0],arrayVertex[1],arrayVertex[3]);
-    listFace->addFace(f7);
-    Face *f8 = new Face(arrayVertex[4],arrayVertex[7],arrayVertex[5]);
-    listFace->addFace(f8);
-    Face *f9 = new Face(arrayVertex[1],arrayVertex[0],arrayVertex[5]);
-    listFace->addFace(f9);
-    Face *f10 = new Face(arrayVertex[2],arrayVertex[1],arrayVertex[6]);
-    listFace->addFace(f10);
-    Face *f11 = new Face(arrayVertex[2],arrayVertex[6],arrayVertex[3]);
-    listFace->addFace(f11);
-    Face *f12 = new Face(arrayVertex[7],arrayVertex[4],arrayVertex[3]);
-    listFace->addFace(f12);
-}
-
 
 //Main program
 int main(int argc, char **argv) {
     sizeX = 950;
     sizeY = 1000;
+    //teste se o arquivo é válido
+    if(!Leitor::eArquivoObj(argv[1]))
+        return 0;
+    //Carrega estruturas de dados
+    topology = Leitor::ler(argv[1]);
+    arrayObject = topology->ObjectArray;
+    numberObjects = topology->ObjectNumber;
+    arrayVertex = topology->VertexArray;
+    numberVertex = topology->VertexNumber;
+    arrayFace = topology->FaceArray;
+    numberFace = topology->FaceNumber;
+    //inicia o glut
     glutInit(&argc, argv);
     // sizeX = glutGet(GLUT_SCREEN_WIDTH);
     // sizeY = glutGet(GLUT_SCREEN_HEIGHT);
     /*Configura a tela
     /    -RGB color model + Alpha Channel = GLUT_RGBA
     */
-    teste();
+    //teste();
+
+
     glutInitDisplayMode(GLUT_RGBA|GLUT_SINGLE);
 
     //Configura a posição da janela
@@ -508,4 +447,5 @@ int main(int argc, char **argv) {
     // Loop require by OpenGL
     glutMainLoop();
     return 0;
+    
 }

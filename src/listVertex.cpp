@@ -92,7 +92,7 @@ void ListVertex::transformation(Matrix *matrix){
 		currentVector->multiplicationMatrix(matrix);
 		currentNode = currentNode->next;
 	}
-	cout << "Transformação aplicada com sucesso sobre a lista de vertices\n";
+	//cout << "Transformação aplicada com sucesso sobre a lista de vertices\n";
 }
 //Retorna o número de vértices existentes na lista
 int ListVertex::numberVertex(){

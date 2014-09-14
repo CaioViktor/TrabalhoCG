@@ -2,6 +2,7 @@
 #include <GL/glut.h>
 #include <GL/glu.h>
 #include <GL/glui.h>
+#include <sstream> 
 #include <iostream>
 #include <cmath>
 #include <string>

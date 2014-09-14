@@ -159,8 +159,8 @@ Matrix* Matrix::getScale(double dx, double dy, double dz, double xf, double yf, 
     scale->setPosition(0,0,dx);
     scale->setPosition(1,1,dy);
     scale->setPosition(2,2,dz);
-    scale->setPosition(0,3,xf);
-    scale->setPosition(1,3,yf);
-    scale->setPosition(2,3,zf);
+    scale->setPosition(0,3,(1-dx)*xf);
+    scale->setPosition(1,3,(1-dy)*yf);
+    scale->setPosition(2,3,(1-dz)*zf);
     return scale;
 }

@@ -105,7 +105,6 @@ Topology* Leitor::ler(std::string nomeArquivo){
         }
    }
 
-    //atualizando os contadores para ficarem no padrão de índices:
     cout<<"\n\nPRIMEIRA LEITURA:\n"
         <<"OBJETOS: "<<contObjetos<<endl
         <<"FACES: "<<contFaces<<endl
@@ -142,7 +141,6 @@ Topology* Leitor::ler(std::string nomeArquivo){
 
 
     ObjectClass** objetos = new ObjectClass*[contObjetos];
-
     for(int i=0;i<contObjetos;i++){
         objetos[i] = new ObjectClass();
     }
@@ -220,8 +218,7 @@ Topology* Leitor::ler(std::string nomeArquivo){
 
 
             }
-            /* POR FAZER (ESPERANDO TÉRMINO DA CLASSE OBJETO):
-            objetos[indiceObjeto]->setListFaces(listaFaces);*/
+            objetos[indiceObjeto]->setListFace(listaFaces);
 
             //Se prepara para ler o proximo objeto
             indiceObjeto++;

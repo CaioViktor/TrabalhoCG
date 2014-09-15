@@ -19,6 +19,7 @@ class ObjectClass{
     float B;
     
 	//Vertex *Centroid;
+	Vector *centroid;
 	
 public:
 	//Builder	
@@ -41,4 +42,6 @@ public:
 	float getCollorB();
 	int getNumberVertex();
 	int getNumberFace();
+	void updateCentroide();
+	Vector* getCentroid();
 };

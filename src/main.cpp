@@ -153,11 +153,17 @@ void input(unsigned char tecla, int x, int y){
 
 //callbacks GLUI interface
 void render(){
+    ostringstream convert;
     arrayObject[objSelected]->setColorR(colorR->get_float_val());
     arrayObject[objSelected]->setColorG(colorG->get_float_val());
     arrayObject[objSelected]->setColorB(colorB->get_float_val());
+    Vector *centroide = arrayObject[objSelected]->getCentroid();
+    convert << "X: " << centroide->getValue(0) << " Y: " << centroide->getValue(1) << " Z: " << centroide->getValue(2);
+    objectPosition = convert.str();
+    textPosition->set_text(objectPosition.c_str());
     glutSetWindow(mainWindow);
     glutPostRedisplay();
+
 }
 
 //Seleção de objetos
@@ -173,7 +179,9 @@ void selectObject(){
     objectVertex = convert.str();
     convert.str("");
     convert.clear();
-
+    Vector *centroide = arrayObject[objSelected]->getCentroid();
+    convert << "X: " << centroide->getValue(0) << " Y: " << centroide->getValue(1) << " Z: " << centroide->getValue(2);
+    objectPosition = convert.str();
     //TODO: posição
 
 

@@ -19,6 +19,10 @@ ObjectClass::ObjectClass(){
     this->B = 0;
     
 	//Centroide	
+    this->centroid = new Vector();
+    for(int c = 0;c<3;c++)
+        this->centroid->setValue(c,(double)0);
+    this->centroid->setValue(3,(double)1);
 	
 }
 
@@ -34,6 +38,7 @@ void ObjectClass::drawObject( unsigned int modeExibitionValue ){
 //MÃ©todo para aplicar transformaÃ§Ã£o no objeto
 void ObjectClass::applyTransformation( Matrix *transformationMatrix ){ 
      this->list_vertex->transformation( transformationMatrix );
+     this->updateCentroide();
 }
      
 
@@ -54,6 +59,7 @@ void ObjectClass::setListVertex( ListVertex *list_vertex ){
 void ObjectClass::setListFace( ListFace *list_face ){
      this->list_face = list_face;
      this->number_face = list_face->numberFaces();
+     this->updateCentroide();
 }
 
 //Configura a cor R do objeto
@@ -112,4 +118,27 @@ int ObjectClass::getNumberVertex(){
 //Acessa o número de faces do Objeto
 int ObjectClass::getNumberFace(){
     return this->number_face;
+}
+
+//Autor: Caio Viktor
+//Método que atualiza a centroide do objeto. a coordenada homogênia está sendo setada com 1
+void ObjectClass::updateCentroide(){
+    for(int c = 0;c<4;c++)
+        this->centroid->setValue(c,(double)0);
+    Vertex *vertex;
+    for(int c = 0;c < this->number_vertex;c++){
+        vertex = this->list_vertex->getVertex(c);
+        this->centroid->setValue(0,this->centroid->getValue(0) + vertex->getCoordinateXd());
+        this->centroid->setValue(1,this->centroid->getValue(1) + vertex->getCoordinateYd());
+        this->centroid->setValue(2,this->centroid->getValue(2) + vertex->getCoordinateZd());
+        //this->centroid->setValue(3,this->centroid->getValue(3) + vertex->getCoordinateWd());
+    }
+    this->centroid->setValue(0,this->centroid->getValue(0)/this->number_vertex);
+    this->centroid->setValue(1,this->centroid->getValue(1)/this->number_vertex);
+    this->centroid->setValue(2,this->centroid->getValue(2)/this->number_vertex);
+    //this->centroid->setValue(3,this->centroid->getValue(3)/this->number_vertex);
+    this->centroid->setValue(3,(double)1);
+}
+Vector* ObjectClass::getCentroid(){
+    return this->centroid;
 }

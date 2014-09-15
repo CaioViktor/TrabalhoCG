@@ -34,14 +34,16 @@ Topology *topology;
 
 void draw(void) {
 
-    // Black background
-    glClearColor(0.0f,0.0f,0.0f,1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    // carrega matriz identidade para não acumular transformações na câmera
     glLoadIdentity();
     // posiciona câmera
     gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
+    // Black background
+    glClearColor(0.0f,0.0f,0.0f,1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glMatrixMode(GL_MODELVIEW);
+    // carrega matriz identidade para não acumular transformações na câmera
     //Desenha cena
+   // glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
     for(int c = 0;c<numberObjects;c++)
         arrayObject[c]->drawObject(modeExibitionValue);
 
@@ -121,21 +123,33 @@ void input(unsigned char tecla, int x, int y){
     switch (tecla) {
         case 'd':
             eyex = eyex + 0.5;
+            centrox = centrox + 0.5;
+            break;
+        case 'k':
+            centrox = centrox + 0.5;
             break;
         case 'a':
             eyex = eyex - 0.5;
+            centrox = centrox - 0.5;
+            break;
+        case 'j':
+            centrox = centrox - 0.5;
             break;
         case 'e':
             eyey = eyey + 0.5;
+            centroy = centroy + 0.5;
             break;
         case 'q':
             eyey = eyey - 0.5;
+            centroy = centroy - 0.5;
             break;
         case 's':
             eyez = eyez + 0.5;
+            centroz = centroz + 0.5;
             break;
         case 'w':
             eyez = eyez - 0.5;
+            centroz = centroz - 0.5;
             break;
         case 'O':
         case 'o':
@@ -394,6 +408,7 @@ void initGLUI(){
     scaleX->set_float_val(1);
     scaleX->set_float_limits(0.0001,99,GLUI_LIMIT_CLAMP);
     scaleX->disable();
+
     
     // scaleY = glui->add_spinner_to_panel(parametersPanel , "Y" ,GLUI_SPINNER_FLOAT);
     // scaleY->set_float_val(1);
@@ -412,7 +427,7 @@ void initGLUI(){
 
 //Main program
 int main(int argc, char **argv) {
-    sizeX = 950;
+    sizeX = 1050;
     sizeY = 1000;
     //teste se o arquivo é válido
     if(!Leitor::eArquivoObj(argv[1]))

@@ -86,11 +86,13 @@ void ListVertex::list(){
 //Aplica uma transformação em todos os vértices da lista
 void ListVertex::transformation(Matrix *matrix){
 	Node *currentNode = this->first;
+	int c = 0;
 	while(currentNode != NULL){
 		Vertex *current = currentNode->vertex;
 		Vector *currentVector = current->toVector();
 		currentVector->multiplicationMatrix(matrix);
 		currentNode = currentNode->next;
+		c++;
 	}
 	//cout << "Transformação aplicada com sucesso sobre a lista de vertices\n";
 }

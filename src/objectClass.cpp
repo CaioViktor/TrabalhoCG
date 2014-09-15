@@ -47,11 +47,13 @@ void ObjectClass::setName( std::string Name ){
 //Configura a lista de vÃ©rtice
 void ObjectClass::setListVertex( ListVertex *list_vertex ){
 	this->list_vertex = list_vertex;
+	this->number_vertex = list_vertex->numberVertex();
 }
 
 //Configura a lista de faces
 void ObjectClass::setListFace( ListFace *list_face ){
      this->list_face = list_face;
+     this->number_face = list_face->numberFaces();
 }
 
 //Configura a cor R do objeto
@@ -102,10 +104,12 @@ float ObjectClass::getCollorB(){
       return this->B;
 }
       
+//Acessa o número de vértices do Objeto
 int ObjectClass::getNumberVertex(){
     return this->number_vertex;
 }
 
+//Acessa o número de faces do Objeto
 int ObjectClass::getNumberFace(){
     return this->number_face;
 }

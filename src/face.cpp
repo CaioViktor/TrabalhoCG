@@ -47,8 +47,7 @@ void Face::draw(unsigned int mode){
 
 	glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
 	glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
-	glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateZd(),vertice3->getCoordinateZd());
-
+	glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());
 	glEnd();
 }
 

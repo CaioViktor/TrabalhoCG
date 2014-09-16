@@ -37,6 +37,7 @@ void draw(void) {
     glLoadIdentity();
     // posiciona câmera
     gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
+    //glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 10000.0);
     // Black background
     glClearColor(0.0f,0.0f,0.0f,1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -72,7 +73,8 @@ void init (void){
     (nenhuma transformação é acumulada)
     */
     glLoadIdentity();
-    glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
+    //glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 10000.0);
+
 }
 
 void reshape (int w, int h){   

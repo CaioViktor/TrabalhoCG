@@ -224,8 +224,8 @@ void selectTransformation(){
             radians->disable();
 
             scaleX->disable();
-            // scaleY->disable();
-            // scaleZ->disable();
+            scaleY->disable();
+            scaleZ->disable();
             break;
         //Rotação
         case 1:
@@ -237,8 +237,8 @@ void selectTransformation(){
             radians->enable();
 
             scaleX->disable();
-            // scaleY->disable();
-            // scaleZ->disable();
+            scaleY->disable();
+            scaleZ->disable();
             break;
         //Escalamento
         case 2:
@@ -250,8 +250,8 @@ void selectTransformation(){
             radians->disable();
 
             scaleX->enable();
-            // scaleY->enable();
-            // scaleZ->enable();
+            scaleY->enable();
+            scaleZ->enable();
             break;
     }
     //cout << transformationSelected << endl;
@@ -282,9 +282,9 @@ void confirmTransformation(){
             break;
         //Escalamento
         case 2:
-            //TODO: no lugar dos 0 pôr a centroide do objeto
-            //auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleY->get_float_val(), (double) scaleZ->get_float_val(), 0, 0, 0);
-            auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleX->get_float_val(), (double) scaleX->get_float_val(), 0, 0, 0);
+            Vector *centroide = arrayObject[objSelected]->getCentroid();
+            auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleY->get_float_val(), (double) scaleZ->get_float_val(), centroide->getValue(0), centroide->getValue(1), centroide->getValue(2));
+            // auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleX->get_float_val(), (double) scaleX->get_float_val(), centroide->getValue(0), centroide->getValue(1), centroide->getValue(2));
             break;
     }
 
@@ -306,8 +306,8 @@ void cancelTransformation(){
     cout << "transformações limpadas:\n";      
     partialTransformationMatrix->printMatrix();
     scaleX->set_float_val(1);
-    // scaleY->set_float_val(1);
-    // scaleZ->set_float_val(1);
+    scaleY->set_float_val(1);
+    scaleZ->set_float_val(1);
 }
 //Aplicar Transformação
 void applyTransformation(){
@@ -412,13 +412,13 @@ void initGLUI(){
     scaleX->disable();
 
     
-    // scaleY = glui->add_spinner_to_panel(parametersPanel , "Y" ,GLUI_SPINNER_FLOAT);
-    // scaleY->set_float_val(1);
-    // scaleY->disable();
+    scaleY = glui->add_spinner_to_panel(parametersPanel , "Y" ,GLUI_SPINNER_FLOAT);
+    scaleY->set_float_val(1);
+    scaleY->disable();
 
-    // scaleZ = glui->add_spinner_to_panel(parametersPanel , "Z" ,GLUI_SPINNER_FLOAT);
-    // scaleZ->set_float_val(1);
-    // scaleZ->disable();
+    scaleZ = glui->add_spinner_to_panel(parametersPanel , "Z" ,GLUI_SPINNER_FLOAT);
+    scaleZ->set_float_val(1);
+    scaleZ->disable();
 
 
     glui->add_button("Confirmar",0,(GLUI_Update_CB) confirmTransformation); 

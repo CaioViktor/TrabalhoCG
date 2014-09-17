@@ -44,7 +44,6 @@ void draw(void) {
     glMatrixMode(GL_MODELVIEW);
     // carrega matriz identidade para não acumular transformações na câmera
     //Desenha cena
-   // glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
     for(int c = 0;c<numberObjects;c++)
         arrayObject[c]->drawObject(modeExibitionValue);
 
@@ -256,18 +255,32 @@ void selectTransformation(){
     }
     //cout << transformationSelected << endl;
 }
+void pushInStack(Matrix *auxMatrix){
+    stackTransformation->push(auxMatrix);
+    *partialStackTransformation = *stackTransformation;
+    *partialTransformationMatrix = *stackMatrix::concatenate(partialStackTransformation);
+    cout << "transformações confirmadas Matriz Parcial:\n";
+    partialTransformationMatrix->printMatrix();
+    *partialTransformationMatrix = *Matrix::getIdentity();
+}
 
 //Confirmar Transformação
 
 void confirmTransformation(){
-    Matrix *auxMatrix;
+    Matrix *auxMatrix,*start,*center;
+    Vector *centroide = arrayObject[objSelected]->getCentroid();
     switch(transformationSelected){
         //Translação
         case 0:
             auxMatrix = Matrix::getTranslation((double)coordinateX->get_float_val(),(double)coordinateY->get_float_val(),(double)coordinateZ->get_float_val());
+            pushInStack(auxMatrix);
             break;
         //Rotação
         case 1:
+            start = Matrix::getTranslation(-centroide->getValue(0),-centroide->getValue(1),-centroide->getValue(2));
+            // cout << "Start:\n";
+            // start->printMatrix();
+            pushInStack(start);
             switch(group3->get_int_val()){
                 case 0:
                     auxMatrix = Matrix::getRotationX((double) radians->get_float_val());
@@ -279,21 +292,23 @@ void confirmTransformation(){
                     auxMatrix = Matrix::getRotationZ((double) radians->get_float_val());
                     break;
             }
+            // cout << "Rotação:\n";
+            // auxMatrix->printMatrix();
+            pushInStack(auxMatrix);
+            center = Matrix::getTranslation(centroide->getValue(0),centroide->getValue(1),centroide->getValue(2));
+            // cout << "Center:\n";
+            // center->printMatrix();
+            pushInStack(center);
             break;
         //Escalamento
         case 2:
-            Vector *centroide = arrayObject[objSelected]->getCentroid();
             auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleY->get_float_val(), (double) scaleZ->get_float_val(), centroide->getValue(0), centroide->getValue(1), centroide->getValue(2));
             // auxMatrix = Matrix::getScale((double) scaleX->get_float_val(), (double) scaleX->get_float_val(), (double) scaleX->get_float_val(), centroide->getValue(0), centroide->getValue(1), centroide->getValue(2));
+            pushInStack(auxMatrix);
             break;
     }
 
-    stackTransformation->push(auxMatrix);
-    *partialStackTransformation = *stackTransformation;
-    *partialTransformationMatrix = *stackMatrix::concatenate(partialStackTransformation);
-    cout << "transformações confirmadas Matriz Parcial:\n";
-    partialTransformationMatrix->printMatrix();
-    *partialTransformationMatrix = *Matrix::getIdentity();
+    
 }
 
 //Anular Transformação

@@ -58,7 +58,7 @@ void stackMatrix::push(Matrix *m){
 Matrix* stackMatrix::concatenate(stackMatrix* s){
     Matrix *concatenated = Matrix::getIdentity();
     while(s->getHeight() > 0){
-        concatenated = s->pull()->multiplyMatrix(concatenated);
+        concatenated = concatenated->multiplyMatrix(s->pull());
     }
     return concatenated;
 }

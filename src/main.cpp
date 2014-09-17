@@ -444,6 +444,10 @@ void initGLUI(){
 
 //Main program
 int main(int argc, char **argv) {
+    if(argc < 2){
+        cout << "Entre com o arquivo contendo o modelo!\n";
+        return 1;
+    }
     sizeX = 1050;
     sizeY = 1000;
     //teste se o arquivo é válido

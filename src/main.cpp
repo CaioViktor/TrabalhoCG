@@ -58,9 +58,9 @@ void init (void){
     //eixo x horizontal
     eyex = 0.0;
     //eixo y vertical
-    eyey = 0.0;
+    eyey = 2.0;
     //eixo z perpendicular cresce para fora se valor for alto pode sair do volume de projeção
-    eyez = 10.0;
+    eyez = 7.0;
     //origem de referencial da câmera (0,0,0 é a origem do global)
     centrox=0.0;
     centroy=0.0;
@@ -123,8 +123,8 @@ void input(unsigned char tecla, int x, int y){
         case 'O':
         case 'o':
             eyex = 0.0;
-            eyey = 0.0;
-            eyez = 10.0;
+            eyey = 2.0;
+            eyez = 7.0;
             centrox=0.0;
             centroy=0.0;
             centroz=0.0;

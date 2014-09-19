@@ -70,3 +70,12 @@ Principais métodos:
 
 	void draw(void)
 	desenha todos os objetos da cena
+
+
+
+Comandos:
+w,s : movem a câmera para frente e para trás
+a,d : movem a câmera para esquerda e direita
+q,e : movem a câmera para baixo e para cima
+j,k : rotaciona a câmera para a esquerda e direita
+o   : leva a câmera para a origem

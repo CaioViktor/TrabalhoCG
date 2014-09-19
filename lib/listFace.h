@@ -28,7 +28,7 @@ public:
 	
 	/**
 	*	Verifica se a lista de faces está vazia.
-	*	\return Retorna true se estiver e fase caso contrário.
+	*	\return True se estiver e fase caso contrário.
 	*/
 	bool isempty();
 	
@@ -65,7 +65,7 @@ public:
 	
 
 	/**
-	*	\return Retorna o numero de faces contidas na lista.
+	*	\return O número de faces contidas na lista.
 	*/
 	int numberFaces();
 };

@@ -1,7 +1,7 @@
 /**
 *\file matrix.h
 *\class Matrix
-*\author Matheus Mayron, Cristiano e Caio Victor
+*\author Matheus Mayron, Cristiano e Caio Viktor
 *\brief Armazenar matrizes e facilitar as operações feitas com matrizes.
 */
 class Matrix
@@ -30,7 +30,7 @@ public:
 	
     //getters e setters.
 	
-	/** \return Retorna o um ponteiro para os valores da matriz estão armazenados. */
+	/** \return Um ponteiro para os valores da matriz estão armazenados. */
     double **getContent();
 	
 	
@@ -38,7 +38,7 @@ public:
 	*	Retorna um valor presente na matriz armazenada no objeto Matrix.
 	*	\param lin Valor correspondente a linha da posição desejada.
 	*	\param col Valor correspondente a coluna da posição desejada.
-	*	\return Retorna o valor da posição [lin,col]
+	*	\return O valor da posição [lin,col]
 	*/
     double getPosition(int lin, int col);
 

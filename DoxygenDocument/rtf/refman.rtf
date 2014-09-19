@@ -84,7 +84,7 @@
 {\info 
 {\title {\comment Trabalho de Computa\'E7\'E3o Gr\'E1fica }Trabalho de Computa\'E7\'E3o Gr\'E1fica}
 {\comment Gerado porDoxgyen. }
-{\creatim \yr2014\mo9\dy18\hr19\min39\sec46}
+{\creatim \yr2014\mo9\dy18\hr21\min31\sec31}
 }\pard\plain 
 \sectd\pgnlcrm
 {\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
@@ -165,7 +165,8 @@ Armazenar matrizes e facilitar as opera\'E7\'F5es feitas com matrizes })} \tab {
 {\b {\b Vector} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Classe respons\'E1vel pela implementa\'E7\'E3o de estrutura de vetores de coordenadas 4X1 })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIK \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b Vertex} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIT \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b Vertex} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa a estrutra de v\'E9rtice utilizada na constru\'E7\'E3o de figuras geom\'E9tricas pelo OpenGl })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIT \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 \par}
 \pard\plain \sect\sbkpage
@@ -914,7 +915,7 @@ Implementa estrutura de lista encadeada de faces utilizada na classe objeto. \pa
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Caio Victor \par
+Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Caio Viktor \par
 }}}
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -1135,7 +1136,7 @@ bool ListFace::isempty ()}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Verifica se a lista de faces est\'E1 vazia. \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Retorna true se estiver e fase caso contr\'E1rio. \par
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid True se estiver e fase caso contr\'E1rio. \par
 }}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 23                       \{\par
 24     if(this->last == NULL)\par
@@ -1181,7 +1182,7 @@ int ListFace::numberFaces ()}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Retorna o numero de faces contidas na lista. \par
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid O n\'FAmero de faces contidas na lista. \par
 }}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 106                          \{\par
 107     return this->number;\par
@@ -1604,7 +1605,7 @@ Armazenar matrizes e facilitar as opera\'E7\'F5es feitas com matrizes. \par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Matheus Mayron, Cristiano e Caio Victor \par
+Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Matheus Mayron, Cristiano e Caio Viktor \par
 }}}
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -1705,7 +1706,7 @@ double ** Matrix::getContent ()}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Retorna o um ponteiro para os valores da matriz est\'E3o armazenados. \par
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Um ponteiro para os valores da matriz est\'E3o armazenados. \par
 }}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 39 \{return content;\}\par
 }
@@ -1762,7 +1763,7 @@ Par\'E2metros:\par}
 {\row }
 }
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Retorna o valor da posi\'E7\'E3o [lin,col] \par
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid O valor da posi\'E7\'E3o [lin,col] \par
 }}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 47                                           \{\par
 48         return content[lin][col];\par
@@ -3252,7 +3253,7 @@ Classe respons\'E1vel pela implementa\'E7\'E3o de estrutura de vetores de coorde
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Caio Victor \par
+Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Caio Viktor \par
 }}}
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -3511,6 +3512,9 @@ Refer\'EAncia da Classe Vertex\par \pard\plain
 {\bkmkend AAAAAAAAIT}
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa a estrutra de v\'E9rtice utilizada na constru\'E7\'E3o de figuras geom\'E9tricas pelo OpenGl. }}\par
+{
 {\f2 #include <vertex.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 M\'E9todos P\'FAblicos\par
@@ -3568,6 +3572,20 @@ double {\b w}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Descri\'E7\'E3o Detalhada\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa a estrutra de v\'E9rtice utilizada na constru\'E7\'E3o de figuras geom\'E9tricas pelo OpenGl. \par
+}
+
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Caio Viktor \par
+}}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Construtores & Destrutores\par
 \pard\plain 
 {\xe \v Vertex\:Vertex}
@@ -3580,7 +3598,9 @@ Vertex::Vertex ()}}
 {\bkmkend AAAAAAAAIU}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Constr\'F3i um v\'E9rtice na origem do sistema de coodenadas. \par
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 6               \{\par
 7     this->x = 0;\par
 8     this->y = 0;\par
@@ -3600,7 +3620,31 @@ Vertex::Vertex (double {\i coordinateX}, double {\i coordinateY}, double {\i coo
 {\bkmkend AAAAAAAAIV}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Constr\'F3i um v\'E9rtice nos pontos especificados pelos par\'E2metros.\par
+ Apenas as tr\'EAs dimens\'F5es ser\'E3o levadas em considera\'E7\'E3o a quarta coordenada ser\'E1 setada como 0. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i coordinateX} \cell }{Valor da coordenada X \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i coordinateY} \cell }{Valor da coordenada Y \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i coordinateZ} \cell }{Valor da coordenada Z \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 14                                                                       \{\par
 15     this->x = coordinateX;\par
 16     this->y = coordinateY;\par
@@ -3620,7 +3664,36 @@ Vertex::Vertex (double {\i coordinateX}, double {\i coordinateY}, double {\i coo
 {\bkmkend AAAAAAAAIW}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Constr\'F3i um v\'E9rtice nos pontos especificados pelos par\'E2metros. \'C9 necess\'E1rio que seja passada a quata coordena. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i coordinateX} \cell }{Valor da coordenada X \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i coordinateY} \cell }{Valor da coordenada Y \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i coordinateZ} \cell }{Valor da coordenada Z \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i coordinateW} \cell }{Valor da coordenada W \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 22                                                                                          \{\par
 23     this->x = coordinateX;\par
 24     this->y = coordinateY;\par
@@ -3644,7 +3717,11 @@ double Vertex::getCoordinateWd ()}}
 {\bkmkend AAAAAAAAIX}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Valor da coordenada W no formato double. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 71                               \{\par
 72     return this->w;\par
 73 \}\par
@@ -3660,7 +3737,11 @@ float Vertex::getCoordinateWf ()}}
 {\bkmkend AAAAAAAAIY}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Valor da coordenada W no formato float \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 89                              \{\par
 90     return (float) (this->w);\par
 91 \}\par
@@ -3676,7 +3757,11 @@ double Vertex::getCoordinateXd ()}}
 {\bkmkend AAAAAAAAIZ}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Valor da coordenada X no formato double. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 59                               \{\par
 60     return this->x;\par
 61 \}\par
@@ -3692,7 +3777,11 @@ float Vertex::getCoordinateXf ()}}
 {\bkmkend AAAAAAAAJA}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Valor da coordenada X no formato float. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 77                              \{\par
 78     return (float) (this->x);\par
 79 \}\par
@@ -3708,7 +3797,11 @@ double Vertex::getCoordinateYd ()}}
 {\bkmkend AAAAAAAAJB}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Valor da coordenada Y no formato double. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 63                               \{\par
 64     return this->y;\par
 65 \}\par
@@ -3724,7 +3817,11 @@ float Vertex::getCoordinateYf ()}}
 {\bkmkend AAAAAAAAJC}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Valor da coordenada Y no formato float \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 81                              \{\par
 82     return (float) (this->y);\par
 83 \}\par
@@ -3740,7 +3837,11 @@ double Vertex::getCoordinateZd ()}}
 {\bkmkend AAAAAAAAJD}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Valor da coordenada Z no formato double. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 67                               \{\par
 68     return this->z;\par
 69 \}\par
@@ -3756,7 +3857,11 @@ float Vertex::getCoordinateZf ()}}
 {\bkmkend AAAAAAAAJE}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Valor da coordenada Z no formato float \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 85                              \{\par
 86     return (float) (this->z);\par
 87 \}\par
@@ -3772,7 +3877,18 @@ void Vertex::setCoordinateW (double {\i W})}}
 {\bkmkend AAAAAAAAJF}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Atualiza a coordenada W. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i W} \cell }{Novo valor da coordenada W \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 49                                    \{\par
 50     this->w = W;\par
 51 \}\par
@@ -3788,7 +3904,18 @@ void Vertex::setCoordinateX (double {\i X})}}
 {\bkmkend AAAAAAAAJG}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Atualiza a coordenada X. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i X} \cell }{Novo valor da coordenada X \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 37                                    \{\par
 38     this->x = X;\par
 39 \}\par
@@ -3804,7 +3931,18 @@ void Vertex::setCoordinateY (double {\i Y})}}
 {\bkmkend AAAAAAAAJH}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Atualiza a coordenada Y. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i Y} \cell }{Novo valor da coordenada Y \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 41                                    \{\par
 42     this->y = Y;\par
 43 \}\par
@@ -3820,7 +3958,18 @@ void Vertex::setCoordinateZ (double {\i Z})}}
 {\bkmkend AAAAAAAAJI}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Atualiza a coordenada Z. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i Z} \cell }{Novo valor da coordenada Z \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 45                                    \{\par
 46     this->z = Z;\par
 47 \}\par
@@ -3836,7 +3985,9 @@ void Vertex::showVertex ()}}
 {\bkmkend AAAAAAAAJJ}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Imprime as coordenadas do v\'E9rtice. \par
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 53                        \{\par
 54     cout << "X: " << this->x << "    Y: " << this->y << "   Z: " << this->z << "   W: " << this->w << endl;\par
 55 \}\par
@@ -3852,7 +4003,11 @@ void Vertex::showVertex ()}}
 {\bkmkend AAAAAAAAJK}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Retorna um objeto da classe {\b Vector} representando o v\'E9rtice. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Ponteiro para um {\b Vector} representando as coordenadas do v\'E9rtice. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 96                         \{\par
 97     Vector *newVector = new Vector();\par
 98     newVector->setValue(0,&this->x);\par
@@ -4236,6 +4391,9 @@ Componentes\par
 {
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 class {\b Vertex}\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa a estrutra de v\'E9rtice utilizada na constru\'E7\'E3o de figuras geom\'E9tricas pelo OpenGl. }}}
 }
 \par \pard\plain 
 

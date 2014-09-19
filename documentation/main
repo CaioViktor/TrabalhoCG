@@ -1,19 +1,72 @@
-Exemplo de código para teste utilizando a openGL no linux 
+Autor: Caio Viktor
+Códigos: src/main.cpp
+		 lib/main.h
+
 comando executado para compilar:
 g++ src/*.cpp -lGL -lGLU -lglut -lglui -o bin/main 
 
+A classe main é a responsável por fazer o chamado a todas as sub-rotinas de criação da estrutura lógica, além de ser a responsável pelo comunicação com o usuário por meio da interface.
+ao executar o executável gerado pela classe main é necessário a passagem de um argumento como parâmetro que deve ser o local do arquivo ".obj" contendo o modelo que se deseja visualizar.
+
+exemplo de chamada:
+./main model/bl.obj
+
+Atributos:
+	//Declarações da Janela
+	GLfloat eyex,eyey,eyez = posição da câmera em coordenadas de mundo;
+			centrox, centroy, centroz = posição do centro de visualização da câmera
+	int sizeX,sizeY = tamanho da janela
+		mainWindow = id da janela principal
+		objSelected = objeto selecionado pelo usuário, nele serão feitas as transformações
+		modeExibitionFlag = mode de renderização (aramado ou sólido)
+	unsigned int modeExibitionValue = constante utilizada para determinar o modo de visualização
+	//Declarações da Janela FIM
 
 
+	// Declarações de variáveis da interface
+	int transformationSelected = indica o tipo de transformação selecionada
+		opRotation = indica o eixo de rotação
+	string objectName ,objectPosition , objectFaces ,objectVertex = string contendo as informações do objeto selecionado que serão exibidas
+	GLUI *glui = ponteiro para a UI
+	GLUI_StaticText *textName, *textPosition, *textFace, *textVertex = ponteiros que referenciam os textos na interface
+	GLUI_Spinner *coordinateX,*coordinateY,*coordinateZ,*radians,*scaleX,*scaleY,*scaleZ,*colorR,*colorG,*colorB = ponteiros para a entrada de dados do tipo float
+	GLUI_RadioGroup *group3 = grupo dos radios da rotação
+	// Declarações de variáveis da interface FIM
+
+	//Declarações Gerais
+	int numberObjects ,numberVertex ,numberFace = inteiro que contem informações da topologia do objeto selecionado
+	Matrix *transformationMatrix , *partialTransformationMatrix = Matriz usadas na transformação, sendo a primeira a efetiva e a seguada uma cópia usada em cada adição de transformação.
+	stackMatrix *stackTransformation ,*partialStackTransformation = pilhas utilizadas para guardar as matrizes de transformção sendo a primeira a efetiva e a segunda uma parcial usada para exibir a matriz concatenada parcial
+	Vertex **arrayVertex = vetor contendo todos os vétices
+	ObjectClass **arrayObject = vetor contendo todos os objetos
+	Face **arrayFace = vetor contendo todas as faces
+	Topology *topology = ponteiro para a topologia do objeto
 
 
-definição de um vetor de objetos:
-arrayObject = new ObjectClass*[4];
-for(int c=0;c<4;c++)
-    arrayObject[c] = new ObjectClass();
+	//Declarações Gerais FIM
 
-arrayObject[0]->setName("objeto1");
-arrayObject[1]->setName("objeto2");
-arrayObject[2]->setName("objeto3");
-arrayObject[3]->setName("objeto4");
-for(int c=0;c<4;c++)
-    cout << arrayObject[c]->getName() << endl;
+Principais métodos:
+	int main(int argc, char **argv)
+	Entrada: parâmetros passados na chamada do programa
+	Saída: inteiro contendo o estado de finalização
+
+
+	void initGLUI()
+	inicia os elementos da inteface de usuário
+
+
+	selectModeExibition()
+	configura o modo de exibição
+
+
+	void applyTransformation()
+	Aplicar Transformação no objeto selecionado
+
+	pushInStack()
+	carrega a pilha com a matriz selecionada
+
+	void render()
+	atualiza cor e posição do objeto selecionado e chama a função de desenho
+
+	void draw(void)
+	desenha todos os objetos da cena

@@ -31,7 +31,7 @@ Topology *topology;
 
 //Declarações Gerais FIM
 
-
+//desenha todos os objetos da cena
 void draw(void) {
 
     glLoadIdentity();
@@ -75,7 +75,7 @@ void init (void){
     //glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 10000.0);
 
 }
-
+//trata das transformações necessária ao redimensionar a tela
 void reshape (int w, int h){   
     //cout << "Reshape!\n";
     glViewport (0, 0, (GLsizei) w, (GLsizei) h);
@@ -87,40 +87,8 @@ void reshape (int w, int h){
     glMatrixMode (GL_MODELVIEW);
 
 }
-
+// trata a entrada do teclado
 void input(unsigned char tecla, int x, int y){
-    // deveria ser assim, mas pelo modelo do blender não
-    // switch (tecla) {
-    //     case 'w':
-    //         eyex = eyex + 0.5;
-    //         break;
-    //     case 's':
-    //         eyex = eyex - 0.5;
-    //         break;
-    //     case 'd':
-    //         eyey = eyey + 0.5;
-    //         break;
-    //     case 'a':
-    //         eyey = eyey - 0.5;
-    //         break;
-    //     case 'e':
-    //         eyez = eyez + 0.5;
-    //         break;
-    //     case 'q':
-    //         eyez = eyez - 0.5;
-    //         break;
-    //     case 'O':
-    //     case 'o':
-    //         eyex = 0.0;
-    //         eyey = 0.0;
-    //         eyez = 5.0;
-    //         centrox=0.0;
-    //         centroy=0.0;
-    //         centroz=0.0;
-    //     break;
-    
-    // }
-    // Não sei o motivo de ter que ser assim, mesmo convertendo coordenadas do blender continau desta maneira louca
     switch (tecla) {
         case 'd':
             eyex = eyex + 0.5;
@@ -255,6 +223,7 @@ void selectTransformation(){
     }
     //cout << transformationSelected << endl;
 }
+//carrega a pilha com a matriz selecionada
 void pushInStack(Matrix *auxMatrix){
     stackTransformation->push(auxMatrix);
     *partialStackTransformation = *stackTransformation;
@@ -335,7 +304,7 @@ void applyTransformation(){
     cancelTransformation();
 }
 
-
+//configura modo de exibição
 void selectModeExibition(){
     if(modeExibitionFlag == 0)
         modeExibitionValue = GL_LINE_LOOP;
@@ -344,7 +313,7 @@ void selectModeExibition(){
     //cout << modeExibitionValue << endl;
     render();
 }
-
+//inicia UI
 void initGLUI(){
     //GLUI
     glui = GLUI_Master.create_glui_subwindow( mainWindow,GLUI_SUBWINDOW_BOTTOM );
@@ -468,7 +437,6 @@ int main(int argc, char **argv) {
     /*Configura a tela
     /    -RGB color model + Alpha Channel = GLUT_RGBA
     */
-    //teste();
 
 
     glutInitDisplayMode(GLUT_RGBA|GLUT_SINGLE);

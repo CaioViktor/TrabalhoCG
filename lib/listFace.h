@@ -1,7 +1,7 @@
 /**
 *\file ListFace.h
 *\class ListFace
-*\author Caio Victor
+*\author Caio Viktor
 *\brief Implementa estrutura de lista encadeada de faces utilizada na classe objeto.
 */
 

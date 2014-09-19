@@ -1,7 +1,7 @@
 /**
 *\file vector.h
 *\class Vector
-*\author Caio Victor
+*\author Caio Viktor
 *\brief Classe responsável pela implementação de estrutura de vetores de coordenadas 4X1 
 */
 

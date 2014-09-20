@@ -16,22 +16,20 @@ void Face::setVertice1(Vertex *vertice){
 	vertice1 = vertice;
 }
 
-Vertex* Face::getVertice1(){
-	return this->vertice1;
-}
-
-
 void Face::setVertice2(Vertex *vertice){
 	vertice2 = vertice;
 }
 
-Vertex* Face::getVertice2(){
-	return vertice2;
-}
-
-
 void Face::setVertice3(Vertex *vertice){
 	vertice3 = vertice;
+}
+
+Vertex* Face::getVertice1(){
+	return this->vertice1;
+}
+
+Vertex* Face::getVertice2(){
+	return vertice2;
 }
 
 Vertex* Face::getVertice3(){
@@ -48,6 +46,7 @@ void Face::draw(unsigned int mode){
 	glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
 	glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
 	glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());
+
 	glEnd();
 }
 

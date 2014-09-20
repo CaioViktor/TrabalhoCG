@@ -91,6 +91,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 
+<p>Armazenar matrizes e facilitar as operações feitas com matrizes.  
+ <a href="classstack_matrix.html#details">Mais...</a></p>
+
 <p><code>#include &lt;<a class="el" href="stack_matrix_8h_source.html">stackMatrix.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -103,22 +106,27 @@ Métodos Públicos</h2></td></tr>
 <tr class="separator:a39783ed954314dc305d106c4cd31ee80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8566ffc86eae437403a9484f5c2a32fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstack_matrix.html#a8566ffc86eae437403a9484f5c2a32fe">pull</a> ()</td></tr>
 <tr class="separator:a8566ffc86eae437403a9484f5c2a32fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4322a7dab6d72f761084e2b85cf258c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstack_matrix.html#ad4322a7dab6d72f761084e2b85cf258c">push</a> (<a class="el" href="class_matrix.html">Matrix</a> *m)</td></tr>
-<tr class="separator:ad4322a7dab6d72f761084e2b85cf258c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46ba624157a0536c295f2b1810e5277"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstack_matrix.html#af46ba624157a0536c295f2b1810e5277">push</a> (<a class="el" href="class_matrix.html">Matrix</a> *matrix)</td></tr>
+<tr class="separator:af46ba624157a0536c295f2b1810e5277"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Métodos Públicos Estáticos</h2></td></tr>
-<tr class="memitem:abb75c61df31a9b675ec73fa44982d4be"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix.html">Matrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstack_matrix.html#abb75c61df31a9b675ec73fa44982d4be">concatenate</a> (<a class="el" href="classstack_matrix.html">stackMatrix</a> *s)</td></tr>
-<tr class="separator:abb75c61df31a9b675ec73fa44982d4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35ac7d3bf630484f5b9735b6e7c355fc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix.html">Matrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstack_matrix.html#a35ac7d3bf630484f5b9735b6e7c355fc">concatenate</a> (<a class="el" href="classstack_matrix.html">stackMatrix</a> *stack)</td></tr>
+<tr class="separator:a35ac7d3bf630484f5b9735b6e7c355fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Atributos Privados</h2></td></tr>
 <tr class="memitem:a3dcbce1916322eca6cb2f835bbe0f355"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">height</a></td></tr>
+<tr class="memdesc:a3dcbce1916322eca6cb2f835bbe0f355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda o tamanho da pilha. Valor inicial é 0.  <a href="#a3dcbce1916322eca6cb2f835bbe0f355">Mais...</a><br /></td></tr>
 <tr class="separator:a3dcbce1916322eca6cb2f835bbe0f355"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64d82a9a398de0bfd6cc8d83ba225a09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stack_matrix_8h.html#a166d6e35cf07a5595ee4b1768b685fc5">NoStack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstack_matrix.html#a64d82a9a398de0bfd6cc8d83ba225a09">top</a></td></tr>
+<tr class="memdesc:a64d82a9a398de0bfd6cc8d83ba225a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ponteiro para o nó do topo da pilha.  <a href="#a64d82a9a398de0bfd6cc8d83ba225a09">Mais...</a><br /></td></tr>
 <tr class="separator:a64d82a9a398de0bfd6cc8d83ba225a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><p>Armazenar matrizes e facilitar as operações feitas com matrizes. </p>
+<dl class="section author"><dt>Autor</dt><dd>Matheus Mayron </dd></dl>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="a18c788dcd55012fe00da47efd0ffb92e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -131,6 +139,7 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Controi uma objeto staticMatrix. O valor inicial de height é 0 e top aponta para a base da pilha: um NoStack contendo uma matriz identidade. </p>
 <div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                        {</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;     <a class="code" href="struct_no__.html">NoStack</a>* no;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;     <a class="code" href="class_matrix.html">Matrix</a>* m;</div>
@@ -145,13 +154,13 @@ Atributos Privados</h2></td></tr>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;     this-&gt;<a class="code" href="classstack_matrix.html#a64d82a9a398de0bfd6cc8d83ba225a09">top</a> = no;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 <div class="ttc" id="class_matrix_html_a379003a49a01101e8672b2f28070b136"><div class="ttname"><a href="class_matrix.html#a379003a49a01101e8672b2f28070b136">Matrix::getIdentity</a></div><div class="ttdeci">static Matrix * getIdentity()</div><div class="ttdef"><b>Definition:</b> matrix.cpp:105</div></div>
-<div class="ttc" id="classstack_matrix_html_a3dcbce1916322eca6cb2f835bbe0f355"><div class="ttname"><a href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">stackMatrix::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:9</div></div>
-<div class="ttc" id="struct_no___html_aa4157820bc470031c38679867ee9468b"><div class="ttname"><a href="struct_no__.html#aa4157820bc470031c38679867ee9468b">No_::botton</a></div><div class="ttdeci">No_ * botton</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:3</div></div>
-<div class="ttc" id="struct_no___html"><div class="ttname"><a href="struct_no__.html">No_</a></div><div class="ttdef"><b>Definition:</b> stackMatrix.h:1</div></div>
-<div class="ttc" id="stack_matrix_8h_html_a166d6e35cf07a5595ee4b1768b685fc5"><div class="ttname"><a href="stack_matrix_8h.html#a166d6e35cf07a5595ee4b1768b685fc5">NoStack</a></div><div class="ttdeci">struct No_ NoStack</div></div>
+<div class="ttc" id="classstack_matrix_html_a3dcbce1916322eca6cb2f835bbe0f355"><div class="ttname"><a href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">stackMatrix::height</a></div><div class="ttdeci">int height</div><div class="ttdoc">Guarda o tamanho da pilha. Valor inicial é 0. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:19</div></div>
+<div class="ttc" id="struct_no___html_aa4157820bc470031c38679867ee9468b"><div class="ttname"><a href="struct_no__.html#aa4157820bc470031c38679867ee9468b">No_::botton</a></div><div class="ttdeci">No_ * botton</div><div class="ttdoc">Ponteiro para o elemento inferior a ele na pilha. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:13</div></div>
+<div class="ttc" id="struct_no___html"><div class="ttname"><a href="struct_no__.html">No_</a></div><div class="ttdoc">Um nó da pilha. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:11</div></div>
+<div class="ttc" id="stack_matrix_8h_html_a166d6e35cf07a5595ee4b1768b685fc5"><div class="ttname"><a href="stack_matrix_8h.html#a166d6e35cf07a5595ee4b1768b685fc5">NoStack</a></div><div class="ttdeci">struct No_ NoStack</div><div class="ttdoc">Um nó da pilha. </div></div>
 <div class="ttc" id="class_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdoc">Armazenar matrizes e facilitar as operações feitas com matrizes. </div><div class="ttdef"><b>Definition:</b> matrix.h:7</div></div>
-<div class="ttc" id="classstack_matrix_html_a64d82a9a398de0bfd6cc8d83ba225a09"><div class="ttname"><a href="classstack_matrix.html#a64d82a9a398de0bfd6cc8d83ba225a09">stackMatrix::top</a></div><div class="ttdeci">NoStack * top</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:10</div></div>
-<div class="ttc" id="struct_no___html_a80653e07ba702dd2d07d3c36de0afad7"><div class="ttname"><a href="struct_no__.html#a80653e07ba702dd2d07d3c36de0afad7">No_::content</a></div><div class="ttdeci">Matrix * content</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:2</div></div>
+<div class="ttc" id="classstack_matrix_html_a64d82a9a398de0bfd6cc8d83ba225a09"><div class="ttname"><a href="classstack_matrix.html#a64d82a9a398de0bfd6cc8d83ba225a09">stackMatrix::top</a></div><div class="ttdeci">NoStack * top</div><div class="ttdoc">Ponteiro para o nó do topo da pilha. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:21</div></div>
+<div class="ttc" id="struct_no___html_a80653e07ba702dd2d07d3c36de0afad7"><div class="ttname"><a href="struct_no__.html#a80653e07ba702dd2d07d3c36de0afad7">No_::content</a></div><div class="ttdeci">Matrix * content</div><div class="ttdoc">Ponteiro para um objeto do tipo Matrix armazenado pelo nó. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:12</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -167,6 +176,7 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Destroi o objeto, desalocando também o que foi alocado em seu interior </p>
 <div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                         {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">while</span>(<a class="code" href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">height</a> &gt;= 0){</div>
@@ -176,15 +186,15 @@ Atributos Privados</h2></td></tr>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">height</a>--;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="ttc" id="classstack_matrix_html_a3dcbce1916322eca6cb2f835bbe0f355"><div class="ttname"><a href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">stackMatrix::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:9</div></div>
-<div class="ttc" id="struct_no___html_aa4157820bc470031c38679867ee9468b"><div class="ttname"><a href="struct_no__.html#aa4157820bc470031c38679867ee9468b">No_::botton</a></div><div class="ttdeci">No_ * botton</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:3</div></div>
-<div class="ttc" id="struct_no___html"><div class="ttname"><a href="struct_no__.html">No_</a></div><div class="ttdef"><b>Definition:</b> stackMatrix.h:1</div></div>
-<div class="ttc" id="classstack_matrix_html_a64d82a9a398de0bfd6cc8d83ba225a09"><div class="ttname"><a href="classstack_matrix.html#a64d82a9a398de0bfd6cc8d83ba225a09">stackMatrix::top</a></div><div class="ttdeci">NoStack * top</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:10</div></div>
+<div class="ttc" id="classstack_matrix_html_a3dcbce1916322eca6cb2f835bbe0f355"><div class="ttname"><a href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">stackMatrix::height</a></div><div class="ttdeci">int height</div><div class="ttdoc">Guarda o tamanho da pilha. Valor inicial é 0. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:19</div></div>
+<div class="ttc" id="struct_no___html_aa4157820bc470031c38679867ee9468b"><div class="ttname"><a href="struct_no__.html#aa4157820bc470031c38679867ee9468b">No_::botton</a></div><div class="ttdeci">No_ * botton</div><div class="ttdoc">Ponteiro para o elemento inferior a ele na pilha. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:13</div></div>
+<div class="ttc" id="struct_no___html"><div class="ttname"><a href="struct_no__.html">No_</a></div><div class="ttdoc">Um nó da pilha. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:11</div></div>
+<div class="ttc" id="classstack_matrix_html_a64d82a9a398de0bfd6cc8d83ba225a09"><div class="ttname"><a href="classstack_matrix.html#a64d82a9a398de0bfd6cc8d83ba225a09">stackMatrix::top</a></div><div class="ttdeci">NoStack * top</div><div class="ttdoc">Ponteiro para o nó do topo da pilha. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:21</div></div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Métodos</h2>
-<a class="anchor" id="abb75c61df31a9b675ec73fa44982d4be"></a>
+<a class="anchor" id="a35ac7d3bf630484f5b9735b6e7c355fc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -195,7 +205,7 @@ Atributos Privados</h2></td></tr>
           <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> * stackMatrix::concatenate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classstack_matrix.html">stackMatrix</a> *&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
+          <td class="paramname"><em>stack</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -205,16 +215,21 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Multiplica todas as matrizes armazenadas na pilha passada como parametro do topo até a base e retorna o resultado. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stack</td><td>Um ponteiro para um objeto do tipo <a class="el" href="classstack_matrix.html" title="Armazenar matrizes e facilitar as operações feitas com matrizes. ">stackMatrix</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Resultado da multiplicação. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                              {</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> *concatenated = <a class="code" href="class_matrix.html#a379003a49a01101e8672b2f28070b136">Matrix::getIdentity</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">while</span>(s-&gt;<a class="code" href="classstack_matrix.html#a39783ed954314dc305d106c4cd31ee80">getHeight</a>() &gt; 0){</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        concatenated = concatenated-&gt;<a class="code" href="class_matrix.html#a7fd1c4cd6106f8d78a9099503994a6f3">multiplyMatrix</a>(s-&gt;<a class="code" href="classstack_matrix.html#a8566ffc86eae437403a9484f5c2a32fe">pull</a>());</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">while</span>(s-&gt;getHeight() &gt; 0){</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        concatenated = concatenated-&gt;<a class="code" href="class_matrix.html#a7fd1c4cd6106f8d78a9099503994a6f3">multiplyMatrix</a>(s-&gt;pull());</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> concatenated;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
 <div class="ttc" id="class_matrix_html_a379003a49a01101e8672b2f28070b136"><div class="ttname"><a href="class_matrix.html#a379003a49a01101e8672b2f28070b136">Matrix::getIdentity</a></div><div class="ttdeci">static Matrix * getIdentity()</div><div class="ttdef"><b>Definition:</b> matrix.cpp:105</div></div>
-<div class="ttc" id="classstack_matrix_html_a8566ffc86eae437403a9484f5c2a32fe"><div class="ttname"><a href="classstack_matrix.html#a8566ffc86eae437403a9484f5c2a32fe">stackMatrix::pull</a></div><div class="ttdeci">Matrix * pull()</div><div class="ttdef"><b>Definition:</b> stackMatrix.cpp:32</div></div>
-<div class="ttc" id="classstack_matrix_html_a39783ed954314dc305d106c4cd31ee80"><div class="ttname"><a href="classstack_matrix.html#a39783ed954314dc305d106c4cd31ee80">stackMatrix::getHeight</a></div><div class="ttdeci">int getHeight()</div><div class="ttdef"><b>Definition:</b> stackMatrix.cpp:28</div></div>
 <div class="ttc" id="class_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdoc">Armazenar matrizes e facilitar as operações feitas com matrizes. </div><div class="ttdef"><b>Definition:</b> matrix.h:7</div></div>
 <div class="ttc" id="class_matrix_html_a7fd1c4cd6106f8d78a9099503994a6f3"><div class="ttname"><a href="class_matrix.html#a7fd1c4cd6106f8d78a9099503994a6f3">Matrix::multiplyMatrix</a></div><div class="ttdeci">Matrix * multiplyMatrix(Matrix *B)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:87</div></div>
 </div><!-- fragment -->
@@ -232,10 +247,11 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Retorna</dt><dd>A altura da pilha. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                          {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">height</a>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="ttc" id="classstack_matrix_html_a3dcbce1916322eca6cb2f835bbe0f355"><div class="ttname"><a href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">stackMatrix::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:9</div></div>
+<div class="ttc" id="classstack_matrix_html_a3dcbce1916322eca6cb2f835bbe0f355"><div class="ttname"><a href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">stackMatrix::height</a></div><div class="ttdeci">int height</div><div class="ttdoc">Guarda o tamanho da pilha. Valor inicial é 0. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:19</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -251,6 +267,8 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retira o topo da pilha e desincrementa o tamanho da pilha.<br />
+ Caso a pilha esteja vazia, uma mensagem de erro será mostrada e o retorno será uma matriz identidade. </p><dl class="section return"><dt>Retorna</dt><dd>Ponteiro para o objeto <a class="el" href="class_matrix.html" title="Armazenar matrizes e facilitar as operações feitas com matrizes. ">Matrix</a> que estava sendo referênciada pelo NoStack que estava no topo da pilha. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                         {</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a>* result;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">height</a> == 0){</div>
@@ -264,15 +282,15 @@ Atributos Privados</h2></td></tr>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="ttc" id="classstack_matrix_html_a3dcbce1916322eca6cb2f835bbe0f355"><div class="ttname"><a href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">stackMatrix::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:9</div></div>
-<div class="ttc" id="struct_no___html_aa4157820bc470031c38679867ee9468b"><div class="ttname"><a href="struct_no__.html#aa4157820bc470031c38679867ee9468b">No_::botton</a></div><div class="ttdeci">No_ * botton</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:3</div></div>
+<div class="ttc" id="classstack_matrix_html_a3dcbce1916322eca6cb2f835bbe0f355"><div class="ttname"><a href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">stackMatrix::height</a></div><div class="ttdeci">int height</div><div class="ttdoc">Guarda o tamanho da pilha. Valor inicial é 0. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:19</div></div>
+<div class="ttc" id="struct_no___html_aa4157820bc470031c38679867ee9468b"><div class="ttname"><a href="struct_no__.html#aa4157820bc470031c38679867ee9468b">No_::botton</a></div><div class="ttdeci">No_ * botton</div><div class="ttdoc">Ponteiro para o elemento inferior a ele na pilha. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:13</div></div>
 <div class="ttc" id="class_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdoc">Armazenar matrizes e facilitar as operações feitas com matrizes. </div><div class="ttdef"><b>Definition:</b> matrix.h:7</div></div>
-<div class="ttc" id="classstack_matrix_html_a64d82a9a398de0bfd6cc8d83ba225a09"><div class="ttname"><a href="classstack_matrix.html#a64d82a9a398de0bfd6cc8d83ba225a09">stackMatrix::top</a></div><div class="ttdeci">NoStack * top</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:10</div></div>
-<div class="ttc" id="struct_no___html_a80653e07ba702dd2d07d3c36de0afad7"><div class="ttname"><a href="struct_no__.html#a80653e07ba702dd2d07d3c36de0afad7">No_::content</a></div><div class="ttdeci">Matrix * content</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:2</div></div>
+<div class="ttc" id="classstack_matrix_html_a64d82a9a398de0bfd6cc8d83ba225a09"><div class="ttname"><a href="classstack_matrix.html#a64d82a9a398de0bfd6cc8d83ba225a09">stackMatrix::top</a></div><div class="ttdeci">NoStack * top</div><div class="ttdoc">Ponteiro para o nó do topo da pilha. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:21</div></div>
+<div class="ttc" id="struct_no___html_a80653e07ba702dd2d07d3c36de0afad7"><div class="ttname"><a href="struct_no__.html#a80653e07ba702dd2d07d3c36de0afad7">No_::content</a></div><div class="ttdeci">Matrix * content</div><div class="ttdoc">Ponteiro para um objeto do tipo Matrix armazenado pelo nó. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:12</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="ad4322a7dab6d72f761084e2b85cf258c"></a>
+<a class="anchor" id="af46ba624157a0536c295f2b1810e5277"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -280,11 +298,18 @@ Atributos Privados</h2></td></tr>
           <td class="memname">void stackMatrix::push </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Empilha um objeto NoStack na pilha. Esse NoStack irá referênciar um objeto <a class="el" href="class_matrix.html" title="Armazenar matrizes e facilitar as operações feitas com matrizes. ">Matrix</a> passado como parâmentro.<br />
+ Incrementa o tamanho da pilha. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>Um objeto do tipo matrix que será referênciado pelo NoStack que será empilhado. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                               {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="struct_no__.html">NoStack</a> *newTop = <span class="keyword">new</span> <a class="code" href="stack_matrix_8h.html#a166d6e35cf07a5595ee4b1768b685fc5">NoStack</a>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    newTop-&gt;<a class="code" href="struct_no__.html#a80653e07ba702dd2d07d3c36de0afad7">content</a> = m;</div>
@@ -292,12 +317,12 @@ Atributos Privados</h2></td></tr>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classstack_matrix.html#a64d82a9a398de0bfd6cc8d83ba225a09">top</a> = newTop;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">height</a> = <a class="code" href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">height</a>+1;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="ttc" id="classstack_matrix_html_a3dcbce1916322eca6cb2f835bbe0f355"><div class="ttname"><a href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">stackMatrix::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:9</div></div>
-<div class="ttc" id="struct_no___html_aa4157820bc470031c38679867ee9468b"><div class="ttname"><a href="struct_no__.html#aa4157820bc470031c38679867ee9468b">No_::botton</a></div><div class="ttdeci">No_ * botton</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:3</div></div>
-<div class="ttc" id="struct_no___html"><div class="ttname"><a href="struct_no__.html">No_</a></div><div class="ttdef"><b>Definition:</b> stackMatrix.h:1</div></div>
-<div class="ttc" id="stack_matrix_8h_html_a166d6e35cf07a5595ee4b1768b685fc5"><div class="ttname"><a href="stack_matrix_8h.html#a166d6e35cf07a5595ee4b1768b685fc5">NoStack</a></div><div class="ttdeci">struct No_ NoStack</div></div>
-<div class="ttc" id="classstack_matrix_html_a64d82a9a398de0bfd6cc8d83ba225a09"><div class="ttname"><a href="classstack_matrix.html#a64d82a9a398de0bfd6cc8d83ba225a09">stackMatrix::top</a></div><div class="ttdeci">NoStack * top</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:10</div></div>
-<div class="ttc" id="struct_no___html_a80653e07ba702dd2d07d3c36de0afad7"><div class="ttname"><a href="struct_no__.html#a80653e07ba702dd2d07d3c36de0afad7">No_::content</a></div><div class="ttdeci">Matrix * content</div><div class="ttdef"><b>Definition:</b> stackMatrix.h:2</div></div>
+<div class="ttc" id="classstack_matrix_html_a3dcbce1916322eca6cb2f835bbe0f355"><div class="ttname"><a href="classstack_matrix.html#a3dcbce1916322eca6cb2f835bbe0f355">stackMatrix::height</a></div><div class="ttdeci">int height</div><div class="ttdoc">Guarda o tamanho da pilha. Valor inicial é 0. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:19</div></div>
+<div class="ttc" id="struct_no___html_aa4157820bc470031c38679867ee9468b"><div class="ttname"><a href="struct_no__.html#aa4157820bc470031c38679867ee9468b">No_::botton</a></div><div class="ttdeci">No_ * botton</div><div class="ttdoc">Ponteiro para o elemento inferior a ele na pilha. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:13</div></div>
+<div class="ttc" id="struct_no___html"><div class="ttname"><a href="struct_no__.html">No_</a></div><div class="ttdoc">Um nó da pilha. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:11</div></div>
+<div class="ttc" id="stack_matrix_8h_html_a166d6e35cf07a5595ee4b1768b685fc5"><div class="ttname"><a href="stack_matrix_8h.html#a166d6e35cf07a5595ee4b1768b685fc5">NoStack</a></div><div class="ttdeci">struct No_ NoStack</div><div class="ttdoc">Um nó da pilha. </div></div>
+<div class="ttc" id="classstack_matrix_html_a64d82a9a398de0bfd6cc8d83ba225a09"><div class="ttname"><a href="classstack_matrix.html#a64d82a9a398de0bfd6cc8d83ba225a09">stackMatrix::top</a></div><div class="ttdeci">NoStack * top</div><div class="ttdoc">Ponteiro para o nó do topo da pilha. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:21</div></div>
+<div class="ttc" id="struct_no___html_a80653e07ba702dd2d07d3c36de0afad7"><div class="ttname"><a href="struct_no__.html#a80653e07ba702dd2d07d3c36de0afad7">No_::content</a></div><div class="ttdeci">Matrix * content</div><div class="ttdoc">Ponteiro para um objeto do tipo Matrix armazenado pelo nó. </div><div class="ttdef"><b>Definition:</b> stackMatrix.h:12</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -320,6 +345,8 @@ Atributos Privados</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Guarda o tamanho da pilha. Valor inicial é 0. </p>
+
 </div>
 </div>
 <a class="anchor" id="a64d82a9a398de0bfd6cc8d83ba225a09"></a>
@@ -340,6 +367,8 @@ Atributos Privados</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Ponteiro para o nó do topo da pilha. </p>
+
 </div>
 </div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
@@ -349,7 +378,7 @@ Atributos Privados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quinta, 18 de Setembro de 2014 21:31:31 para Trabalho de Computação Gráfica por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 19 de Setembro de 2014 23:22:38 para Trabalho de Computação Gráfica por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

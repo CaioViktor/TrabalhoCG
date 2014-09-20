@@ -1,19 +1,25 @@
 /**
-*\file ListFace.h
+*\file listFace.h
 *\class ListFace
 *\author Caio Viktor
 *\brief Implementa estrutura de lista encadeada de faces utilizada na classe objeto.
 */
 
-
+/** 
+*\brief Um nó da lista de faces.
+*/
 typedef struct NodeFace_{
-	Face *face;
-	struct NodeFace_ *next;
+	Face *face;					///< Ponteiro para um objeto do tipo Face armazenado pelo nó.
+	struct NodeFace_ *next;		///< Ponteiro para o nó posterior a ele.
 } NodeFace;
 
 class ListFace{
-	int number;
-	NodeFace *first, *last;
+	//! Quantidade de faces armazenadas na lista
+	int number;		
+	//! Ponteiro para o primeiro nó da lista			
+	NodeFace *first;
+	//! Ponteiro para o último no da lista
+	NodeFace *last; 			
 public:
 	/**
 	*	Construtor da classe ListFace. Inicia uma lista vazia.

@@ -89,6 +89,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 
+<p>Implementa estrutura de lista encadeada de faces utilizada na classe objeto.  
+ <a href="class_leitor.html#details">Mais...</a></p>
+
 <p><code>#include &lt;<a class="el" href="leitor_8h_source.html">leitor.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -98,7 +101,10 @@ Métodos Públicos Estáticos</h2></td></tr>
 <tr class="memitem:aed52a95d3743c487ebe8a3f825d5221e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="topology_8h.html#a36084a4504e685f7634f504378160ed9">Topology</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_leitor.html#aed52a95d3743c487ebe8a3f825d5221e">ler</a> (std::string nomeArquivo)</td></tr>
 <tr class="separator:aed52a95d3743c487ebe8a3f825d5221e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Métodos</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><p>Implementa estrutura de lista encadeada de faces utilizada na classe objeto. </p>
+<dl class="section author"><dt>Autor</dt><dd>Francisco Lucas Falcão Pereira </dd></dl>
+</div><h2 class="groupheader">Métodos</h2>
 <a class="anchor" id="a475a98fb938689368d6529ef9ed42512"></a>
 <div class="memitem">
 <div class="memproto">
@@ -120,6 +126,13 @@ Métodos Públicos Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Dado o nome do arquivo, verifica se ele é do tipo obj ou não. Verifica se o parametro é realmente um arquivo do tipo obj e retorna um booleano </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nomeArquivo</td><td>Nome do aquivo a ser verificado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Valor <code>true</code> caso o arquivo seja do tipo obj e <code>false</code> caso contrário. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                                             {</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="comment">//Cria novo objeto de arquivo de entrada</span></div>
@@ -182,6 +195,13 @@ Métodos Públicos Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Percorre um arquivo .obj preenchendo uma estrutura topologica. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nomeArquivo</td><td>Nome do arquivo .obj </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Estrutura topológica preenchida pela função </dd></dl>
 <div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                          {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    FILE* arquivo;</div>
@@ -391,7 +411,7 @@ Métodos Públicos Estáticos</h2></td></tr>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">return</span> cena;</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
 <div class="ttc" id="class_vertex_html_adaa2a4716d4ea9cb382fa504b76db135"><div class="ttname"><a href="class_vertex.html#adaa2a4716d4ea9cb382fa504b76db135">Vertex::setCoordinateZ</a></div><div class="ttdeci">void setCoordinateZ(double Z)</div><div class="ttdef"><b>Definition:</b> vertex.cpp:45</div></div>
-<div class="ttc" id="class_list_vertex_html"><div class="ttname"><a href="class_list_vertex.html">ListVertex</a></div><div class="ttdef"><b>Definition:</b> listVertex.h:8</div></div>
+<div class="ttc" id="class_list_vertex_html"><div class="ttname"><a href="class_list_vertex.html">ListVertex</a></div><div class="ttdoc">Implementa estrutura de lista encadeada de vertices utilizada na classe objeto. </div><div class="ttdef"><b>Definition:</b> listVertex.h:17</div></div>
 <div class="ttc" id="class_vertex_html"><div class="ttname"><a href="class_vertex.html">Vertex</a></div><div class="ttdoc">Implementa a estrutra de vértice utilizada na construção de figuras geométricas pelo OpenGl...</div><div class="ttdef"><b>Definition:</b> vertex.h:8</div></div>
 <div class="ttc" id="struct_topology___html_ac56b1053994a57fe36414f40d0225079"><div class="ttname"><a href="struct_topology__.html#ac56b1053994a57fe36414f40d0225079">Topology_::VertexNumber</a></div><div class="ttdeci">int VertexNumber</div><div class="ttdef"><b>Definition:</b> topology.h:12</div></div>
 <div class="ttc" id="class_object_class_html_aa8b07f0e6e9800b70b8506937af8ce1d"><div class="ttname"><a href="class_object_class.html#aa8b07f0e6e9800b70b8506937af8ce1d">ObjectClass::setListFace</a></div><div class="ttdeci">void setListFace(ListFace *list_face)</div><div class="ttdef"><b>Definition:</b> objectClass.cpp:59</div></div>
@@ -413,7 +433,7 @@ Métodos Públicos Estáticos</h2></td></tr>
 <div class="ttc" id="class_vertex_html_a8fab5108447937fac0d71269d2c76576"><div class="ttname"><a href="class_vertex.html#a8fab5108447937fac0d71269d2c76576">Vertex::setCoordinateY</a></div><div class="ttdeci">void setCoordinateY(double Y)</div><div class="ttdef"><b>Definition:</b> vertex.cpp:41</div></div>
 <div class="ttc" id="class_list_face_html_a29c8972a6bb03ba6d92fb4a841ce2b7e"><div class="ttname"><a href="class_list_face.html#a29c8972a6bb03ba6d92fb4a841ce2b7e">ListFace::addFace</a></div><div class="ttdeci">void addFace(Face *face)</div><div class="ttdef"><b>Definition:</b> listFace.cpp:30</div></div>
 <div class="ttc" id="struct_topology___html_aa8e322c6ad07a87561482796450c50ea"><div class="ttname"><a href="struct_topology__.html#aa8e322c6ad07a87561482796450c50ea">Topology_::ObjectArray</a></div><div class="ttdeci">ObjectClass ** ObjectArray</div><div class="ttdef"><b>Definition:</b> topology.h:5</div></div>
-<div class="ttc" id="class_list_face_html"><div class="ttname"><a href="class_list_face.html">ListFace</a></div><div class="ttdoc">Implementa estrutura de lista encadeada de faces utilizada na classe objeto. </div><div class="ttdef"><b>Definition:</b> listFace.h:14</div></div>
+<div class="ttc" id="class_list_face_html"><div class="ttname"><a href="class_list_face.html">ListFace</a></div><div class="ttdoc">Implementa estrutura de lista encadeada de faces utilizada na classe objeto. </div><div class="ttdef"><b>Definition:</b> listFace.h:16</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -424,7 +444,7 @@ Métodos Públicos Estáticos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quinta, 18 de Setembro de 2014 21:31:31 para Trabalho de Computação Gráfica por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 19 de Setembro de 2014 23:22:38 para Trabalho de Computação Gráfica por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

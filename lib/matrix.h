@@ -1,7 +1,7 @@
 /**
 *\file matrix.h
 *\class Matrix
-*\author Matheus Mayron, Cristiano e Caio Viktor
+*\authors Matheus Mayron, Cristiano e Caio Viktor
 *\brief Armazenar matrizes e facilitar as operações feitas com matrizes.
 */
 class Matrix

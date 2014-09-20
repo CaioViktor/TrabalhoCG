@@ -90,6 +90,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 
+<p>Implementa estrutura de lista encadeada de vertices utilizada na classe objeto.  
+ <a href="class_list_vertex.html#details">Mais...</a></p>
+
 <p><code>#include &lt;<a class="el" href="list_vertex_8h_source.html">listVertex.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -120,7 +123,10 @@ Atributos Privados</h2></td></tr>
 <tr class="memitem:a63110451c0314b232d0da56b4dd81f81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="list_vertex_8h.html#a3a5c7ea900cecba7067c2039dc63b13e">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_list_vertex.html#a63110451c0314b232d0da56b4dd81f81">last</a></td></tr>
 <tr class="separator:a63110451c0314b232d0da56b4dd81f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><p>Implementa estrutura de lista encadeada de vertices utilizada na classe objeto. </p>
+<dl class="section author"><dt>Autor</dt><dd>Caio Viktor </dd></dl>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="ad02b1a3408d6495353a8f52aa9992512"></a>
 <div class="memitem">
 <div class="memproto">
@@ -133,15 +139,16 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Construtor da classe <a class="el" href="class_list_vertex.html" title="Implementa estrutura de lista encadeada de vertices utilizada na classe objeto. ">ListVertex</a>. Inicia uma lista vazia. </p>
 <div class="fragment"><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                      {</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    this-&gt;<a class="code" href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">first</a> = NULL;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    this-&gt;<a class="code" href="class_list_vertex.html#a63110451c0314b232d0da56b4dd81f81">last</a> = NULL;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    this-&gt;<a class="code" href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">number</a> = 0;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">//cout &lt;&lt; &quot;Lista de Vertices criada com sucesso&quot; &lt;&lt; endl;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
-<div class="ttc" id="class_list_vertex_html_ae8d5afc0608d86f831cc70a2a0e4105b"><div class="ttname"><a href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">ListVertex::number</a></div><div class="ttdeci">int number</div><div class="ttdef"><b>Definition:</b> listVertex.h:9</div></div>
-<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:10</div></div>
-<div class="ttc" id="class_list_vertex_html_a63110451c0314b232d0da56b4dd81f81"><div class="ttname"><a href="class_list_vertex.html#a63110451c0314b232d0da56b4dd81f81">ListVertex::last</a></div><div class="ttdeci">Node * last</div><div class="ttdef"><b>Definition:</b> listVertex.h:10</div></div>
+<div class="ttc" id="class_list_vertex_html_ae8d5afc0608d86f831cc70a2a0e4105b"><div class="ttname"><a href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">ListVertex::number</a></div><div class="ttdeci">int number</div><div class="ttdef"><b>Definition:</b> listVertex.h:18</div></div>
+<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:19</div></div>
+<div class="ttc" id="class_list_vertex_html_a63110451c0314b232d0da56b4dd81f81"><div class="ttname"><a href="class_list_vertex.html#a63110451c0314b232d0da56b4dd81f81">ListVertex::last</a></div><div class="ttdeci">Node * last</div><div class="ttdef"><b>Definition:</b> listVertex.h:19</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -158,6 +165,12 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Construtor da classe <a class="el" href="class_list_vertex.html" title="Implementa estrutura de lista encadeada de vertices utilizada na classe objeto. ">ListVertex</a>, inicia a lista com um vértice passado como parâmetro. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertex</td><td>Ponteiro para um objeto do tipo <a class="el" href="class_vertex.html" title="Implementa a estrutra de vértice utilizada na construção de figuras geométricas pelo OpenGl...">Vertex</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                                    {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="struct_node__.html">Node</a> *node = <span class="keyword">new</span> <a class="code" href="list_vertex_8h.html#a3a5c7ea900cecba7067c2039dc63b13e">Node</a>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    node-&gt;<a class="code" href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">vertex</a> = vertex;</div>
@@ -167,13 +180,13 @@ Atributos Privados</h2></td></tr>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    this-&gt;<a class="code" href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">number</a> = 1;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">//cout &lt;&lt; &quot;Lista de Vertices criada com sucesso&quot; &lt;&lt; endl;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
-<div class="ttc" id="struct_node___html_ac9ece2193b853882151ad6fc9b29b152"><div class="ttname"><a href="struct_node__.html#ac9ece2193b853882151ad6fc9b29b152">Node_::next</a></div><div class="ttdeci">struct Node_ * next</div><div class="ttdef"><b>Definition:</b> listVertex.h:6</div></div>
-<div class="ttc" id="class_list_vertex_html_ae8d5afc0608d86f831cc70a2a0e4105b"><div class="ttname"><a href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">ListVertex::number</a></div><div class="ttdeci">int number</div><div class="ttdef"><b>Definition:</b> listVertex.h:9</div></div>
-<div class="ttc" id="struct_node___html_ac1e605a990691c254e25ec7eeebc6dcc"><div class="ttname"><a href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">Node_::vertex</a></div><div class="ttdeci">Vertex * vertex</div><div class="ttdef"><b>Definition:</b> listVertex.h:5</div></div>
-<div class="ttc" id="struct_node___html"><div class="ttname"><a href="struct_node__.html">Node_</a></div><div class="ttdef"><b>Definition:</b> listVertex.h:4</div></div>
-<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:10</div></div>
-<div class="ttc" id="list_vertex_8h_html_a3a5c7ea900cecba7067c2039dc63b13e"><div class="ttname"><a href="list_vertex_8h.html#a3a5c7ea900cecba7067c2039dc63b13e">Node</a></div><div class="ttdeci">struct Node_ Node</div></div>
-<div class="ttc" id="class_list_vertex_html_a63110451c0314b232d0da56b4dd81f81"><div class="ttname"><a href="class_list_vertex.html#a63110451c0314b232d0da56b4dd81f81">ListVertex::last</a></div><div class="ttdeci">Node * last</div><div class="ttdef"><b>Definition:</b> listVertex.h:10</div></div>
+<div class="ttc" id="struct_node___html_ac9ece2193b853882151ad6fc9b29b152"><div class="ttname"><a href="struct_node__.html#ac9ece2193b853882151ad6fc9b29b152">Node_::next</a></div><div class="ttdeci">struct Node_ * next</div><div class="ttdoc">Ponteiro para o nó posterior a ele. </div><div class="ttdef"><b>Definition:</b> listVertex.h:13</div></div>
+<div class="ttc" id="class_list_vertex_html_ae8d5afc0608d86f831cc70a2a0e4105b"><div class="ttname"><a href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">ListVertex::number</a></div><div class="ttdeci">int number</div><div class="ttdef"><b>Definition:</b> listVertex.h:18</div></div>
+<div class="ttc" id="struct_node___html_ac1e605a990691c254e25ec7eeebc6dcc"><div class="ttname"><a href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">Node_::vertex</a></div><div class="ttdeci">Vertex * vertex</div><div class="ttdoc">Ponteiro para um objeto do tipo Vertex armazenado pelo nó. </div><div class="ttdef"><b>Definition:</b> listVertex.h:12</div></div>
+<div class="ttc" id="struct_node___html"><div class="ttname"><a href="struct_node__.html">Node_</a></div><div class="ttdoc">Um nó da lista de vertices. </div><div class="ttdef"><b>Definition:</b> listVertex.h:11</div></div>
+<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:19</div></div>
+<div class="ttc" id="list_vertex_8h_html_a3a5c7ea900cecba7067c2039dc63b13e"><div class="ttname"><a href="list_vertex_8h.html#a3a5c7ea900cecba7067c2039dc63b13e">Node</a></div><div class="ttdeci">struct Node_ Node</div><div class="ttdoc">Um nó da lista de vertices. </div></div>
+<div class="ttc" id="class_list_vertex_html_a63110451c0314b232d0da56b4dd81f81"><div class="ttname"><a href="class_list_vertex.html#a63110451c0314b232d0da56b4dd81f81">ListVertex::last</a></div><div class="ttdeci">Node * last</div><div class="ttdef"><b>Definition:</b> listVertex.h:19</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -191,6 +204,13 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Aiciona um vertice passado como parâmetro na ultima posição da lista caso ele ainda não exista na lista. <br />
+ Caso contrário, ele retorna uma mensagem informando. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertex</td><td>Ponteiro para o vértice que se deseja adicionar. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                        {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="struct_node__.html">Node</a> *node = <span class="keyword">new</span> <a class="code" href="list_vertex_8h.html#a3a5c7ea900cecba7067c2039dc63b13e">Node</a>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    node-&gt;<a class="code" href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">vertex</a> = vertex;</div>
@@ -222,15 +242,15 @@ Atributos Privados</h2></td></tr>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            cout &lt;&lt; <span class="stringliteral">&quot;Vertice já existente&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="ttc" id="struct_node___html_ac9ece2193b853882151ad6fc9b29b152"><div class="ttname"><a href="struct_node__.html#ac9ece2193b853882151ad6fc9b29b152">Node_::next</a></div><div class="ttdeci">struct Node_ * next</div><div class="ttdef"><b>Definition:</b> listVertex.h:6</div></div>
+<div class="ttc" id="struct_node___html_ac9ece2193b853882151ad6fc9b29b152"><div class="ttname"><a href="struct_node__.html#ac9ece2193b853882151ad6fc9b29b152">Node_::next</a></div><div class="ttdeci">struct Node_ * next</div><div class="ttdoc">Ponteiro para o nó posterior a ele. </div><div class="ttdef"><b>Definition:</b> listVertex.h:13</div></div>
 <div class="ttc" id="class_vertex_html"><div class="ttname"><a href="class_vertex.html">Vertex</a></div><div class="ttdoc">Implementa a estrutra de vértice utilizada na construção de figuras geométricas pelo OpenGl...</div><div class="ttdef"><b>Definition:</b> vertex.h:8</div></div>
-<div class="ttc" id="class_list_vertex_html_ae8d5afc0608d86f831cc70a2a0e4105b"><div class="ttname"><a href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">ListVertex::number</a></div><div class="ttdeci">int number</div><div class="ttdef"><b>Definition:</b> listVertex.h:9</div></div>
+<div class="ttc" id="class_list_vertex_html_ae8d5afc0608d86f831cc70a2a0e4105b"><div class="ttname"><a href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">ListVertex::number</a></div><div class="ttdeci">int number</div><div class="ttdef"><b>Definition:</b> listVertex.h:18</div></div>
 <div class="ttc" id="class_list_vertex_html_a66a9b0150474a2feca5ee1af0f0da71e"><div class="ttname"><a href="class_list_vertex.html#a66a9b0150474a2feca5ee1af0f0da71e">ListVertex::isempty</a></div><div class="ttdeci">bool isempty()</div><div class="ttdef"><b>Definition:</b> listVertex.cpp:23</div></div>
-<div class="ttc" id="struct_node___html_ac1e605a990691c254e25ec7eeebc6dcc"><div class="ttname"><a href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">Node_::vertex</a></div><div class="ttdeci">Vertex * vertex</div><div class="ttdef"><b>Definition:</b> listVertex.h:5</div></div>
-<div class="ttc" id="struct_node___html"><div class="ttname"><a href="struct_node__.html">Node_</a></div><div class="ttdef"><b>Definition:</b> listVertex.h:4</div></div>
-<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:10</div></div>
-<div class="ttc" id="list_vertex_8h_html_a3a5c7ea900cecba7067c2039dc63b13e"><div class="ttname"><a href="list_vertex_8h.html#a3a5c7ea900cecba7067c2039dc63b13e">Node</a></div><div class="ttdeci">struct Node_ Node</div></div>
-<div class="ttc" id="class_list_vertex_html_a63110451c0314b232d0da56b4dd81f81"><div class="ttname"><a href="class_list_vertex.html#a63110451c0314b232d0da56b4dd81f81">ListVertex::last</a></div><div class="ttdeci">Node * last</div><div class="ttdef"><b>Definition:</b> listVertex.h:10</div></div>
+<div class="ttc" id="struct_node___html_ac1e605a990691c254e25ec7eeebc6dcc"><div class="ttname"><a href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">Node_::vertex</a></div><div class="ttdeci">Vertex * vertex</div><div class="ttdoc">Ponteiro para um objeto do tipo Vertex armazenado pelo nó. </div><div class="ttdef"><b>Definition:</b> listVertex.h:12</div></div>
+<div class="ttc" id="struct_node___html"><div class="ttname"><a href="struct_node__.html">Node_</a></div><div class="ttdoc">Um nó da lista de vertices. </div><div class="ttdef"><b>Definition:</b> listVertex.h:11</div></div>
+<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:19</div></div>
+<div class="ttc" id="list_vertex_8h_html_a3a5c7ea900cecba7067c2039dc63b13e"><div class="ttname"><a href="list_vertex_8h.html#a3a5c7ea900cecba7067c2039dc63b13e">Node</a></div><div class="ttdeci">struct Node_ Node</div><div class="ttdoc">Um nó da lista de vertices. </div></div>
+<div class="ttc" id="class_list_vertex_html_a63110451c0314b232d0da56b4dd81f81"><div class="ttname"><a href="class_list_vertex.html#a63110451c0314b232d0da56b4dd81f81">ListVertex::last</a></div><div class="ttdeci">Node * last</div><div class="ttdef"><b>Definition:</b> listVertex.h:19</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -247,6 +267,13 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retorna o vértice na posição passada por parâmetro. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Inteiro com a posicao desejada iniciando-se de 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Um ponteiro para o vértice ou <code>null</code> caso ele não exista. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                      {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span>(index &lt; this-&gt;<a class="code" href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">number</a>){</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="struct_node__.html">Node</a> *current = this-&gt;<a class="code" href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">first</a>;</div>
@@ -262,12 +289,12 @@ Atributos Privados</h2></td></tr>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
-<div class="ttc" id="struct_node___html_ac9ece2193b853882151ad6fc9b29b152"><div class="ttname"><a href="struct_node__.html#ac9ece2193b853882151ad6fc9b29b152">Node_::next</a></div><div class="ttdeci">struct Node_ * next</div><div class="ttdef"><b>Definition:</b> listVertex.h:6</div></div>
+<div class="ttc" id="struct_node___html_ac9ece2193b853882151ad6fc9b29b152"><div class="ttname"><a href="struct_node__.html#ac9ece2193b853882151ad6fc9b29b152">Node_::next</a></div><div class="ttdeci">struct Node_ * next</div><div class="ttdoc">Ponteiro para o nó posterior a ele. </div><div class="ttdef"><b>Definition:</b> listVertex.h:13</div></div>
 <div class="ttc" id="class_vertex_html"><div class="ttname"><a href="class_vertex.html">Vertex</a></div><div class="ttdoc">Implementa a estrutra de vértice utilizada na construção de figuras geométricas pelo OpenGl...</div><div class="ttdef"><b>Definition:</b> vertex.h:8</div></div>
-<div class="ttc" id="class_list_vertex_html_ae8d5afc0608d86f831cc70a2a0e4105b"><div class="ttname"><a href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">ListVertex::number</a></div><div class="ttdeci">int number</div><div class="ttdef"><b>Definition:</b> listVertex.h:9</div></div>
-<div class="ttc" id="struct_node___html_ac1e605a990691c254e25ec7eeebc6dcc"><div class="ttname"><a href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">Node_::vertex</a></div><div class="ttdeci">Vertex * vertex</div><div class="ttdef"><b>Definition:</b> listVertex.h:5</div></div>
-<div class="ttc" id="struct_node___html"><div class="ttname"><a href="struct_node__.html">Node_</a></div><div class="ttdef"><b>Definition:</b> listVertex.h:4</div></div>
-<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:10</div></div>
+<div class="ttc" id="class_list_vertex_html_ae8d5afc0608d86f831cc70a2a0e4105b"><div class="ttname"><a href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">ListVertex::number</a></div><div class="ttdeci">int number</div><div class="ttdef"><b>Definition:</b> listVertex.h:18</div></div>
+<div class="ttc" id="struct_node___html_ac1e605a990691c254e25ec7eeebc6dcc"><div class="ttname"><a href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">Node_::vertex</a></div><div class="ttdeci">Vertex * vertex</div><div class="ttdoc">Ponteiro para um objeto do tipo Vertex armazenado pelo nó. </div><div class="ttdef"><b>Definition:</b> listVertex.h:12</div></div>
+<div class="ttc" id="struct_node___html"><div class="ttname"><a href="struct_node__.html">Node_</a></div><div class="ttdoc">Um nó da lista de vertices. </div><div class="ttdef"><b>Definition:</b> listVertex.h:11</div></div>
+<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:19</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -283,13 +310,14 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Verifica se a lista está vazia. </p><dl class="section return"><dt>Retorna</dt><dd>Valor <code>true</code> caso ela esteja vazia e <code>false</code> caso contrário. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                        {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="class_list_vertex.html#a63110451c0314b232d0da56b4dd81f81">last</a> == NULL)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="ttc" id="class_list_vertex_html_a63110451c0314b232d0da56b4dd81f81"><div class="ttname"><a href="class_list_vertex.html#a63110451c0314b232d0da56b4dd81f81">ListVertex::last</a></div><div class="ttdeci">Node * last</div><div class="ttdef"><b>Definition:</b> listVertex.h:10</div></div>
+<div class="ttc" id="class_list_vertex_html_a63110451c0314b232d0da56b4dd81f81"><div class="ttname"><a href="class_list_vertex.html#a63110451c0314b232d0da56b4dd81f81">ListVertex::last</a></div><div class="ttdeci">Node * last</div><div class="ttdef"><b>Definition:</b> listVertex.h:19</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -305,6 +333,7 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Printa as coordenadas X de todos os vértices da lista (Utilizada para teste). Protótipo da função de transformação. </p>
 <div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                     {</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="struct_node__.html">Node</a> *current = this-&gt;<a class="code" href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">first</a>;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">while</span>(current != NULL){</div>
@@ -313,12 +342,12 @@ Atributos Privados</h2></td></tr>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        current = current-&gt;<a class="code" href="struct_node__.html#ac9ece2193b853882151ad6fc9b29b152">next</a>;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
-<div class="ttc" id="struct_node___html_ac9ece2193b853882151ad6fc9b29b152"><div class="ttname"><a href="struct_node__.html#ac9ece2193b853882151ad6fc9b29b152">Node_::next</a></div><div class="ttdeci">struct Node_ * next</div><div class="ttdef"><b>Definition:</b> listVertex.h:6</div></div>
+<div class="ttc" id="struct_node___html_ac9ece2193b853882151ad6fc9b29b152"><div class="ttname"><a href="struct_node__.html#ac9ece2193b853882151ad6fc9b29b152">Node_::next</a></div><div class="ttdeci">struct Node_ * next</div><div class="ttdoc">Ponteiro para o nó posterior a ele. </div><div class="ttdef"><b>Definition:</b> listVertex.h:13</div></div>
 <div class="ttc" id="class_vertex_html"><div class="ttname"><a href="class_vertex.html">Vertex</a></div><div class="ttdoc">Implementa a estrutra de vértice utilizada na construção de figuras geométricas pelo OpenGl...</div><div class="ttdef"><b>Definition:</b> vertex.h:8</div></div>
-<div class="ttc" id="struct_node___html_ac1e605a990691c254e25ec7eeebc6dcc"><div class="ttname"><a href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">Node_::vertex</a></div><div class="ttdeci">Vertex * vertex</div><div class="ttdef"><b>Definition:</b> listVertex.h:5</div></div>
+<div class="ttc" id="struct_node___html_ac1e605a990691c254e25ec7eeebc6dcc"><div class="ttname"><a href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">Node_::vertex</a></div><div class="ttdeci">Vertex * vertex</div><div class="ttdoc">Ponteiro para um objeto do tipo Vertex armazenado pelo nó. </div><div class="ttdef"><b>Definition:</b> listVertex.h:12</div></div>
 <div class="ttc" id="class_vertex_html_aa5d082eb4252de4e6728593ae4ce054b"><div class="ttname"><a href="class_vertex.html#aa5d082eb4252de4e6728593ae4ce054b">Vertex::showVertex</a></div><div class="ttdeci">void showVertex()</div><div class="ttdef"><b>Definition:</b> vertex.cpp:53</div></div>
-<div class="ttc" id="struct_node___html"><div class="ttname"><a href="struct_node__.html">Node_</a></div><div class="ttdef"><b>Definition:</b> listVertex.h:4</div></div>
-<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:10</div></div>
+<div class="ttc" id="struct_node___html"><div class="ttname"><a href="struct_node__.html">Node_</a></div><div class="ttdoc">Um nó da lista de vertices. </div><div class="ttdef"><b>Definition:</b> listVertex.h:11</div></div>
+<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:19</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -334,9 +363,10 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Retorna</dt><dd>O número de vértices existentes na lista </dd></dl>
 <div class="fragment"><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                            {</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">number</a>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}<div class="ttc" id="class_list_vertex_html_ae8d5afc0608d86f831cc70a2a0e4105b"><div class="ttname"><a href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">ListVertex::number</a></div><div class="ttdeci">int number</div><div class="ttdef"><b>Definition:</b> listVertex.h:9</div></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}<div class="ttc" id="class_list_vertex_html_ae8d5afc0608d86f831cc70a2a0e4105b"><div class="ttname"><a href="class_list_vertex.html#ae8d5afc0608d86f831cc70a2a0e4105b">ListVertex::number</a></div><div class="ttdeci">int number</div><div class="ttdef"><b>Definition:</b> listVertex.h:18</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -353,6 +383,12 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Aplica uma transformação em todos os vértices da lista. Percorre a lista multiplicando cada vértice pela matriz passada. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>Um ponteiro para um objeto do tipo <a class="el" href="class_matrix.html" title="Armazenar matrizes e facilitar as operações feitas com matrizes. ">Matrix</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                             {</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="struct_node__.html">Node</a> *currentNode = this-&gt;<a class="code" href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">first</a>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">while</span>(currentNode != NULL){</div>
@@ -363,11 +399,11 @@ Atributos Privados</h2></td></tr>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">//cout &lt;&lt; &quot;Transformação aplicada com sucesso sobre a lista de vertices\n&quot;;</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
-<div class="ttc" id="struct_node___html_ac9ece2193b853882151ad6fc9b29b152"><div class="ttname"><a href="struct_node__.html#ac9ece2193b853882151ad6fc9b29b152">Node_::next</a></div><div class="ttdeci">struct Node_ * next</div><div class="ttdef"><b>Definition:</b> listVertex.h:6</div></div>
+<div class="ttc" id="struct_node___html_ac9ece2193b853882151ad6fc9b29b152"><div class="ttname"><a href="struct_node__.html#ac9ece2193b853882151ad6fc9b29b152">Node_::next</a></div><div class="ttdeci">struct Node_ * next</div><div class="ttdoc">Ponteiro para o nó posterior a ele. </div><div class="ttdef"><b>Definition:</b> listVertex.h:13</div></div>
 <div class="ttc" id="class_vertex_html"><div class="ttname"><a href="class_vertex.html">Vertex</a></div><div class="ttdoc">Implementa a estrutra de vértice utilizada na construção de figuras geométricas pelo OpenGl...</div><div class="ttdef"><b>Definition:</b> vertex.h:8</div></div>
-<div class="ttc" id="struct_node___html_ac1e605a990691c254e25ec7eeebc6dcc"><div class="ttname"><a href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">Node_::vertex</a></div><div class="ttdeci">Vertex * vertex</div><div class="ttdef"><b>Definition:</b> listVertex.h:5</div></div>
-<div class="ttc" id="struct_node___html"><div class="ttname"><a href="struct_node__.html">Node_</a></div><div class="ttdef"><b>Definition:</b> listVertex.h:4</div></div>
-<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:10</div></div>
+<div class="ttc" id="struct_node___html_ac1e605a990691c254e25ec7eeebc6dcc"><div class="ttname"><a href="struct_node__.html#ac1e605a990691c254e25ec7eeebc6dcc">Node_::vertex</a></div><div class="ttdeci">Vertex * vertex</div><div class="ttdoc">Ponteiro para um objeto do tipo Vertex armazenado pelo nó. </div><div class="ttdef"><b>Definition:</b> listVertex.h:12</div></div>
+<div class="ttc" id="struct_node___html"><div class="ttname"><a href="struct_node__.html">Node_</a></div><div class="ttdoc">Um nó da lista de vertices. </div><div class="ttdef"><b>Definition:</b> listVertex.h:11</div></div>
+<div class="ttc" id="class_list_vertex_html_aed1673434e3917f77e2c70c744e327f3"><div class="ttname"><a href="class_list_vertex.html#aed1673434e3917f77e2c70c744e327f3">ListVertex::first</a></div><div class="ttdeci">Node * first</div><div class="ttdef"><b>Definition:</b> listVertex.h:19</div></div>
 <div class="ttc" id="class_vector_html"><div class="ttname"><a href="class_vector.html">Vector</a></div><div class="ttdoc">Classe responsável pela implementação de estrutura de vetores de coordenadas 4X1. ...</div><div class="ttdef"><b>Definition:</b> vector.h:8</div></div>
 <div class="ttc" id="class_vertex_html_a7db12a588b5e91d5529bf75448799f2b"><div class="ttname"><a href="class_vertex.html#a7db12a588b5e91d5529bf75448799f2b">Vertex::toVector</a></div><div class="ttdeci">Vector * toVector()</div><div class="ttdef"><b>Definition:</b> vertex.cpp:96</div></div>
 <div class="ttc" id="class_vector_html_a6db126151d0311e2fa09b39415963cea"><div class="ttname"><a href="class_vector.html#a6db126151d0311e2fa09b39415963cea">Vector::multiplicationMatrix</a></div><div class="ttdeci">void multiplicationMatrix(Matrix *)</div><div class="ttdef"><b>Definition:</b> vector.cpp:62</div></div>
@@ -442,7 +478,7 @@ Atributos Privados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quinta, 18 de Setembro de 2014 21:31:31 para Trabalho de Computação Gráfica por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 19 de Setembro de 2014 23:22:38 para Trabalho de Computação Gráfica por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

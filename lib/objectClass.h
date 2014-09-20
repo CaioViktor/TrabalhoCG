@@ -1,47 +1,163 @@
-/* object.h - Cristiano Melo e Lucas Falcão
-*  Implemanta a estrutra de objeto
+/**
+*\file objectClass.h
+*\class ObjectClass
+*\author Cristiano Melo & Lucas Falcão & Caio Viktor
+*\brief Implemanta a estrutra de objeto
 */
 
 class ObjectClass{
-    //Nome do objeto
+	/**
+	*	Nome do objeto
+	*/
 	std::string name; 
-	//Lista de Vertice
+
+	/**
+	*	Lista de vértices
+	*/
 	ListVertex *list_vertex ; 
-	//Numero de Vertices
+
+	/**
+	*	Número de vértices
+	*/
 	int number_vertex;
-	//Lista de Face
+
+	/**
+	*	Lista de faces
+	*/
 	ListFace *list_face; 
-	//Numero de Faces
+
+	/**
+	*	Número de faces
+	*/
 	int number_face;
-	//Cores:
+
+
+	/**
+	*	Cor R
+	*/
     float R;
+
+	/**
+	*	Cor G
+	*/
     float G;
+
+	/**
+	*	Cor B
+	*/
     float B;
-    
-	//Vertex *Centroid;
+
+	/**
+	*	Centróide
+	*/    
 	Vector *centroid;
 	
 public:
-	//Builder	
+
+	/**
+	*	Constrói o objeto
+	*/
 	ObjectClass();
 	
-	
+
+	/**
+	*	Desenha o objeto
+	*	\param mode Constante que define o modo em que será desenhado. <br>
+	*	GL_LINE_LOOP - Desenha face "aramada". <br>
+	*	GL_POLYGON -   Desenha face preenchida.
+	*/
 	void drawObject( unsigned int mode );
+
+	/**
+	*	Aplica transformaÃ§Ã£o no objeto
+	*	\param transformationMatrix Matrix de transformação
+	*/
 	void applyTransformation( Matrix *transformationMatrix );
+
+	/**
+	*	Configura o nome do objeto
+	*	\param list_face Novo nome do objeto
+	*/
 	void setName(std::string Name );
+
+	/**
+	*	Configura a lista de vértices do objeto
+	*	\param list_vertex Nova lista de vértices
+	*/
 	void setListVertex( ListVertex *list_vertex );
+
+	/**
+	*	Configura a lista de faces do objeto
+	*	\param list_face Nova lista de faces
+	*/
 	void setListFace( ListFace *list_face );
+
+	/**
+	*	Configura a cor R do objeto.
+	*	\param R Valor na faixa de 0.0 a 1.0
+	*/
 	void setColorR( float R );
+
+	/**
+	*	Configura a cor G do objeto.
+	*	\param G Valor na faixa de 0.0 a 1.0
+	*/
 	void setColorG( float G );
+
+	/**
+	*	Configura a cor B do objeto.
+	*	\param B Valor na faixa de 0.0 a 1.0
+	*/
 	void setColorB( float B );
+
+	/**
+	*	\return	Nome do objeto.
+	*/
 	std::string getName();
+
+	/**
+	*	\return	Lista de vÃ©rtices do objeto.
+	*/
 	ListVertex* getListVertex();
+
+	/**
+	*	\return	Lista de faces do objeto.
+	*/
 	ListFace* getListFace();
+
+	/**
+	*	\return	Cor R do objeto.
+	*/
 	float getCollorR();
+
+	/**
+	*	\return	Cor G do objeto.
+	*/
 	float getCollorG();
+
+	/**
+	*	\return	Cor B do objeto.
+	*/
 	float getCollorB();
+
+	/**
+	*	\return	O número de vértices do Objeto.
+	*/
 	int getNumberVertex();
+
+	/**
+	*	\return	O número de faces do Objeto.
+	*/
 	int getNumberFace();
+
+	/**
+	* 	Atualiza a centroide do objeto. <br>
+	* 	A coordenada homogênia está sendo setada com 1.
+	*/
 	void updateCentroide();
+
+	/**
+	*	\return	Centróide do objeto.
+	*/
 	Vector* getCentroid();
 };

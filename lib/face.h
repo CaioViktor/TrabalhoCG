@@ -1,8 +1,8 @@
 /**
 *\file face.h
 *\class Face
-*\author Geraldo Braz Duarte Filho
-*\brief Implementação de uma face de 3 vértices
+*\author Geraldo Braz Duarte Filho & Caio Viktor
+*\brief Implementação de face de 3 vértices
 */
 
 class Face{
@@ -53,17 +53,17 @@ public:
 	void setVertice3(Vertex *vertice);
 
 	/**
-	*	\return	Vertice 1 da face.
+	*	\return	Vértice 1 da face.
 	*/
 	Vertex* getVertice1();
 
 	/**
-	*	\return	Vertice 2 da face.
+	*	\return	Vértice 2 da face.
 	*/
 	Vertex* getVertice2();
 
 	/**
-	*	\return	Vertice 3 da face.
+	*	\return	Vértice 3 da face.
 	*/
 	Vertex* getVertice3();
 
@@ -73,9 +73,24 @@ public:
 	Vector* getNormal();
 
 private:
+	/**
+	*	Vértice 1
+	*/
 	Vertex *vertice1;
+
+	/**
+	*	Vértice 2
+	*/
 	Vertex *vertice2;
+
+	/**
+	*	Vértice 2
+	*/
 	Vertex *vertice3;
+
+	/**
+	*	Normal
+	*/
 	Vector *normal;
 
 };

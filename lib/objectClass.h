@@ -33,17 +33,17 @@ class ObjectClass{
 
 
 	/**
-	*	Cor R
+	*	Cor Red
 	*/
     float R;
 
 	/**
-	*	Cor G
+	*	Cor Green
 	*/
     float G;
 
 	/**
-	*	Cor B
+	*	Cor Blue
 	*/
     float B;
 
@@ -126,17 +126,17 @@ public:
 	ListFace* getListFace();
 
 	/**
-	*	\return	Cor R do objeto.
+	*	\return	Cor Red do objeto.
 	*/
 	float getCollorR();
 
 	/**
-	*	\return	Cor G do objeto.
+	*	\return	Cor Green do objeto.
 	*/
 	float getCollorG();
 
 	/**
-	*	\return	Cor B do objeto.
+	*	\return	Cor Blue do objeto.
 	*/
 	float getCollorB();
 

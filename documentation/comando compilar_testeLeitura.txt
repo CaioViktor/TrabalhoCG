@@ -1,5 +1,0 @@
-Comando que estou usando para compilar:
-Entre na pasta src/ e então:
-
-g++ leitor.cpp Tests/testeLeitura.cpp vector.cpp matrix.cpp vertex.cpp listVertex.cpp objectClass.cpp listFace.cpp face.cpp -o a
-

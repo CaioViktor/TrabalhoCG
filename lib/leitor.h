@@ -2,7 +2,7 @@
 *\file leitor.h
 *\class Leitor
 *\author Francisco Lucas Falcão Pereira 
-*\brief Implementa estrutura de lista encadeada de faces utilizada na classe objeto.
+*\brief Usada para transformar .obj em nossa estrutura topológica.
 */
 
 class Leitor{

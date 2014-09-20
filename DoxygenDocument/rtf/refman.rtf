@@ -84,7 +84,7 @@
 {\info 
 {\title {\comment Trabalho de Computa\'E7\'E3o Gr\'E1fica }Trabalho de Computa\'E7\'E3o Gr\'E1fica}
 {\comment Gerado porDoxgyen. }
-{\creatim \yr2014\mo9\dy19\hr23\min22\sec38}
+{\creatim \yr2014\mo9\dy20\hr0\min14\sec2}
 }\pard\plain 
 \sectd\pgnlcrm
 {\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
@@ -177,7 +177,7 @@ Lista de Componentes\par \pard\plain
 {\b {\b Face} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADZ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b Leitor} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Implementa estrutura de lista encadeada de faces utilizada na classe objeto })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEP \\*MERGEFORMAT}{\fldrslt pagenum}}
+Usada para transformar .obj em nossa estrutura topol\'F3gica })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEP \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b ListFace} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Implementa estrutura de lista encadeada de faces utilizada na classe objeto })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAES \\*MERGEFORMAT}{\fldrslt pagenum}}
@@ -601,7 +601,7 @@ Refer\'EAncia da Classe Leitor\par \pard\plain
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Implementa estrutura de lista encadeada de faces utilizada na classe objeto. }}\par
+Usada para transformar .obj em nossa estrutura topol\'F3gica. }}\par
 {
 {\f2 #include <leitor.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -620,7 +620,7 @@ Descri\'E7\'E3o Detalhada\par
 \pard\plain 
 {
 \pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Implementa estrutura de lista encadeada de faces utilizada na classe objeto. \par
+Usada para transformar .obj em nossa estrutura topol\'F3gica. \par
 }
 
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -4460,7 +4460,7 @@ Componentes\par
 class {\b Leitor}\par
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Implementa estrutura de lista encadeada de faces utilizada na classe objeto. }}}
+Usada para transformar .obj em nossa estrutura topol\'F3gica. }}}
 }
 \par \pard\plain 
 
@@ -5160,9 +5160,9 @@ void init (void )}}
 58     //eixo x horizontal\par
 59     eyex = 0.0;\par
 60     //eixo y vertical\par
-61     eyey = 0.0;\par
+61     eyey = 2.0;\par
 62     //eixo z perpendicular cresce para fora se valor for alto pode sair do volume de proje\'E7\'E3o\par
-63     eyez = 10.0;\par
+63     eyez = 7.0;\par
 64     //origem de referencial da c\'E2mera (0,0,0 \'E9 a origem do global)\par
 65     centrox=0.0;\par
 66     centroy=0.0;\par
@@ -5334,8 +5334,8 @@ void input (unsigned char {\i tecla}, int {\i x}, int {\i y})}}
 123         case 'O':\par
 124         case 'o':\par
 125             eyex = 0.0;\par
-126             eyey = 0.0;\par
-127             eyez = 10.0;\par
+126             eyey = 2.0;\par
+127             eyez = 7.0;\par
 128             centrox=0.0;\par
 129             centroy=0.0;\par
 130             centroz=0.0;\par

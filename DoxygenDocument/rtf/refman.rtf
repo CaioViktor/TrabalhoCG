@@ -84,7 +84,7 @@
 {\info 
 {\title {\comment Trabalho de Computa\'E7\'E3o Gr\'E1fica }Trabalho de Computa\'E7\'E3o Gr\'E1fica}
 {\comment Gerado porDoxgyen. }
-{\creatim \yr2014\mo9\dy20\hr12\min7\sec39}
+{\creatim \yr2014\mo9\dy20\hr15\min49\sec1}
 }\pard\plain 
 \sectd\pgnlcrm
 {\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
@@ -175,7 +175,7 @@ Lista de Componentes\par \pard\plain
 \par
 \pard\plain \s71\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
 {\b {\b Face} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Implementa\'E7\'E3o de uma face de 3 v\'E9rtices })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADZ \\*MERGEFORMAT}{\fldrslt pagenum}}
+Implementa\'E7\'E3o de face de 3 v\'E9rtices })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADZ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b Leitor} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Usada para transformar .obj em nossa estrutura topol\'F3gica })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEP \\*MERGEFORMAT}{\fldrslt pagenum}}
@@ -198,7 +198,8 @@ Um n\'F3 da lista de vertices })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAA
 {\b {\b NodeFace_} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Um n\'F3 da lista de faces })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAGP \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b ObjectClass} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAGS \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b ObjectClass} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implemanta a estrutra de objeto })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAGS \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b stackMatrix} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Armazenar matrizes e facilitar as opera\'E7\'F5es feitas com matrizes })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHV \\*MERGEFORMAT}{\fldrslt pagenum}}
@@ -296,7 +297,7 @@ Refer\'EAncia da Classe Face\par \pard\plain
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Implementa\'E7\'E3o de uma face de 3 v\'E9rtices. }}\par
+Implementa\'E7\'E3o de face de 3 v\'E9rtices. }}\par
 {
 {\f2 #include <face.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -347,13 +348,13 @@ Descri\'E7\'E3o Detalhada\par
 \pard\plain 
 {
 \pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Implementa\'E7\'E3o de uma face de 3 v\'E9rtices. \par
+Implementa\'E7\'E3o de face de 3 v\'E9rtices. \par
 }
 
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Geraldo Braz Duarte Filho \par
+Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Geraldo Braz Duarte Filho & Caio Viktor \par
 }}}
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -492,7 +493,7 @@ Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Normal 
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Vertice 1 da face. \par
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid V\'E9rtice 1 da face. \par
 }}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 27                          \{\par
 28     return this->vertice1;\par
@@ -512,7 +513,7 @@ Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Vertice
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Vertice 2 da face. \par
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid V\'E9rtice 2 da face. \par
 }}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 31                          \{\par
 32     return vertice2;\par
@@ -532,7 +533,7 @@ Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Vertice
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Vertice 3 da face. \par
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid V\'E9rtice 3 da face. \par
 }}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 35                          \{\par
 36     return vertice3;\par
@@ -657,7 +658,9 @@ Atributos\par
 {\bkmkend AAAAAAAAEL}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Normal \par
+}}
 {\xe \v vertice1\:Face}
 {\xe \v Face\:vertice1}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
@@ -668,7 +671,9 @@ Atributos\par
 {\bkmkend AAAAAAAAEM}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+V\'E9rtice 1 \par
+}}
 {\xe \v vertice2\:Face}
 {\xe \v Face\:vertice2}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
@@ -679,7 +684,9 @@ Atributos\par
 {\bkmkend AAAAAAAAEN}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+V\'E9rtice 2 \par
+}}
 {\xe \v vertice3\:Face}
 {\xe \v Face\:vertice3}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
@@ -690,7 +697,9 @@ Atributos\par
 {\bkmkend AAAAAAAAEO}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+V\'E9rtice 2 \par
+}}
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 A documenta\'E7\'E3o para esta classe foi gerada a partir dos seguintes arquivos:{\par
 \pard\plain \s81\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls2\adjustright \fs20\cgrid 
@@ -2722,6 +2731,9 @@ Refer\'EAncia da Classe ObjectClass\par \pard\plain
 {\bkmkend AAAAAAAAGS}
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implemanta a estrutra de objeto. }}\par
+{
 {\f2 #include <objectClass.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 M\'E9todos P\'FAblicos\par
@@ -2793,6 +2805,20 @@ float {\b B}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Descri\'E7\'E3o Detalhada\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implemanta a estrutra de objeto. \par
+}
+
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Cristiano Melo & Lucas Falc\'E3o & Caio Viktor \par
+}}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Construtores & Destrutores\par
 \pard\plain 
 {\xe \v ObjectClass\:ObjectClass}
@@ -2805,7 +2831,9 @@ ObjectClass::ObjectClass ()}}
 {\bkmkend AAAAAAAAGT}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Constr\'F3i o objeto \par
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 4                         \{\par
 5     //Nome do objeto\par
 6     this->name = "";\par
@@ -2846,7 +2874,18 @@ void ObjectClass::applyTransformation ({\b Matrix} * {\i transformationMatrix})}
 {\bkmkend AAAAAAAAGU}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Aplica transforma\'E7\'F5es no objeto {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i transformationMatrix} \cell }{{\b Matrix} de transforma\'E7\'E3o \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 39                                                                    \{ \par
 40      this->list_vertex->transformation( transformationMatrix );\par
 41      this->updateCentroide();\par
@@ -2863,7 +2902,20 @@ void ObjectClass::drawObject (unsigned int {\i mode})}}
 {\bkmkend AAAAAAAAGV}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Desenha o objeto {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i mode} \cell }{Constante que define o modo em que ser\'E1 desenhado. \par
+ GL_LINE_LOOP - Desenha face "aramada". \par
+ GL_POLYGON - Desenha face preenchida. \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 30                                                              \{\par
 31     glColor3f(this->R,this->G,this->B);   \par
 32     if(modeExibitionValue == GL_POLYGON)\par
@@ -2883,7 +2935,11 @@ void ObjectClass::drawObject (unsigned int {\i mode})}}
 {\bkmkend AAAAAAAAGW}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Centr\'F3ide do objeto. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 142                                 \{\par
 143     return this->centroid;\par
 144 \}}
@@ -2898,7 +2954,11 @@ float ObjectClass::getCollorB ()}}
 {\bkmkend AAAAAAAAGX}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Cor B do objeto. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 109                              \{\par
 110       return this->B;\par
 111 \}\par
@@ -2914,7 +2974,11 @@ float ObjectClass::getCollorG ()}}
 {\bkmkend AAAAAAAAGY}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Cor G do objeto. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 104                              \{\par
 105       return this->G;\par
 106 \}\par
@@ -2930,7 +2994,11 @@ float ObjectClass::getCollorR ()}}
 {\bkmkend AAAAAAAAGZ}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Cor R do objeto. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 99                              \{\par
 100       return this->R;\par
 101 \}\par
@@ -2946,7 +3014,11 @@ float ObjectClass::getCollorR ()}}
 {\bkmkend AAAAAAAAHA}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Lista de faces do objeto. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 94                                   \{\par
 95     return this->list_face;\par
 96 \}\par
@@ -2962,7 +3034,11 @@ float ObjectClass::getCollorR ()}}
 {\bkmkend AAAAAAAAHB}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Lista de v\'C3\'A9rtices do objeto. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 89                                       \{\par
 90     return this->list_vertex;\par
 91 \}\par
@@ -2978,7 +3054,11 @@ std::string ObjectClass::getName ()}}
 {\bkmkend AAAAAAAAHC}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Nome do objeto. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 84                               \{\par
 85     return this->name;\par
 86 \}\par
@@ -2994,7 +3074,11 @@ int ObjectClass::getNumberFace ()}}
 {\bkmkend AAAAAAAAHD}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid O n\'FAmero de faces do Objeto. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 119                               \{\par
 120     return this->number_face;\par
 121 \}\par
@@ -3010,7 +3094,11 @@ int ObjectClass::getNumberVertex ()}}
 {\bkmkend AAAAAAAAHE}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid O n\'FAmero de v\'E9rtices do Objeto. \par
+}}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 114                                 \{\par
 115     return this->number_vertex;\par
 116 \}\par
@@ -3026,7 +3114,18 @@ void ObjectClass::setColorB (float {\i B})}}
 {\bkmkend AAAAAAAAHF}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Configura a cor B do objeto. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i B} \cell }{Valor na faixa de 0.0 a 1.0 \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 76                                     \{\par
 77      this->B = B;\par
 78 \}\par
@@ -3042,7 +3141,18 @@ void ObjectClass::setColorG (float {\i G})}}
 {\bkmkend AAAAAAAAHG}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Configura a cor G do objeto. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i G} \cell }{Valor na faixa de 0.0 a 1.0 \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 71                                     \{\par
 72      this->G = G;\par
 73 \}\par
@@ -3058,7 +3168,18 @@ void ObjectClass::setColorR (float {\i R})}}
 {\bkmkend AAAAAAAAHH}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Configura a cor R do objeto. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i R} \cell }{Valor na faixa de 0.0 a 1.0 \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 66                                     \{\par
 67      this->R = R;\par
 68 \}\par
@@ -3074,7 +3195,18 @@ void ObjectClass::setListFace ({\b ListFace} * {\i list_face})}}
 {\bkmkend AAAAAAAAHI}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Configura a lista de faces do objeto {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i list_face} \cell }{Nova lista de faces \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 59                                                   \{\par
 60      this->list_face = list_face;\par
 61      this->number_face = list_face->numberFaces();\par
@@ -3092,7 +3224,18 @@ void ObjectClass::setListVertex ({\b ListVertex} * {\i list_vertex})}}
 {\bkmkend AAAAAAAAHJ}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Configura a lista de v\'E9rtices do objeto {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i list_vertex} \cell }{Nova lista de v\'E9rtices \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 53                                                         \{\par
 54     this->list_vertex = list_vertex;\par
 55     this->number_vertex = list_vertex->numberVertex();\par
@@ -3109,7 +3252,18 @@ void ObjectClass::setName (std::string {\i Name})}}
 {\bkmkend AAAAAAAAHK}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Configura o nome do objeto {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i Name} \cell }{Novo nome do objeto \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 48                                          \{\par
 49     this->name = Name;\par
 50 \}\par
@@ -3125,7 +3279,10 @@ void ObjectClass::updateCentroide ()}}
 {\bkmkend AAAAAAAAHL}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Atualiza a centroide do objeto. \par
+ A coordenada homog\'EAnia est\'E1 sendo setada com 1. \par
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 125                                  \{\par
 126     for(int c = 0;c<4;c++)\par
 127         this->centroid->setValue(c,(double)0);\par
@@ -3159,7 +3316,9 @@ float ObjectClass::B{\f2 [private]}}}
 {\bkmkend AAAAAAAAHM}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Cor B \par
+}}
 {\xe \v centroid\:ObjectClass}
 {\xe \v ObjectClass\:centroid}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
@@ -3170,7 +3329,9 @@ float ObjectClass::B{\f2 [private]}}}
 {\bkmkend AAAAAAAAHN}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Centr\'F3ide \par
+}}
 {\xe \v G\:ObjectClass}
 {\xe \v ObjectClass\:G}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
@@ -3181,7 +3342,9 @@ float ObjectClass::G{\f2 [private]}}}
 {\bkmkend AAAAAAAAHO}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Cor G \par
+}}
 {\xe \v list_face\:ObjectClass}
 {\xe \v ObjectClass\:list_face}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
@@ -3192,7 +3355,9 @@ float ObjectClass::G{\f2 [private]}}}
 {\bkmkend AAAAAAAAHP}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Lista de faces \par
+}}
 {\xe \v list_vertex\:ObjectClass}
 {\xe \v ObjectClass\:list_vertex}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
@@ -3203,7 +3368,9 @@ float ObjectClass::G{\f2 [private]}}}
 {\bkmkend AAAAAAAAHQ}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Lista de v\'E9rtices \par
+}}
 {\xe \v name\:ObjectClass}
 {\xe \v ObjectClass\:name}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
@@ -3214,7 +3381,9 @@ std::string ObjectClass::name{\f2 [private]}}}
 {\bkmkend AAAAAAAAHR}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Nome do objeto \par
+}}
 {\xe \v number_face\:ObjectClass}
 {\xe \v ObjectClass\:number_face}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
@@ -3225,7 +3394,9 @@ int ObjectClass::number_face{\f2 [private]}}}
 {\bkmkend AAAAAAAAHS}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+N\'FAmero de faces \par
+}}
 {\xe \v number_vertex\:ObjectClass}
 {\xe \v ObjectClass\:number_vertex}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
@@ -3236,7 +3407,9 @@ int ObjectClass::number_vertex{\f2 [private]}}}
 {\bkmkend AAAAAAAAHT}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+N\'FAmero de v\'E9rtices \par
+}}
 {\xe \v R\:ObjectClass}
 {\xe \v ObjectClass\:R}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
@@ -3247,7 +3420,9 @@ float ObjectClass::R{\f2 [private]}}}
 {\bkmkend AAAAAAAAHU}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Cor R \par
+}}
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 A documenta\'E7\'E3o para esta classe foi gerada a partir dos seguintes arquivos:{\par
 \pard\plain \s81\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls2\adjustright \fs20\cgrid 
@@ -4616,7 +4791,7 @@ Componentes\par
 class {\b Face}\par
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Implementa\'E7\'E3o de uma face de 3 v\'E9rtices. }}}
+Implementa\'E7\'E3o de face de 3 v\'E9rtices. }}}
 }
 \par \pard\plain 
 
@@ -4823,6 +4998,9 @@ Componentes\par
 {
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 class {\b ObjectClass}\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implemanta a estrutra de objeto. }}}
 }
 \par \pard\plain 
 

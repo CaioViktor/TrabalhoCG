@@ -1,7 +1,7 @@
 /**
 *\file objectClass.h
 *\class ObjectClass
-*\author Cristiano Melo & Lucas Falcão & Caio Viktor
+*\author Cristiano Melo & Lucas FalcÃ£o & Caio Viktor
 *\brief Implemanta a estrutra de objeto
 */
 
@@ -12,12 +12,12 @@ class ObjectClass{
 	std::string name; 
 
 	/**
-	*	Lista de vértices
+	*	Lista de vÃ©rtices
 	*/
 	ListVertex *list_vertex ; 
 
 	/**
-	*	Número de vértices
+	*	NÃºmero de vÃ©rtices
 	*/
 	int number_vertex;
 
@@ -27,7 +27,7 @@ class ObjectClass{
 	ListFace *list_face; 
 
 	/**
-	*	Número de faces
+	*	NÃºmero de faces
 	*/
 	int number_face;
 
@@ -48,41 +48,41 @@ class ObjectClass{
     float B;
 
 	/**
-	*	Centróide
+	*	CentrÃ³ide
 	*/    
 	Vector *centroid;
 	
 public:
 
 	/**
-	*	Constrói o objeto
+	*	ConstrÃ³i o objeto
 	*/
 	ObjectClass();
 	
 
 	/**
 	*	Desenha o objeto
-	*	\param mode Constante que define o modo em que será desenhado. <br>
+	*	\param mode Constante que define o modo em que serÃ¡ desenhado. <br>
 	*	GL_LINE_LOOP - Desenha face "aramada". <br>
 	*	GL_POLYGON -   Desenha face preenchida.
 	*/
 	void drawObject( unsigned int mode );
 
 	/**
-	*	Aplica transformaÃ§Ã£o no objeto
-	*	\param transformationMatrix Matrix de transformação
+	*	Aplica transformaÃ§Ãµes no objeto
+	*	\param transformationMatrix Matrix de transformaÃ§Ã£o
 	*/
 	void applyTransformation( Matrix *transformationMatrix );
 
 	/**
 	*	Configura o nome do objeto
-	*	\param list_face Novo nome do objeto
+	*	\param Name Novo nome do objeto
 	*/
 	void setName(std::string Name );
 
 	/**
-	*	Configura a lista de vértices do objeto
-	*	\param list_vertex Nova lista de vértices
+	*	Configura a lista de vÃ©rtices do objeto
+	*	\param list_vertex Nova lista de vÃ©rtices
 	*/
 	void setListVertex( ListVertex *list_vertex );
 
@@ -116,7 +116,7 @@ public:
 	std::string getName();
 
 	/**
-	*	\return	Lista de vÃ©rtices do objeto.
+	*	\return	Lista de vÃƒÂ©rtices do objeto.
 	*/
 	ListVertex* getListVertex();
 
@@ -141,23 +141,23 @@ public:
 	float getCollorB();
 
 	/**
-	*	\return	O número de vértices do Objeto.
+	*	\return	O nÃºmero de vÃ©rtices do Objeto.
 	*/
 	int getNumberVertex();
 
 	/**
-	*	\return	O número de faces do Objeto.
+	*	\return	O nÃºmero de faces do Objeto.
 	*/
 	int getNumberFace();
 
 	/**
 	* 	Atualiza a centroide do objeto. <br>
-	* 	A coordenada homogênia está sendo setada com 1.
+	* 	A coordenada homogÃªnia estÃ¡ sendo setada com 1.
 	*/
 	void updateCentroide();
 
 	/**
-	*	\return	Centróide do objeto.
+	*	\return	CentrÃ³ide do objeto.
 	*/
 	Vector* getCentroid();
 };

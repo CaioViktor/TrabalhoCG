@@ -36,19 +36,19 @@ public:
 
 	/**
 	*	Atualiza o vértice 1 da face.
-	*	\param vertice1 Novo vértice 1 da face
+	*	\param vertice Novo vértice 1 da face
 	*/
 	void setVertice1(Vertex *vertice);
 
 	/**
 	*	Atualiza o vértice 2 da face.
-	*	\param vertice2 Novo vértice 2 da face
+	*	\param vertice Novo vértice 2 da face
 	*/
 	void setVertice2(Vertex *vertice);
 
 	/**
 	*	Atualiza o vértice 3 da face.
-	*	\param vertice3 Novo vértice 3 da face
+	*	\param vertice Novo vértice 3 da face
 	*/
 	void setVertice3(Vertex *vertice);
 

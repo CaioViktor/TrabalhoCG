@@ -84,7 +84,7 @@
 {\info 
 {\title {\comment Trabalho de Computa\'E7\'E3o Gr\'E1fica }Trabalho de Computa\'E7\'E3o Gr\'E1fica}
 {\comment Gerado porDoxgyen. }
-{\creatim \yr2014\mo9\dy20\hr0\min14\sec2}
+{\creatim \yr2014\mo9\dy20\hr12\min7\sec39}
 }\pard\plain 
 \sectd\pgnlcrm
 {\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
@@ -174,7 +174,8 @@ Lista de Componentes\par \pard\plain
 {
 \par
 \pard\plain \s71\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
-{\b {\b Face} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADZ \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b Face} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa\'E7\'E3o de uma face de 3 v\'E9rtices })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADZ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b Leitor} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Usada para transformar .obj em nossa estrutura topol\'F3gica })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEP \\*MERGEFORMAT}{\fldrslt pagenum}}
@@ -202,7 +203,8 @@ Um n\'F3 da lista de faces })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAA
 {\b {\b stackMatrix} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Armazenar matrizes e facilitar as opera\'E7\'F5es feitas com matrizes })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHV \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b Topology_} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIE \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b Topology_} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa estrutura de topologia contendo os array de objetos,faces e v\'E9rtices })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIE \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b Vector} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Classe respons\'E1vel pela implementa\'E7\'E3o de estrutura de vetores de coordenadas 4X1 })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIL \\*MERGEFORMAT}{\fldrslt pagenum}}
@@ -293,6 +295,9 @@ Refer\'EAncia da Classe Face\par \pard\plain
 {\bkmkend AAAAAAAADZ}
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa\'E7\'E3o de uma face de 3 v\'E9rtices. }}\par
+{
 {\f2 #include <face.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 M\'E9todos P\'FAblicos\par
@@ -304,23 +309,23 @@ M\'E9todos P\'FAblicos\par
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 {\b Face} ({\b Vertex} *{\b vertice1}, {\b Vertex} *{\b vertice2}, {\b Vertex} *{\b vertice3})\par
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-void {\b setVertice1} ({\b Vertex} *vertice)\par
+void {\b draw} (unsigned int mode)\par
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-{\b Vertex} * {\b getVertice1} ()\par
+void {\b showVertexs} ()\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+void {\b setVertice1} ({\b Vertex} *vertice)\par
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b setVertice2} ({\b Vertex} *vertice)\par
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-{\b Vertex} * {\b getVertice2} ()\par
-\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b setVertice3} ({\b Vertex} *vertice)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b Vertex} * {\b getVertice1} ()\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b Vertex} * {\b getVertice2} ()\par
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 {\b Vertex} * {\b getVertice3} ()\par
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 {\b Vector} * {\b getNormal} ()\par
-\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-void {\b draw} (unsigned int mode)\par
-\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-void {\b showVertexs} ()\par
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Atributos Privados\par
@@ -338,6 +343,20 @@ Atributos Privados\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Descri\'E7\'E3o Detalhada\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa\'E7\'E3o de uma face de 3 v\'E9rtices. \par
+}
+
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Geraldo Braz Duarte Filho \par
+}}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Construtores & Destrutores\par
 \pard\plain 
 {\xe \v Face\:Face}
@@ -350,7 +369,9 @@ Face::Face ()}}
 {\bkmkend AAAAAAAAEA}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Constr\'F3i face de v\'E9rtices nulos. \par
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 3           \{\par
 4     this->vertice1 = NULL;\par
 5     this->vertice2 = NULL;\par
@@ -368,7 +389,30 @@ Face::Face ({\b Vertex} * {\i vertice1}, {\b Vertex} * {\i vertice2}, {\b Vertex
 {\bkmkend AAAAAAAAEB}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Constr\'F3i face de 3 v\'E9rtices. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i vertice1} \cell }{V\'E9rtice 1 da face \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i vertice2} \cell }{V\'E9rtice 2 da face \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i vertice3} \cell }{V\'E9rtice 3 da face \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 8                                                      \{\par
 9     this->vertice1 = vert1;\par
 10     this->vertice2 = vert2;\par
@@ -390,15 +434,29 @@ void Face::draw (unsigned int {\i mode})}}
 {\bkmkend AAAAAAAAEC}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 45                                 \{\par
-46     glBegin(mode);\par
-47 \par
-48     glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());\par
-49     glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());\par
-50     glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());\par
-51     glEnd();\par
-52 \}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Desenha a face. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i mode} \cell }{Constante que define o modo em que ser\'E1 desenhado. \par
+ GL_LINE_LOOP - Desenha face "aramada". \par
+ GL_POLYGON - Desenha face preenchida. \cell }
+{\row }
+}
+}{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 43                                 \{\par
+44     glBegin(mode);\par
+45 \par
+46     glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());\par
+47     glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());\par
+48     glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());\par
+49 \par
+50     glEnd();\par
+51 \}\par
 }
 }
 {\xe \v getNormal\:Face}
@@ -411,10 +469,14 @@ void Face::draw (unsigned int {\i mode})}}
 {\bkmkend AAAAAAAAED}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 41                        \{\par
-42     return normal;\par
-43 \}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Normal da face. \par
+}}{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 39                        \{\par
+40     return normal;\par
+41 \}\par
 }
 }
 {\xe \v getVertice1\:Face}
@@ -427,10 +489,14 @@ void Face::draw (unsigned int {\i mode})}}
 {\bkmkend AAAAAAAAEE}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 19                          \{\par
-20     return this->vertice1;\par
-21 \}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Vertice 1 da face. \par
+}}{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 27                          \{\par
+28     return this->vertice1;\par
+29 \}\par
 }
 }
 {\xe \v getVertice2\:Face}
@@ -443,10 +509,14 @@ void Face::draw (unsigned int {\i mode})}}
 {\bkmkend AAAAAAAAEF}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 28                          \{\par
-29     return vertice2;\par
-30 \}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Vertice 2 da face. \par
+}}{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 31                          \{\par
+32     return vertice2;\par
+33 \}\par
 }
 }
 {\xe \v getVertice3\:Face}
@@ -459,10 +529,14 @@ void Face::draw (unsigned int {\i mode})}}
 {\bkmkend AAAAAAAAEG}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 37                          \{\par
-38     return vertice3;\par
-39 \}   \par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Retorna:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid Vertice 3 da face. \par
+}}{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 35                          \{\par
+36     return vertice3;\par
+37 \}   \par
 }
 }
 {\xe \v setVertice1\:Face}
@@ -475,7 +549,18 @@ void Face::setVertice1 ({\b Vertex} * {\i vertice})}}
 {\bkmkend AAAAAAAAEH}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Atualiza o v\'E9rtice 1 da face. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i vertice} \cell }{Novo v\'E9rtice 1 da face \cell }
+{\row }
+}
+}{
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 15                                      \{\par
 16     vertice1 = vertice;\par
 17 \}\par
@@ -491,10 +576,21 @@ void Face::setVertice2 ({\b Vertex} * {\i vertice})}}
 {\bkmkend AAAAAAAAEI}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 24                                      \{\par
-25     vertice2 = vertice;\par
-26 \}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Atualiza o v\'E9rtice 2 da face. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i vertice} \cell }{Novo v\'E9rtice 2 da face \cell }
+{\row }
+}
+}{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 19                                      \{\par
+20     vertice2 = vertice;\par
+21 \}\par
 }
 }
 {\xe \v setVertice3\:Face}
@@ -507,10 +603,21 @@ void Face::setVertice3 ({\b Vertex} * {\i vertice})}}
 {\bkmkend AAAAAAAAEJ}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 33                                      \{\par
-34     vertice3 = vertice;\par
-35 \}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Atualiza o v\'E9rtice 3 da face. {\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E2metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i vertice} \cell }{Novo v\'E9rtice 3 da face \cell }
+{\row }
+}
+}{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 23                                      \{\par
+24     vertice3 = vertice;\par
+25 \}\par
 }
 }
 {\xe \v showVertexs\:Face}
@@ -523,15 +630,17 @@ void Face::showVertexs ()}}
 {\bkmkend AAAAAAAAEK}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 55                       \{\par
-56     if(this->vertice1 != NULL)\par
-57         this->vertice1->showVertex();\par
-58     if(this->vertice2 != NULL)\par
-59         this->vertice2->showVertex();\par
-60     if(this->vertice3 != NULL)\par
-61         this->vertice3->showVertex();\par
-62 \}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Imprime os v\'E9rtices da face. \par
+}{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 54                       \{\par
+55     if(this->vertice1 != NULL)\par
+56         this->vertice1->showVertex();\par
+57     if(this->vertice2 != NULL)\par
+58         this->vertice2->showVertex();\par
+59     if(this->vertice3 != NULL)\par
+60         this->vertice3->showVertex();\par
+61 \}\par
 }
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
@@ -3447,6 +3556,9 @@ Refer\'EAncia da Estrutura Topology_\par \pard\plain
 {\bkmkend AAAAAAAAIE}
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa estrutura de topologia contendo os array de objetos,faces e v\'E9rtices. }}\par
+{
 {\f2 #include <topology.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Atributos P\'FAblicos\par
@@ -3455,17 +3567,55 @@ Atributos P\'FAblicos\par
 {
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 {\b ObjectClass} ** {\b ObjectArray}\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Vetor contendo todos os objetos criados. }{
+}\par
+}}
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int {\b ObjectNumber}\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+N\'FAmero de objetos criados. }{
+}\par
+}}
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 {\b Face} ** {\b FaceArray}\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Vetor contendo todas as faces criadas. }{
+}\par
+}}
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int {\b FaceNumber}\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+N\'FAmero de faces criadas. }{
+}\par
+}}
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 {\b Vertex} ** {\b VertexArray}\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Vetor contendo todos os v\'E9rtices criados. }{
+}\par
+}}
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int {\b VertexNumber}\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+N\'FAmero de v\'E9rtices criadas. }{
+}\par
+}}
 }
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Descri\'E7\'E3o Detalhada\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa estrutura de topologia contendo os array de objetos,faces e v\'E9rtices. \par
+}}
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Atributos\par
@@ -3480,6 +3630,10 @@ Atributos\par
 {\bkmkend AAAAAAAAIF}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Vetor contendo todas as faces criadas. }}\par
 }
 {\xe \v FaceNumber\:Topology_}
 {\xe \v Topology_\:FaceNumber}
@@ -3491,6 +3645,10 @@ int Topology_::FaceNumber}}
 {\bkmkend AAAAAAAAIG}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+N\'FAmero de faces criadas. }}\par
 }
 {\xe \v ObjectArray\:Topology_}
 {\xe \v Topology_\:ObjectArray}
@@ -3502,6 +3660,10 @@ int Topology_::FaceNumber}}
 {\bkmkend AAAAAAAAIH}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Vetor contendo todos os objetos criados. }}\par
 }
 {\xe \v ObjectNumber\:Topology_}
 {\xe \v Topology_\:ObjectNumber}
@@ -3513,6 +3675,10 @@ int Topology_::ObjectNumber}}
 {\bkmkend AAAAAAAAII}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+N\'FAmero de objetos criados. }}\par
 }
 {\xe \v VertexArray\:Topology_}
 {\xe \v Topology_\:VertexArray}
@@ -3524,6 +3690,10 @@ int Topology_::ObjectNumber}}
 {\bkmkend AAAAAAAAIJ}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Vetor contendo todos os v\'E9rtices criados. }}\par
 }
 {\xe \v VertexNumber\:Topology_}
 {\xe \v Topology_\:VertexNumber}
@@ -3535,6 +3705,10 @@ int Topology_::VertexNumber}}
 {\bkmkend AAAAAAAAIK}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+N\'FAmero de v\'E9rtices criadas. }}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 A documenta\'E7\'E3o para esta estrutura foi gerada a partir do seguinte arquivo:{\par
@@ -4440,6 +4614,9 @@ Componentes\par
 {
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 class {\b Face}\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa\'E7\'E3o de uma face de 3 v\'E9rtices. }}}
 }
 \par \pard\plain 
 
@@ -4722,6 +4899,9 @@ Componentes\par
 {
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 struct {\b Topology_}\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa estrutura de topologia contendo os array de objetos,faces e v\'E9rtices. }}}
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Defini\'E7\'F5es de Tipos\par
@@ -4730,7 +4910,22 @@ Defini\'E7\'F5es de Tipos\par
 {
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 typedef struct {\b Topology_} {\b Topology}\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa estrutura de topologia contendo os array de objetos,faces e v\'E9rtices. }{
+}\par
+}}
 }
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Descri\'E7\'E3o Detalhada\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Caio Viktor \par
+}}}
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Defini\'E7\'F5es dos tipos\par
@@ -4745,6 +4940,10 @@ typedef struct {\b Topology_}  {\b Topology}}}
 {\bkmkend AAAAAAAAAM}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Implementa estrutura de topologia contendo os array de objetos,faces e v\'E9rtices. }}\par
 }
 \par \pard\plain 
 

@@ -1,13 +1,18 @@
-/*	topology.h - Caio Viktor
-	implementa estrutura de topologia contendo os array de objetos,faces e vértices.
+/**
+*\file topology.h
+*\author Caio Viktor
+*/
+
+/**
+*\brief Implementa estrutura de topologia contendo os array de objetos,faces e vértices.
 */
 typedef struct Topology_{
-	ObjectClass **ObjectArray;
-	int ObjectNumber;
+	ObjectClass **ObjectArray;	///<Vetor contendo todos os objetos criados
+	int ObjectNumber;			///<Número de objetos criados
 
-	Face **FaceArray;
-	int FaceNumber;
+	Face **FaceArray;			///<Vetor contendo todas as faces criadas
+	int FaceNumber;				///<Número de faces criadas
 
-	Vertex **VertexArray;
-	int VertexNumber;
+	Vertex **VertexArray;		///<Vetor contendo todos os vértices criados
+	int VertexNumber;			///<Número de vértices criadas
 } Topology;

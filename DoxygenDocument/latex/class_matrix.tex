@@ -1,0 +1,291 @@
+\hypertarget{class_matrix}{\section{Matrix Class Reference}
+\label{class_matrix}\index{Matrix@{Matrix}}
+}
+
+
+Armazenar matrizes e facilitar as operações feitas com matrizes.  
+
+
+
+
+{\ttfamily \#include $<$matrix.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_matrix_a2dba13c45127354c9f75ef576f49269b}{Matrix} ()
+\item 
+\hyperlink{class_matrix_a14a8e5918c1aa10da094ecf4ca25932a}{Matrix} (double array2d\mbox{[}4\mbox{]}\mbox{[}4\mbox{]})
+\item 
+\hyperlink{class_matrix_a9b1c3627f573d78a2f08623fdfef990f}{$\sim$\-Matrix} ()
+\item 
+double $\ast$$\ast$ \hyperlink{class_matrix_a061cc89855e7382c52a4f9c7c00261af}{get\-Content} ()
+\item 
+double \hyperlink{class_matrix_a9019b6f8b32e424ac58ac7c4cf70ee59}{get\-Position} (int lin, int col)
+\item 
+void \hyperlink{class_matrix_a3fa7c20e0ac5eb1f413c6bb860b1fdc4}{set\-Content} (double $\ast$$\ast$c)
+\item 
+void \hyperlink{class_matrix_a5119c597903c40a9e67bb94f502f7e6c}{set\-Position} (int lin, int col, double value)
+\item 
+\hyperlink{class_matrix}{Matrix} $\ast$ \hyperlink{class_matrix_a4693aeecd27544537d0bf6bef0f3b2bb}{get\-Transposed} ()
+\item 
+\hyperlink{class_matrix}{Matrix} $\ast$ \hyperlink{class_matrix_ab55840c9bf6f96d63026ab8e0b1a78b6}{multiply\-Matrix} (\hyperlink{class_matrix}{Matrix} $\ast$B)
+\item 
+void \hyperlink{class_matrix_aa1967ad240a5ffaf492800044b7275d9}{print\-Matrix} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_matrix}{Matrix} $\ast$ \hyperlink{class_matrix_a313fc02b3add94865e1ef93b65970bed}{get\-Identity} ()
+\item 
+static \hyperlink{class_matrix}{Matrix} $\ast$ \hyperlink{class_matrix_ab2660811c2f56c36000d43e6480c4ef7}{get\-Translation} (double x, double y, double z)
+\item 
+static \hyperlink{class_matrix}{Matrix} $\ast$ \hyperlink{class_matrix_abc824f1c958fd88b94b88f516e2b3166}{get\-Rotation\-X} (double angle)
+\item 
+static \hyperlink{class_matrix}{Matrix} $\ast$ \hyperlink{class_matrix_acb91d4483b1d3a06623b33171a449cda}{get\-Rotation\-Y} (double angle)
+\item 
+static \hyperlink{class_matrix}{Matrix} $\ast$ \hyperlink{class_matrix_a083befb3295d36151e474565e57ddf0e}{get\-Rotation\-Z} (double angle)
+\item 
+static \hyperlink{class_matrix}{Matrix} $\ast$ \hyperlink{class_matrix_a6da4076ea170794342881449f8495ec5}{get\-Scale} (double dx, double dy, double dz, double xf, double yf, double zf)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Armazenar matrizes e facilitar as operações feitas com matrizes. 
+
+\begin{DoxyAuthor}{Authors}
+Matheus Mayron, Cristiano e Caio Viktor 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_matrix_a2dba13c45127354c9f75ef576f49269b}{\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Matrix\-::\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_matrix_a2dba13c45127354c9f75ef576f49269b}
+Constrói um objeto \hyperlink{class_matrix}{Matrix}. \hypertarget{class_matrix_a14a8e5918c1aa10da094ecf4ca25932a}{\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Matrix\-::\-Matrix (
+\begin{DoxyParamCaption}
+\item[{double}]{array2d\mbox{[}4\mbox{]}\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{class_matrix_a14a8e5918c1aa10da094ecf4ca25932a}
+Constrói uma matriz 4x4 a partir de um array2d. 
+\begin{DoxyParams}{Parameters}
+{\em array2d} & É um array bidimensional. Espera-\/se que ele só seja constituído por números. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_matrix_a9b1c3627f573d78a2f08623fdfef990f}{\index{Matrix@{Matrix}!$\sim$\-Matrix@{$\sim$\-Matrix}}
+\index{$\sim$\-Matrix@{$\sim$\-Matrix}!Matrix@{Matrix}}
+\subsubsection[{$\sim$\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Matrix\-::$\sim$\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_matrix_a9b1c3627f573d78a2f08623fdfef990f}
+Destroi o objeto, desalocando também o que foi alocado em seu interior 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_matrix_a061cc89855e7382c52a4f9c7c00261af}{\index{Matrix@{Matrix}!get\-Content@{get\-Content}}
+\index{get\-Content@{get\-Content}!Matrix@{Matrix}}
+\subsubsection[{get\-Content}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ Matrix\-::get\-Content (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_matrix_a061cc89855e7382c52a4f9c7c00261af}
+\begin{DoxyReturn}{Returns}
+Um ponteiro para os valores da matriz estão armazenados. 
+\end{DoxyReturn}
+\hypertarget{class_matrix_a313fc02b3add94865e1ef93b65970bed}{\index{Matrix@{Matrix}!get\-Identity@{get\-Identity}}
+\index{get\-Identity@{get\-Identity}!Matrix@{Matrix}}
+\subsubsection[{get\-Identity}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Matrix}$\ast$ Matrix\-::get\-Identity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_matrix_a313fc02b3add94865e1ef93b65970bed}
+Gera a matriz identidade. \begin{DoxyReturn}{Returns}
+Ponteiro para uma objeto \hyperlink{class_matrix}{Matrix} que contém uma matriz identidade. 
+\end{DoxyReturn}
+\hypertarget{class_matrix_a9019b6f8b32e424ac58ac7c4cf70ee59}{\index{Matrix@{Matrix}!get\-Position@{get\-Position}}
+\index{get\-Position@{get\-Position}!Matrix@{Matrix}}
+\subsubsection[{get\-Position}]{\setlength{\rightskip}{0pt plus 5cm}double Matrix\-::get\-Position (
+\begin{DoxyParamCaption}
+\item[{int}]{lin, }
+\item[{int}]{col}
+\end{DoxyParamCaption}
+)}}\label{class_matrix_a9019b6f8b32e424ac58ac7c4cf70ee59}
+Retorna um valor presente na matriz armazenada no objeto \hyperlink{class_matrix}{Matrix}. 
+\begin{DoxyParams}{Parameters}
+{\em lin} & Valor correspondente a linha da posição desejada. \\
+\hline
+{\em col} & Valor correspondente a coluna da posição desejada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O valor da posição \mbox{[}lin,col\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{class_matrix_abc824f1c958fd88b94b88f516e2b3166}{\index{Matrix@{Matrix}!get\-Rotation\-X@{get\-Rotation\-X}}
+\index{get\-Rotation\-X@{get\-Rotation\-X}!Matrix@{Matrix}}
+\subsubsection[{get\-Rotation\-X}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Matrix}$\ast$ Matrix\-::get\-Rotation\-X (
+\begin{DoxyParamCaption}
+\item[{double}]{angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_matrix_abc824f1c958fd88b94b88f516e2b3166}
+Gera uma matriz de rotação em torno do eixo X 
+\begin{DoxyParams}{Parameters}
+{\em angle} & Ângulo da rotação. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para um objeto \hyperlink{class_matrix}{Matrix} contendo a matriz de rotação desejada 
+\end{DoxyReturn}
+\hypertarget{class_matrix_acb91d4483b1d3a06623b33171a449cda}{\index{Matrix@{Matrix}!get\-Rotation\-Y@{get\-Rotation\-Y}}
+\index{get\-Rotation\-Y@{get\-Rotation\-Y}!Matrix@{Matrix}}
+\subsubsection[{get\-Rotation\-Y}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Matrix}$\ast$ Matrix\-::get\-Rotation\-Y (
+\begin{DoxyParamCaption}
+\item[{double}]{angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_matrix_acb91d4483b1d3a06623b33171a449cda}
+Gera uma matriz de rotação em torno do eixo Y 
+\begin{DoxyParams}{Parameters}
+{\em angle} & Ângulo da rotação. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para um objeto \hyperlink{class_matrix}{Matrix} contendo a matriz de rotação desejada 
+\end{DoxyReturn}
+\hypertarget{class_matrix_a083befb3295d36151e474565e57ddf0e}{\index{Matrix@{Matrix}!get\-Rotation\-Z@{get\-Rotation\-Z}}
+\index{get\-Rotation\-Z@{get\-Rotation\-Z}!Matrix@{Matrix}}
+\subsubsection[{get\-Rotation\-Z}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Matrix}$\ast$ Matrix\-::get\-Rotation\-Z (
+\begin{DoxyParamCaption}
+\item[{double}]{angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_matrix_a083befb3295d36151e474565e57ddf0e}
+Gera uma matriz de rotação em torno do eixo Z 
+\begin{DoxyParams}{Parameters}
+{\em angle} & Ângulo da rotação. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para um objeto \hyperlink{class_matrix}{Matrix} contendo a matriz de rotação desejada 
+\end{DoxyReturn}
+\hypertarget{class_matrix_a6da4076ea170794342881449f8495ec5}{\index{Matrix@{Matrix}!get\-Scale@{get\-Scale}}
+\index{get\-Scale@{get\-Scale}!Matrix@{Matrix}}
+\subsubsection[{get\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Matrix}$\ast$ Matrix\-::get\-Scale (
+\begin{DoxyParamCaption}
+\item[{double}]{dx, }
+\item[{double}]{dy, }
+\item[{double}]{dz, }
+\item[{double}]{xf, }
+\item[{double}]{yf, }
+\item[{double}]{zf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_matrix_a6da4076ea170794342881449f8495ec5}
+Gera uma matriz de escala. 
+\begin{DoxyParams}{Parameters}
+{\em dx} & Deformação desejada no eixo X. \\
+\hline
+{\em dy} & Deformação desejada no eixo Y. \\
+\hline
+{\em dz} & Deformação desejada no eixo Z. \\
+\hline
+{\em xf} & Coordenada X do ponto fixo. \\
+\hline
+{\em yf} & Coordenada Y do ponto fixo. \\
+\hline
+{\em zf} & Coordenada Z do ponto fixo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para um objeto \hyperlink{class_matrix}{Matrix} contendo a matriz de escala desejada. 
+\end{DoxyReturn}
+\hypertarget{class_matrix_ab2660811c2f56c36000d43e6480c4ef7}{\index{Matrix@{Matrix}!get\-Translation@{get\-Translation}}
+\index{get\-Translation@{get\-Translation}!Matrix@{Matrix}}
+\subsubsection[{get\-Translation}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Matrix}$\ast$ Matrix\-::get\-Translation (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_matrix_ab2660811c2f56c36000d43e6480c4ef7}
+Gera uma matriz de translação. 
+\begin{DoxyParams}{Parameters}
+{\em x} & Deslocamento sobre o eixo X. \\
+\hline
+{\em y} & Deslocamento sobre o eixo Y. \\
+\hline
+{\em z} & Deslocamento sobre o eixo Z. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para um objeto \hyperlink{class_matrix}{Matrix} contendo a matriz de transformação desejada. 
+\end{DoxyReturn}
+\hypertarget{class_matrix_a4693aeecd27544537d0bf6bef0f3b2bb}{\index{Matrix@{Matrix}!get\-Transposed@{get\-Transposed}}
+\index{get\-Transposed@{get\-Transposed}!Matrix@{Matrix}}
+\subsubsection[{get\-Transposed}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ Matrix\-::get\-Transposed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_matrix_a4693aeecd27544537d0bf6bef0f3b2bb}
+Gera uma matriz transposta. \begin{DoxyReturn}{Returns}
+Ponteiro para um objeto contendo um contendo uma matriz transposta ao do objeto que a invocou. 
+\end{DoxyReturn}
+\hypertarget{class_matrix_ab55840c9bf6f96d63026ab8e0b1a78b6}{\index{Matrix@{Matrix}!multiply\-Matrix@{multiply\-Matrix}}
+\index{multiply\-Matrix@{multiply\-Matrix}!Matrix@{Matrix}}
+\subsubsection[{multiply\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ Matrix\-::multiply\-Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix} $\ast$}]{B}
+\end{DoxyParamCaption}
+)}}\label{class_matrix_ab55840c9bf6f96d63026ab8e0b1a78b6}
+Multiplica duas matrizes. 
+\begin{DoxyParams}{Parameters}
+{\em B} & Ponteiro para um objeto \hyperlink{class_matrix}{Matrix} com o qual se deseja realizar a multiplicação. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Multiplicação entre a matriz armazenada no próprio objeto e a matriz da \hyperlink{class_matrix}{Matrix} B. 
+\end{DoxyReturn}
+\hypertarget{class_matrix_aa1967ad240a5ffaf492800044b7275d9}{\index{Matrix@{Matrix}!print\-Matrix@{print\-Matrix}}
+\index{print\-Matrix@{print\-Matrix}!Matrix@{Matrix}}
+\subsubsection[{print\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix\-::print\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_matrix_aa1967ad240a5ffaf492800044b7275d9}
+Exibe na tela a matriz armazenada no objeto \hyperlink{class_matrix}{Matrix} que o invocou. \hypertarget{class_matrix_a3fa7c20e0ac5eb1f413c6bb860b1fdc4}{\index{Matrix@{Matrix}!set\-Content@{set\-Content}}
+\index{set\-Content@{set\-Content}!Matrix@{Matrix}}
+\subsubsection[{set\-Content}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix\-::set\-Content (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$}]{c}
+\end{DoxyParamCaption}
+)}}\label{class_matrix_a3fa7c20e0ac5eb1f413c6bb860b1fdc4}
+Atualiza o conteudo da matriz por completo. Espera como entrada um ponteiro para uma matriz. 
+\begin{DoxyParams}{Parameters}
+{\em c} & Espera como entrada um ponteiro para uma matriz. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_matrix_a5119c597903c40a9e67bb94f502f7e6c}{\index{Matrix@{Matrix}!set\-Position@{set\-Position}}
+\index{set\-Position@{set\-Position}!Matrix@{Matrix}}
+\subsubsection[{set\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix\-::set\-Position (
+\begin{DoxyParamCaption}
+\item[{int}]{lin, }
+\item[{int}]{col, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_matrix_a5119c597903c40a9e67bb94f502f7e6c}
+Atualiza uma única posição da matriz. 
+\begin{DoxyParams}{Parameters}
+{\em lin} & Valor correspondente a linha da posição desejada. \\
+\hline
+{\em col} & Valor correspondente a coluna da posição desejada. \\
+\hline
+{\em value} & Novo valor da posição \mbox{[}lin,col\mbox{]} \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{matrix_8h}{matrix.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,260 @@
+\hypertarget{class_vertex}{\section{Vertex Class Reference}
+\label{class_vertex}\index{Vertex@{Vertex}}
+}
+
+
+Implementa a estrutra de vértice utilizada na construção de figuras geométricas pelo Open\-Gl.  
+
+
+
+
+{\ttfamily \#include $<$vertex.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vertex_a97488994a2482d70da74e1b91d40e169}{Vertex} ()
+\item 
+\hyperlink{class_vertex_a4c878f3948c7d0d8e2629e86e4950242}{Vertex} (double coordinate\-X, double coordinate\-Y, double coordinate\-Z)
+\item 
+\hyperlink{class_vertex_afd245b9afdb93803b7497017e0320655}{Vertex} (double coordinate\-X, double coordinate\-Y, double coordinate\-Z, double coordinate\-W)
+\item 
+void \hyperlink{class_vertex_a50dd8bfc6a23bb65b0282adddebda09b}{set\-Coordinate\-X} (double X)
+\item 
+void \hyperlink{class_vertex_a8fab5108447937fac0d71269d2c76576}{set\-Coordinate\-Y} (double Y)
+\item 
+void \hyperlink{class_vertex_adaa2a4716d4ea9cb382fa504b76db135}{set\-Coordinate\-Z} (double Z)
+\item 
+void \hyperlink{class_vertex_a334e31a87aaf937f5ee6fc9f7f479f85}{set\-Coordinate\-W} (double W)
+\item 
+void \hyperlink{class_vertex_aa5d082eb4252de4e6728593ae4ce054b}{show\-Vertex} ()
+\item 
+double \hyperlink{class_vertex_aa0fe7e6340ff9eeceefd82047bf74d66}{get\-Coordinate\-Xd} ()
+\item 
+double \hyperlink{class_vertex_a5b02582fab5d4eec99066a9dc5e0bf5b}{get\-Coordinate\-Yd} ()
+\item 
+double \hyperlink{class_vertex_ad80796c061f7811be48f224bd6080207}{get\-Coordinate\-Zd} ()
+\item 
+double \hyperlink{class_vertex_abb8f53afc49d84898de8a434f29be6dc}{get\-Coordinate\-Wd} ()
+\item 
+float \hyperlink{class_vertex_a025803bbc8f7dd5b3927005c8a3d81fb}{get\-Coordinate\-Xf} ()
+\item 
+float \hyperlink{class_vertex_a6d63b1729d9c1f9ae759b9e886067f0e}{get\-Coordinate\-Yf} ()
+\item 
+float \hyperlink{class_vertex_a8e7165fa90b48a3d5761e00dde9e6686}{get\-Coordinate\-Zf} ()
+\item 
+float \hyperlink{class_vertex_ab3aa510b5f323c74e5ac02eec0c99ce0}{get\-Coordinate\-Wf} ()
+\item 
+\hyperlink{class_vector}{Vector} $\ast$ \hyperlink{class_vertex_ac3418aa58ec05b24d961d1ba644c8727}{to\-Vector} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementa a estrutra de vértice utilizada na construção de figuras geométricas pelo Open\-Gl. 
+
+\begin{DoxyAuthor}{Author}
+Caio Viktor 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_vertex_a97488994a2482d70da74e1b91d40e169}{\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{Vertex}]{\setlength{\rightskip}{0pt plus 5cm}Vertex\-::\-Vertex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_a97488994a2482d70da74e1b91d40e169}
+Constrói um vértice na origem do sistema de coodenadas. \hypertarget{class_vertex_a4c878f3948c7d0d8e2629e86e4950242}{\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{Vertex}]{\setlength{\rightskip}{0pt plus 5cm}Vertex\-::\-Vertex (
+\begin{DoxyParamCaption}
+\item[{double}]{coordinate\-X, }
+\item[{double}]{coordinate\-Y, }
+\item[{double}]{coordinate\-Z}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_a4c878f3948c7d0d8e2629e86e4950242}
+Constrói um vértice nos pontos especificados pelos parâmetros.\par
+ Apenas as três dimensões serão levadas em consideração a quarta coordenada será setada como 0. 
+\begin{DoxyParams}{Parameters}
+{\em coordinate\-X} & Valor da coordenada X \\
+\hline
+{\em coordinate\-Y} & Valor da coordenada Y \\
+\hline
+{\em coordinate\-Z} & Valor da coordenada Z \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_vertex_afd245b9afdb93803b7497017e0320655}{\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{Vertex}]{\setlength{\rightskip}{0pt plus 5cm}Vertex\-::\-Vertex (
+\begin{DoxyParamCaption}
+\item[{double}]{coordinate\-X, }
+\item[{double}]{coordinate\-Y, }
+\item[{double}]{coordinate\-Z, }
+\item[{double}]{coordinate\-W}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_afd245b9afdb93803b7497017e0320655}
+Constrói um vértice nos pontos especificados pelos parâmetros. É necessário que seja passada a quata coordena. 
+\begin{DoxyParams}{Parameters}
+{\em coordinate\-X} & Valor da coordenada X \\
+\hline
+{\em coordinate\-Y} & Valor da coordenada Y \\
+\hline
+{\em coordinate\-Z} & Valor da coordenada Z \\
+\hline
+{\em coordinate\-W} & Valor da coordenada W \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_vertex_abb8f53afc49d84898de8a434f29be6dc}{\index{Vertex@{Vertex}!get\-Coordinate\-Wd@{get\-Coordinate\-Wd}}
+\index{get\-Coordinate\-Wd@{get\-Coordinate\-Wd}!Vertex@{Vertex}}
+\subsubsection[{get\-Coordinate\-Wd}]{\setlength{\rightskip}{0pt plus 5cm}double Vertex\-::get\-Coordinate\-Wd (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_abb8f53afc49d84898de8a434f29be6dc}
+\begin{DoxyReturn}{Returns}
+Valor da coordenada W no formato double. 
+\end{DoxyReturn}
+\hypertarget{class_vertex_ab3aa510b5f323c74e5ac02eec0c99ce0}{\index{Vertex@{Vertex}!get\-Coordinate\-Wf@{get\-Coordinate\-Wf}}
+\index{get\-Coordinate\-Wf@{get\-Coordinate\-Wf}!Vertex@{Vertex}}
+\subsubsection[{get\-Coordinate\-Wf}]{\setlength{\rightskip}{0pt plus 5cm}float Vertex\-::get\-Coordinate\-Wf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_ab3aa510b5f323c74e5ac02eec0c99ce0}
+\begin{DoxyReturn}{Returns}
+Valor da coordenada W no formato float 
+\end{DoxyReturn}
+\hypertarget{class_vertex_aa0fe7e6340ff9eeceefd82047bf74d66}{\index{Vertex@{Vertex}!get\-Coordinate\-Xd@{get\-Coordinate\-Xd}}
+\index{get\-Coordinate\-Xd@{get\-Coordinate\-Xd}!Vertex@{Vertex}}
+\subsubsection[{get\-Coordinate\-Xd}]{\setlength{\rightskip}{0pt plus 5cm}double Vertex\-::get\-Coordinate\-Xd (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_aa0fe7e6340ff9eeceefd82047bf74d66}
+\begin{DoxyReturn}{Returns}
+Valor da coordenada X no formato double. 
+\end{DoxyReturn}
+\hypertarget{class_vertex_a025803bbc8f7dd5b3927005c8a3d81fb}{\index{Vertex@{Vertex}!get\-Coordinate\-Xf@{get\-Coordinate\-Xf}}
+\index{get\-Coordinate\-Xf@{get\-Coordinate\-Xf}!Vertex@{Vertex}}
+\subsubsection[{get\-Coordinate\-Xf}]{\setlength{\rightskip}{0pt plus 5cm}float Vertex\-::get\-Coordinate\-Xf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_a025803bbc8f7dd5b3927005c8a3d81fb}
+\begin{DoxyReturn}{Returns}
+Valor da coordenada X no formato float. 
+\end{DoxyReturn}
+\hypertarget{class_vertex_a5b02582fab5d4eec99066a9dc5e0bf5b}{\index{Vertex@{Vertex}!get\-Coordinate\-Yd@{get\-Coordinate\-Yd}}
+\index{get\-Coordinate\-Yd@{get\-Coordinate\-Yd}!Vertex@{Vertex}}
+\subsubsection[{get\-Coordinate\-Yd}]{\setlength{\rightskip}{0pt plus 5cm}double Vertex\-::get\-Coordinate\-Yd (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_a5b02582fab5d4eec99066a9dc5e0bf5b}
+\begin{DoxyReturn}{Returns}
+Valor da coordenada Y no formato double. 
+\end{DoxyReturn}
+\hypertarget{class_vertex_a6d63b1729d9c1f9ae759b9e886067f0e}{\index{Vertex@{Vertex}!get\-Coordinate\-Yf@{get\-Coordinate\-Yf}}
+\index{get\-Coordinate\-Yf@{get\-Coordinate\-Yf}!Vertex@{Vertex}}
+\subsubsection[{get\-Coordinate\-Yf}]{\setlength{\rightskip}{0pt plus 5cm}float Vertex\-::get\-Coordinate\-Yf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_a6d63b1729d9c1f9ae759b9e886067f0e}
+\begin{DoxyReturn}{Returns}
+Valor da coordenada Y no formato float 
+\end{DoxyReturn}
+\hypertarget{class_vertex_ad80796c061f7811be48f224bd6080207}{\index{Vertex@{Vertex}!get\-Coordinate\-Zd@{get\-Coordinate\-Zd}}
+\index{get\-Coordinate\-Zd@{get\-Coordinate\-Zd}!Vertex@{Vertex}}
+\subsubsection[{get\-Coordinate\-Zd}]{\setlength{\rightskip}{0pt plus 5cm}double Vertex\-::get\-Coordinate\-Zd (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_ad80796c061f7811be48f224bd6080207}
+\begin{DoxyReturn}{Returns}
+Valor da coordenada Z no formato double. 
+\end{DoxyReturn}
+\hypertarget{class_vertex_a8e7165fa90b48a3d5761e00dde9e6686}{\index{Vertex@{Vertex}!get\-Coordinate\-Zf@{get\-Coordinate\-Zf}}
+\index{get\-Coordinate\-Zf@{get\-Coordinate\-Zf}!Vertex@{Vertex}}
+\subsubsection[{get\-Coordinate\-Zf}]{\setlength{\rightskip}{0pt plus 5cm}float Vertex\-::get\-Coordinate\-Zf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_a8e7165fa90b48a3d5761e00dde9e6686}
+\begin{DoxyReturn}{Returns}
+Valor da coordenada Z no formato float 
+\end{DoxyReturn}
+\hypertarget{class_vertex_a334e31a87aaf937f5ee6fc9f7f479f85}{\index{Vertex@{Vertex}!set\-Coordinate\-W@{set\-Coordinate\-W}}
+\index{set\-Coordinate\-W@{set\-Coordinate\-W}!Vertex@{Vertex}}
+\subsubsection[{set\-Coordinate\-W}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\-::set\-Coordinate\-W (
+\begin{DoxyParamCaption}
+\item[{double}]{W}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_a334e31a87aaf937f5ee6fc9f7f479f85}
+Atualiza a coordenada W. 
+\begin{DoxyParams}{Parameters}
+{\em W} & Novo valor da coordenada W \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_vertex_a50dd8bfc6a23bb65b0282adddebda09b}{\index{Vertex@{Vertex}!set\-Coordinate\-X@{set\-Coordinate\-X}}
+\index{set\-Coordinate\-X@{set\-Coordinate\-X}!Vertex@{Vertex}}
+\subsubsection[{set\-Coordinate\-X}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\-::set\-Coordinate\-X (
+\begin{DoxyParamCaption}
+\item[{double}]{X}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_a50dd8bfc6a23bb65b0282adddebda09b}
+Atualiza a coordenada X. 
+\begin{DoxyParams}{Parameters}
+{\em X} & Novo valor da coordenada X \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_vertex_a8fab5108447937fac0d71269d2c76576}{\index{Vertex@{Vertex}!set\-Coordinate\-Y@{set\-Coordinate\-Y}}
+\index{set\-Coordinate\-Y@{set\-Coordinate\-Y}!Vertex@{Vertex}}
+\subsubsection[{set\-Coordinate\-Y}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\-::set\-Coordinate\-Y (
+\begin{DoxyParamCaption}
+\item[{double}]{Y}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_a8fab5108447937fac0d71269d2c76576}
+Atualiza a coordenada Y. 
+\begin{DoxyParams}{Parameters}
+{\em Y} & Novo valor da coordenada Y \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_vertex_adaa2a4716d4ea9cb382fa504b76db135}{\index{Vertex@{Vertex}!set\-Coordinate\-Z@{set\-Coordinate\-Z}}
+\index{set\-Coordinate\-Z@{set\-Coordinate\-Z}!Vertex@{Vertex}}
+\subsubsection[{set\-Coordinate\-Z}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\-::set\-Coordinate\-Z (
+\begin{DoxyParamCaption}
+\item[{double}]{Z}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_adaa2a4716d4ea9cb382fa504b76db135}
+Atualiza a coordenada Z. 
+\begin{DoxyParams}{Parameters}
+{\em Z} & Novo valor da coordenada Z \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_vertex_aa5d082eb4252de4e6728593ae4ce054b}{\index{Vertex@{Vertex}!show\-Vertex@{show\-Vertex}}
+\index{show\-Vertex@{show\-Vertex}!Vertex@{Vertex}}
+\subsubsection[{show\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\-::show\-Vertex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_aa5d082eb4252de4e6728593ae4ce054b}
+Imprime as coordenadas do vértice. \hypertarget{class_vertex_ac3418aa58ec05b24d961d1ba644c8727}{\index{Vertex@{Vertex}!to\-Vector@{to\-Vector}}
+\index{to\-Vector@{to\-Vector}!Vertex@{Vertex}}
+\subsubsection[{to\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector}$\ast$ Vertex\-::to\-Vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vertex_ac3418aa58ec05b24d961d1ba644c8727}
+Retorna um objeto da classe \hyperlink{class_vector}{Vector} representando o vértice. \begin{DoxyReturn}{Returns}
+Ponteiro para um \hyperlink{class_vector}{Vector} representando as coordenadas do vértice. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{vertex_8h}{vertex.\-h}\end{DoxyCompactItemize}

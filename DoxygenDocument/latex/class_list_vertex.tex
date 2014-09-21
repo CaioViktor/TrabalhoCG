@@ -1,0 +1,136 @@
+\hypertarget{class_list_vertex}{\section{List\-Vertex Class Reference}
+\label{class_list_vertex}\index{List\-Vertex@{List\-Vertex}}
+}
+
+
+Implementa estrutura de lista encadeada de vertices utilizada na classe objeto.  
+
+
+
+
+{\ttfamily \#include $<$list\-Vertex.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_list_vertex_ad02b1a3408d6495353a8f52aa9992512}{List\-Vertex} ()
+\item 
+\hyperlink{class_list_vertex_a3b3497a8b255b4269c544e559ae98ed8}{List\-Vertex} (\hyperlink{class_vertex}{Vertex} $\ast$vertex)
+\item 
+bool \hyperlink{class_list_vertex_a66a9b0150474a2feca5ee1af0f0da71e}{isempty} ()
+\item 
+void \hyperlink{class_list_vertex_abca9247ca574b717e21866341d66bf62}{add\-Vertex} (\hyperlink{class_vertex}{Vertex} $\ast$vertex)
+\item 
+\hyperlink{class_vertex}{Vertex} $\ast$ \hyperlink{class_list_vertex_a5cb7d5ae0c79a68f08866c4a2acbb214}{get\-Vertex} (int index)
+\item 
+void \hyperlink{class_list_vertex_aa3c13e6799b577aba2d86f4e29969a16}{list} ()
+\item 
+void \hyperlink{class_list_vertex_a0347466e8424c8ecf40cf8fa7d4b1f53}{transformation} (\hyperlink{class_matrix}{Matrix} $\ast$)
+\item 
+int \hyperlink{class_list_vertex_a0fa7cf40012232cceca046e43546620a}{number\-Vertex} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementa estrutura de lista encadeada de vertices utilizada na classe objeto. 
+
+\begin{DoxyAuthor}{Author}
+Caio Viktor 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_list_vertex_ad02b1a3408d6495353a8f52aa9992512}{\index{List\-Vertex@{List\-Vertex}!List\-Vertex@{List\-Vertex}}
+\index{List\-Vertex@{List\-Vertex}!ListVertex@{List\-Vertex}}
+\subsubsection[{List\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}List\-Vertex\-::\-List\-Vertex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_vertex_ad02b1a3408d6495353a8f52aa9992512}
+Construtor da classe \hyperlink{class_list_vertex}{List\-Vertex}. Inicia uma lista vazia. \hypertarget{class_list_vertex_a3b3497a8b255b4269c544e559ae98ed8}{\index{List\-Vertex@{List\-Vertex}!List\-Vertex@{List\-Vertex}}
+\index{List\-Vertex@{List\-Vertex}!ListVertex@{List\-Vertex}}
+\subsubsection[{List\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}List\-Vertex\-::\-List\-Vertex (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}}\label{class_list_vertex_a3b3497a8b255b4269c544e559ae98ed8}
+Construtor da classe \hyperlink{class_list_vertex}{List\-Vertex}, inicia a lista com um vértice passado como parâmetro. 
+\begin{DoxyParams}{Parameters}
+{\em vertex} & Ponteiro para um objeto do tipo \hyperlink{class_vertex}{Vertex}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_list_vertex_abca9247ca574b717e21866341d66bf62}{\index{List\-Vertex@{List\-Vertex}!add\-Vertex@{add\-Vertex}}
+\index{add\-Vertex@{add\-Vertex}!ListVertex@{List\-Vertex}}
+\subsubsection[{add\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}void List\-Vertex\-::add\-Vertex (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}}\label{class_list_vertex_abca9247ca574b717e21866341d66bf62}
+Aiciona um vertice passado como parâmetro na ultima posição da lista caso ele ainda não exista na lista. \par
+ Caso contrário, ele retorna uma mensagem informando. 
+\begin{DoxyParams}{Parameters}
+{\em vertex} & Ponteiro para o vértice que se deseja adicionar. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_list_vertex_a5cb7d5ae0c79a68f08866c4a2acbb214}{\index{List\-Vertex@{List\-Vertex}!get\-Vertex@{get\-Vertex}}
+\index{get\-Vertex@{get\-Vertex}!ListVertex@{List\-Vertex}}
+\subsubsection[{get\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vertex}$\ast$ List\-Vertex\-::get\-Vertex (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}\label{class_list_vertex_a5cb7d5ae0c79a68f08866c4a2acbb214}
+Retorna o vértice na posição passada por parâmetro. 
+\begin{DoxyParams}{Parameters}
+{\em index} & Inteiro com a posicao desejada iniciando-\/se de 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um ponteiro para o vértice ou {\ttfamily null} caso ele não exista. 
+\end{DoxyReturn}
+\hypertarget{class_list_vertex_a66a9b0150474a2feca5ee1af0f0da71e}{\index{List\-Vertex@{List\-Vertex}!isempty@{isempty}}
+\index{isempty@{isempty}!ListVertex@{List\-Vertex}}
+\subsubsection[{isempty}]{\setlength{\rightskip}{0pt plus 5cm}bool List\-Vertex\-::isempty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_vertex_a66a9b0150474a2feca5ee1af0f0da71e}
+Verifica se a lista está vazia. \begin{DoxyReturn}{Returns}
+Valor {\ttfamily true} caso ela esteja vazia e {\ttfamily false} caso contrário. 
+\end{DoxyReturn}
+\hypertarget{class_list_vertex_aa3c13e6799b577aba2d86f4e29969a16}{\index{List\-Vertex@{List\-Vertex}!list@{list}}
+\index{list@{list}!ListVertex@{List\-Vertex}}
+\subsubsection[{list}]{\setlength{\rightskip}{0pt plus 5cm}void List\-Vertex\-::list (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_vertex_aa3c13e6799b577aba2d86f4e29969a16}
+Printa as coordenadas X de todos os vértices da lista (Utilizada para teste). Protótipo da função de transformação. \hypertarget{class_list_vertex_a0fa7cf40012232cceca046e43546620a}{\index{List\-Vertex@{List\-Vertex}!number\-Vertex@{number\-Vertex}}
+\index{number\-Vertex@{number\-Vertex}!ListVertex@{List\-Vertex}}
+\subsubsection[{number\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}int List\-Vertex\-::number\-Vertex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_vertex_a0fa7cf40012232cceca046e43546620a}
+\begin{DoxyReturn}{Returns}
+O número de vértices existentes na lista 
+\end{DoxyReturn}
+\hypertarget{class_list_vertex_a0347466e8424c8ecf40cf8fa7d4b1f53}{\index{List\-Vertex@{List\-Vertex}!transformation@{transformation}}
+\index{transformation@{transformation}!ListVertex@{List\-Vertex}}
+\subsubsection[{transformation}]{\setlength{\rightskip}{0pt plus 5cm}void List\-Vertex\-::transformation (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{class_list_vertex_a0347466e8424c8ecf40cf8fa7d4b1f53}
+Aplica uma transformação em todos os vértices da lista. Percorre a lista multiplicando cada vértice pela matriz passada. 
+\begin{DoxyParams}{Parameters}
+{\em matrix} & Um ponteiro para um objeto do tipo \hyperlink{class_matrix}{Matrix}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{list_vertex_8h}{list\-Vertex.\-h}\end{DoxyCompactItemize}

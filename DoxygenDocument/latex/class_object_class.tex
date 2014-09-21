@@ -1,0 +1,275 @@
+\hypertarget{class_object_class}{\section{Object\-Class Class Reference}
+\label{class_object_class}\index{Object\-Class@{Object\-Class}}
+}
+
+
+Implemanta a estrutra de objeto.  
+
+
+
+
+{\ttfamily \#include $<$object\-Class.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_object_class_a2c2fe669430058b5cb1c34b4efb2a21c}{Object\-Class} ()
+\item 
+void \hyperlink{class_object_class_ad527332529013dfb97f816f43997a407}{draw\-Object} (unsigned int mode)
+\item 
+void \hyperlink{class_object_class_a246980d840290e1e8e31667c2b41e292}{apply\-Transformation} (\hyperlink{class_matrix}{Matrix} $\ast$transformation\-Matrix)
+\item 
+void \hyperlink{class_object_class_a5018ced0c40de80216c2ed8dbbd471b3}{set\-Name} (std\-::string Name)
+\item 
+void \hyperlink{class_object_class_a3ed0bcdf45b61ad3cb649802b183f159}{set\-List\-Vertex} (\hyperlink{class_list_vertex}{List\-Vertex} $\ast$list\-\_\-vertex)
+\item 
+void \hyperlink{class_object_class_aa8b07f0e6e9800b70b8506937af8ce1d}{set\-List\-Face} (\hyperlink{class_list_face}{List\-Face} $\ast$list\-\_\-face)
+\item 
+void \hyperlink{class_object_class_a271e4b490469121f155fd45429b7029a}{set\-Color\-R} (float R)
+\item 
+void \hyperlink{class_object_class_a917b8d68c46cc4df9104505db4ec9408}{set\-Color\-G} (float G)
+\item 
+void \hyperlink{class_object_class_aafeb9b01870f5b151ac5796dd132be66}{set\-Color\-B} (float B)
+\item 
+std\-::string \hyperlink{class_object_class_abebad7356f785a486a1c909edfdcbe92}{get\-Name} ()
+\item 
+\hyperlink{class_list_vertex}{List\-Vertex} $\ast$ \hyperlink{class_object_class_a561023e70b55220e0ef38b820d46ae04}{get\-List\-Vertex} ()
+\item 
+\hyperlink{class_list_face}{List\-Face} $\ast$ \hyperlink{class_object_class_a9edd2f1f08bc68d88a2f56cefb5d472b}{get\-List\-Face} ()
+\item 
+float \hyperlink{class_object_class_a264ab0a83ff04894afa3802ce51f8fc8}{get\-Collor\-R} ()
+\item 
+float \hyperlink{class_object_class_a9b93f2c852a0e6de6734d9f95c213fa5}{get\-Collor\-G} ()
+\item 
+float \hyperlink{class_object_class_a2c7b58bd2ad3b9d8b16b9ac2f2c7945f}{get\-Collor\-B} ()
+\item 
+int \hyperlink{class_object_class_a6a0a2ab8e5781b2b68fb60e8803f2383}{get\-Number\-Vertex} ()
+\item 
+int \hyperlink{class_object_class_a578b39357a65bcaed783ab381d43843b}{get\-Number\-Face} ()
+\item 
+void \hyperlink{class_object_class_a19b72d6d31df6474414288da1d5cdda3}{update\-Centroide} ()
+\item 
+\hyperlink{class_vector}{Vector} $\ast$ \hyperlink{class_object_class_a24d2d4eb1f394e18b560e8fd7a96ff0b}{get\-Centroid} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implemanta a estrutra de objeto. 
+
+\begin{DoxyAuthor}{Author}
+Cristiano Melo \& Lucas Falcão 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_object_class_a2c2fe669430058b5cb1c34b4efb2a21c}{\index{Object\-Class@{Object\-Class}!Object\-Class@{Object\-Class}}
+\index{Object\-Class@{Object\-Class}!ObjectClass@{Object\-Class}}
+\subsubsection[{Object\-Class}]{\setlength{\rightskip}{0pt plus 5cm}Object\-Class\-::\-Object\-Class (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a2c2fe669430058b5cb1c34b4efb2a21c}
+Constrói o objeto 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_object_class_a246980d840290e1e8e31667c2b41e292}{\index{Object\-Class@{Object\-Class}!apply\-Transformation@{apply\-Transformation}}
+\index{apply\-Transformation@{apply\-Transformation}!ObjectClass@{Object\-Class}}
+\subsubsection[{apply\-Transformation}]{\setlength{\rightskip}{0pt plus 5cm}void Object\-Class\-::apply\-Transformation (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix} $\ast$}]{transformation\-Matrix}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a246980d840290e1e8e31667c2b41e292}
+Aplica transformaÃ§Ã£o no objeto 
+\begin{DoxyParams}{Parameters}
+{\em transformation\-Matrix} & \hyperlink{class_matrix}{Matrix} de transformação \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_object_class_ad527332529013dfb97f816f43997a407}{\index{Object\-Class@{Object\-Class}!draw\-Object@{draw\-Object}}
+\index{draw\-Object@{draw\-Object}!ObjectClass@{Object\-Class}}
+\subsubsection[{draw\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void Object\-Class\-::draw\-Object (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{mode}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_ad527332529013dfb97f816f43997a407}
+Desenha o objeto 
+\begin{DoxyParams}{Parameters}
+{\em mode} & Constante que define o modo em que será desenhado. \par
+ G\-L\-\_\-\-L\-I\-N\-E\-\_\-\-L\-O\-O\-P -\/ Desenha face \char`\"{}aramada\char`\"{}. \par
+ G\-L\-\_\-\-P\-O\-L\-Y\-G\-O\-N -\/ Desenha face preenchida. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_object_class_a24d2d4eb1f394e18b560e8fd7a96ff0b}{\index{Object\-Class@{Object\-Class}!get\-Centroid@{get\-Centroid}}
+\index{get\-Centroid@{get\-Centroid}!ObjectClass@{Object\-Class}}
+\subsubsection[{get\-Centroid}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector}$\ast$ Object\-Class\-::get\-Centroid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a24d2d4eb1f394e18b560e8fd7a96ff0b}
+\begin{DoxyReturn}{Returns}
+Centróide do objeto. 
+\end{DoxyReturn}
+\hypertarget{class_object_class_a2c7b58bd2ad3b9d8b16b9ac2f2c7945f}{\index{Object\-Class@{Object\-Class}!get\-Collor\-B@{get\-Collor\-B}}
+\index{get\-Collor\-B@{get\-Collor\-B}!ObjectClass@{Object\-Class}}
+\subsubsection[{get\-Collor\-B}]{\setlength{\rightskip}{0pt plus 5cm}float Object\-Class\-::get\-Collor\-B (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a2c7b58bd2ad3b9d8b16b9ac2f2c7945f}
+\begin{DoxyReturn}{Returns}
+Cor B do objeto. 
+\end{DoxyReturn}
+\hypertarget{class_object_class_a9b93f2c852a0e6de6734d9f95c213fa5}{\index{Object\-Class@{Object\-Class}!get\-Collor\-G@{get\-Collor\-G}}
+\index{get\-Collor\-G@{get\-Collor\-G}!ObjectClass@{Object\-Class}}
+\subsubsection[{get\-Collor\-G}]{\setlength{\rightskip}{0pt plus 5cm}float Object\-Class\-::get\-Collor\-G (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a9b93f2c852a0e6de6734d9f95c213fa5}
+\begin{DoxyReturn}{Returns}
+Cor G do objeto. 
+\end{DoxyReturn}
+\hypertarget{class_object_class_a264ab0a83ff04894afa3802ce51f8fc8}{\index{Object\-Class@{Object\-Class}!get\-Collor\-R@{get\-Collor\-R}}
+\index{get\-Collor\-R@{get\-Collor\-R}!ObjectClass@{Object\-Class}}
+\subsubsection[{get\-Collor\-R}]{\setlength{\rightskip}{0pt plus 5cm}float Object\-Class\-::get\-Collor\-R (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a264ab0a83ff04894afa3802ce51f8fc8}
+\begin{DoxyReturn}{Returns}
+Cor R do objeto. 
+\end{DoxyReturn}
+\hypertarget{class_object_class_a9edd2f1f08bc68d88a2f56cefb5d472b}{\index{Object\-Class@{Object\-Class}!get\-List\-Face@{get\-List\-Face}}
+\index{get\-List\-Face@{get\-List\-Face}!ObjectClass@{Object\-Class}}
+\subsubsection[{get\-List\-Face}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List\-Face}$\ast$ Object\-Class\-::get\-List\-Face (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a9edd2f1f08bc68d88a2f56cefb5d472b}
+\begin{DoxyReturn}{Returns}
+Lista de faces do objeto. 
+\end{DoxyReturn}
+\hypertarget{class_object_class_a561023e70b55220e0ef38b820d46ae04}{\index{Object\-Class@{Object\-Class}!get\-List\-Vertex@{get\-List\-Vertex}}
+\index{get\-List\-Vertex@{get\-List\-Vertex}!ObjectClass@{Object\-Class}}
+\subsubsection[{get\-List\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List\-Vertex}$\ast$ Object\-Class\-::get\-List\-Vertex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a561023e70b55220e0ef38b820d46ae04}
+\begin{DoxyReturn}{Returns}
+Lista de vÃ©rtices do objeto. 
+\end{DoxyReturn}
+\hypertarget{class_object_class_abebad7356f785a486a1c909edfdcbe92}{\index{Object\-Class@{Object\-Class}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!ObjectClass@{Object\-Class}}
+\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Object\-Class\-::get\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_abebad7356f785a486a1c909edfdcbe92}
+\begin{DoxyReturn}{Returns}
+Nome do objeto. 
+\end{DoxyReturn}
+\hypertarget{class_object_class_a578b39357a65bcaed783ab381d43843b}{\index{Object\-Class@{Object\-Class}!get\-Number\-Face@{get\-Number\-Face}}
+\index{get\-Number\-Face@{get\-Number\-Face}!ObjectClass@{Object\-Class}}
+\subsubsection[{get\-Number\-Face}]{\setlength{\rightskip}{0pt plus 5cm}int Object\-Class\-::get\-Number\-Face (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a578b39357a65bcaed783ab381d43843b}
+\begin{DoxyReturn}{Returns}
+O número de faces do Objeto. 
+\end{DoxyReturn}
+\hypertarget{class_object_class_a6a0a2ab8e5781b2b68fb60e8803f2383}{\index{Object\-Class@{Object\-Class}!get\-Number\-Vertex@{get\-Number\-Vertex}}
+\index{get\-Number\-Vertex@{get\-Number\-Vertex}!ObjectClass@{Object\-Class}}
+\subsubsection[{get\-Number\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}int Object\-Class\-::get\-Number\-Vertex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a6a0a2ab8e5781b2b68fb60e8803f2383}
+\begin{DoxyReturn}{Returns}
+O número de vértices do Objeto. 
+\end{DoxyReturn}
+\hypertarget{class_object_class_aafeb9b01870f5b151ac5796dd132be66}{\index{Object\-Class@{Object\-Class}!set\-Color\-B@{set\-Color\-B}}
+\index{set\-Color\-B@{set\-Color\-B}!ObjectClass@{Object\-Class}}
+\subsubsection[{set\-Color\-B}]{\setlength{\rightskip}{0pt plus 5cm}void Object\-Class\-::set\-Color\-B (
+\begin{DoxyParamCaption}
+\item[{float}]{B}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_aafeb9b01870f5b151ac5796dd132be66}
+Configura a cor B do objeto. 
+\begin{DoxyParams}{Parameters}
+{\em B} & Valor na faixa de 0.\-0 a 1.\-0 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_object_class_a917b8d68c46cc4df9104505db4ec9408}{\index{Object\-Class@{Object\-Class}!set\-Color\-G@{set\-Color\-G}}
+\index{set\-Color\-G@{set\-Color\-G}!ObjectClass@{Object\-Class}}
+\subsubsection[{set\-Color\-G}]{\setlength{\rightskip}{0pt plus 5cm}void Object\-Class\-::set\-Color\-G (
+\begin{DoxyParamCaption}
+\item[{float}]{G}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a917b8d68c46cc4df9104505db4ec9408}
+Configura a cor G do objeto. 
+\begin{DoxyParams}{Parameters}
+{\em G} & Valor na faixa de 0.\-0 a 1.\-0 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_object_class_a271e4b490469121f155fd45429b7029a}{\index{Object\-Class@{Object\-Class}!set\-Color\-R@{set\-Color\-R}}
+\index{set\-Color\-R@{set\-Color\-R}!ObjectClass@{Object\-Class}}
+\subsubsection[{set\-Color\-R}]{\setlength{\rightskip}{0pt plus 5cm}void Object\-Class\-::set\-Color\-R (
+\begin{DoxyParamCaption}
+\item[{float}]{R}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a271e4b490469121f155fd45429b7029a}
+Configura a cor R do objeto. 
+\begin{DoxyParams}{Parameters}
+{\em R} & Valor na faixa de 0.\-0 a 1.\-0 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_object_class_aa8b07f0e6e9800b70b8506937af8ce1d}{\index{Object\-Class@{Object\-Class}!set\-List\-Face@{set\-List\-Face}}
+\index{set\-List\-Face@{set\-List\-Face}!ObjectClass@{Object\-Class}}
+\subsubsection[{set\-List\-Face}]{\setlength{\rightskip}{0pt plus 5cm}void Object\-Class\-::set\-List\-Face (
+\begin{DoxyParamCaption}
+\item[{{\bf List\-Face} $\ast$}]{list\-\_\-face}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_aa8b07f0e6e9800b70b8506937af8ce1d}
+Configura a lista de faces do objeto 
+\begin{DoxyParams}{Parameters}
+{\em list\-\_\-face} & Nova lista de faces \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_object_class_a3ed0bcdf45b61ad3cb649802b183f159}{\index{Object\-Class@{Object\-Class}!set\-List\-Vertex@{set\-List\-Vertex}}
+\index{set\-List\-Vertex@{set\-List\-Vertex}!ObjectClass@{Object\-Class}}
+\subsubsection[{set\-List\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}void Object\-Class\-::set\-List\-Vertex (
+\begin{DoxyParamCaption}
+\item[{{\bf List\-Vertex} $\ast$}]{list\-\_\-vertex}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a3ed0bcdf45b61ad3cb649802b183f159}
+Configura a lista de vértices do objeto 
+\begin{DoxyParams}{Parameters}
+{\em list\-\_\-vertex} & Nova lista de vértices \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_object_class_a5018ced0c40de80216c2ed8dbbd471b3}{\index{Object\-Class@{Object\-Class}!set\-Name@{set\-Name}}
+\index{set\-Name@{set\-Name}!ObjectClass@{Object\-Class}}
+\subsubsection[{set\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Object\-Class\-::set\-Name (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{Name}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a5018ced0c40de80216c2ed8dbbd471b3}
+Configura o nome do objeto 
+\begin{DoxyParams}{Parameters}
+{\em list\-\_\-face} & Novo nome do objeto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_object_class_a19b72d6d31df6474414288da1d5cdda3}{\index{Object\-Class@{Object\-Class}!update\-Centroide@{update\-Centroide}}
+\index{update\-Centroide@{update\-Centroide}!ObjectClass@{Object\-Class}}
+\subsubsection[{update\-Centroide}]{\setlength{\rightskip}{0pt plus 5cm}void Object\-Class\-::update\-Centroide (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_object_class_a19b72d6d31df6474414288da1d5cdda3}
+Atualiza a centroide do objeto. \par
+ A coordenada homogênia está sendo setada com 1. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{object_class_8h}{object\-Class.\-h}\end{DoxyCompactItemize}

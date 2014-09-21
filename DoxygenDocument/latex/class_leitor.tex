@@ -1,0 +1,65 @@
+\hypertarget{class_leitor}{\section{Leitor Class Reference}
+\label{class_leitor}\index{Leitor@{Leitor}}
+}
+
+
+Usada para transformar .obj em nossa estrutura topológica.  
+
+
+
+
+{\ttfamily \#include $<$leitor.\-h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{class_leitor_a088b33a1761a473f3bd0acfaa5ffb6b7}{e\-Arquivo\-Obj} (std\-::string nome\-Arquivo)
+\item 
+static \hyperlink{topology_8h_a36084a4504e685f7634f504378160ed9}{Topology} $\ast$ \hyperlink{class_leitor_a509cf48ca55b02f61db663ecf5da8305}{ler} (std\-::string nome\-Arquivo)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Usada para transformar .obj em nossa estrutura topológica. 
+
+\begin{DoxyAuthor}{Author}
+Francisco Lucas Falcão Pereira 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_leitor_a088b33a1761a473f3bd0acfaa5ffb6b7}{\index{Leitor@{Leitor}!e\-Arquivo\-Obj@{e\-Arquivo\-Obj}}
+\index{e\-Arquivo\-Obj@{e\-Arquivo\-Obj}!Leitor@{Leitor}}
+\subsubsection[{e\-Arquivo\-Obj}]{\setlength{\rightskip}{0pt plus 5cm}static bool Leitor\-::e\-Arquivo\-Obj (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{nome\-Arquivo}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_leitor_a088b33a1761a473f3bd0acfaa5ffb6b7}
+Dado o nome do arquivo, verifica se ele é do tipo obj ou não. Verifica se o parametro é realmente um arquivo do tipo obj e retorna um booleano 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Arquivo} & Nome do aquivo a ser verificado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor {\ttfamily true} caso o arquivo seja do tipo obj e {\ttfamily false} caso contrário. 
+\end{DoxyReturn}
+\hypertarget{class_leitor_a509cf48ca55b02f61db663ecf5da8305}{\index{Leitor@{Leitor}!ler@{ler}}
+\index{ler@{ler}!Leitor@{Leitor}}
+\subsubsection[{ler}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Topology}$\ast$ Leitor\-::ler (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{nome\-Arquivo}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_leitor_a509cf48ca55b02f61db663ecf5da8305}
+Percorre um arquivo .obj preenchendo uma estrutura topologica. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Arquivo} & Nome do arquivo .obj \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Estrutura topológica preenchida pela função 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{leitor_8h}{leitor.\-h}\end{DoxyCompactItemize}

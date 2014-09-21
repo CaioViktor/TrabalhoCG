@@ -1,0 +1,139 @@
+\hypertarget{class_vector}{\section{Vector Class Reference}
+\label{class_vector}\index{Vector@{Vector}}
+}
+
+
+Classe responsável pela implementação de estrutura de vetores de coordenadas 4\-X1.  
+
+
+
+
+{\ttfamily \#include $<$vector.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vector_a6f80c73b5f18dcf3f8e36065bdc8b9e5}{Vector} ()
+\begin{DoxyCompactList}\small\item\em Guarda o conteudo do vetor. \end{DoxyCompactList}\item 
+double $\ast$$\ast$ \hyperlink{class_vector_ac6923cc4d752c3f6ba3e41d78cba14ac}{get\-Vector} ()
+\item 
+double \hyperlink{class_vector_a0b1f030faadf671092504286e70b4df0}{get\-Value} (int)
+\item 
+void \hyperlink{class_vector_ad6c93a7d6b992f46d0118f33cfc41f88}{set\-Value} (int, double)
+\item 
+void \hyperlink{class_vector_a8390359b5276e9601d3185f6fb9b2e20}{set\-Value} (int, double $\ast$)
+\item 
+void \hyperlink{class_vector_aaf16ef229369a72edf34bc91136642cd}{show\-Vector} ()
+\item 
+void \hyperlink{class_vector_a6db126151d0311e2fa09b39415963cea}{multiplication\-Matrix} (\hyperlink{class_matrix}{Matrix} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe responsável pela implementação de estrutura de vetores de coordenadas 4\-X1. 
+
+\begin{DoxyAuthor}{Author}
+Caio Viktor 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_vector_a6f80c73b5f18dcf3f8e36065bdc8b9e5}{\index{Vector@{Vector}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector@{Vector}}
+\subsubsection[{Vector}]{\setlength{\rightskip}{0pt plus 5cm}Vector\-::\-Vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vector_a6f80c73b5f18dcf3f8e36065bdc8b9e5}
+
+
+Guarda o conteudo do vetor. 
+
+Cria vetor double$\ast$ de 4 posições e o seta em vecto ou seja um vetor de ponteiros de double 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_vector_a0b1f030faadf671092504286e70b4df0}{\index{Vector@{Vector}!get\-Value@{get\-Value}}
+\index{get\-Value@{get\-Value}!Vector@{Vector}}
+\subsubsection[{get\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double Vector\-::get\-Value (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{class_vector_a0b1f030faadf671092504286e70b4df0}
+Retorna o valor da posição passada por parâmetro 
+\begin{DoxyParams}{Parameters}
+{\em position} & Posição desejada no vetor. (X Y Z W) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O valor da posição desejada. 
+\end{DoxyReturn}
+\hypertarget{class_vector_ac6923cc4d752c3f6ba3e41d78cba14ac}{\index{Vector@{Vector}!get\-Vector@{get\-Vector}}
+\index{get\-Vector@{get\-Vector}!Vector@{Vector}}
+\subsubsection[{get\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ Vector\-::get\-Vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vector_ac6923cc4d752c3f6ba3e41d78cba14ac}
+\begin{DoxyReturn}{Returns}
+Vetor de ponteiros do tipo double onde os valores estão armazenados. 
+\end{DoxyReturn}
+\hypertarget{class_vector_a6db126151d0311e2fa09b39415963cea}{\index{Vector@{Vector}!multiplication\-Matrix@{multiplication\-Matrix}}
+\index{multiplication\-Matrix@{multiplication\-Matrix}!Vector@{Vector}}
+\subsubsection[{multiplication\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Vector\-::multiplication\-Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{class_vector_a6db126151d0311e2fa09b39415963cea}
+Multiplica vector por matrix e armazena o resultado na própria matriz. 
+\begin{DoxyParams}{Parameters}
+{\em matrix} & Matriz com a qual a multiplicaçao será realizada. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_vector_ad6c93a7d6b992f46d0118f33cfc41f88}{\index{Vector@{Vector}!set\-Value@{set\-Value}}
+\index{set\-Value@{set\-Value}!Vector@{Vector}}
+\subsubsection[{set\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Vector\-::set\-Value (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}}\label{class_vector_ad6c93a7d6b992f46d0118f33cfc41f88}
+Atualiza a posição passada por parâmetro para o valor passado por parâmetro. 
+\begin{DoxyParams}{Parameters}
+{\em position} & Posição no vetor. \\
+\hline
+{\em value} & Valor que será inserido na posição passada em position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_vector_a8390359b5276e9601d3185f6fb9b2e20}{\index{Vector@{Vector}!set\-Value@{set\-Value}}
+\index{set\-Value@{set\-Value}!Vector@{Vector}}
+\subsubsection[{set\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Vector\-::set\-Value (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{class_vector_a8390359b5276e9601d3185f6fb9b2e20}
+Atualiza o ponteiro da posição passada por parâmetro para o ponteiro passado por parâmetro ou seja guarda uma referência no vetor. 
+\begin{DoxyParams}{Parameters}
+{\em position} & Posição no vetor. \\
+\hline
+{\em value} & Ponteiro que referência uma das posições no vetor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_vector_aaf16ef229369a72edf34bc91136642cd}{\index{Vector@{Vector}!show\-Vector@{show\-Vector}}
+\index{show\-Vector@{show\-Vector}!Vector@{Vector}}
+\subsubsection[{show\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}void Vector\-::show\-Vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_vector_aaf16ef229369a72edf34bc91136642cd}
+Exibe os valores contidos no vetor 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{vector_8h}{vector.\-h}\end{DoxyCompactItemize}

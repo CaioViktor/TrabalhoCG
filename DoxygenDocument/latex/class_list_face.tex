@@ -1,0 +1,140 @@
+\hypertarget{class_list_face}{\section{List\-Face Class Reference}
+\label{class_list_face}\index{List\-Face@{List\-Face}}
+}
+
+
+Implementa estrutura de lista encadeada de faces utilizada na classe objeto.  
+
+
+
+
+{\ttfamily \#include $<$list\-Face.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_list_face_a272e3b9dfa08a4f26dd150b871610f84}{List\-Face} ()
+\item 
+\hyperlink{class_list_face_a870627eab83b4523016d508a3cb8fd7b}{List\-Face} (\hyperlink{class_face}{Face} $\ast$face)
+\item 
+bool \hyperlink{class_list_face_a6aec2173f93b4c4f53c4f410d8349198}{isempty} ()
+\item 
+void \hyperlink{class_list_face_a29c8972a6bb03ba6d92fb4a841ce2b7e}{add\-Face} (\hyperlink{class_face}{Face} $\ast$face)
+\item 
+\hyperlink{class_face}{Face} $\ast$ \hyperlink{class_list_face_ae9dcb7e7508e87b874bc22630fc86ce0}{get\-Face} (int index)
+\item 
+void \hyperlink{class_list_face_a41765d37857ae399e30f65250010ade6}{list} ()
+\item 
+void \hyperlink{class_list_face_a846fdac36dc1aa7dbc5365a6929bc07e}{draw\-Wired} ()
+\item 
+void \hyperlink{class_list_face_a991b8a2f2ba9b338591db9ca8b7e7f27}{draw\-Solid} ()
+\item 
+int \hyperlink{class_list_face_af94f2d60855574140e7fb46ac16428e8}{number\-Faces} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementa estrutura de lista encadeada de faces utilizada na classe objeto. 
+
+\begin{DoxyAuthor}{Author}
+Caio Viktor 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_list_face_a272e3b9dfa08a4f26dd150b871610f84}{\index{List\-Face@{List\-Face}!List\-Face@{List\-Face}}
+\index{List\-Face@{List\-Face}!ListFace@{List\-Face}}
+\subsubsection[{List\-Face}]{\setlength{\rightskip}{0pt plus 5cm}List\-Face\-::\-List\-Face (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_face_a272e3b9dfa08a4f26dd150b871610f84}
+Construtor da classe \hyperlink{class_list_face}{List\-Face}. Inicia uma lista vazia. \hypertarget{class_list_face_a870627eab83b4523016d508a3cb8fd7b}{\index{List\-Face@{List\-Face}!List\-Face@{List\-Face}}
+\index{List\-Face@{List\-Face}!ListFace@{List\-Face}}
+\subsubsection[{List\-Face}]{\setlength{\rightskip}{0pt plus 5cm}List\-Face\-::\-List\-Face (
+\begin{DoxyParamCaption}
+\item[{{\bf Face} $\ast$}]{face}
+\end{DoxyParamCaption}
+)}}\label{class_list_face_a870627eab83b4523016d508a3cb8fd7b}
+Construtor da classe \hyperlink{class_list_face}{List\-Face}, inicia a lista com uma face passado como parâmetro. 
+\begin{DoxyParams}{Parameters}
+{\em face} & Ponteiro para um objeto do tipo \hyperlink{class_face}{Face}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_list_face_a29c8972a6bb03ba6d92fb4a841ce2b7e}{\index{List\-Face@{List\-Face}!add\-Face@{add\-Face}}
+\index{add\-Face@{add\-Face}!ListFace@{List\-Face}}
+\subsubsection[{add\-Face}]{\setlength{\rightskip}{0pt plus 5cm}void List\-Face\-::add\-Face (
+\begin{DoxyParamCaption}
+\item[{{\bf Face} $\ast$}]{face}
+\end{DoxyParamCaption}
+)}}\label{class_list_face_a29c8972a6bb03ba6d92fb4a841ce2b7e}
+Adiciona uma face passada como parâmetro na ultima posição da lista caso ele ainda não exista na lista.\par
+ Caso ele já exista, retorna uma mensagem informando 
+\begin{DoxyParams}{Parameters}
+{\em face} & ponteiro para um objeto do tipo \hyperlink{class_face}{Face} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_list_face_a991b8a2f2ba9b338591db9ca8b7e7f27}{\index{List\-Face@{List\-Face}!draw\-Solid@{draw\-Solid}}
+\index{draw\-Solid@{draw\-Solid}!ListFace@{List\-Face}}
+\subsubsection[{draw\-Solid}]{\setlength{\rightskip}{0pt plus 5cm}void List\-Face\-::draw\-Solid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_face_a991b8a2f2ba9b338591db9ca8b7e7f27}
+Desenha todas as faces da lista em sólido. \hypertarget{class_list_face_a846fdac36dc1aa7dbc5365a6929bc07e}{\index{List\-Face@{List\-Face}!draw\-Wired@{draw\-Wired}}
+\index{draw\-Wired@{draw\-Wired}!ListFace@{List\-Face}}
+\subsubsection[{draw\-Wired}]{\setlength{\rightskip}{0pt plus 5cm}void List\-Face\-::draw\-Wired (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_face_a846fdac36dc1aa7dbc5365a6929bc07e}
+Desenha todas as faces da lista em aramado. \hypertarget{class_list_face_ae9dcb7e7508e87b874bc22630fc86ce0}{\index{List\-Face@{List\-Face}!get\-Face@{get\-Face}}
+\index{get\-Face@{get\-Face}!ListFace@{List\-Face}}
+\subsubsection[{get\-Face}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Face}$\ast$ List\-Face\-::get\-Face (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}\label{class_list_face_ae9dcb7e7508e87b874bc22630fc86ce0}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Posiçao da objeto \hyperlink{class_face}{Face} desejada na lista de faces. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um ponteiro para a face desejada. Retorna null caso ele nao exista. 
+\end{DoxyReturn}
+\hypertarget{class_list_face_a6aec2173f93b4c4f53c4f410d8349198}{\index{List\-Face@{List\-Face}!isempty@{isempty}}
+\index{isempty@{isempty}!ListFace@{List\-Face}}
+\subsubsection[{isempty}]{\setlength{\rightskip}{0pt plus 5cm}bool List\-Face\-::isempty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_face_a6aec2173f93b4c4f53c4f410d8349198}
+Verifica se a lista de faces está vazia. \begin{DoxyReturn}{Returns}
+True se estiver e fase caso contrário. 
+\end{DoxyReturn}
+\hypertarget{class_list_face_a41765d37857ae399e30f65250010ade6}{\index{List\-Face@{List\-Face}!list@{list}}
+\index{list@{list}!ListFace@{List\-Face}}
+\subsubsection[{list}]{\setlength{\rightskip}{0pt plus 5cm}void List\-Face\-::list (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_face_a41765d37857ae399e30f65250010ade6}
+Printa as coordenadas de todos os vértices da lista (Utilizada para teste). Protótipo da função de transformação. \hypertarget{class_list_face_af94f2d60855574140e7fb46ac16428e8}{\index{List\-Face@{List\-Face}!number\-Faces@{number\-Faces}}
+\index{number\-Faces@{number\-Faces}!ListFace@{List\-Face}}
+\subsubsection[{number\-Faces}]{\setlength{\rightskip}{0pt plus 5cm}int List\-Face\-::number\-Faces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_face_af94f2d60855574140e7fb46ac16428e8}
+\begin{DoxyReturn}{Returns}
+O número de faces contidas na lista. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{list_face_8h}{list\-Face.\-h}\end{DoxyCompactItemize}

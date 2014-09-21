@@ -1,0 +1,112 @@
+\hypertarget{classstack_matrix}{\section{stack\-Matrix Class Reference}
+\label{classstack_matrix}\index{stack\-Matrix@{stack\-Matrix}}
+}
+
+
+Armazenar matrizes e facilitar as operações feitas com matrizes.  
+
+
+
+
+{\ttfamily \#include $<$stack\-Matrix.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstack_matrix_a18c788dcd55012fe00da47efd0ffb92e}{stack\-Matrix} ()
+\item 
+\hyperlink{classstack_matrix_a0bbdaa5e69a1b844267f66e87962ab97}{$\sim$stack\-Matrix} ()
+\item 
+int \hyperlink{classstack_matrix_a39783ed954314dc305d106c4cd31ee80}{get\-Height} ()
+\item 
+\hyperlink{class_matrix}{Matrix} $\ast$ \hyperlink{classstack_matrix_ad2eea64980b6a16dbe84a4605ee0359c}{pull} ()
+\item 
+void \hyperlink{classstack_matrix_af46ba624157a0536c295f2b1810e5277}{push} (\hyperlink{class_matrix}{Matrix} $\ast$matrix)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_matrix}{Matrix} $\ast$ \hyperlink{classstack_matrix_ad957510a9d1490b62291e11d482b2b80}{concatenate} (\hyperlink{classstack_matrix}{stack\-Matrix} $\ast$stack)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Armazenar matrizes e facilitar as operações feitas com matrizes. 
+
+\begin{DoxyAuthor}{Author}
+Matheus Mayron 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classstack_matrix_a18c788dcd55012fe00da47efd0ffb92e}{\index{stack\-Matrix@{stack\-Matrix}!stack\-Matrix@{stack\-Matrix}}
+\index{stack\-Matrix@{stack\-Matrix}!stackMatrix@{stack\-Matrix}}
+\subsubsection[{stack\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}stack\-Matrix\-::stack\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classstack_matrix_a18c788dcd55012fe00da47efd0ffb92e}
+Controi uma objeto static\-Matrix. O valor inicial de height é 0 e top aponta para a base da pilha\-: um No\-Stack contendo uma matriz identidade. \hypertarget{classstack_matrix_a0bbdaa5e69a1b844267f66e87962ab97}{\index{stack\-Matrix@{stack\-Matrix}!$\sim$stack\-Matrix@{$\sim$stack\-Matrix}}
+\index{$\sim$stack\-Matrix@{$\sim$stack\-Matrix}!stackMatrix@{stack\-Matrix}}
+\subsubsection[{$\sim$stack\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}stack\-Matrix\-::$\sim$stack\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classstack_matrix_a0bbdaa5e69a1b844267f66e87962ab97}
+Destroi o objeto, desalocando também o que foi alocado em seu interior 
+
+\subsection{Member Function Documentation}
+\hypertarget{classstack_matrix_ad957510a9d1490b62291e11d482b2b80}{\index{stack\-Matrix@{stack\-Matrix}!concatenate@{concatenate}}
+\index{concatenate@{concatenate}!stackMatrix@{stack\-Matrix}}
+\subsubsection[{concatenate}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Matrix}$\ast$ stack\-Matrix\-::concatenate (
+\begin{DoxyParamCaption}
+\item[{{\bf stack\-Matrix} $\ast$}]{stack}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classstack_matrix_ad957510a9d1490b62291e11d482b2b80}
+Multiplica todas as matrizes armazenadas na pilha passada como parametro do topo até a base e retorna o resultado. 
+\begin{DoxyParams}{Parameters}
+{\em stack} & Um ponteiro para um objeto do tipo \hyperlink{classstack_matrix}{stack\-Matrix}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Resultado da multiplicação. 
+\end{DoxyReturn}
+\hypertarget{classstack_matrix_a39783ed954314dc305d106c4cd31ee80}{\index{stack\-Matrix@{stack\-Matrix}!get\-Height@{get\-Height}}
+\index{get\-Height@{get\-Height}!stackMatrix@{stack\-Matrix}}
+\subsubsection[{get\-Height}]{\setlength{\rightskip}{0pt plus 5cm}int stack\-Matrix\-::get\-Height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classstack_matrix_a39783ed954314dc305d106c4cd31ee80}
+\begin{DoxyReturn}{Returns}
+A altura da pilha. 
+\end{DoxyReturn}
+\hypertarget{classstack_matrix_ad2eea64980b6a16dbe84a4605ee0359c}{\index{stack\-Matrix@{stack\-Matrix}!pull@{pull}}
+\index{pull@{pull}!stackMatrix@{stack\-Matrix}}
+\subsubsection[{pull}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ stack\-Matrix\-::pull (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classstack_matrix_ad2eea64980b6a16dbe84a4605ee0359c}
+Retira o topo da pilha e desincrementa o tamanho da pilha.\par
+ Caso a pilha esteja vazia, uma mensagem de erro será mostrada e o retorno será uma matriz identidade. \begin{DoxyReturn}{Returns}
+Ponteiro para o objeto \hyperlink{class_matrix}{Matrix} que estava sendo referênciada pelo No\-Stack que estava no topo da pilha. 
+\end{DoxyReturn}
+\hypertarget{classstack_matrix_af46ba624157a0536c295f2b1810e5277}{\index{stack\-Matrix@{stack\-Matrix}!push@{push}}
+\index{push@{push}!stackMatrix@{stack\-Matrix}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}void stack\-Matrix\-::push (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix} $\ast$}]{matrix}
+\end{DoxyParamCaption}
+)}}\label{classstack_matrix_af46ba624157a0536c295f2b1810e5277}
+Empilha um objeto No\-Stack na pilha. Esse No\-Stack irá referênciar um objeto \hyperlink{class_matrix}{Matrix} passado como parâmentro.\par
+ Incrementa o tamanho da pilha. 
+\begin{DoxyParams}{Parameters}
+{\em matrix} & Um objeto do tipo matrix que será referênciado pelo No\-Stack que será empilhado. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{stack_matrix_8h}{stack\-Matrix.\-h}\end{DoxyCompactItemize}

@@ -2,7 +2,7 @@
 *\file face.h
 *\class Face
 *\author Geraldo Braz Duarte Filho & Caio Viktor
-*\brief Implementação de face de 3 vértices
+*\brief Implementação da estrutura de face
 */
 
 class Face{

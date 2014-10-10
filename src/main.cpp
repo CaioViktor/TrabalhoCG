@@ -31,13 +31,19 @@ Topology *topology;
 
 //Declarações Gerais FIM
 
-//desenha todos os objetos da cena
-void draw(void) {
-
+//Configura os valores da Câmera
+void setCamera(){
+    //TODO: selecionar mode de visualização entre pespectiva e orthogonal
     glLoadIdentity();
     // posiciona câmera
     gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
     //glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 10000.0);
+}
+//desenha todos os objetos da cena
+void draw(void) {
+    glEnable (GL_DEPTH_TEST);
+    glClear (GL_DEPTH_BUFFER_BIT);
+    setCamera();
     // Black background
     glClearColor(0.0f,0.0f,0.0f,1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -50,11 +56,8 @@ void draw(void) {
     glFlush();
     //cout << "Display!" << endl;
 }
-
-void init (void){
-    /* Seleciona a cor de fundo para limpeza da tela */
-    glClearColor (0.0, 0.0, 0.0, 0.0);
-    glShadeModel (GL_FLAT);
+//Configura os valores iniciais da Câmera
+void initCamera(){
     //eixo x horizontal
     eyex = 0.0;
     //eixo y vertical
@@ -65,14 +68,19 @@ void init (void){
     centrox=0.0;
     centroy=0.0;
     centroz=0.0;
+}
+void init (void){
+    /* Seleciona a cor de fundo para limpeza da tela */
+    glClearColor (0.0, 0.0, 0.0, 0.0);
+    glShadeModel (GL_FLAT);
 
+    initCamera();
     /* inicializa os valores de visualização */
     glMatrixMode(GL_PROJECTION);
     /* Faz com que a matriz corrente seja inicializada com a matriz identidade
     (nenhuma transformação é acumulada)
     */
-    glLoadIdentity();
-    //glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 10000.0);
+    setCamera();
 
 }
 //trata das transformações necessária ao redimensionar a tela
@@ -122,12 +130,7 @@ void input(unsigned char tecla, int x, int y){
             break;
         case 'O':
         case 'o':
-            eyex = 0.0;
-            eyey = 2.0;
-            eyez = 7.0;
-            centrox=0.0;
-            centroy=0.0;
-            centroz=0.0;
+            initCamera();
         break;    
     }
     //cout << "teclou\n";
@@ -165,9 +168,6 @@ void selectObject(){
     Vector *centroide = arrayObject[objSelected]->getCentroid();
     convert << "X: " << centroide->getValue(0) << " Y: " << centroide->getValue(1) << " Z: " << centroide->getValue(2);
     objectPosition = convert.str();
-    //TODO: posição
-
-
     textName->set_text(objectName.c_str());
     textPosition->set_text(objectPosition.c_str());
     textFace->set_text(objectFaces.c_str());
@@ -295,7 +295,6 @@ void cancelTransformation(){
 }
 //Aplicar Transformação
 void applyTransformation(){
-    //TODO:resto.
     transformationMatrix = stackMatrix::concatenate(stackTransformation);
     arrayObject[objSelected]->applyTransformation(transformationMatrix);
     render();
@@ -347,13 +346,13 @@ void initGLUI(){
     colorB->set_float_limits( 0, 1 ,GLUI_LIMIT_CLAMP );
     glui->add_button_to_panel(objDataPanel,"Renderizar",0,(GLUI_Update_CB) render); 
     //dados do objeto selecionado
+    //TODO:Salva cena
     glui->add_column(true); 
     
 
     //Transformações
     GLUI_Panel *transformationsPanel = glui->add_panel( "Transformações" );
     GLUI_RadioGroup *group2 = glui->add_radiogroup_to_panel(transformationsPanel,&transformationSelected,3);
-    //TODO:Criação dinâmica
     glui->add_radiobutton_to_group( group2, "Translacao" );
     glui->add_radiobutton_to_group( group2, "Rotacao" );
     glui->add_radiobutton_to_group( group2, "Escala" );
@@ -362,6 +361,7 @@ void initGLUI(){
     GLUI_Listbox *modeExibition = glui->add_listbox("Modo de Exibicao: ",&modeExibitionFlag, 0, (GLUI_Update_CB) selectModeExibition );
     modeExibition->add_item(0,"Aramado");
     modeExibition->add_item(1,"Solido");
+    //TODO: selecionar modo de visualização
     glui->add_column(true); 
 
     //parâmetros
@@ -439,7 +439,10 @@ int main(int argc, char **argv) {
     */
 
 
-    glutInitDisplayMode(GLUT_RGBA|GLUT_SINGLE);
+    glutInitDisplayMode(GLUT_DEPTH|GLUT_RGBA|GLUT_SINGLE);
+    
+    //Ativa profundidade para superfícies escondidas
+    glEnable (GL_DEPTH_TEST);
 
     //Configura a posição da janela
     glutInitWindowPosition(0, 0);
@@ -448,7 +451,7 @@ int main(int argc, char **argv) {
     glutInitWindowSize(sizeX,sizeY);
 
     //Criação da janela
-    mainWindow = glutCreateWindow("BRitish EmpiRE: V 1.2 Victorian");
+    mainWindow = glutCreateWindow("BRitish EmpiRE: V 1.2.2 Victorian");
     glutKeyboardFunc(input);
     init();
     glutReshapeFunc(reshape);

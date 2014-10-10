@@ -47,6 +47,11 @@ void ObjectClass::applyTransformation( Matrix *transformationMatrix ){
 //Configura o nome do objeto
 void ObjectClass::setName( std::string Name ){
 	this->name = Name;
+  if(this->name == "Paredes"){
+    this->R = 0.5;
+    this->G = 0.5;
+    this->B = 0.5;
+  }
 }
 
 //Configura a lista de vértice

@@ -131,6 +131,8 @@ public:
 	*/
     static Matrix* getScale(double dx, double dy, double dz, double xf, double yf, double zf);
 
+    //Sobrecarga operador multiplicação matrizes
+    Matrix operator*(Matrix B);
 };
 
 

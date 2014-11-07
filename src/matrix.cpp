@@ -164,3 +164,20 @@ Matrix* Matrix::getScale(double dx, double dy, double dz, double xf, double yf, 
     scale->setPosition(2,3,(1-dz)*zf);
     return scale;
 }
+
+//Sobrecarga operador multiplicação
+Matrix Matrix::operator*(Matrix B){
+    Matrix C;
+       int i, j , k;
+       double temp;
+       for( i = 0; i < 4; i++ ){
+            for( j = 0; j < 4; j++ ){
+                 temp = 0;
+                 for( k = 0; k < 4; k++ ){
+                      temp += this->getPosition(i,k) * B.getPosition(k,j);
+                 }
+                 C.setPosition( i, j, temp );
+            }
+       }
+      return C;
+}

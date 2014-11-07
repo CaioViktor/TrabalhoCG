@@ -48,6 +48,7 @@ void draw(void) {
     glClearColor(0.0f,0.0f,0.0f,1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
+
     // carrega matriz identidade para não acumular transformações na câmera
     //Desenha cena
     for(int c = 0;c<numberObjects;c++)
@@ -458,7 +459,6 @@ int main(int argc, char **argv) {
     //Chamada da função de desenhar
     glutDisplayFunc(draw);
     initGLUI();
-    
     // Loop require by OpenGL
     glutMainLoop();
     return 0;

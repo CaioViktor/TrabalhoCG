@@ -459,6 +459,7 @@ int main(int argc, char **argv) {
     //Chamada da função de desenhar
     glutDisplayFunc(draw);
     initGLUI();
+
     // Loop require by OpenGL
     glutMainLoop();
     return 0;

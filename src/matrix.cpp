@@ -3,7 +3,6 @@
 //A limitação dimensional pode ser alterada com poucas modificações
 #include "../lib/main.h"
 
-
 //Constrói um matriz 4x4 com todos os elementos iguais a 0;
 Matrix::Matrix(){
     content = new double*[4];

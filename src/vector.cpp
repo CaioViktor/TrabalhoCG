@@ -69,3 +69,17 @@ void Vector::multiplicationMatrix(Matrix *matrix){
 	for(int i = 0; i < 4; i++)
 		this->setValue(i,vector[i]);
 }
+
+//Sobrecarga operador multiplicação para matrizes
+Vector Vector::operator*(Matrix M){
+    double vector[4];
+    Vector result;
+    for(int i = 0; i < 4; i++)
+        vector[i] = 0;
+    for(int i = 0; i < 4; i++)
+        for(int j = 0; j < 4; j++)
+            vector[i] = vector[i] + M.getPosition(i,j) * this->getValue(j);
+    for(int i = 0; i < 4; i++)
+        result.setValue(i,vector[i]);    
+    return result;
+}

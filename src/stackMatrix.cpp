@@ -62,4 +62,3 @@ Matrix* stackMatrix::concatenate(stackMatrix* s){
     }
     return concatenated;
 }
-

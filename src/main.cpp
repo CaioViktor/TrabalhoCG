@@ -1,12 +1,14 @@
 /* main.cpp - Caio Viktor
 Controle da window, inteface de usuário e chamadas de procedimentos
 */
+
 #include "../lib/main.h"
 //Declarações da Janela
 GLfloat eyex,eyey,eyez,centrox, centroy, centroz;
 int sizeX,sizeY;
 int mainWindow,objSelected,modeExibitionFlag;
 unsigned int modeExibitionValue = GL_LINE_LOOP;
+int modeProjectionValue = PROJECTION_OPENGL;
 //Declarações da Janela FIM
 
 
@@ -37,7 +39,6 @@ void setCamera(){
     glLoadIdentity();
     // posiciona câmera
     gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
-    //glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 10000.0);
 }
 //desenha todos os objetos da cena
 void draw(void) {
@@ -87,12 +88,16 @@ void init (void){
 //trata das transformações necessária ao redimensionar a tela
 void reshape (int w, int h){   
     //cout << "Reshape!\n";
+    // glui->close();
     glViewport (0, 0, (GLsizei) w, (GLsizei) h);
     glMatrixMode (GL_PROJECTION);
+    // initGLUI();
     GLUI_Master.auto_set_viewport();
     glLoadIdentity ();
-    glFrustum (-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
     //glFrustum (-1.0, 1.0:são o volume dos lados, -1.0, 1.0:são o volume da altura, 1.0 : proximidade da câmera, 50.0:volume de profundidade);
+    glFrustum (-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
+    //glOrtho(-1.0, 1.0, -1.0, 1.0, 1.0, 50);
+
     glMatrixMode (GL_MODELVIEW);
 
 }
@@ -152,7 +157,9 @@ void render(){
     glutPostRedisplay();
 
 }
+void selectModeProjection(){
 
+}
 //Seleção de objetos
 
 void selectObject(){
@@ -363,6 +370,11 @@ void initGLUI(){
     modeExibition->add_item(0,"Aramado");
     modeExibition->add_item(1,"Solido");
     //TODO: selecionar modo de visualização
+    GLUI_Listbox *modeProjection = glui->add_listbox("Modo de Projecao: ",&modeProjectionValue, PROJECTION_OPENGL, (GLUI_Update_CB) selectModeProjection );
+    modeProjection->add_item(PROJECTION_OPENGL,"OpenGL");
+    modeProjection->add_item(PROJECTION_PESPECTIVE,"Pespectiva");
+    modeProjection->add_item(PROJECTION_ORTOGONAL,"Ortogonal");
+    //TODO: selecionar modo de visualização
     glui->add_column(true); 
 
     //parâmetros
@@ -433,8 +445,8 @@ int main(int argc, char **argv) {
     numberFace = topology->FaceNumber;
     //inicia o glut
     glutInit(&argc, argv);
-    // sizeX = glutGet(GLUT_SCREEN_WIDTH);
-    // sizeY = glutGet(GLUT_SCREEN_HEIGHT);
+    sizeX = glutGet(GLUT_SCREEN_WIDTH);
+    sizeY = glutGet(GLUT_SCREEN_HEIGHT);
     /*Configura a tela
     /    -RGB color model + Alpha Channel = GLUT_RGBA
     */

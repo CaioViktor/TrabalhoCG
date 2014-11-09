@@ -106,8 +106,10 @@ Matrix* Matrix::getInverse(){
     for(int k=0; k<4; k++){
         pivo=originalContent[k][k];
         for(int j=k; j<4; j++){
-            inverseContent[k][j] = inverseContent [k][j]/pivo;
             originalContent[k][j] = originalContent[k][j]/pivo;
+        }
+        for(int j=0; j<4; j++){
+            inverseContent[k][j] = inverseContent [k][j]/pivo;
         }
 
 
@@ -115,9 +117,10 @@ Matrix* Matrix::getInverse(){
             if(i!=k){
                 posZerada=originalContent[i][k];
                 for(int j=k; j<4;j++){
-                    inverseContent[i][j] = inverseContent[i][j] - inverseContent[k][j]*posZerada;
                     originalContent[i][j] = originalContent[i][j] - originalContent[k][j]*posZerada;
-
+                }
+                for(int j=0; j<4;j++){
+                    inverseContent[i][j] = inverseContent[i][j] - inverseContent[k][j]*posZerada;
                 }
             }
 

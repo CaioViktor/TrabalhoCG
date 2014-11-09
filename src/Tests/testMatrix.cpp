@@ -1,12 +1,19 @@
 //Autor: Matheus Mayron
 #include "../../lib/main.h"
+
+
+
+
 int main()
 {
+
     Matrix *padrao = new Matrix();
     Matrix *identidade = Matrix::getIdentity();
     Matrix *transposta = new Matrix();
     double a[4][4]={{4,0,8,1},{0,5,0,0},{0,0,6,7},{1,1,0,1}};
     double b[4][4]={{10,0,2.2,9},{1,1,0,3},{1,8,2,0},{12,0,0,8}};
+    double c[4][4]={{-4,0,0,0},{-1,2,0,0},{-4,4,4,0},{-1,-9,-1,1}};
+    Matrix *invertivel=new Matrix(c);
 
     double m[4][4]=
 	{
@@ -62,10 +69,13 @@ int main()
 
     rotz->printMatrix();
     rotz->getTransposed()->printMatrix();
+    rotz->getInverse()->printMatrix();
 
-    Matrix* inversa = rotz->getInverse();
+    Matrix* inversa = invertivel->getInverse();
+
+    invertivel->printMatrix();
+
     inversa->printMatrix();
-
 
 
     //A de escala depois eu reviso

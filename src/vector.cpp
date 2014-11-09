@@ -9,8 +9,8 @@ Vector::Vector(){
 	newVector[1] = (double*) malloc(sizeof(double));
 	newVector[2] = (double*) malloc(sizeof(double));
 	newVector[3] = (double*) malloc(sizeof(double));
-	this->vector = newVector;
 	this->length = 4;
+	this->vector = newVector;
 }
 
 Vector::Vector(double x, double y, double z){
@@ -18,12 +18,12 @@ Vector::Vector(double x, double y, double z){
 	newVector[0] = (double*) malloc(sizeof(double));
 	newVector[1] = (double*) malloc(sizeof(double));
 	newVector[2] = (double*) malloc(sizeof(double));
+	this->length = 3;
 	this->vector = newVector;
 	this->setValue(0,x);
 	this->setValue(1,y);
 	this->setValue(2,z);
 	
-	this->length = 3;
 }
 
 //

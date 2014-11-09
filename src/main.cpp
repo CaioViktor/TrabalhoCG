@@ -44,12 +44,17 @@ void setCamera(){
 void draw(void) {
     glEnable (GL_DEPTH_TEST);
     glClear (GL_DEPTH_BUFFER_BIT);
-    setCamera();
     // Black background
     glClearColor(0.0f,0.0f,0.0f,1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
-
+    setCamera();
+    GLfloat model[16]; 
+    glGetFloatv(GL_MODELVIEW_MATRIX, model); 
+    cout <<endl;
+    for(int i = 0; i < 4 ; i++)
+        cout << model[i] << "  " << model[i+4] << "  " << model[i+8] << "  " << model[i+12] << " \n";
+    cout << "--------------------------------------------------\n";
     // carrega matriz identidade para não acumular transformações na câmera
     //Desenha cena
     for(int c = 0;c<numberObjects;c++)
@@ -63,7 +68,7 @@ void initCamera(){
     //eixo x horizontal
     eyex = 0.0;
     //eixo y vertical
-    eyey = 2.0;
+    eyey = 0.0;
     //eixo z perpendicular cresce para fora se valor for alto pode sair do volume de projeção
     eyez = 7.0;
     //origem de referencial da câmera (0,0,0 é a origem do global)
@@ -132,6 +137,12 @@ void input(unsigned char tecla, int x, int y){
         case 'w':
             eyez = eyez - 0.5;
             centroz = centroz - 0.5;
+            break;
+        case 'i':
+            centroy = centroy + 0.5;
+            break;
+        case 'm':
+            centroy = centroy - 0.5;
             break;
         case 'O':
         case 'o':

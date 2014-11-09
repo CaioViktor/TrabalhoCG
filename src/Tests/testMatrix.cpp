@@ -7,6 +7,7 @@ int main()
     Matrix *transposta = new Matrix();
     double a[4][4]={{4,0,8,1},{0,5,0,0},{0,0,6,7},{1,1,0,1}};
     double b[4][4]={{10,0,2.2,9},{1,1,0,3},{1,8,2,0},{12,0,0,8}};
+
     double m[4][4]=
 	{
 		{1,2,3,4},
@@ -58,7 +59,14 @@ int main()
     roty->printMatrix();
     cout << "em torno de Z:\n";
     Matrix *rotz = Matrix::getRotationZ(0.7853);
+
     rotz->printMatrix();
+    rotz->getTransposed()->printMatrix();
+
+    Matrix* inversa = rotz->getInverse();
+    inversa->printMatrix();
+
+
 
     //A de escala depois eu reviso
 

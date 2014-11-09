@@ -81,6 +81,50 @@ Matrix* Matrix::getTransposed(){
     return trans;
 }
 
+//Retorna uma copia da matriz amazenada em conteúdo
+Matrix* Matrix::getCopy(){
+    Matrix *matrixcopy = new Matrix();
+    for(int i=0; i<4 ; i++){
+        for(int j=0; j<4; j++){
+            matrixcopy->setPosition(i,j,content[i][j]);
+        }
+    }
+    return matrixcopy;
+}
+
+//Retorna a matriz inversa da matriz armazenada em conteúdo
+Matrix* Matrix::getInverse(){
+    Matrix* inverse = getIdentity();
+    Matrix* original = this->getCopy();
+
+    double** originalContent = original->getContent();
+    double** inverseContent = inverse->getContent();
+    double pivo;
+    double posZerada;
+
+
+    for(int k=0; k<4; k++){
+        pivo=originalContent[k][k];
+        for(int j=k; j<4; j++){
+            inverseContent[k][j] = inverseContent [k][j]/pivo;
+            originalContent[k][j] = originalContent[k][j]/pivo;
+        }
+
+
+        for(int i=0; i<4; i++){
+            if(i!=k){
+                posZerada=originalContent[i][k];
+                for(int j=k; j<4;j++){
+                    inverseContent[i][j] = inverseContent[i][j] - inverseContent[k][j]*posZerada;
+                    originalContent[i][j] = originalContent[i][j] - originalContent[k][j]*posZerada;
+
+                }
+            }
+
+        }
+    }
+    return inverse;
+}
 
 //Função que faz o produto de duas matrizes.
 Matrix* Matrix::multiplyMatrix( Matrix *B ){

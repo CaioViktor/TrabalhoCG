@@ -251,3 +251,82 @@ Topology* Leitor::ler(std::string nomeArquivo){
     return cena;
 }
 
+
+//Alterações pós 06/11:
+
+void Leitor::salvar(Topology* cena, std::string nomeArquivo){
+
+    cout<<"Iniciando exportação de arquivo."<<endl;
+
+    //Caso o arquivo não termine com .obj, ele adiciona ao nome
+    string sufixo="";
+    int tamanhoString = nomeArquivo.size();
+
+    for(int i=tamanhoString-4;i<tamanhoString;i++){
+            sufixo = sufixo + nomeArquivo[i];
+    }
+
+    if (sufixo != ".obj"){
+        nomeArquivo = nomeArquivo + ".obj";
+    }
+
+
+    FILE* arquivo;
+    //Cria o arquivo:
+    arquivo = fopen(nomeArquivo.c_str(),"w");
+
+    //Imprimir comentários iniciais:
+    fprintf(arquivo,"#BRrender 1.2 - Trabalho de Computacao Grafica - OBJ File: '%s'\n",nomeArquivo.c_str());
+
+    int nObjetos = cena->ObjectNumber;
+
+    //Para cada objeto:
+    for (int i = 0; i < nObjetos; i++){
+        //Imprime o nome do objeto:
+        fprintf(arquivo,"o %s\n",cena->ObjectArray[i]->getName().c_str());
+
+        //Imprimir os vértices:
+        ListVertex *verticesDoObjeto = cena->ObjectArray[i]->getListVertex();
+
+        for (int k = 0; k < verticesDoObjeto->numberVertex(); k++){
+            Vertex *verticeAtual = verticesDoObjeto->getVertex(k);
+            fprintf(arquivo,"v %lf %lf %lf\n", verticeAtual->getCoordinateXd(),verticeAtual->getCoordinateYd(),verticeAtual->getCoordinateZd());
+        }
+
+        ListFace *facesDoObjeto = cena->ObjectArray[i]->getListFace();
+
+        for (int k = 0; k < facesDoObjeto->numberFaces(); k++){
+            Face *faceAtual = facesDoObjeto->getFace(k);
+
+            Vertex *vertice1 = faceAtual->getVertice1();
+            Vertex *vertice2 = faceAtual->getVertice2();
+            Vertex *vertice3 = faceAtual->getVertice3();
+
+            int indiceV1;
+            int indiceV2;
+            int indiceV3;
+
+            int nTotalVertices = cena->VertexNumber;
+            for (int j = 0; j < nTotalVertices; j++){
+
+                if (vertice1 == cena->VertexArray[j]){
+                    indiceV1 = j+1; //O "+1" se dá pois o índice de faces no obj começa do 1
+                }
+                if (vertice2 == cena->VertexArray[j]){
+                    indiceV2 = j+1;
+                }
+                if (vertice3 == cena->VertexArray[j]){
+                    indiceV3 = j+1;
+                }
+            }
+
+            fprintf(arquivo,"f %d %d %d\n", indiceV1, indiceV2,indiceV3);
+
+        }
+
+    }
+
+    fclose(arquivo);
+    cout << "Arquivo exportado com sucesso!\n";
+}
+

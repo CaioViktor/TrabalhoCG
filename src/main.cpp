@@ -88,7 +88,6 @@ void init (void){
 //trata das transformações necessária ao redimensionar a tela
 void reshape (int w, int h){   
     //cout << "Reshape!\n";
-    // glui->close();
     glViewport (0, 0, (GLsizei) w, (GLsizei) h);
     glMatrixMode (GL_PROJECTION);
     // initGLUI();
@@ -157,8 +156,13 @@ void render(){
     glutPostRedisplay();
 
 }
+//TODO:Modo de projeção
 void selectModeProjection(){
 
+}
+void save(){
+    //TODO: pedir nome para salvar
+    Leitor::salvar(topology,"model/NewVila.obj");
 }
 //Seleção de objetos
 
@@ -355,6 +359,7 @@ void initGLUI(){
     glui->add_button_to_panel(objDataPanel,"Renderizar",0,(GLUI_Update_CB) render); 
     //dados do objeto selecionado
     //TODO:Salva cena
+    glui->add_button_to_panel(objDataPanel,"Salvar",0,(GLUI_Update_CB) save); 
     glui->add_column(true); 
     
 

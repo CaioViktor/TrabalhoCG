@@ -20,4 +20,3 @@
 #include "stackMatrix.h"
 #include "leitor.h"
 using namespace std;
-void initGLUI();

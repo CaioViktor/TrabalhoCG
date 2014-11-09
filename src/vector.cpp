@@ -10,6 +10,20 @@ Vector::Vector(){
 	newVector[2] = (double*) malloc(sizeof(double));
 	newVector[3] = (double*) malloc(sizeof(double));
 	this->vector = newVector;
+	this->length = 4;
+}
+
+Vector::Vector(double x, double y, double z){
+	double **newVector = new double*[3];
+	newVector[0] = (double*) malloc(sizeof(double));
+	newVector[1] = (double*) malloc(sizeof(double));
+	newVector[2] = (double*) malloc(sizeof(double));
+	this->vector = newVector;
+	this->setValue(0,x);
+	this->setValue(1,y);
+	this->setValue(2,z);
+	
+	this->length = 3;
 }
 
 //
@@ -24,7 +38,7 @@ double** Vector::getVector(){
 
 // retorna o valor da posição passada por parâmetro
 double Vector::getValue(int position){
-	if(position >= 0 && position < 4){
+	if(position >= 0 && position < this->length){
 		double **newVector = this->vector;
 		return *newVector[position];
 	}
@@ -34,7 +48,7 @@ double Vector::getValue(int position){
 
 //atualiza a posição passada por parâmetro para o valor passado por parâmetro
 void Vector::setValue(int position,double value){
-	if(position >= 0 && position < 4){
+	if(position >= 0 && position < this->length){
 		double **newVector = this->vector;
 		*newVector[position] = value;
 		//cout << "Valor armazenado no vetor\n";
@@ -44,7 +58,7 @@ void Vector::setValue(int position,double value){
 }
 //atualiza o ponteiro da posição passada por parâmetro para o ponteiro passado por parâmetro ou seja guarda uma referência no vetor
 void Vector::setValue(int position,double *value){
-	if(position >= 0 && position < 4){
+	if(position >= 0 && position < this->length){
 		double **newVector = this->vector;
 		newVector[position] = value;
 		//cout << "Ponteiro armazenado no vetor\n";
@@ -54,7 +68,7 @@ void Vector::setValue(int position,double *value){
 }
 //exibe os valores contidos no vetor
 void Vector::showVector(){
-	for(int i=0;i<4;i++){
+	for(int i=0;i < this->length;i++){
 		cout << this->getValue(i)<<endl;	
 	}
 }
@@ -83,3 +97,30 @@ Vector Vector::operator*(Matrix M){
         result.setValue(i,vector[i]);    
     return result;
 }
+
+Vector Vector::operator-(Vector V){
+	if(length == V.length){
+		double r[length];
+		for(int i = 0 ; i < length ; i++){
+			r[i] = getValue(i) - V.getValue(i);
+		}
+		if(length == 4){
+			Vector result;
+			for(int i = 0; i < 4; i++)
+				result.setValue(i,r[i]);
+			return result;
+		}
+		else{
+			Vector result(0,0,0);
+			for(int i = 0; i < 3; i++)
+				result.setValue(i,r[i]);
+			return result;
+		}
+	}
+	else{
+		cout << "Erro: Os vetores não possuem mesma dimenensão!\n";
+		Vector r;
+		return r;
+	}
+}
+

@@ -40,7 +40,7 @@ void setCamera(){
     // posiciona câmera
     gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
 }
-//desenha todos os objetos da cena
+
 void draw(void) {
     glEnable (GL_DEPTH_TEST);
     glClear (GL_DEPTH_BUFFER_BIT);
@@ -357,9 +357,8 @@ void initGLUI(){
     colorB = glui->add_spinner_to_panel(objDataPanel , "B:" ,GLUI_SPINNER_FLOAT);
     colorB->set_float_limits( 0, 1 ,GLUI_LIMIT_CLAMP );
     glui->add_button_to_panel(objDataPanel,"Renderizar",0,(GLUI_Update_CB) render); 
-    //dados do objeto selecionado
-    //TODO:Salva cena
     glui->add_button_to_panel(objDataPanel,"Salvar",0,(GLUI_Update_CB) save); 
+    //dados do objeto selecionado
     glui->add_column(true); 
     
 
@@ -374,12 +373,10 @@ void initGLUI(){
     GLUI_Listbox *modeExibition = glui->add_listbox("Modo de Exibicao: ",&modeExibitionFlag, 0, (GLUI_Update_CB) selectModeExibition );
     modeExibition->add_item(0,"Aramado");
     modeExibition->add_item(1,"Solido");
-    //TODO: selecionar modo de visualização
     GLUI_Listbox *modeProjection = glui->add_listbox("Modo de Projecao: ",&modeProjectionValue, PROJECTION_OPENGL, (GLUI_Update_CB) selectModeProjection );
     modeProjection->add_item(PROJECTION_OPENGL,"OpenGL");
     modeProjection->add_item(PROJECTION_PESPECTIVE,"Pespectiva");
     modeProjection->add_item(PROJECTION_ORTOGONAL,"Ortogonal");
-    //TODO: selecionar modo de visualização
     glui->add_column(true); 
 
     //parâmetros

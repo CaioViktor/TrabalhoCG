@@ -83,21 +83,21 @@ void ListFace::list(){
 	}
 }
 //Pinta todos as faces da lista em aramado
-void ListFace::drawWired(Matrix* viewProjection){
+void ListFace::drawWired(Matrix* viewProjection,bool opengl){
 	NodeFace *currentNode = this->first;
 	while(currentNode != NULL){
 		Face *current = currentNode->face;
-		current->draw(GL_LINE_LOOP,viewProjection);
+		current->draw(GL_LINE_LOOP,viewProjection, opengl);
 		currentNode = currentNode->next;
 	}
 	//cout << "Face desenhada aramada\n";
 }
 //Pinta todos as faces da lista em sólido
-void ListFace::drawSolid(Matrix* viewProjection){
+void ListFace::drawSolid(Matrix* viewProjection,bool opengl){
 	NodeFace *currentNode = this->first;
 	while(currentNode != NULL){
 		Face *current = currentNode->face;
-		current->draw(GL_POLYGON,viewProjection);
+		current->draw(GL_POLYGON,viewProjection, opengl);
 		currentNode = currentNode->next;
 	}
 	//cout << "Face desenhada sólida\n";

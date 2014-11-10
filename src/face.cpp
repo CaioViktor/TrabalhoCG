@@ -40,9 +40,9 @@ Vector* Face::getNormal(){
 	return normal;
 }
 
-void Face::draw(unsigned int mode,Matrix* viewProjection){
+void Face::draw(unsigned int mode,Matrix* viewProjection,bool opengl){
 	glBegin(mode);
-	if((*viewProjection) == (*Matrix::getIdentity())){
+	if(opengl){
 		glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
 		glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
 		glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());
@@ -50,7 +50,7 @@ void Face::draw(unsigned int mode,Matrix* viewProjection){
 
 	else{
 
-		Vector *vertex = vertice1->toVector()->multiplyMatrix(viewProjection);
+		Vector *vertex  = vertice1->toVector()->multiplyMatrix(viewProjection);
 		glVertex3f(vertex->getValue(0),vertex->getValue(1),vertex->getValue(2));
 
 		

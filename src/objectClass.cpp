@@ -28,11 +28,12 @@ ObjectClass::ObjectClass(){
 
 //Método para desenhar objeto
 void ObjectClass::drawObject( unsigned int modeExibitionValue,Matrix* viewProjection ){
+    bool opengl = (*viewProjection) == (*Matrix::getIdentity());
     glColor3f(this->R,this->G,this->B);   
     if(modeExibitionValue == GL_POLYGON)
-        this->list_face->drawSolid( viewProjection);
+        this->list_face->drawSolid( viewProjection,opengl);
     else
-        this->list_face->drawWired( viewProjection);
+        this->list_face->drawWired( viewProjection,opengl);
 }
 
 //Método para aplicar transformação no objeto

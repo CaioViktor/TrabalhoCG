@@ -4,7 +4,7 @@ Controle da window, inteface de usuário e chamadas de procedimentos
 
 #include "../lib/main.h"
 //Declarações da Janela
-GLfloat eyex,eyey,eyez,centrox, centroy, centroz;
+GLfloat eyex,eyey,eyez,centrox, centroy, centroz,rotationX,rotationY,rotationZ;
 int sizeX,sizeY;
 int mainWindow,objSelected,modeExibitionFlag;
 unsigned int modeExibitionValue = GL_LINE_LOOP;
@@ -42,7 +42,7 @@ void setCamera(){
         glLoadIdentity();
         gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
     }
-    view->setCameraPosition(eyex,eyey,eyez,0,0,0);
+    view->setCameraPosition(eyex,eyey,eyez,rotationX,rotationY,rotationZ);
 
 }
 
@@ -106,6 +106,10 @@ void initCamera(){
     centrox=0.0;
     centroy=0.0;
     centroz=0.0;
+
+    rotationX = 0;
+    rotationY = 0;
+    rotationZ = 0;
 }
 void init (void){
     /* Seleciona a cor de fundo para limpeza da tela */
@@ -141,7 +145,7 @@ void reshape (int w, int h){
     view->setVolumeVisualization(-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
     glutPostRedisplay();
     // cout << "Setou o volume\n";
-    
+
 }
 // trata a entrada do teclado
 void input(unsigned char tecla, int x, int y){
@@ -152,6 +156,7 @@ void input(unsigned char tecla, int x, int y){
             break;
         case 'k':
             centrox = centrox + 0.5;
+            rotationY = rotationY - 0.05;
             break;
         case 'a':
             eyex = eyex - 0.5;
@@ -159,6 +164,7 @@ void input(unsigned char tecla, int x, int y){
             break;
         case 'j':
             centrox = centrox - 0.5;
+            rotationY = rotationY + 0.05;
             break;
         case 'e':
             eyey = eyey + 0.5;
@@ -178,9 +184,11 @@ void input(unsigned char tecla, int x, int y){
             break;
         case 'i':
             centroy = centroy + 0.5;
+            rotationX = rotationX + 0.05;
             break;
         case 'm':
             centroy = centroy - 0.5;
+            rotationX = rotationX - 0.05;
             break;
         case 'O':
         case 'o':

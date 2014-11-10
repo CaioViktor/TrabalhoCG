@@ -72,7 +72,7 @@ void Vector::showVector(){
 		cout << this->getValue(i)<<endl;	
 	}
 }
-//multiplica vector por matrix e armazena o resultado na própria matriz
+//multiplica vector por matrix e armazena o resultado no próprio vetor
 void Vector::multiplicationMatrix(Matrix *matrix){
 	double vector[4];
 	for(int i = 0; i < 4; i++)

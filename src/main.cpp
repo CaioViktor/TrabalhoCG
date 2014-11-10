@@ -29,25 +29,31 @@ Vertex **arrayVertex;
 ObjectClass **arrayObject;
 Face **arrayFace;
 Topology *topology;
-
+View *view = new View(PROJECTION_PESPECTIVE);
 
 //Declarações Gerais FIM
 
 //Configura os valores da Câmera
 void setCamera(){
     //TODO: selecionar mode de visualização entre pespectiva e orthogonal
-    glLoadIdentity();
     // posiciona câmera
-    gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
+    if(modeProjectionValue == PROJECTION_OPENGL){
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+        gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
+    }
+    view->setCameraPosition(eyex,eyey,eyez,0,0,0);
+
 }
 
 void draw(void) {
+    cout << "Chegou no desenho\n";
     glEnable (GL_DEPTH_TEST);
     glClear (GL_DEPTH_BUFFER_BIT);
     // Black background
     glClearColor(0.0f,0.0f,0.0f,1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    glMatrixMode(GL_MODELVIEW);
+        
     setCamera();
     GLfloat model[16]; 
     glGetFloatv(GL_MODELVIEW_MATRIX, model); 
@@ -57,8 +63,30 @@ void draw(void) {
     cout << "--------------------------------------------------\n";
     // carrega matriz identidade para não acumular transformações na câmera
     //Desenha cena
+    Matrix *modelView = view->getModelViewMatrix();
+    cout << "consegui a modelView\n";
+    modelView->printMatrix();
+    Matrix *projection = view->getProjectionMatrix();
+    
+
+
+    
+    glGetFloatv(GL_PROJECTION_MATRIX, model); 
+    cout <<endl;
+    for(int i = 0; i < 4 ; i++)
+        cout << model[i] << "  " << model[i+4] << "  " << model[i+8] << "  " << model[i+12] << " \n";
+    cout << "--------------------------------------------------\n";
+    cout << "consegui a projection\n";
+    projection->printMatrix();
+    Matrix *viewProjection = projection->multiplyMatrix(modelView);
+    cout << "Consegui viewProjection\n";
+    viewProjection->printMatrix();
+    cout << "Vai começar a pintar!!!\n";
+
+    if(modeExibitionValue == PROJECTION_OPENGL)
+        viewProjection = Matrix::getIdentity();
     for(int c = 0;c<numberObjects;c++)
-        arrayObject[c]->drawObject(modeExibitionValue);
+        arrayObject[c]->drawObject(modeExibitionValue,viewProjection);
 
     glFlush();
     //cout << "Display!" << endl;
@@ -83,7 +111,10 @@ void init (void){
 
     initCamera();
     /* inicializa os valores de visualização */
-    glMatrixMode(GL_PROJECTION);
+    if(modeProjectionValue == PROJECTION_OPENGL){
+        glLoadIdentity();
+        glMatrixMode(GL_PROJECTION);
+    }
     /* Faz com que a matriz corrente seja inicializada com a matriz identidade
     (nenhuma transformação é acumulada)
     */
@@ -94,15 +125,20 @@ void init (void){
 void reshape (int w, int h){   
     //cout << "Reshape!\n";
     glViewport (0, 0, (GLsizei) w, (GLsizei) h);
-    glMatrixMode (GL_PROJECTION);
-    // initGLUI();
     GLUI_Master.auto_set_viewport();
-    glLoadIdentity ();
-    //glFrustum (-1.0, 1.0:são o volume dos lados, -1.0, 1.0:são o volume da altura, 1.0 : proximidade da câmera, 50.0:volume de profundidade);
-    glFrustum (-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
-    //glOrtho(-1.0, 1.0, -1.0, 1.0, 1.0, 50);
-
-    glMatrixMode (GL_MODELVIEW);
+    if(modeProjectionValue == PROJECTION_OPENGL){
+        glMatrixMode (GL_PROJECTION);
+        glLoadIdentity ();
+        //glFrustum (-1.0, 1.0:são o volume dos lados, -1.0, 1.0:são o volume da altura, 1.0 : proximidade da câmera, 50.0:volume de profundidade);
+        glFrustum (-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
+        //glOrtho(-1.0, 1.0, -1.0, 1.0, 1.0, 50);
+        glMatrixMode (GL_MODELVIEW);
+        cout << "executou!!!!\n";
+    }
+    else{
+        view->setVolumeVisualization(-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
+    }
+    // cout << "Setou o volume\n";
 
 }
 // trata a entrada do teclado
@@ -169,7 +205,24 @@ void render(){
 }
 //TODO:Modo de projeção
 void selectModeProjection(){
-
+    if(modeProjectionValue != PROJECTION_OPENGL){
+        glMatrixMode (GL_PROJECTION);
+        glLoadIdentity ();
+        glMatrixMode (GL_MODELVIEW);
+        glLoadIdentity ();
+    }else{
+        glMatrixMode (GL_PROJECTION);
+        glLoadIdentity ();
+        //glFrustum (-1.0, 1.0:são o volume dos lados, -1.0, 1.0:são o volume da altura, 1.0 : proximidade da câmera, 50.0:volume de profundidade);
+        glFrustum (-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
+        //glOrtho(-1.0, 1.0, -1.0, 1.0, 1.0, 50);
+        glMatrixMode (GL_MODELVIEW);
+    }
+    if(modeProjectionValue == PROJECTION_PESPECTIVE)
+        view->setModeProjection(PROJECTION_PESPECTIVE);
+    if(modeProjectionValue == PROJECTION_ORTOGONAL)
+        view->setModeProjection(PROJECTION_ORTOGONAL);
+    glutPostRedisplay();
 }
 void save(){
     //TODO: pedir nome para salvar

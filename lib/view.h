@@ -1,12 +1,9 @@
 class View{
 	Matrix *frameCamera;
 	Matrix *view;
-	Matrix *volumeVisualization;
 	Matrix *projection;
+	Matrix *volumeVisualization;
 	int modeProjection;
-
-	Matrix getMatrixOrtho();
-	Matrix getMatrixPespective();
 
 	double left, right,  bottom,  top,  near,  far;
 public:
@@ -15,10 +12,10 @@ public:
 	int getModeProjection();
 
 	Matrix getFrameMatrix();
-	Matrix getModelViewMatrix();
+	Matrix* getModelViewMatrix();
 
 	void setVolumeVisualization(double left, double right, double bottom, double top, double near, double far);
-	Matrix getProjectionMatrix();
+	Matrix* getProjectionMatrix();
 
 	void setCameraPosition(double x, double y, double z, double rotationX, double rotationY, double rotationZ);
 

@@ -17,28 +17,30 @@ View::View(int mode){
 }
 
 void View::setModeProjection(int mode){
-	modeProjection = mode;
-	Matrix *matrixProjection = new Matrix();
-	if(modeProjection == PROJECTION_PESPECTIVE){
+	if(modeProjection != mode){
+		modeProjection = mode;
+		Matrix *matrixProjection = new Matrix();
+		if(modeProjection == PROJECTION_PESPECTIVE){
 
-		matrixProjection->setPosition(0,0, (2*near)/(right - left));
-		matrixProjection->setPosition(0,2, (right + left)/(right - left));
-		matrixProjection->setPosition(1,1, (2*near)/(top - bottom));
-		matrixProjection->setPosition(1,2, (top + bottom)/(top - bottom));
-		matrixProjection->setPosition(2,2, -(far + near)/(far - near));
-		matrixProjection->setPosition(2,3, -(2*far * near)/(far - near));
-		matrixProjection->setPosition(3,2, -1);
+			matrixProjection->setPosition(0,0, (2*near)/(right - left));
+			matrixProjection->setPosition(0,2, (right + left)/(right - left));
+			matrixProjection->setPosition(1,1, (2*near)/(top - bottom));
+			matrixProjection->setPosition(1,2, (top + bottom)/(top - bottom));
+			matrixProjection->setPosition(2,2, -(far + near)/(far - near));
+			matrixProjection->setPosition(2,3, -(2*far * near)/(far - near));
+			matrixProjection->setPosition(3,2, -1);
+		}
+		if(modeProjection == PROJECTION_ORTOGONAL){
+			matrixProjection->setPosition(0,0, 2/(right - left));
+			matrixProjection->setPosition(0,3, -(right + left)/(right - left));
+			matrixProjection->setPosition(1,1, 2/(top - bottom));
+			matrixProjection->setPosition(1,3, -(top + bottom)/(top - bottom));
+			matrixProjection->setPosition(2,2, -2/(far-near));
+			matrixProjection->setPosition(2,3, -(far+near)/(far-near));
+			matrixProjection->setPosition(3,3, 1);
+		}
+		projection = matrixProjection;
 	}
-	if(modeProjection == PROJECTION_ORTOGONAL){
-		matrixProjection->setPosition(0,0, 2/(right - left));
-		matrixProjection->setPosition(0,3, -(right + left)/(right - left));
-		matrixProjection->setPosition(1,1, 2/(top - bottom));
-		matrixProjection->setPosition(1,3, -(top + bottom)/(top - bottom));
-		matrixProjection->setPosition(2,2, -2/(far-near));
-		matrixProjection->setPosition(2,3, -(far+near)/(far-near));
-		matrixProjection->setPosition(3,3, 1);
-	}
-	projection = matrixProjection;
 }
 
 int View::getModeProjection(){
@@ -83,7 +85,7 @@ void View::setVolumeVisualization(double left, double right, double bottom, doub
 		matrixProjection->setPosition(1,3, -(top + bottom)/(top - bottom));
 		matrixProjection->setPosition(2,2, -2/(far-near));
 		matrixProjection->setPosition(2,3, -(far+near)/(far-near));
-		matrixProjection->setPosition(3,3,1);
+		matrixProjection->setPosition(3,3, 1);
 	}
 
 	// cout << "Calculou pespective\n";

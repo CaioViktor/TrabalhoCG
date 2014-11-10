@@ -47,7 +47,6 @@ void setCamera(){
 }
 
 void draw(void) {
-    cout << "Chegou no desenho\n";
     glEnable (GL_DEPTH_TEST);
     glClear (GL_DEPTH_BUFFER_BIT);
     // Black background
@@ -143,7 +142,7 @@ void reshape (int w, int h){
     }
     
     view->setVolumeVisualization(-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
-    glutPostRedisplay();
+    // glutPostRedisplay();
     // cout << "Setou o volume\n";
 
 }
@@ -198,6 +197,38 @@ void input(unsigned char tecla, int x, int y){
     //cout << "teclou\n";
     glutPostRedisplay();
 }
+//eventos mouse
+void mouse(int button, int state, int x, int y)
+{
+   // Wheel reports as button 3(scroll up) and button 4(scroll down)
+   if ((button == 3) || (button == 4)) // It's a wheel event
+   {    //para cima
+        Matrix *scale;
+        if(button == 3){
+            scale = Matrix::getScale(1.1,1.1,1.1,0,0,0);
+        }
+        //para baixo
+        if(button == 4){
+            scale = Matrix::getScale(0.9,0.9,0.9,0,0,0);
+        }
+        for(int i = 0 ; i < numberObjects; i++)
+            arrayObject[i]->applyTransformation(scale);
+        glutPostRedisplay();
+       // Each wheel event reports like a button click, GLUT_DOWN then GLUT_UP
+       if (state == GLUT_UP) return; // Disregard redundant GLUT_UP events
+       //printf("Scroll %s At %d %d\n", (button == 3) ? "Up" : "Down", x, y);
+   }else{  // normal button event
+       //printf("Button %s At %d %d\n", (state == GLUT_DOWN) ? "Down" : "Up", x, y);
+        //esquerdo
+        if(button == 0){
+
+        }
+        //direito
+        if(button == 2){
+
+        }
+   }
+}
 
 //callbacks GLUI interface
 void render(){
@@ -220,6 +251,13 @@ void selectModeProjection(){
         glLoadIdentity ();
         glMatrixMode (GL_MODELVIEW);
         glLoadIdentity ();
+        if(view->getModeProjection() != modeProjectionValue){
+            if(modeProjectionValue == PROJECTION_PESPECTIVE)
+                view->setModeProjection(PROJECTION_PESPECTIVE);
+            if(modeProjectionValue == PROJECTION_ORTOGONAL)
+                view->setModeProjection(PROJECTION_ORTOGONAL);
+            glutPostRedisplay();
+        }
     }else{
         glMatrixMode (GL_PROJECTION);
         glLoadIdentity ();
@@ -227,12 +265,9 @@ void selectModeProjection(){
         glFrustum (-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
         //glOrtho(-1.0, 1.0, -1.0, 1.0, 1.0, 50);
         glMatrixMode (GL_MODELVIEW);
+        glutPostRedisplay();
     }
-    if(modeProjectionValue == PROJECTION_PESPECTIVE)
-        view->setModeProjection(PROJECTION_PESPECTIVE);
-    if(modeProjectionValue == PROJECTION_ORTOGONAL)
-        view->setModeProjection(PROJECTION_ORTOGONAL);
-    glutPostRedisplay();
+    
 }
 void save(){
     //TODO: pedir nome para salvar
@@ -542,6 +577,7 @@ int main(int argc, char **argv) {
     //Criação da janela
     mainWindow = glutCreateWindow("BRitish EmpiRE: V 1.2.2 Victorian");
     glutKeyboardFunc(input);
+    glutMouseFunc(mouse);
     init();
     glutReshapeFunc(reshape);
     //Chamada da função de desenhar

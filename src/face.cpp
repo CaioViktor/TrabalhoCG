@@ -49,6 +49,7 @@ void Face::draw(unsigned int mode,Matrix* viewProjection){
 	}
 
 	else{
+
 		Vector *vertex = vertice1->toVector()->multiplyMatrix(viewProjection);
 		glVertex3f(vertex->getValue(0),vertex->getValue(1),vertex->getValue(2));
 

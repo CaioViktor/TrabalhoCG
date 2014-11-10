@@ -21,3 +21,4 @@
 #include "leitor.h"
 #include "view.h"
 using namespace std;
+void selectObject();

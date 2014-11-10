@@ -51,6 +51,8 @@ public:
 	*	\param matrix Matriz com a qual a multiplicaçao será realizada.
 	*/
 	void multiplicationMatrix(Matrix*);
+	
+	Vector* multiplyMatrix(Matrix*);
 	Vector operator*(Matrix M);
 	Vector operator-(Vector V);
 };

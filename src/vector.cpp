@@ -84,6 +84,14 @@ void Vector::multiplicationMatrix(Matrix *matrix){
 		this->setValue(i,vector[i]);
 }
 
+Vector* Vector::multiplyMatrix(Matrix *matrix){
+	Vector *vector = new Vector();
+	for(int i = 0 ; i < 4 ; i++)
+		for(int j = 0; j < 4 ; j++)
+			vector->setValue(i, vector->getValue(i) + matrix->getPosition(i,j) * this->getValue(j));
+	return vector;
+}
+
 //Sobrecarga operador multiplicação para matrizes
 Vector Vector::operator*(Matrix M){
     double vector[4];

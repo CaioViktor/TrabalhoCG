@@ -80,11 +80,15 @@ void draw(void) {
     projection->printMatrix();
     Matrix *viewProjection = projection->multiplyMatrix(modelView);
     cout << "Consegui viewProjection\n";
+    
+    if(modeProjectionValue == PROJECTION_OPENGL){
+        viewProjection = Matrix::getIdentity();
+        cout << "Foi\n";
+    }
+    
     viewProjection->printMatrix();
     cout << "Vai começar a pintar!!!\n";
 
-    if(modeExibitionValue == PROJECTION_OPENGL)
-        viewProjection = Matrix::getIdentity();
     for(int c = 0;c<numberObjects;c++)
         arrayObject[c]->drawObject(modeExibitionValue,viewProjection);
 
@@ -135,9 +139,9 @@ void reshape (int w, int h){
         glMatrixMode (GL_MODELVIEW);
         cout << "executou!!!!\n";
     }
-    else{
-        view->setVolumeVisualization(-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
-    }
+    
+    view->setVolumeVisualization(-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
+
     // cout << "Setou o volume\n";
 
 }

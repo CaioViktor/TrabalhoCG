@@ -42,25 +42,20 @@ Vector* Face::getNormal(){
 
 void Face::draw(unsigned int mode,Matrix* viewProjection){
 	glBegin(mode);
-	glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
-	glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
-	glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());
+	// glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
+	// glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
+	// glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());
 
-	// Vector vertex = (*vertice1->toVector());
-	// vertex.multiplicationMatrix(viewProjection);
-	// glVertex3f(vertex.getValue(0),vertex.getValue(1),vertex.getValue(2));
+	Vector *vertex = vertice1->toVector()->multiplyMatrix(viewProjection);
+	glVertex3f(vertex->getValue(0),vertex->getValue(1),vertex->getValue(2));
 
 	
-	// Vector vertex2 = (*vertice2->toVector());
-	// // vertex2 = vertex2 * viewProjection;
-	// vertex2.multiplicationMatrix(viewProjection);
-	// glVertex3f(vertex2.getValue(0),vertex2.getValue(1),vertex2.getValue(2));
+	Vector *vertex2 = vertice2->toVector()->multiplyMatrix(viewProjection);
+	glVertex3f(vertex2->getValue(0),vertex2->getValue(1),vertex2->getValue(2));
 
 
-	// Vector vertex3 = (*vertice3->toVector());
-	// // vertex3 = vertex3 * viewProjection;
-	// vertex3.multiplicationMatrix(viewProjection);
-	// glVertex3f(vertex3.getValue(0),vertex3.getValue(1),vertex3.getValue(2));
+	Vector *vertex3 = vertice3->toVector()->multiplyMatrix(viewProjection);
+	glVertex3f(vertex3->getValue(0),vertex3->getValue(1),vertex3->getValue(2));
 	
 	glEnd();
 }

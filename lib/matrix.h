@@ -149,6 +149,7 @@ public:
 
     //Sobrecarga operador multiplicação matrizes
     Matrix operator*(Matrix B);
+    bool operator==(Matrix B);
 };
 
 

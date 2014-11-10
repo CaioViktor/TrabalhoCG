@@ -83,7 +83,6 @@ void draw(void) {
     
     if(modeProjectionValue == PROJECTION_OPENGL){
         viewProjection = Matrix::getIdentity();
-        cout << "Foi\n";
     }
     
     viewProjection->printMatrix();
@@ -137,13 +136,12 @@ void reshape (int w, int h){
         glFrustum (-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
         //glOrtho(-1.0, 1.0, -1.0, 1.0, 1.0, 50);
         glMatrixMode (GL_MODELVIEW);
-        cout << "executou!!!!\n";
     }
     
     view->setVolumeVisualization(-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
-
+    glutPostRedisplay();
     // cout << "Setou o volume\n";
-
+    
 }
 // trata a entrada do teclado
 void input(unsigned char tecla, int x, int y){

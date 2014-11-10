@@ -21,13 +21,13 @@ void View::setModeProjection(int mode){
 	Matrix *matrixProjection = new Matrix();
 	if(modeProjection == PROJECTION_PESPECTIVE){
 
-		matrixProjection->setPosition(0,0,(2*near)/(right - left));
-		matrixProjection->setPosition(1,1,(2*near)/(top - bottom));
-		matrixProjection->setPosition(0,2,(right + left)/(right - left));
-		matrixProjection->setPosition(1,2,(top + bottom)/(top - bottom));
-		matrixProjection->setPosition(2,2,-(far + near)/(far - near));
-		matrixProjection->setPosition(3,2,-1);
-		matrixProjection->setPosition(2,3,-(2*far * near)/(far - near));
+		matrixProjection->setPosition(0,0, (2*near)/(right - left));
+		matrixProjection->setPosition(0,2, (right + left)/(right - left));
+		matrixProjection->setPosition(1,1, (2*near)/(top - bottom));
+		matrixProjection->setPosition(1,2, (top + bottom)/(top - bottom));
+		matrixProjection->setPosition(2,2, -(far + near)/(far - near));
+		matrixProjection->setPosition(2,3, -(2*far * near)/(far - near));
+		matrixProjection->setPosition(3,2, -1);
 	}
 	if(modeProjection == PROJECTION_ORTOGONAL){
 		matrixProjection->setPosition(0,0, 2/(right - left));
@@ -36,7 +36,7 @@ void View::setModeProjection(int mode){
 		matrixProjection->setPosition(1,3, -(top + bottom)/(top - bottom));
 		matrixProjection->setPosition(2,2, -2/(far-near));
 		matrixProjection->setPosition(2,3, -(far+near)/(far-near));
-		matrixProjection->setPosition(3,3,1);
+		matrixProjection->setPosition(3,3, 1);
 	}
 	projection = matrixProjection;
 }
@@ -68,13 +68,13 @@ void View::setVolumeVisualization(double left, double right, double bottom, doub
 	Matrix *matrixProjection = new Matrix();
 	if(modeProjection == PROJECTION_PESPECTIVE){
 
-		matrixProjection->setPosition(0,0,(2*near)/(right - left));
-		matrixProjection->setPosition(1,1,(2*near)/(top - bottom));
-		matrixProjection->setPosition(0,2,(right + left)/(right - left));
-		matrixProjection->setPosition(1,2,(top + bottom)/(top - bottom));
-		matrixProjection->setPosition(2,2,-(far + near)/(far - near));
-		matrixProjection->setPosition(3,2,-1);
-		matrixProjection->setPosition(2,3,-(2*far * near)/(far - near));
+		matrixProjection->setPosition(0,0, (2*near)/(right - left));
+		matrixProjection->setPosition(0,2, (right + left)/(right - left));
+		matrixProjection->setPosition(1,1, (2*near)/(top - bottom));
+		matrixProjection->setPosition(1,2, (top + bottom)/(top - bottom));
+		matrixProjection->setPosition(2,2, -(far + near)/(far - near));
+		matrixProjection->setPosition(2,3, -(2*far * near)/(far - near));
+		matrixProjection->setPosition(3,2, -1);
 	}
 	if(modeProjection == PROJECTION_ORTOGONAL){
 		matrixProjection->setPosition(0,0, 2/(right - left));

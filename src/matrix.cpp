@@ -227,3 +227,11 @@ Matrix Matrix::operator*(Matrix B){
        }
       return C;
 }
+
+bool Matrix::operator==(Matrix B){
+    for(int i = 0 ; i < 4 ; i++)
+        for(int j = 0 ; j < 4 ; j++)
+            if(this->getPosition(i,j) != B.getPosition(i,j))
+                return false;
+    return true;
+}

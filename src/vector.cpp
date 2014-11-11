@@ -132,3 +132,8 @@ Vector Vector::operator-(Vector V){
 	}
 }
 
+void Vector::normalize(){
+	for(int i = 0 ; i < 3 ; i++)
+		this->setValue(i,this->getValue(i)/this->getValue(3));
+}
+

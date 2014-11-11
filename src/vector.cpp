@@ -5,19 +5,19 @@
 //Cria vetor double* de 4 posições e o seta em vecto  ou seja um vetor de ponteiros de double 
 Vector::Vector(){
 	double **newVector = new double*[4];
-	newVector[0] = (double*) malloc(sizeof(double));
-	newVector[1] = (double*) malloc(sizeof(double));
-	newVector[2] = (double*) malloc(sizeof(double));
-	newVector[3] = (double*) malloc(sizeof(double));
+	newVector[0] = new double;
+	newVector[1] = new double;
+	newVector[2] = new double;
+	newVector[3] = new double;
 	this->length = 4;
 	this->vector = newVector;
 }
 
 Vector::Vector(double x, double y, double z){
 	double **newVector = new double*[3];
-	newVector[0] = (double*) malloc(sizeof(double));
-	newVector[1] = (double*) malloc(sizeof(double));
-	newVector[2] = (double*) malloc(sizeof(double));
+	newVector[0] = new double;
+	newVector[1] = new double;
+	newVector[2] = new double;
 	this->length = 3;
 	this->vector = newVector;
 	this->setValue(0,x);
@@ -133,7 +133,8 @@ Vector Vector::operator-(Vector V){
 }
 
 void Vector::normalize(){
+	double w = abs(this->getValue(3));
 	for(int i = 0 ; i < 3 ; i++)
-		this->setValue(i,this->getValue(i)/this->getValue(3));
+		this->setValue(i,this->getValue(i)/w);
 }
 

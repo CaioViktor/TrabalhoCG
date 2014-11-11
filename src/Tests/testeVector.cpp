@@ -8,7 +8,7 @@ int main(){
 		cout << v->getValue(i)<<endl;	
 	}
 
-	double *d = (double *)malloc(sizeof(double));
+	double *d = new double;
 	*d = 8;
 	cout << "Ponteiro:\n" << *d <<endl;
 	v->setValue(0,d);

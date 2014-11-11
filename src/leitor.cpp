@@ -129,7 +129,7 @@ Topology* Leitor::ler(std::string nomeArquivo){
 
     int indiceObjeto = 0, indiceFace = 0, indiceVertice = 0;
     //Cria ponteiro que será retornado.
-    Topology* cena = (Topology*)malloc(sizeof(Topology));
+    Topology* cena = new Topology;
     ListVertex* listaVertices;
     ListFace* listaFaces;
     //Vertex* verticeAtual;

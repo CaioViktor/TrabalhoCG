@@ -20,6 +20,7 @@
 #include "stackMatrix.h"
 #include "leitor.h"
 #include "view.h"
+#include "applyToAll.h"
 using namespace std;
 void selectObject();
 void initGLUISave();

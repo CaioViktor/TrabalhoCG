@@ -216,8 +216,9 @@ void mouse(int button, int state, int x, int y)
         if(button == 4){
             scale = Matrix::getScale(0.9,0.9,0.9,0,0,0);
         }
-        for(int i = 0 ; i < numberObjects; i++)
-            arrayObject[i]->applyTransformation(scale);
+        // for(int i = 0 ; i < numberObjects; i++)
+        //     arrayObject[i]->applyTransformation(scale);
+        applyToAll(arrayVertex, numberVertex , scale);
         glutPostRedisplay();
        // Each wheel event reports like a button click, GLUT_DOWN then GLUT_UP
        if (state == GLUT_UP) return; // Disregard redundant GLUT_UP events

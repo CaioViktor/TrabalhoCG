@@ -1,0 +1,1 @@
+void applyToAll(Vertex **arrayVertex,int qtd,Matrix *transformation);

@@ -129,7 +129,7 @@ int ObjectClass::getNumberFace(){
 //Autor: Caio Viktor
 //Método que atualiza a centroide do objeto. a coordenada homogênia está sendo setada com 1
 void ObjectClass::updateCentroide(){
-    for(int c = 0;c<4;c++)
+    for(int c = 0;c < 4;c++)
         this->centroid->setValue(c,(double)0);
     Vertex *vertex;
     for(int c = 0;c < this->number_vertex;c++){

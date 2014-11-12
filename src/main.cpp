@@ -593,7 +593,7 @@ int main(int argc, char **argv) {
     glutInitWindowSize(sizeX,sizeY);
 
     //Criação da janela
-    mainWindow = glutCreateWindow("BRitish EmpiRE: V 1.2.6 Victorian");
+    mainWindow = glutCreateWindow("BRitish EmpiRE: V 1.6 Victorian");
     glutKeyboardFunc(input);
     glutMouseFunc(mouse);
     init();

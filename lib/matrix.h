@@ -146,7 +146,6 @@ public:
 	*	\result Ponteiro para um objeto Matrix contendo a matriz de escala desejada.
 	*/
     static Matrix* getScale(double dx, double dy, double dz, double xf, double yf, double zf);
-
     //Sobrecarga operador multiplicação matrizes
     Matrix operator*(Matrix B);
     bool operator==(Matrix B);

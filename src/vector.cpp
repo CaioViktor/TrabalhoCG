@@ -132,8 +132,8 @@ Vector Vector::operator-(Vector V){
 	}
 }
 
-void Vector::normalize(){
-	double w = abs(this->getValue(3));
+void Vector::divisionW(){
+	double w = fabs(this->getValue(3));
 	for(int i = 0 ; i < 3 ; i++)
 		this->setValue(i,this->getValue(i)/w);
 }

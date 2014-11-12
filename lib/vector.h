@@ -55,5 +55,5 @@ public:
 	Vector* multiplyMatrix(Matrix*);
 	Vector operator*(Matrix M);
 	Vector operator-(Vector V);
-	void normalize();
+	void divisionW();
 };

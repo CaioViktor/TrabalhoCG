@@ -88,8 +88,6 @@ void draw(void) {
     }
     
     viewProjection->printMatrix();
-    cout << "Vai começar a pintar!!!\n";
-
     for(int c = 0;c<numberObjects;c++)
         arrayObject[c]->drawObject(modeExibitionValue,viewProjection);
 
@@ -133,8 +131,12 @@ void init (void){
 //trata das transformações necessária ao redimensionar a tela
 void reshape (int w, int h){   
     //cout << "Reshape!\n";
-    glViewport (0, 0, (GLsizei) w, (GLsizei) h);
-    GLUI_Master.auto_set_viewport();
+    // glViewport (0, 0, (GLsizei) w, (GLsizei) h);
+    // auto_set_viewport();
+    int tx, ty, tw, th;
+    GLUI_Master.get_viewport_area( &tx, &ty, &tw, &th );
+    glViewport( tx, ty, tw, th );
+
     if(modeProjectionValue == PROJECTION_OPENGL){
         glMatrixMode (GL_PROJECTION);
         glLoadIdentity ();

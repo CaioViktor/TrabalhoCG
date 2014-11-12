@@ -22,3 +22,4 @@
 #include "view.h"
 using namespace std;
 void selectObject();
+void initGLUISave();

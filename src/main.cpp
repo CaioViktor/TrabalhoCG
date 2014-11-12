@@ -15,10 +15,13 @@ int modeProjectionValue = PROJECTION_OPENGL;
 // Declarações de variáveis da interface
 int transformationSelected,opRotation;
 string objectName = "NULL",objectPosition = "X:0;Y:0;Z:0", objectFaces = "0",objectVertex = "0";
+char *nameSave;
 GLUI *glui;
+GLUI *gluiSave;
 GLUI_StaticText *textName, *textPosition, *textFace, *textVertex;
 GLUI_Spinner *coordinateX,*coordinateY,*coordinateZ,*radians,*scaleX,*scaleY,*scaleZ,*colorR,*colorG,*colorB;
 GLUI_RadioGroup *group3;
+GLUI_EditText *nameSaveBox;
 // Declarações de variáveis da interface FIM
 
 //Declarações Gerais
@@ -271,7 +274,13 @@ void selectModeProjection(){
 }
 void save(){
     //TODO: pedir nome para salvar
-    Leitor::salvar(topology,"model/NewVila.obj");
+    gluiSave->close();
+    string aux(nameSave);
+    string name = "model/" + aux;
+    Leitor::salvar(topology,name);
+}
+void clickSave(){
+    initGLUISave();
 }
 //Seleção de objetos
 
@@ -466,13 +475,13 @@ void initGLUI(){
     colorB = glui->add_spinner_to_panel(objDataPanel , "B:" ,GLUI_SPINNER_FLOAT);
     colorB->set_float_limits( 0, 1 ,GLUI_LIMIT_CLAMP );
     glui->add_button_to_panel(objDataPanel,"Renderizar",0,(GLUI_Update_CB) render); 
-    glui->add_button_to_panel(objDataPanel,"Salvar",0,(GLUI_Update_CB) save); 
+    glui->add_button_to_panel(objDataPanel,"Salvar",0,(GLUI_Update_CB) clickSave); 
     //dados do objeto selecionado
     glui->add_column(true); 
     
 
     //Transformações
-    GLUI_Panel *transformationsPanel = glui->add_panel( "Transformações" );
+    GLUI_Panel *transformationsPanel = glui->add_panel( "Transformacoes" );
     GLUI_RadioGroup *group2 = glui->add_radiogroup_to_panel(transformationsPanel,&transformationSelected,3);
     glui->add_radiobutton_to_group( group2, "Translacao" );
     glui->add_radiobutton_to_group( group2, "Rotacao" );
@@ -535,6 +544,15 @@ void initGLUI(){
     selectObject();
 }
 
+void initGLUISave(){
+    nameSave = new char();
+    gluiSave = GLUI_Master.create_glui( "Salvar",0,abs(sizeX/2),abs(sizeY/2) );
+    gluiSave->add_statictext( "Digite o nome do arquivo que deseja salvar:" );
+    nameSaveBox = gluiSave->add_edittext( "model/",GLUI_EDITTEXT_TEXT, nameSave);
+    gluiSave->add_button("Salvar",0,(GLUI_Update_CB) save);
+    //gluiSave->set_main_gfx_window(mainWindow);
+}
+
 //Main program
 int main(int argc, char **argv) {
     if(argc < 2){
@@ -575,7 +593,7 @@ int main(int argc, char **argv) {
     glutInitWindowSize(sizeX,sizeY);
 
     //Criação da janela
-    mainWindow = glutCreateWindow("BRitish EmpiRE: V 1.2.2 Victorian");
+    mainWindow = glutCreateWindow("BRitish EmpiRE: V 1.2.6 Victorian");
     glutKeyboardFunc(input);
     glutMouseFunc(mouse);
     init();

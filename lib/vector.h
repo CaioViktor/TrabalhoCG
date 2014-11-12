@@ -53,7 +53,9 @@ public:
 	void multiplicationMatrix(Matrix*);
 	
 	Vector* multiplyMatrix(Matrix*);
+	Vector* cross3(Vector *V);
 	Vector operator*(Matrix M);
-	Vector operator-(Vector V);
+	Vector* operator-(Vector V);
 	void divisionW();
+	void normalize3();
 };

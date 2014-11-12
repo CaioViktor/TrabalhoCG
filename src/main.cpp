@@ -46,6 +46,9 @@ void setCamera(){
         gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
     }
     view->setCameraPosition(eyex,eyey,eyez,rotationX,rotationY,rotationZ);
+    if(modeProjectionValue == PROJECTION_PESPECTIVE_LOOK){
+        view->lookAt(eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
+    }
 
 }
 
@@ -262,6 +265,10 @@ void selectModeProjection(){
                 view->setModeProjection(PROJECTION_PESPECTIVE);
             if(modeProjectionValue == PROJECTION_ORTOGONAL)
                 view->setModeProjection(PROJECTION_ORTOGONAL);
+            if(modeProjectionValue == PROJECTION_PESPECTIVE_LOOK){
+                view->lookAt(eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
+                view->setModeProjection(PROJECTION_PESPECTIVE);
+            }
             glutPostRedisplay();
         }
     }else{
@@ -498,6 +505,7 @@ void initGLUI(){
     modeProjection->add_item(PROJECTION_OPENGL,"OpenGL");
     modeProjection->add_item(PROJECTION_PESPECTIVE,"Pespectiva");
     modeProjection->add_item(PROJECTION_ORTOGONAL,"Ortogonal");
+    modeProjection->add_item(PROJECTION_PESPECTIVE_LOOK,"Pespectiva/look");
     glui->add_column(true); 
 
     //parâmetros

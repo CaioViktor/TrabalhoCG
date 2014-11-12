@@ -1,6 +1,7 @@
 #define PROJECTION_OPENGL 0
 #define PROJECTION_PESPECTIVE 1
 #define PROJECTION_ORTOGONAL 2
+#define PROJECTION_PESPECTIVE_LOOK 3
 #include <GL/gl.h>
 #include <GL/glut.h>
 #include <GL/glu.h>

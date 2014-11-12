@@ -19,4 +19,5 @@ public:
 
 	void setCameraPosition(double x, double y, double z, double rotationX, double rotationY, double rotationZ);
 
+	void lookAt(double x, double y, double z,double targetX,double targetY,double targetZ,double upX,double upY,double upZ);
 };

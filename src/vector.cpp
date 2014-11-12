@@ -106,28 +106,28 @@ Vector Vector::operator*(Matrix M){
     return result;
 }
 
-Vector Vector::operator-(Vector V){
+Vector* Vector::operator-(Vector V){
 	if(length == V.length){
 		double r[length];
 		for(int i = 0 ; i < length ; i++){
 			r[i] = getValue(i) - V.getValue(i);
 		}
 		if(length == 4){
-			Vector result;
+			Vector *result = new Vector();
 			for(int i = 0; i < 4; i++)
-				result.setValue(i,r[i]);
+				result->setValue(i,r[i]);
 			return result;
 		}
 		else{
-			Vector result(0,0,0);
+			Vector *result = new Vector(0,0,0);
 			for(int i = 0; i < 3; i++)
-				result.setValue(i,r[i]);
+				result->setValue(i,r[i]);
 			return result;
 		}
 	}
 	else{
 		cout << "Erro: Os vetores não possuem mesma dimenensão!\n";
-		Vector r;
+		Vector *r;
 		return r;
 	}
 }
@@ -138,3 +138,13 @@ void Vector::divisionW(){
 		this->setValue(i,this->getValue(i)/w);
 }
 
+Vector* Vector::cross3(Vector *V){
+	Vector *result = new Vector( (this->getValue(1) * V->getValue(2)) - (this->getValue(2) * V->getValue(1)) , (this->getValue(2) * V->getValue(0)) - (this->getValue(0) * V->getValue(2)) , (this->getValue(0) * V->getValue(1) - this->getValue(1) * V->getValue(0) ) );
+	return result;
+}
+
+void Vector::normalize3(){
+	double invLength = 1/sqrtf(getValue(0)*getValue(0) + getValue(1)*getValue(1) + getValue(2)*getValue(2));
+	for(int i = 0 ; i < 3 ; i++)
+		setValue(i,getValue(i) * invLength);
+}

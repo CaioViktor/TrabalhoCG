@@ -22,6 +22,7 @@
 #include "leitor.h"
 #include "view.h"
 #include "applyToAll.h"
+#include "material.h"
 using namespace std;
 void selectObject();
 void initGLUISave();

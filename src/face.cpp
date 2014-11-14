@@ -64,9 +64,9 @@ void Face::draw(unsigned int mode,Matrix* viewProjection,bool opengl){
 		vertex3->divisionW();
 		glVertex3f(vertex3->getValue(0),vertex3->getValue(1),vertex3->getValue(2));
 
-		// delete vertex;
-		// delete vertex2;
-		// delete vertex3;
+		delete vertex;
+		delete vertex2;
+		delete vertex3;
 	}
 	
 	glEnd();

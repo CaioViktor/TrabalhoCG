@@ -45,10 +45,10 @@ public:
 	void setNs(double ns);
 
 	double getNi();
-	void setNs(double ni);
+	void setNi(double ni);
 
 	double gettransparency();
 	void setTransparency(double transparency);
 
 	void showMaterialPropeties();
-}
+};

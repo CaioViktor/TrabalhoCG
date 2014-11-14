@@ -47,41 +47,44 @@ std::string Material::getName(){
 
 
 Vector* Material::getKd(){
-	return this->kd.
+	return this->kd;
 }
 void Material::setKd(Vector* kd){
 	this->kd=kd;
 }
 void Material::setKd_eachPosition(double r, double g, double b){
-	kd->setPosition(0,r);
-	kd->setPosition(1,g);
-	kd->setPosition(2,b);
+	kd->setValue(0,r);
+	kd->setValue(1,g);
+	kd->setValue(2,b);
 }
 
 
 Vector* Material::getKa(){
 	return this->ka;
 }
+
 void Material::setKa(Vector* ka){
 	this->ka=ka;
 }
 void Material::setKa_eachPosition(double r, double g, double b){
-	ka->setPosition(0,r);
-	ka->setPosition(1,g);
-	ka->setPosition(2,b);
+	ka->setValue(0,r);
+	ka->setValue(1,g);
+	ka->setValue(2,b);
 }
 
 
 Vector* Material::getKs(){
 	return this->ks;
 }
+
 void Material::setKs(Vector* ks){
 	this->ks=ks;
 }
+
 void Material::setKs_eachPosition(double r, double g, double b){
-	ks->setPosition(0,r);
-	ks->setPosition(1,g);
-	ks->setPosition(2,b);
+	ks->setValue(0,r);
+	ks->setValue(1,g);
+	ks->setValue(2,b);
 }
 
 
@@ -94,7 +97,7 @@ void Material::setNs(double ns){
 
 
 double Material::getNi(){
-	return this->ni
+	return this->ni;
 }
 void Material::setNi(double ni){
 	this->ni=ni;
@@ -121,5 +124,3 @@ void Material::showMaterialPropeties(){
 	cout << "Valor de transparency: " << this->transparency << endl;
 
 }
-
-

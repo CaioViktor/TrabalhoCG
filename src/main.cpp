@@ -4,7 +4,7 @@ Controle da window, inteface de usuário e chamadas de procedimentos
 
 #include "../lib/main.h"
 //Declarações da Janela
-GLfloat eyex,eyey,eyez,centrox, centroy, centroz,rotationX,rotationY,rotationZ;
+GLfloat eyex,eyey,eyez,centrox, centroy, centroz,rotationX,rotationY,rotationZ,eyexV,eyeyV,eyezV,centroxV, centroyV, centrozV;
 int sizeX,sizeY;
 int mainWindow,objSelected,modeExibitionFlag;
 unsigned int modeExibitionValue = GL_LINE_LOOP;
@@ -38,17 +38,17 @@ View *view = new View(PROJECTION_PESPECTIVE);
 
 //Configura os valores da Câmera
 void setCamera(){
-    //TODO: selecionar mode de visualização entre pespectiva e orthogonal
     // posiciona câmera
     if(modeProjectionValue == PROJECTION_OPENGL){
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
     }
-    view->setCameraPosition(eyex,eyey,eyez,rotationX,rotationY,rotationZ);
-    if(modeProjectionValue == PROJECTION_PESPECTIVE_LOOK){
-        view->lookAt(eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
-    }
+    view->setCameraPosition(eyex,eyey,eyez,rotationX,rotationY,rotationZ);   
+    if(modeProjectionValue == PROJECTION_PESPECTIVE_LOOK)
+            view->lookAt(eyexV, eyeyV, eyezV, centroxV, centroyV, centrozV, 0.0, 1.0, 0.0);
+
+    
 
 }
 
@@ -106,13 +106,25 @@ void initCamera(){
     //eixo z perpendicular cresce para fora se valor for alto pode sair do volume de projeção
     eyez = 7.0;
     //origem de referencial da câmera (0,0,0 é a origem do global)
-    centrox=0.0;
-    centroy=0.0;
-    centroz=0.0;
+    centrox = 0.0;
+    centroy = 0.0;
+    centroz = 0.0;
 
     rotationX = 0;
     rotationY = 0;
     rotationZ = 0;
+
+     //eixo x horizontal
+    eyexV = 0.0;
+    //eixo y vertical
+    eyeyV = 0.0;
+    //eixo z perpendicular cresce para fora se valor for alto pode sair do volume de projeção
+    eyezV = 7.0;
+    //origem de referencial da câmera (0,0,0 é a origem do global)
+    centroxV = 0.0;
+    centroyV = 0.0;
+    centrozV = 0.0;
+
 }
 void init (void){
     /* Seleciona a cor de fundo para limpeza da tela */
@@ -160,41 +172,71 @@ void input(unsigned char tecla, int x, int y){
         case 'd':
             eyex = eyex + 0.5;
             centrox = centrox + 0.5;
+
+            eyexV = eyexV - 0.5;
+            centroxV = centroxV - 0.5;
             break;
         case 'k':
             centrox = centrox + 0.5;
+
+            centroxV = centroxV + 0.5;
+
             rotationY = rotationY - 0.05;
             break;
         case 'a':
             eyex = eyex - 0.5;
             centrox = centrox - 0.5;
+
+            eyexV = eyexV + 0.5;
+            centroxV = centroxV + 0.5;
             break;
         case 'j':
             centrox = centrox - 0.5;
+
+            centroxV = centroxV - 0.5;
+
             rotationY = rotationY + 0.05;
             break;
         case 'e':
             eyey = eyey + 0.5;
             centroy = centroy + 0.5;
+
+            eyeyV = eyeyV - 0.5;
+            centroyV = centroyV - 0.5;
             break;
         case 'q':
             eyey = eyey - 0.5;
             centroy = centroy - 0.5;
+            
+            eyeyV = eyeyV + 0.5;
+            centroyV = centroyV + 0.5;
             break;
         case 's':
             eyez = eyez + 0.5;
             centroz = centroz + 0.5;
+
+            eyezV = eyezV + 0.5;
+            centrozV = centrozV - 0.5;
             break;
         case 'w':
             eyez = eyez - 0.5;
             centroz = centroz - 0.5;
+
+            eyezV = eyezV - 0.5;
+            centrozV = centrozV + 0.5;
             break;
         case 'i':
             centroy = centroy + 0.5;
+
+            centroyV = centroyV - 0.5;
+
             rotationX = rotationX + 0.05;
             break;
         case 'm':
             centroy = centroy - 0.5;
+
+            centroyV = centroyV + 0.5;
+
             rotationX = rotationX - 0.05;
             break;
         case 'O':
@@ -266,7 +308,7 @@ void selectModeProjection(){
             if(modeProjectionValue == PROJECTION_ORTOGONAL)
                 view->setModeProjection(PROJECTION_ORTOGONAL);
             if(modeProjectionValue == PROJECTION_PESPECTIVE_LOOK){
-                view->lookAt(eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
+                view->lookAt(eyexV, eyeyV, eyezV, centroxV, centroyV, centrozV, 0.0, 1.0, 0.0);
                 view->setModeProjection(PROJECTION_PESPECTIVE);
             }
             glutPostRedisplay();

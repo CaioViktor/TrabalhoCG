@@ -104,3 +104,14 @@ Vector* Vertex::toVector(){
 		newVector->setValue(3,1);
 	return newVector;
 }
+Vector* Vertex::toVector3(){
+	Vector *newVector = new Vector();
+	newVector->setValue(0,this->x);
+	newVector->setValue(1,this->y);
+	newVector->setValue(2,this->z);
+	if(this->w != 0)
+		newVector->setValue(3,this->w);
+	else
+		newVector->setValue(3,1);
+	return newVector;
+}

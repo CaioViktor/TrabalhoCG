@@ -39,11 +39,11 @@ View *view = new View(PROJECTION_PESPECTIVE);
 //Configura os valores da Câmera
 void setCamera(){
     // posiciona câmera
-    if(modeProjectionValue == PROJECTION_OPENGL){
+    // if(modeProjectionValue == PROJECTION_OPENGL){
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         gluLookAt (eyex, eyey, eyez, centrox, centroy, centroz, 0.0, 1.0, 0.0);
-    }
+    // }
     view->setCameraPosition(eyex,eyey,eyez,rotationX,rotationY,rotationZ);   
     if(modeProjectionValue == PROJECTION_PESPECTIVE_LOOK)
             view->lookAt(eyexV, eyeyV, eyezV, centroxV, centroyV, centrozV, 0.0, 1.0, 0.0);
@@ -63,6 +63,7 @@ void draw(void) {
     GLfloat model[16]; 
     glGetFloatv(GL_MODELVIEW_MATRIX, model); 
     cout <<endl;
+    cout << "Opengl modelView\n";
     for(int i = 0; i < 4 ; i++)
         cout << model[i] << "  " << model[i+4] << "  " << model[i+8] << "  " << model[i+12] << " \n";
     cout << "--------------------------------------------------\n";
@@ -78,23 +79,28 @@ void draw(void) {
     
     glGetFloatv(GL_PROJECTION_MATRIX, model); 
     cout <<endl;
+    cout << "opengl projection\n";
     for(int i = 0; i < 4 ; i++)
         cout << model[i] << "  " << model[i+4] << "  " << model[i+8] << "  " << model[i+12] << " \n";
     cout << "--------------------------------------------------\n";
     cout << "consegui a projection\n";
     projection->printMatrix();
+
+    
     Matrix *viewProjection = projection->multiplyMatrix(modelView);
     cout << "Consegui viewProjection\n";
-    
-    if(modeProjectionValue == PROJECTION_OPENGL){
-        viewProjection = Matrix::getIdentity();
-    }
-    
     viewProjection->printMatrix();
+    
+    if(modeProjectionValue == PROJECTION_OPENGL)
+        viewProjection = Matrix::getIdentity();
+    else
+        clearOpenGL();
+    
     for(int c = 0;c<numberObjects;c++)
         arrayObject[c]->drawObject(modeExibitionValue,viewProjection);
 
     glFlush();
+    setFrustum();
     //cout << "Display!" << endl;
 }
 //Configura os valores iniciais da Câmera
@@ -295,13 +301,24 @@ void render(){
     glutPostRedisplay();
 
 }
-//TODO:Modo de projeção
+
+void clearOpenGL(){
+    glMatrixMode (GL_PROJECTION);
+    glLoadIdentity ();
+    glMatrixMode (GL_MODELVIEW);
+    glLoadIdentity ();
+}
+void setFrustum(){
+    glMatrixMode (GL_PROJECTION);
+    glLoadIdentity ();
+    //glFrustum (-1.0, 1.0:são o volume dos lados, -1.0, 1.0:são o volume da altura, 1.0 : proximidade da câmera, 50.0:volume de profundidade);
+    glFrustum (-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
+    //glOrtho(-1.0, 1.0, -1.0, 1.0, 1.0, 50);
+    glMatrixMode (GL_MODELVIEW);
+}
 void selectModeProjection(){
+    setFrustum();
     if(modeProjectionValue != PROJECTION_OPENGL){
-        glMatrixMode (GL_PROJECTION);
-        glLoadIdentity ();
-        glMatrixMode (GL_MODELVIEW);
-        glLoadIdentity ();
         if(view->getModeProjection() != modeProjectionValue){
             if(modeProjectionValue == PROJECTION_PESPECTIVE)
                 view->setModeProjection(PROJECTION_PESPECTIVE);
@@ -311,17 +328,12 @@ void selectModeProjection(){
                 view->lookAt(eyexV, eyeyV, eyezV, centroxV, centroyV, centrozV, 0.0, 1.0, 0.0);
                 view->setModeProjection(PROJECTION_PESPECTIVE);
             }
-            glutPostRedisplay();
+            // glutPostRedisplay();
         }
-    }else{
-        glMatrixMode (GL_PROJECTION);
-        glLoadIdentity ();
-        //glFrustum (-1.0, 1.0:são o volume dos lados, -1.0, 1.0:são o volume da altura, 1.0 : proximidade da câmera, 50.0:volume de profundidade);
-        glFrustum (-1.0, 1.0, -1.0, 1.0, 1.0, 50.0);
-        //glOrtho(-1.0, 1.0, -1.0, 1.0, 1.0, 50);
-        glMatrixMode (GL_MODELVIEW);
+    }//else{
+        // setFrustum();
+    // }
         glutPostRedisplay();
-    }
     
 }
 void save(){

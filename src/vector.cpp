@@ -12,6 +12,9 @@ Vector::Vector(){
 	this->length = 4;
 	this->vector = newVector;
 }
+Vector::~Vector(){
+	delete this->vector;
+}
 
 Vector::Vector(double x, double y, double z){
 	double **newVector = new double*[3];

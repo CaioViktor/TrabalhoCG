@@ -110,10 +110,11 @@ void View::setCameraPosition(double x, double y, double z, double rotationX, dou
 
 void View::lookAt(double x, double y, double z,double targetX,double targetY,double targetZ,double upX,double upY,double upZ){
 	Vector *pos = new Vector(x,y,-z);
+	Vector *pos2 = new Vector(x,y,-z);
 	Vector *target = new Vector(targetX,targetY,targetZ);
 	Vector *upDir = new Vector(upX,upY,upZ);
 	
-	Vector *forward = (*target) - (*pos);
+	Vector *forward = (*target) - (*pos2);
 	forward->normalize3();
 
 	Vector *left = upDir->cross3(forward);  
@@ -133,9 +134,18 @@ void View::lookAt(double x, double y, double z,double targetX,double targetY,dou
 
     for(int i = 0 ; i < 3 ; i++)
     	matrix->setPosition(i,2,forward->getValue(i));
+
     for(int i = 0 ; i < 3 ; i++)
     	matrix->setPosition(i,3,pos->getValue(i));
+
     (*frameCamera) = (*matrix->getInverse());
     (*view) = (*matrix);
-    
+
+    delete pos;
+    delete target;
+    delete upDir;
+    delete forward;
+    delete left;
+    delete up;
+
 }

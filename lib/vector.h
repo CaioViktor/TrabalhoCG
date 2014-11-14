@@ -11,6 +11,7 @@ class Vector{
 public:
 	/**Cria vetor double* de 4 posições e o seta em vecto  ou seja um vetor de ponteiros de double*/
 	Vector();
+	~Vector();
 	// Vector(Vertex*);
 	Vector(double x, double y, double z);
 	/**

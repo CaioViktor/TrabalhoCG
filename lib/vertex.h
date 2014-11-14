@@ -110,4 +110,5 @@ public:
 	*	\return	Ponteiro para um Vector representando as coordenadas do vértice.
 	*/
 	Vector* toVector();
+	Vector* toVector3();
 };

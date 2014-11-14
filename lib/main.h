@@ -26,3 +26,5 @@
 using namespace std;
 void selectObject();
 void initGLUISave();
+void clearOpenGL();
+void setFrustum();

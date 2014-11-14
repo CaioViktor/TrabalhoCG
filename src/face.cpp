@@ -50,19 +50,23 @@ void Face::draw(unsigned int mode,Matrix* viewProjection,bool opengl){
 
 	else{
 
-		Vector *vertex  = vertice1->toVector()->multiplyMatrix(viewProjection);
+		Vector *vertex  = vertice1->toVector3()->multiplyMatrix(viewProjection);
 		vertex->divisionW();
 		glVertex3f(vertex->getValue(0),vertex->getValue(1),vertex->getValue(2));
 
 		
-		Vector *vertex2 = vertice2->toVector()->multiplyMatrix(viewProjection);
+		Vector *vertex2 = vertice2->toVector3()->multiplyMatrix(viewProjection);
 		vertex2->divisionW();
 		glVertex3f(vertex2->getValue(0),vertex2->getValue(1),vertex2->getValue(2));
 
 
-		Vector *vertex3 = vertice3->toVector()->multiplyMatrix(viewProjection);
+		Vector *vertex3 = vertice3->toVector3()->multiplyMatrix(viewProjection);
 		vertex3->divisionW();
 		glVertex3f(vertex3->getValue(0),vertex3->getValue(1),vertex3->getValue(2));
+
+		// delete vertex;
+		// delete vertex2;
+		// delete vertex3;
 	}
 	
 	glEnd();

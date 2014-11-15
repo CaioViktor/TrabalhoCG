@@ -30,7 +30,6 @@ void ListMaterial::addMaterial(Material* material){
 }
 
 Material* ListMaterial::getMaterial(std::string materialName){
-	NodeMaterial* anteriorNode = NULL;
 	NodeMaterial* currentNode = this->first;
 	bool found = false;
 
@@ -38,9 +37,7 @@ Material* ListMaterial::getMaterial(std::string materialName){
 		if(materialName.compare(currentNode->material->getName()) == 0){
 			found = true;
 		}
-
 		else{
-			anteriorNode = currentNode;
 			currentNode = currentNode->next;
 		}
 	}
@@ -49,16 +46,7 @@ Material* ListMaterial::getMaterial(std::string materialName){
 		return NULL;
 	}
 	else{
-		this->size--;
-		if(this->first == currentNode){
-			this->first=currentNode->next;
-		}
-		else if(this->last == currentNode){
-			this->last == anteriorNode;
-		}
-		else{
-			anteriorNode = currentNode->next;
-		}
+		return currentNode->material;
 	}
 
 }

@@ -40,6 +40,16 @@ Vector* Face::getNormal(){
 	return normal;
 }
 
+void Face::calculateNormal(){
+	Vector* vector1 = vertice1->toVector3();
+	Vector* vector2 = vertice2->toVector3();
+	Vector* vector3 = vertice3->toVector3();
+	this->normal =  ((*vector2)-(*vector1))->cross3((*vector3)-(*vector1));
+	delete vector1;
+	delete vector2;
+	delete vector3;
+}
+
 void Face::draw(unsigned int mode,Matrix* viewProjection,bool opengl){
 	glBegin(mode);
 	if(opengl){

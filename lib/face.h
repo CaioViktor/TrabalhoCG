@@ -72,6 +72,8 @@ public:
 	*/
 	Vector* getNormal();
 
+	void calculateNormal();
+
 private:
 	/**
 	*	Vértice 1

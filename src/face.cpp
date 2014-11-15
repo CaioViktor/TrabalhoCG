@@ -58,8 +58,9 @@ void Face::draw(unsigned int mode,Matrix* viewProjection,bool opengl){
 		glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());
 	}
 
-	else{
 
+	else{
+		
 		Vector *vertex  = vertice1->toVector3()->multiplyMatrix(viewProjection);
 		vertex->divisionW();
 		glVertex3f(vertex->getValue(0),vertex->getValue(1),vertex->getValue(2));

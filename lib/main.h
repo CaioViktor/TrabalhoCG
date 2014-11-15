@@ -23,6 +23,7 @@
 #include "view.h"
 #include "applyToAll.h"
 #include "material.h"
+#include "listMaterial.h"
 using namespace std;
 void selectObject();
 void initGLUISave();

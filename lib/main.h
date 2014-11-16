@@ -24,6 +24,7 @@
 #include "applyToAll.h"
 #include "material.h"
 #include "listMaterial.h"
+#include "illumination.h"
 using namespace std;
 void selectObject();
 void initGLUISave();

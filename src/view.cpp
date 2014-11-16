@@ -122,7 +122,7 @@ void View::lookAt(double x, double y, double z,double targetX,double targetY,dou
 
     
     Vector *up = forward->cross3(left);     
-    up->normalize3();
+    // up->normalize3();
 
     Matrix *matrix = Matrix::getIdentity();
 
@@ -138,7 +138,7 @@ void View::lookAt(double x, double y, double z,double targetX,double targetY,dou
     for(int i = 0 ; i < 3 ; i++)
     	matrix->setPosition(i,3,pos->getValue(i));
 
-    (*frameCamera) = (*matrix->getInverse());
+    //(*frameCamera) = (*matrix->getInverse());
     (*view) = (*matrix);
 
     delete pos;

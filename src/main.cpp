@@ -110,7 +110,7 @@ void initCamera(){
     //eixo y vertical
     eyey = 0.0;
     //eixo z perpendicular cresce para fora se valor for alto pode sair do volume de projeção
-    eyez = 7.0;
+    eyez = 11.0;
     //origem de referencial da câmera (0,0,0 é a origem do global)
     centrox = 0.0;
     centroy = 0.0;
@@ -125,7 +125,7 @@ void initCamera(){
     //eixo y vertical
     eyeyV = 0.0;
     //eixo z perpendicular cresce para fora se valor for alto pode sair do volume de projeção
-    eyezV = 7.0;
+    eyezV = 11.0;
     //origem de referencial da câmera (0,0,0 é a origem do global)
     centroxV = 0.0;
     centroyV = 0.0;

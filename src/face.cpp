@@ -4,12 +4,14 @@ Face::Face(){
 	this->vertice1 = NULL;
 	this->vertice2 = NULL;
 	this->vertice3 = NULL;
+	this->material=NULL;
 	this->normal = NULL;
 }
 Face::Face(Vertex *vert1, Vertex *vert2, Vertex *vert3){
 	this->vertice1 = vert1;
 	this->vertice2 = vert2;
 	this->vertice3 = vert3;
+	this->material=NULL;
 	this->normal = NULL;
 }
 
@@ -52,7 +54,15 @@ void Face::calculateNormal(){
 	delete vector3;
 }
 
-void Face::draw(unsigned int mode,Matrix* viewProjection,bool opengl){
+void Face::setMaterial(Material *m){
+	this->material=m;
+}
+Material* Face::getMaterial(){
+	return this->material;
+}
+
+
+void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, bool opengl){
 	glBegin(mode);
 	if(opengl){
 		glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
@@ -63,6 +73,7 @@ void Face::draw(unsigned int mode,Matrix* viewProjection,bool opengl){
 
 	else{
 		
+
 		Vector *vertex  = vertice1->toVector3()->multiplyMatrix(viewProjection);
 		vertex->divisionW();
 		glVertex3f(vertex->getValue(0),vertex->getValue(1),vertex->getValue(2));

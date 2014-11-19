@@ -34,6 +34,10 @@ Face **arrayFace;
 Topology *topology;
 View *view = new View(PROJECTION_PESPECTIVE);
 
+//Iluminação
+
+Illumination *illumination = new Illumination(new Vector(4,1,6),new Vector(0.3,0.3,0.3),new Vector(0.8,0.8,0.8));
+
 //Declarações Gerais FIM
 
 //Configura os valores da Câmera
@@ -97,7 +101,7 @@ void draw(void) {
         clearOpenGL();
     
     for(int c = 0;c<numberObjects;c++)
-        arrayObject[c]->drawObject(modeExibitionValue,viewProjection);
+        arrayObject[c]->drawObject(modeExibitionValue, viewProjection, illumination);
 
     glFlush();
     setFrustum();
@@ -650,12 +654,12 @@ int main(int argc, char **argv) {
     
     //Ativa profundidade para superfícies escondidas
     glEnable (GL_DEPTH_TEST);
-
     //Configura a posição da janela
     glutInitWindowPosition(0, 0);
 
     //Configura o tamanho da janela
     glutInitWindowSize(sizeX,sizeY);
+
 
     //Criação da janela
     mainWindow = glutCreateWindow("BRitish EmpiRE: V 1.6 Victorian");

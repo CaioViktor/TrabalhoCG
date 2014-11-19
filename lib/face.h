@@ -27,7 +27,7 @@ public:
 	*	GL_LINE_LOOP - Desenha face "aramada". <br>
 	*	GL_POLYGON -   Desenha face preenchida.
 	*/
-	void draw(unsigned int mode,Matrix* viewProjection,bool opengl);
+	void draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, bool opengl);
 
 	/**
 	*Imprime os vértices da face.
@@ -74,6 +74,9 @@ public:
 
 	void calculateNormal();
 
+	void setMaterial(Material *m);
+	Material* getMaterial();
+
 private:
 	/**
 	*	Vértice 1
@@ -94,5 +97,10 @@ private:
 	*	Normal
 	*/
 	Vector *normal;
+
+	/**
+	*	Material
+	*/
+	Material *material;
 
 };

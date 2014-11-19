@@ -2,24 +2,20 @@
 *\author Matheus Mayron
 */
 class Illumination{
-	Vertex* light_position;
-	Vector* ligt_ambiente;
-	Vector* light_difuse;
-	Vector* light_specular;
+	Vector* light_position;
+	Vector* light_ambiente;
+	Vector* light_intensity;
 	
 public:
 	Illumination();
-	Illumination(Vertex* light_position,Vector* ligt_ambiente, Vector* light_difuse, Vector* light_specular);
+	Illumination(Vector* light_position,Vector* light_ambiente, Vector* light_intensity);
 
-	void setLightPosition(Vertex* V);
-	Vertex* getLightPosition();
+	void setLightPosition(Vector* V);
+	Vector* getLightPosition();
 
 	void setLightAmbient(Vector* v);
 	Vector* getLightAmbient();
 
-	void setLightDifuse(Vector* v);
-	Vector* getLightDifuse();
-
-	void setLightSpecular(Vector* v);
-	Vector* getLightSpecular();
+	void setLightIntesity(Vector* v);
+	Vector* getLightIntesity();
 };

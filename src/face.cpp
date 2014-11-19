@@ -4,11 +4,13 @@ Face::Face(){
 	this->vertice1 = NULL;
 	this->vertice2 = NULL;
 	this->vertice3 = NULL;
+	this->normal = NULL;
 }
 Face::Face(Vertex *vert1, Vertex *vert2, Vertex *vert3){
 	this->vertice1 = vert1;
 	this->vertice2 = vert2;
 	this->vertice3 = vert3;
+	this->normal = NULL;
 }
 
 

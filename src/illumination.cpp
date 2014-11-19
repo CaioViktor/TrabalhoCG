@@ -4,36 +4,37 @@
 #include "../lib/main.h"
 
 
-Illumination::Illumination(){}
-Illumination::Illumination(Vertex* light_position,Vector* ligt_ambiente, Vector* light_difuse, Vector* light_specular){}
-
-
-void Illumination::setLightPosition(Vertex* V){
-
+Illumination::Illumination(){
+	this->light_position = NULL;
+	this->light_ambiente = NULL;
+	this->light_intensity = NULL;
 }
-Vertex* Illumination::getLightPosition(){}
+Illumination::Illumination(Vector* light_position, Vector* light_ambiente, Vector* light_intensity){
+	this->light_position = light_position;
+	this->light_ambiente = light_ambiente;
+	this->light_intensity = light_intensity;
+}
+
+
+void Illumination::setLightPosition(Vector* v){
+	this->light_position = v;
+}
+Vector* Illumination::getLightPosition(){
+	return this->light_position;
+}
 
 
 void Illumination::setLightAmbient(Vector* v){
-
+	this->light_ambiente = v;
 }
 Vector* Illumination::getLightAmbient(){
-
+	return this->light_ambiente;
 }
 
 
-void Illumination::setLightDifuse(Vector* v){
-
+void Illumination::setLightIntesity(Vector* v){
+	this->light_intensity = v;
 }
-Vector* Illumination::getLightDifuse(){
-
-}
-
-
-void Illumination::setLightSpecular(Vector* v){
-
-}
-
-Vector* Illumination::getLightSpecular(){
-
+Vector* Illumination::getLightIntesity(){
+	return this->light_intensity;
 }

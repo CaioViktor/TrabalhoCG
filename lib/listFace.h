@@ -61,13 +61,13 @@ public:
 	/**
 	*	Desenha todas as faces da lista em aramado.
 	*/
-	void drawWired(Matrix* viewProjection, Illumination* illumination, bool opengl);
+	void drawWired(Matrix* viewProjection, bool opengl);
 	
 
 	/**
 	*	Desenha todas as faces da lista em sólido.
 	*/
-	void drawSolid(Matrix* viewProjection, Illumination* illumination, bool opengl);
+	void drawSolid(Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl);
 	
 
 	/**

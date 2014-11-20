@@ -66,7 +66,7 @@ public:
 	*	GL_LINE_LOOP - Desenha face "aramada". <br>
 	*	GL_POLYGON -   Desenha face preenchida.
 	*/
-	void drawObject(unsigned int mode, Matrix* viewProjection, Illumination *illumination);
+	void drawObject(unsigned int mode, Matrix* viewProjection, Illumination *illumination, Vector* camPosition);
 
 	/**
 	*	Aplica transformações no objeto

@@ -36,7 +36,7 @@ View *view = new View(PROJECTION_PESPECTIVE);
 
 //Iluminação
 
-Illumination *illumination = new Illumination(new Vector(4,1,6),new Vector(0.3,0.3,0.3),new Vector(0.8,0.8,0.8));
+Illumination *illumination = new Illumination(new Vector(10,10,10),new Vector(0.3,0.3,0.3),new Vector(0.8,0.8,0.8));
 
 //Declarações Gerais FIM
 
@@ -94,14 +94,15 @@ void draw(void) {
     Matrix *viewProjection = projection->multiplyMatrix(modelView);
     cout << "Consegui viewProjection\n";
     viewProjection->printMatrix();
-    
+    Vector* camPosition = new Vector(eyex,eyey,eyez);
+
     if(modeProjectionValue == PROJECTION_OPENGL)
         viewProjection = Matrix::getIdentity();
     else
         clearOpenGL();
     
     for(int c = 0;c<numberObjects;c++)
-        arrayObject[c]->drawObject(modeExibitionValue, viewProjection, illumination);
+        arrayObject[c]->drawObject(modeExibitionValue, viewProjection, illumination, camPosition);
 
     glFlush();
     setFrustum();

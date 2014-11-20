@@ -63,10 +63,11 @@ Vector* Face::calculateCentroid(){
 } 
 
 
-void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, bool opengl){
+void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl){
 	glBegin(mode);
+	glEnable(GL_LIGHTING);
+	
 	if(opengl){
-		glEnable(GL_LIGHTING);
 		glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
 		glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
 		glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());
@@ -75,45 +76,49 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 
 	else{
 		//***********************************Calculo da Luz*****************************************//
+		cout<<"1"<<endl;
+		if(illumination != NULL && camPosition !=NULL){
+			glDisable (GL_LIGHTING);	//TODO: Verificar se da pra colocar isso em outro canto.
+			float Ir, Ig, Ib;
 
-		glDisable (GL_LIGHTING);	//TODO: Verificar se da pra colocar isso em outro canto.
-		
-		float Ir, Ig, Ib;
+			Vector* centroid = this->calculateCentroid();
+
+			Vector* normal = this->calculateNormal();
+			normal->normalize3();
 
 
-		Vector* normal = this->calculateNormal();
-		normal = normal->multiplyMatrix(viewProjection);
-		normal->normalize3();
-		Vector* lightPosition = illumination->getLightPosition()->multiplyMatrix(viewProjection);
-		lightPosition->showVector();
-		Vector* centroid = this->calculateCentroid()->multiplyMatrix(viewProjection);
-		Vector* l = (*centroid) - (*lightPosition);
-		l->normalize3();
+			Vector* lightPosition = illumination->getLightPosition();
 
-		
-		Vector* v = centroid;
-		v->normalize3();
+			Vector* l = new Vector(lightPosition->getValue(0)-centroid->getValue(0),lightPosition->getValue(1)-centroid->getValue(1),lightPosition->getValue(2)-centroid->getValue(2));
+			l->normalize3();
 
-		double dot1 = l->dot3(normal);
 
-		Vector* r = normal->multiplyDouble(2*dot1);
-		r = (*r)-(*l);
-		r->normalize3();
 
-		double dot2 = v->dot3(r);
+			Vector* v = (*camPosition) - (*centroid);
+			cout<<"chogou aqui"<<endl;
 
-		Ir = material->getKa()->getValue(0)*illumination->getLightAmbient()->getValue(0);
-		Ir += material->getKd()->getValue(0)*illumination->getLightIntesity()->getValue(0)*dot1;
-		Ir += material->getKs()->getValue(0)*illumination->getLightIntesity()->getValue(0)*(pow(dot2,(material->getNs())/1000));
+			v->normalize3();
+			double dot1 = l->dot3(normal);
 
-		Ig = material->getKa()->getValue(1)*illumination->getLightAmbient()->getValue(1);
-		Ig += material->getKd()->getValue(1)*illumination->getLightIntesity()->getValue(1)*dot1;
-		Ig += material->getKs()->getValue(1)*illumination->getLightIntesity()->getValue(1)*(pow(dot2,(material->getNs())/1000));
+			Vector* r = normal->multiplyDouble(2*dot1);
+			r = (*r)-(*l);
+			r->normalize3();
 
-		Ib = material->getKa()->getValue(2)*illumination->getLightAmbient()->getValue(2);
-		Ib += material->getKd()->getValue(2)*illumination->getLightIntesity()->getValue(2)*dot1;
-		Ib += material->getKs()->getValue(2)*illumination->getLightIntesity()->getValue(2)*(pow(dot2,(material->getNs())/1000));
+			double dot2 = v->dot3(r);
+			cout<<"1"<<endl;
+			Ir = material->getKa()->getValue(0)*illumination->getLightAmbient()->getValue(0);
+			Ir += material->getKd()->getValue(0)*illumination->getLightIntesity()->getValue(0)*dot1;
+			Ir += material->getKs()->getValue(0)*illumination->getLightIntesity()->getValue(0)*(pow(dot2,(material->getNs())/1000));
 
+			Ig = material->getKa()->getValue(1)*illumination->getLightAmbient()->getValue(1);
+			Ig += material->getKd()->getValue(1)*illumination->getLightIntesity()->getValue(1)*dot1;
+			Ig += material->getKs()->getValue(1)*illumination->getLightIntesity()->getValue(1)*(pow(dot2,(material->getNs())/1000));
+
+			Ib = material->getKa()->getValue(2)*illumination->getLightAmbient()->getValue(2);
+			Ib += material->getKd()->getValue(2)*illumination->getLightIntesity()->getValue(2)*dot1;
+			Ib += material->getKs()->getValue(2)*illumination->getLightIntesity()->getValue(2)*(pow(dot2,(material->getNs())/1000));
+			glColor3f ( Ir, Ig, Ib);
+		}
 		//delete normal;
 		//delete lightPosition;
 		//delete centroid;
@@ -123,7 +128,6 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 		//***********************Fim Calculo da Luz**************************************//
 
 
-		glColor3f ( Ir, Ig, Ib);
 
 		Vector *vertex  = vertice1->toVector3()->multiplyMatrix(viewProjection);
 		vertex->divisionW();

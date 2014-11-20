@@ -27,7 +27,7 @@ public:
 	*	GL_LINE_LOOP - Desenha face "aramada". <br>
 	*	GL_POLYGON -   Desenha face preenchida.
 	*/
-	void draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, bool opengl);
+	void draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl);
 
 	/**
 	*Imprime os vértices da face.

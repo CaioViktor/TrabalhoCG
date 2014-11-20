@@ -71,7 +71,7 @@ Vector* Face::calculateCentroid(){
 void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, bool opengl){
 	glBegin(mode);
 	if(opengl){
-		glEnable (GL_LIGHTING);
+		glEnable(GL_LIGHTING);
 		glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
 		glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
 		glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());
@@ -87,13 +87,10 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 		float Ir, Ig, Ib;
 
 		Vector* normal = this->calculateNormal()->multiplyMatrix(viewProjection);
-		cout<<"Calculei a normal"<<endl;
 		normal->normalize3();
-		cout<<"Normalizei a normal"<<endl;
 		Vector* lightPosition = illumination->getLightPosition()->multiplyMatrix(viewProjection);
-		cout<<"Calculei a Posiçao da luz"<<endl;
+		lightPosition->showVector();
 		Vector* centroid = this->calculateCentroid()->multiplyMatrix(viewProjection);
-		cout<<"Achei Centroid"<<endl;
 		Vector* l = (*centroid) - (*lightPosition);
 		l->normalize3();
 
@@ -121,6 +118,12 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 		Ib += material->getKd()->getValue(2)*illumination->getLightIntesity()->getValue(2)*dot1;
 		Ib += material->getKs()->getValue(2)*illumination->getLightIntesity()->getValue(2)*(pow(dot2,(material->getNs())/1000));
 
+		delete normal;
+		delete lightPosition;
+		delete centroid;
+		delete l;
+		delete v;
+		delete r;
 		//***********************Fim Calculo da Luz**************************************//
 
 

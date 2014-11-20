@@ -55,6 +55,8 @@ public:
 	
 	Vector* multiplyMatrix(Matrix*);
 	Vector* cross3(Vector *V);
+	double dot3(Vector *V);
+	Vector* multiplyDouble(double x);
 	Vector operator*(Matrix M);
 	Vector* operator-(Vector V);
 	Vector* operator+(Vector V);

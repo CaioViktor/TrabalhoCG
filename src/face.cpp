@@ -4,13 +4,15 @@ Face::Face(){
 	this->vertice1 = NULL;
 	this->vertice2 = NULL;
 	this->vertice3 = NULL;
-	this->material=NULL;
+	//this->material=NULL;
+	this->material=new Material("Default", new Vector(1,1,0), new Vector(0,1,1),new Vector(1,0,1), 96, 1, 1);
 }
 Face::Face(Vertex *vert1, Vertex *vert2, Vertex *vert3){
 	this->vertice1 = vert1;
 	this->vertice2 = vert2;
 	this->vertice3 = vert3;
-	this->material=NULL;
+	//this->material=NULL;
+	this->material=new Material("Default", new Vector(1,1,0), new Vector(0,1,1),new Vector(1,0,1), 96, 1, 1);
 }
 
 
@@ -69,6 +71,7 @@ Vector* Face::calculateCentroid(){
 void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, bool opengl){
 	glBegin(mode);
 	if(opengl){
+		glEnable (GL_LIGHTING);
 		glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
 		glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
 		glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());
@@ -76,18 +79,56 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 
 
 	else{
-		//Calculo da Luz
+		//***********************************Calculo da Luz*****************************************//
+
+		glDisable (GL_LIGHTING);	//TODO: Verificar se da pra colocar isso em outro canto.
+		
+		
+		float Ir, Ig, Ib;
+
 		Vector* normal = this->calculateNormal()->multiplyMatrix(viewProjection);
-		Vector* centroid = this->calculateCentroid()->multiplyMatrix(viewProjection);
+		cout<<"Calculei a normal"<<endl;
+		normal->normalize3();
+		cout<<"Normalizei a normal"<<endl;
 		Vector* lightPosition = illumination->getLightPosition()->multiplyMatrix(viewProjection);
+		cout<<"Calculei a Posiçao da luz"<<endl;
+		Vector* centroid = this->calculateCentroid()->multiplyMatrix(viewProjection);
+		cout<<"Achei Centroid"<<endl;
 		Vector* l = (*centroid) - (*lightPosition);
+		l->normalize3();
 
 		
-		//Vector* v = ()
+		Vector* v = centroid;
+		v->normalize3();
+
+		double dot1 = l->dot3(normal);
+
+		Vector* r = normal->multiplyDouble(2*dot1);
+		r = (*r)-(*l);
+		r->normalize3();
+
+		double dot2 = v->dot3(r);
+
+		Ir = material->getKa()->getValue(0)*illumination->getLightAmbient()->getValue(0);
+		Ir += material->getKd()->getValue(0)*illumination->getLightIntesity()->getValue(0)*dot1;
+		Ir += material->getKs()->getValue(0)*illumination->getLightIntesity()->getValue(0)*(pow(dot2,(material->getNs())/1000));
+
+		Ig = material->getKa()->getValue(1)*illumination->getLightAmbient()->getValue(1);
+		Ig += material->getKd()->getValue(1)*illumination->getLightIntesity()->getValue(1)*dot1;
+		Ig += material->getKs()->getValue(1)*illumination->getLightIntesity()->getValue(1)*(pow(dot2,(material->getNs())/1000));
+
+		Ib = material->getKa()->getValue(2)*illumination->getLightAmbient()->getValue(2);
+		Ib += material->getKd()->getValue(2)*illumination->getLightIntesity()->getValue(2)*dot1;
+		Ib += material->getKs()->getValue(2)*illumination->getLightIntesity()->getValue(2)*(pow(dot2,(material->getNs())/1000));
+
+		//***********************Fim Calculo da Luz**************************************//
+
+
+		glColor3f ( Ir, Ig, Ib);
 
 		Vector *vertex  = vertice1->toVector3()->multiplyMatrix(viewProjection);
 		vertex->divisionW();
-		// vertex->normalize3();
+		//vertex->normalize3();
 		glVertex3f(vertex->getValue(0),vertex->getValue(1),vertex->getValue(2));
 
 		

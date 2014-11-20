@@ -172,6 +172,13 @@ Vector* Vector::cross3(Vector *V){
 	return result;
 }
 
+double Vector::dot3(Vector *V){
+	return this->getValue(0) * V->getValue(0) + this->getValue(1) * V->getValue(1) + this->getValue(2) * V->getValue(2); 
+}
+
+Vector* Vector::multiplyDouble(double x){
+   return new Vector(x*this->getValue(0), x*this->getValue(1), x*this->getValue(2));
+}
 
 void Vector::normalize3(){
 	double invLength = 1/sqrtf(getValue(0)*getValue(0) + getValue(1)*getValue(1) + getValue(2)*getValue(2));

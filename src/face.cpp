@@ -42,14 +42,9 @@ Vertex* Face::getVertice3(){
 
 
 Vector* Face::calculateNormal(){
-	Vector* vector1 = vertice1->toVector3();
-	Vector* vector2 = vertice2->toVector3();
-	Vector* vector3 = vertice3->toVector3();
-	Vector* normal =  ((*vector2)-(*vector1))->cross3((*vector3)-(*vector1));
-	delete vector1;
-	delete vector2;
-	delete vector3;
-	return normal;
+	Vector *u = new Vector(vertice2->getCoordinateXd() - vertice1->getCoordinateXd(), vertice2->getCoordinateYd() - vertice1->getCoordinateYd(), vertice2->getCoordinateZd() - vertice1->getCoordinateZd());
+	Vector *v = new Vector(vertice3->getCoordinateXd() - vertice1->getCoordinateXd(), vertice3->getCoordinateYd() - vertice1->getCoordinateYd(), vertice3->getCoordinateZd() - vertice1->getCoordinateZd());
+	return  u->cross3(v);
 }
 
 void Face::setMaterial(Material *m){
@@ -83,10 +78,11 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 
 		glDisable (GL_LIGHTING);	//TODO: Verificar se da pra colocar isso em outro canto.
 		
-		
 		float Ir, Ig, Ib;
 
-		Vector* normal = this->calculateNormal()->multiplyMatrix(viewProjection);
+
+		Vector* normal = this->calculateNormal();
+		normal = normal->multiplyMatrix(viewProjection);
 		normal->normalize3();
 		Vector* lightPosition = illumination->getLightPosition()->multiplyMatrix(viewProjection);
 		lightPosition->showVector();
@@ -118,12 +114,12 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 		Ib += material->getKd()->getValue(2)*illumination->getLightIntesity()->getValue(2)*dot1;
 		Ib += material->getKs()->getValue(2)*illumination->getLightIntesity()->getValue(2)*(pow(dot2,(material->getNs())/1000));
 
-		delete normal;
-		delete lightPosition;
-		delete centroid;
-		delete l;
-		delete v;
-		delete r;
+		//delete normal;
+		//delete lightPosition;
+		//delete centroid;
+		//delete l;
+		//delete v;
+		//delete r;
 		//***********************Fim Calculo da Luz**************************************//
 
 

@@ -70,12 +70,13 @@ public:
 	/**
 	*	\return	Normal da face.
 	*/
-	Vector* getNormal();
-
-	void calculateNormal();
+	Vector* calculateNormal();
 
 	void setMaterial(Material *m);
+
 	Material* getMaterial();
+
+	Vector* calculateCentroid(); 
 
 private:
 	/**
@@ -92,11 +93,6 @@ private:
 	*	Vértice 2
 	*/
 	Vertex *vertice3;
-
-	/**
-	*	Normal
-	*/
-	Vector *normal;
 
 	/**
 	*	Material

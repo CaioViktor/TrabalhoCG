@@ -5,14 +5,14 @@ Face::Face(){
 	this->vertice2 = NULL;
 	this->vertice3 = NULL;
 	//this->material=NULL;
-	this->material=new Material("Default", new Vector(1,1,0), new Vector(0,1,1),new Vector(1,0,1), 96, 1, 1);
+	this->material=new Material("Default", new Vector(1,0,0), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
 }
 Face::Face(Vertex *vert1, Vertex *vert2, Vertex *vert3){
 	this->vertice1 = vert1;
 	this->vertice2 = vert2;
 	this->vertice3 = vert3;
 	//this->material=NULL;
-	this->material=new Material("Default", new Vector(1,1,0), new Vector(0,1,1),new Vector(1,0,1), 96, 1, 1);
+	this->material=new Material("Default", new Vector(1,0,0), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
 }
 
 
@@ -48,7 +48,7 @@ Vector* Face::calculateNormal(){
 }
 
 void Face::setMaterial(Material *m){
-	this->material=m;
+	this->material = m;
 }
 Material* Face::getMaterial(){
 	return this->material;
@@ -76,9 +76,10 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 
 	else{
 		//***********************************Calculo da Luz*****************************************//
-		cout<<"1"<<endl;
+		// cout<<"1"<<endl;
 		if(illumination != NULL && camPosition !=NULL){
 			glDisable (GL_LIGHTING);	//TODO: Verificar se da pra colocar isso em outro canto.
+			glShadeModel(GL_FLAT);
 			float Ir, Ig, Ib;
 
 			Vector* centroid = this->calculateCentroid();
@@ -94,29 +95,29 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 
 
 
-			Vector* v = (*camPosition) - (*centroid);
-			cout<<"chogou aqui"<<endl;
+			Vector* v = new Vector(camPosition->getValue(0) - centroid->getValue(0),camPosition->getValue(1) - centroid->getValue(1),camPosition->getValue(2) - centroid->getValue(2));
+			// cout<<"chogou aqui"<<endl;
 
 			v->normalize3();
 			double dot1 = l->dot3(normal);
 
 			Vector* r = normal->multiplyDouble(2*dot1);
 			r = (*r)-(*l);
-			r->normalize3();
+			// r->normalize3();
 
 			double dot2 = v->dot3(r);
-			cout<<"1"<<endl;
-			Ir = material->getKa()->getValue(0)*illumination->getLightAmbient()->getValue(0);
-			Ir += material->getKd()->getValue(0)*illumination->getLightIntesity()->getValue(0)*dot1;
-			Ir += material->getKs()->getValue(0)*illumination->getLightIntesity()->getValue(0)*(pow(dot2,(material->getNs())/1000));
+			// cout<<"1"<<endl;
+			Ir  = material->getKa()->getValue(0) * illumination->getLightAmbient()->getValue(0);
+			Ir += material->getKd()->getValue(0) * illumination->getLightIntesity()->getValue(0)*fmax(0,dot1);
+			Ir += material->getKs()->getValue(0) * illumination->getLightIntesity()->getValue(0)*fmax(0,(pow(dot2,(material->getNs()))));
 
-			Ig = material->getKa()->getValue(1)*illumination->getLightAmbient()->getValue(1);
-			Ig += material->getKd()->getValue(1)*illumination->getLightIntesity()->getValue(1)*dot1;
-			Ig += material->getKs()->getValue(1)*illumination->getLightIntesity()->getValue(1)*(pow(dot2,(material->getNs())/1000));
+			Ig  = material->getKa()->getValue(1) * illumination->getLightAmbient()->getValue(1);
+			Ig += material->getKd()->getValue(1) * illumination->getLightIntesity()->getValue(1)*fmax(0,dot1);
+			Ig += material->getKs()->getValue(1) * illumination->getLightIntesity()->getValue(1)*fmax(0,(pow(dot2,(material->getNs()))));
 
-			Ib = material->getKa()->getValue(2)*illumination->getLightAmbient()->getValue(2);
-			Ib += material->getKd()->getValue(2)*illumination->getLightIntesity()->getValue(2)*dot1;
-			Ib += material->getKs()->getValue(2)*illumination->getLightIntesity()->getValue(2)*(pow(dot2,(material->getNs())/1000));
+			Ib  = material->getKa()->getValue(2) * illumination->getLightAmbient()->getValue(2);
+			Ib += material->getKd()->getValue(2) * illumination->getLightIntesity()->getValue(2)*fmax(0,dot1);
+			Ib += material->getKs()->getValue(2) * illumination->getLightIntesity()->getValue(2)*fmax(0,(pow(dot2,(material->getNs()))));
 			glColor3f ( Ir, Ig, Ib);
 		}
 		//delete normal;

@@ -36,7 +36,7 @@ View *view = new View(PROJECTION_PESPECTIVE);
 
 //Iluminação
 
-Illumination *illumination = new Illumination(new Vector(10,10,10),new Vector(0.3,0.3,0.3),new Vector(0.8,0.8,0.8));
+Illumination *illumination = new Illumination(new Vector(0,20,10),new Vector(0.3,0.3,0.3),new Vector(1,1,1));
 
 //Declarações Gerais FIM
 

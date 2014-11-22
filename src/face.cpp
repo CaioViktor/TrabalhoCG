@@ -4,14 +4,14 @@ Face::Face(){
 	this->vertice1 = NULL;
 	this->vertice2 = NULL;
 	this->vertice3 = NULL;
-	this->material=NULL;
+	this->material = NULL;
 	// this->material=new Material("Default", new Vector(0.3,0.3,0.3), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
 }
 Face::Face(Vertex *vert1, Vertex *vert2, Vertex *vert3){
 	this->vertice1 = vert1;
 	this->vertice2 = vert2;
 	this->vertice3 = vert3;
-	this->material=NULL;
+	this->material = NULL;
 	// this->material=new Material("Default", new Vector(0.3,0.3,0.3), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
 }
 
@@ -45,6 +45,7 @@ Vector* Face::calculateNormal(){
 	Vector *u = new Vector(vertice2->getCoordinateXd() - vertice1->getCoordinateXd(), vertice2->getCoordinateYd() - vertice1->getCoordinateYd(), vertice2->getCoordinateZd() - vertice1->getCoordinateZd());
 	Vector *v = new Vector(vertice3->getCoordinateXd() - vertice1->getCoordinateXd(), vertice3->getCoordinateYd() - vertice1->getCoordinateYd(), vertice3->getCoordinateZd() - vertice1->getCoordinateZd());
 	Vector *normal = u->cross3(v);
+	
 	delete u;
 	delete v;
 	return  normal;
@@ -62,7 +63,7 @@ Vector* Face::calculateCentroid(){
 	x = vertice1->getCoordinateXd() + vertice2->getCoordinateYd() + vertice3->getCoordinateZd();
 	y = vertice1->getCoordinateXd() + vertice2->getCoordinateYd() + vertice3->getCoordinateZd();
 	z = vertice1->getCoordinateXd() + vertice2->getCoordinateYd() + vertice3->getCoordinateZd();
-	return new Vector(x,y,z);
+	return new Vector(x/3,y/3,z/3);
 } 
 
 
@@ -134,12 +135,12 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 	glBegin(mode);
 	glShadeModel(GL_FLAT);
 
+
 	if(illumination != NULL && camPosition !=NULL){			
 			Vector *colors = calculateColors(illumination,camPosition);
 			glColor3f(colors->getValue(0), colors->getValue(1), colors->getValue(2));
 			delete colors;
 	}
-
 	if(opengl){
 		glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
 		glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());

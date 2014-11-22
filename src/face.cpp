@@ -63,10 +63,79 @@ Vector* Face::calculateCentroid(){
 } 
 
 
+Vector* Face::calculateColors(Illumination* illumination, Vector* camPosition){
+	float Ir, Ig, Ib;
+	double dot1;
+	double dot2;
+
+	Vector *centroid;
+	Vector *normal;
+	Vector *lightPosition;
+	Vector *v;
+	Vector *l;
+	Vector *r;
+
+
+	centroid = this->calculateCentroid();
+
+	normal = this->calculateNormal();
+	normal->normalize3();
+
+	lightPosition = illumination->getLightPosition();
+
+	l = new Vector(
+			lightPosition->getValue(0) - centroid->getValue(0),
+			lightPosition->getValue(1) - centroid->getValue(1),
+			lightPosition->getValue(2) - centroid->getValue(2));
+
+	l->normalize3();
+
+
+
+	v = new Vector(
+		camPosition->getValue(0) - centroid->getValue(0),
+		camPosition->getValue(1) - centroid->getValue(1),
+		camPosition->getValue(2) - centroid->getValue(2));
+	v->normalize3();
+
+	dot1 = l->dot3(normal);
+
+	r = normal->multiplyDouble(2*dot1);
+	r = (*r)-(*l);
+	//r->normalize3();
+
+	dot2 = v->dot3(r);
+	Ir  = material->getKa()->getValue(0) * illumination->getLightAmbient()->getValue(0);
+	Ir += material->getKd()->getValue(0) * illumination->getLightIntesity()->getValue(0) * fmax(0,dot1);
+	Ir += material->getKs()->getValue(0) * illumination->getLightIntesity()->getValue(0) * fmax(0,(pow(dot2,(material->getNs()))));
+
+	Ig  = material->getKa()->getValue(1) * illumination->getLightAmbient()->getValue(1);
+	Ig += material->getKd()->getValue(1) * illumination->getLightIntesity()->getValue(1) * fmax(0,dot1);
+	Ig += material->getKs()->getValue(1) * illumination->getLightIntesity()->getValue(1) * fmax(0,(pow(dot2,(material->getNs()))));
+
+	Ib  = material->getKa()->getValue(2) * illumination->getLightAmbient()->getValue(2);
+	Ib += material->getKd()->getValue(2) * illumination->getLightIntesity()->getValue(2) * fmax(0,dot1);
+	Ib += material->getKs()->getValue(2) * illumination->getLightIntesity()->getValue(2) * fmax(0,(pow(dot2,(material->getNs()))));
+	
+	delete centroid;
+	delete normal;
+	delete v;
+	//delete l; Nao consigo deletar esse porque se trata de um ponteiro prodigio... tsc tsc
+	delete r;
+
+	return new Vector(fmin(Ir,1), fmin(Ig,1), fmin(Ib,1));
+}
+
 void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl){
 	glBegin(mode);
-	glEnable(GL_LIGHTING);
-	
+	glShadeModel(GL_FLAT);
+
+	if(illumination != NULL && camPosition !=NULL){			
+			Vector *colors = calculateColors(illumination,camPosition);
+			glColor3f(colors->getValue(0), colors->getValue(1), colors->getValue(2));
+			delete colors;
+	}
+
 	if(opengl){
 		glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
 		glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
@@ -75,61 +144,7 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 
 
 	else{
-		//***********************************Calculo da Luz*****************************************//
-		// cout<<"1"<<endl;
-		if(illumination != NULL && camPosition !=NULL){
-			glDisable (GL_LIGHTING);	//TODO: Verificar se da pra colocar isso em outro canto.
-			glShadeModel(GL_FLAT);
-			float Ir, Ig, Ib;
-
-			Vector* centroid = this->calculateCentroid();
-
-			Vector* normal = this->calculateNormal();
-			normal->normalize3();
-
-
-			Vector* lightPosition = illumination->getLightPosition();
-
-			Vector* l = new Vector(lightPosition->getValue(0)-centroid->getValue(0),lightPosition->getValue(1)-centroid->getValue(1),lightPosition->getValue(2)-centroid->getValue(2));
-			l->normalize3();
-
-
-
-			Vector* v = new Vector(camPosition->getValue(0) - centroid->getValue(0),camPosition->getValue(1) - centroid->getValue(1),camPosition->getValue(2) - centroid->getValue(2));
-			// cout<<"chogou aqui"<<endl;
-
-			v->normalize3();
-			double dot1 = l->dot3(normal);
-
-			Vector* r = normal->multiplyDouble(2*dot1);
-			r = (*r)-(*l);
-			// r->normalize3();
-
-			double dot2 = v->dot3(r);
-			// cout<<"1"<<endl;
-			Ir  = material->getKa()->getValue(0) * illumination->getLightAmbient()->getValue(0);
-			Ir += material->getKd()->getValue(0) * illumination->getLightIntesity()->getValue(0)*fmax(0,dot1);
-			Ir += material->getKs()->getValue(0) * illumination->getLightIntesity()->getValue(0)*fmax(0,(pow(dot2,(material->getNs()))));
-
-			Ig  = material->getKa()->getValue(1) * illumination->getLightAmbient()->getValue(1);
-			Ig += material->getKd()->getValue(1) * illumination->getLightIntesity()->getValue(1)*fmax(0,dot1);
-			Ig += material->getKs()->getValue(1) * illumination->getLightIntesity()->getValue(1)*fmax(0,(pow(dot2,(material->getNs()))));
-
-			Ib  = material->getKa()->getValue(2) * illumination->getLightAmbient()->getValue(2);
-			Ib += material->getKd()->getValue(2) * illumination->getLightIntesity()->getValue(2)*fmax(0,dot1);
-			Ib += material->getKs()->getValue(2) * illumination->getLightIntesity()->getValue(2)*fmax(0,(pow(dot2,(material->getNs()))));
-			glColor3f ( Ir, Ig, Ib);
-		}
-		//delete normal;
-		//delete lightPosition;
-		//delete centroid;
-		//delete l;
-		//delete v;
-		//delete r;
-		//***********************Fim Calculo da Luz**************************************//
-
-
-
+		
 		Vector *vertex  = vertice1->toVector3()->multiplyMatrix(viewProjection);
 		vertex->divisionW();
 		//vertex->normalize3();

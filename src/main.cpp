@@ -62,7 +62,8 @@ void draw(void) {
     // Black background
     glClearColor(0.0f,0.0f,0.0f,1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-        
+    glDisable (GL_LIGHTING);
+    
     setCamera();
     GLfloat model[16]; 
     glGetFloatv(GL_MODELVIEW_MATRIX, model); 

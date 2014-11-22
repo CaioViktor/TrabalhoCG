@@ -76,7 +76,9 @@ public:
 
 	Material* getMaterial();
 
-	Vector* calculateCentroid(); 
+	Vector* calculateCentroid();
+
+	Vector* calculateColors(Illumination* illumination, Vector* camPosition);
 
 private:
 	/**

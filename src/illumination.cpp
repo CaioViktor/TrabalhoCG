@@ -95,4 +95,3 @@ double Illumination::getLightIntesity_Green(){
 double Illumination::getLightIntesity_Blue(){
 	return light_intensity->getValue(2);
 }
-

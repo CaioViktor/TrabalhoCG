@@ -45,7 +45,10 @@ Vector* Face::calculateNormal(){
 	Vector *u = new Vector(vertice2->getCoordinateXd() - vertice1->getCoordinateXd(), vertice2->getCoordinateYd() - vertice1->getCoordinateYd(), vertice2->getCoordinateZd() - vertice1->getCoordinateZd());
 	Vector *v = new Vector(vertice3->getCoordinateXd() - vertice1->getCoordinateXd(), vertice3->getCoordinateYd() - vertice1->getCoordinateYd(), vertice3->getCoordinateZd() - vertice1->getCoordinateZd());
 	Vector *normal = u->cross3(v);
-	
+	// if(normal->getValue(2) < 0){
+	// 	delete normal;
+	// 	normal = v->cross3(u);
+	// }
 	delete u;
 	delete v;
 	return  normal;
@@ -134,7 +137,6 @@ Vector* Face::calculateColors(Illumination* illumination, Vector* camPosition){
 void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl){
 	glBegin(mode);
 	glShadeModel(GL_FLAT);
-
 
 	if(illumination != NULL && camPosition !=NULL){			
 			Vector *colors = calculateColors(illumination,camPosition);

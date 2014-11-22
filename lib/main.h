@@ -38,3 +38,4 @@ void selectObject();
 void initGLUISave();
 void clearOpenGL();
 void setFrustum();
+void render();

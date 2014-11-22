@@ -65,6 +65,7 @@ void draw(void) {
     glDisable (GL_LIGHTING);
     
     setCamera();
+    
     GLfloat model[16]; 
     glGetFloatv(GL_MODELVIEW_MATRIX, model); 
     cout <<endl;
@@ -116,7 +117,7 @@ void initCamera(){
     //eixo y vertical
     eyey = 0.0;
     //eixo z perpendicular cresce para fora se valor for alto pode sair do volume de projeção
-    eyez = 11.0;
+    eyez = 7.0;
     //origem de referencial da câmera (0,0,0 é a origem do global)
     centrox = 0.0;
     centroy = 0.0;
@@ -131,7 +132,7 @@ void initCamera(){
     //eixo y vertical
     eyeyV = 0.0;
     //eixo z perpendicular cresce para fora se valor for alto pode sair do volume de projeção
-    eyezV = 11.0;
+    eyezV = 7.0;
     //origem de referencial da câmera (0,0,0 é a origem do global)
     centroxV = 0.0;
     centroyV = 0.0;

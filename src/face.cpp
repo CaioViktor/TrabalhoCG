@@ -5,14 +5,14 @@ Face::Face(){
 	this->vertice2 = NULL;
 	this->vertice3 = NULL;
 	//this->material=NULL;
-	this->material=new Material("Default", new Vector(1,0,0), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
+	this->material=new Material("Default", new Vector(0.3,0.3,0.3), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
 }
 Face::Face(Vertex *vert1, Vertex *vert2, Vertex *vert3){
 	this->vertice1 = vert1;
 	this->vertice2 = vert2;
 	this->vertice3 = vert3;
 	//this->material=NULL;
-	this->material=new Material("Default", new Vector(1,0,0), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
+	this->material=new Material("Default", new Vector(0.3,0.3,0.3), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
 }
 
 

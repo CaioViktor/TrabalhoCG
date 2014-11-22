@@ -185,3 +185,9 @@ void Vector::normalize3(){
 	for(int i = 0 ; i < 3 ; i++)
 		setValue(i,getValue(i) * invLength);
 }
+
+void Vector::divisionZ(){
+	double w = this->getValue(2);
+	for(int i = 0 ; i < 3 ; i++)
+		this->setValue(i,this->getValue(i)/w);
+}

@@ -61,5 +61,7 @@ public:
 	Vector* operator-(Vector V);
 	Vector* operator+(Vector V);
 	void divisionW();
+	void divisionZ();
 	void normalize3();
+
 };

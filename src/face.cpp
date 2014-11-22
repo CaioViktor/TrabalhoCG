@@ -4,15 +4,15 @@ Face::Face(){
 	this->vertice1 = NULL;
 	this->vertice2 = NULL;
 	this->vertice3 = NULL;
-	//this->material=NULL;
-	this->material=new Material("Default", new Vector(0.3,0.3,0.3), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
+	this->material=NULL;
+	// this->material=new Material("Default", new Vector(0.3,0.3,0.3), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
 }
 Face::Face(Vertex *vert1, Vertex *vert2, Vertex *vert3){
 	this->vertice1 = vert1;
 	this->vertice2 = vert2;
 	this->vertice3 = vert3;
-	//this->material=NULL;
-	this->material=new Material("Default", new Vector(0.3,0.3,0.3), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
+	this->material=NULL;
+	// this->material=new Material("Default", new Vector(0.3,0.3,0.3), new Vector(0,1,1),new Vector(1,1,1), 96, 1, 1);
 }
 
 
@@ -44,7 +44,10 @@ Vertex* Face::getVertice3(){
 Vector* Face::calculateNormal(){
 	Vector *u = new Vector(vertice2->getCoordinateXd() - vertice1->getCoordinateXd(), vertice2->getCoordinateYd() - vertice1->getCoordinateYd(), vertice2->getCoordinateZd() - vertice1->getCoordinateZd());
 	Vector *v = new Vector(vertice3->getCoordinateXd() - vertice1->getCoordinateXd(), vertice3->getCoordinateYd() - vertice1->getCoordinateYd(), vertice3->getCoordinateZd() - vertice1->getCoordinateZd());
-	return  u->cross3(v);
+	Vector *normal = u->cross3(v);
+	delete u;
+	delete v;
+	return  normal;
 }
 
 void Face::setMaterial(Material *m){
@@ -80,6 +83,7 @@ Vector* Face::calculateColors(Illumination* illumination, Vector* camPosition){
 
 	normal = this->calculateNormal();
 	normal->normalize3();
+	// normal->divisionZ();
 
 	lightPosition = illumination->getLightPosition();
 
@@ -102,7 +106,7 @@ Vector* Face::calculateColors(Illumination* illumination, Vector* camPosition){
 
 	r = normal->multiplyDouble(2*dot1);
 	r = (*r)-(*l);
-	//r->normalize3();
+	// r->normalize3();
 
 	dot2 = v->dot3(r);
 	Ir  = material->getKa()->getValue(0) * illumination->getLightAmbient()->getValue(0);

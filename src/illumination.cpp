@@ -42,20 +42,57 @@ double Illumination::getLightPosition_Z(){
 	return light_position->getValue(2);
 }
 
+
 void Illumination::setLightAmbient(Vector* v){
 	this->light_ambiente = v;
 }
 
-
+void Illumination::setLightAmbient(double red, double green, double blue){
+	light_ambiente->setValue(0, red);
+	light_ambiente->setValue(1, green);
+	light_ambiente->setValue(2, blue);
+}
 
 Vector* Illumination::getLightAmbient(){
 	return this->light_ambiente;
 }
 
+double Illumination::getLightAmbient_Red(){
+	return light_ambiente->getValue(0);
+}
+
+double Illumination::getLightAmbient_Green(){
+	return light_ambiente->getValue(1);
+}
+
+double Illumination::getLightAmbient_Blue(){
+	return light_ambiente->getValue(2);
+}
 
 void Illumination::setLightIntesity(Vector* v){
 	this->light_intensity = v;
 }
+
+void Illumination::setLightIntesity(double red, double green, double blue){
+	light_intensity->setValue(0, red);
+	light_intensity->setValue(1, green);
+	light_intensity->setValue(2, blue);
+}
+
+
 Vector* Illumination::getLightIntesity(){
 	return this->light_intensity;
 }
+
+double Illumination::getLightIntesity_Red(){
+	return light_intensity->getValue(0);
+}
+
+double Illumination::getLightIntesity_Green(){
+	return light_intensity->getValue(1);
+}
+
+double Illumination::getLightIntesity_Blue(){
+	return light_intensity->getValue(2);
+}
+

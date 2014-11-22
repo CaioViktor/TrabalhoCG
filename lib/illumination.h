@@ -18,9 +18,17 @@ public:
 	double getLightPosition_Z();
 
 	void setLightAmbient(Vector* v);
+	void setLightAmbient(double red, double green, double blue);
 	Vector* getLightAmbient();
+	double getLightAmbient_Red();
+	double getLightAmbient_Green();
+	double getLightAmbient_Blue();
 
 
 	void setLightIntesity(Vector* v);
+	void setLightIntesity(double red, double green, double blue);
 	Vector* getLightIntesity();
+	double getLightIntesity_Red();
+	double getLightIntesity_Green();
+	double getLightIntesity_Blue();
 };

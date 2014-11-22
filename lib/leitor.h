@@ -8,8 +8,8 @@
 /*Durante os testes precisei fazer os seguintes includes:
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-*/
+#include <stdlib.h>*/
+
 
 #define LEITOR_SAIDA_DEFAULT "vilaOutput.obj"
 
@@ -30,8 +30,10 @@ public:
 	*	\result Estrutura topológica preenchida pela função
 	*/
     static Topology* ler(std::string nomeArquivo);
+    static ListMaterial* lerMaterial(std::string nomeArquivo);
 
     static void salvar(Topology* cena, std::string nomeArquivo = LEITOR_SAIDA_DEFAULT);
+    static void salvarMaterial(Topology* cena, std::string nomeArquivo);
 
 };
 

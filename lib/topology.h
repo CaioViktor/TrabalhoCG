@@ -15,4 +15,7 @@ typedef struct Topology_{
 
 	Vertex **VertexArray;		///<Vetor contendo todos os vértices criados
 	int VertexNumber;			///<Número de vértices criadas
+
+	ListMaterial *Materials; //by: Luke - Pequena alteração para armazenar os materiais
+	int MaterialNumber;   
 } Topology;

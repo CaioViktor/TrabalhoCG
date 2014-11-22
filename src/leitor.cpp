@@ -44,6 +44,11 @@ bool Leitor::eArquivoObj(std::string nomeArquivo){
 
 Topology* Leitor::ler(std::string nomeArquivo){
 
+    ListMaterial *materiais = Leitor::lerMaterial(nomeArquivo);
+    cout<<"Quantidade de materiais armazenados: "<<materiais->getSize()<<endl;
+
+    //return NULL;
+
     FILE* arquivo;
 
 
@@ -138,6 +143,8 @@ Topology* Leitor::ler(std::string nomeArquivo){
     cena->ObjectNumber = contObjetos;
     cena->VertexNumber = contVertices;
     cena->FaceNumber = contFaces;
+    cena->Materials = materiais;
+    cena->MaterialNumber = materiais->getSize();
 
 
     ObjectClass** objetos = new ObjectClass*[contObjetos];
@@ -157,7 +164,7 @@ Topology* Leitor::ler(std::string nomeArquivo){
             //cout<<"Achou um comentário\n";
             fgets(trash,100,arquivo);
 
-        } else if (atual == 'm' || atual == 'u' || atual == 's'){
+        } else if (atual == 'm' || atual == 's'){
             fgets(trash,100,arquivo);
         } else if (atual == 'o'){
 
@@ -195,26 +202,44 @@ Topology* Leitor::ler(std::string nomeArquivo){
 
             cout<<"Encontrou ate o vertice: "<<indiceVertice<<endl<<endl;
 
-            while (atual != 'f'){
+            //Variaveis que guardarao o nome do material.
+            char nomeMaterialVET[100];
+            string nomeMaterial;
 
-                fgets(trash,100,arquivo);
-                atual = getc(arquivo);
-            }
+            while (atual == 'f' || atual == 'u'){
 
-            while (atual == 'f'){
+                if (atual == 'u'){
+
+                    fscanf(arquivo,"semtl %s\n", nomeMaterialVET);
+                    nomeMaterial.assign(nomeMaterialVET,strlen(nomeMaterialVET));
+                    cout<<"As proximas faces terao o material "<<nomeMaterial<<endl;
+
+                    atual = getc(arquivo);
+
+                    if (atual == 's'){
+                        fgets(trash,100,arquivo);
+                        atual = getc(arquivo);
+                    }
+                }
+
+                if (atual == 'f'){
+
+                    fscanf(arquivo," %d %d %d\n",&v1,&v2,&v3);
 
 
-                fscanf(arquivo," %d %d %d\n",&v1,&v2,&v3);
+                    faces[indiceFace]->setVertice1(vertices[v1-1]);
+                    faces[indiceFace]->setVertice2(vertices[v2-1]);
+                    faces[indiceFace]->setVertice3(vertices[v3-1]);
 
+                    //Seta o material usando uma funcao da lista de materiais.
+                    //Obrigado por essa funçao, Matheus Mayrôn.
+                    faces[indiceFace]->setMaterial(materiais->getMaterial(nomeMaterial));
 
-                faces[indiceFace]->setVertice1(vertices[v1-1]);
-                faces[indiceFace]->setVertice2(vertices[v2-1]);
-                faces[indiceFace]->setVertice3(vertices[v3-1]);
+                    listaFaces->addFace(faces[indiceFace]);
 
-                listaFaces->addFace(faces[indiceFace]);
-
-                indiceFace++;
-                atual = getc(arquivo);
+                    indiceFace++;
+                    atual = getc(arquivo);
+                }
 
 
             }
@@ -254,6 +279,68 @@ Topology* Leitor::ler(std::string nomeArquivo){
 
 //Alterações pós 06/11:
 
+void Leitor::salvarMaterial(Topology* cena, std::string nomeArquivo){
+
+
+    cout<<"Iniciando exportação de materiais."<<endl;
+
+    //Caso o arquivo não termine com .obj, ele adiciona ao nome
+    string prefixo="";
+    string sufixo=".mtl";
+    string nomeReal="";
+    int tamanhoString = nomeArquivo.size();
+
+    for(int i=0;i<tamanhoString-4;i++){
+            prefixo = prefixo + nomeArquivo[i];
+    }
+
+    nomeReal = prefixo + sufixo;
+
+    cout<<"O nome do arquivo sera: "<<nomeReal<<endl;
+
+    FILE* arquivo;
+
+    //Cria o arquivo:
+    arquivo = fopen(nomeReal.c_str(),"w");
+
+        fprintf(arquivo,"# BRrender MTL File\n# Material Count: %d\n\n",cena->MaterialNumber);
+
+        Material **materiais = cena->Materials->toVector();
+
+        for (int i = 0; i < cena->MaterialNumber ; i++){
+
+            fprintf(arquivo,"newmtl %s\n",materiais[i]->getName().c_str());
+            fprintf(arquivo,"Ns %lf\n",materiais[i]->getNs());
+
+            Vector* Ka = materiais[i]->getKa();
+            fprintf(arquivo,"Ka %lf %lf %lf\n",Ka->getValue(0), Ka->getValue(1), Ka->getValue(2));
+
+            Vector* Kd = materiais[i]->getKd();
+            fprintf(arquivo,"Kd %lf %lf %lf\n",Kd->getValue(0), Kd->getValue(1), Kd->getValue(2));
+
+            Vector* Ks = materiais[i]->getKs();
+            fprintf(arquivo,"Ks %lf %lf %lf\n",Ks->getValue(0), Ks->getValue(1), Ks->getValue(2));
+
+            fprintf(arquivo,"Ni %lf\n",materiais[i]->getNi());
+            fprintf(arquivo,"d %lf\nillum 2\n",materiais[i]->gettransparency());
+
+            //Preciosismo desnecessario:
+            if (i!=cena->MaterialNumber-1)
+                fprintf(arquivo,"\n");
+
+
+        }
+
+
+
+
+
+
+
+
+    fclose(arquivo);
+}
+
 void Leitor::salvar(Topology* cena, std::string nomeArquivo){
 
     cout<<"Iniciando exportação de arquivo."<<endl;
@@ -270,6 +357,7 @@ void Leitor::salvar(Topology* cena, std::string nomeArquivo){
         nomeArquivo = nomeArquivo + ".obj";
     }
 
+    Leitor::salvarMaterial(cena,nomeArquivo);
 
     FILE* arquivo;
     //Cria o arquivo:
@@ -278,7 +366,23 @@ void Leitor::salvar(Topology* cena, std::string nomeArquivo){
     //Imprimir comentários iniciais:
     fprintf(arquivo,"#BRrender 1.2 - Trabalho de Computacao Grafica - OBJ File: '%s'\n",nomeArquivo.c_str());
 
+    //Imprimir mtllib, que vai ser sempre o mesmo nome mais o .mtl
+
+    string prefixoMTL="";
+    string sufixoMTL=".mtl";
+    string nomeRealMTL="";
+    int tamanhoStringMTL = nomeArquivo.size();
+
+    for(int i=0;i<tamanhoStringMTL-4;i++){
+            prefixoMTL = prefixoMTL + nomeArquivo[i];
+    }
+
+    nomeRealMTL = prefixoMTL + sufixoMTL;
+    fprintf(arquivo, "mtllib %s\n",nomeRealMTL.c_str());
+
+
     int nObjetos = cena->ObjectNumber;
+    ListMaterial *materiais = cena->Materials;
 
     //Para cada objeto:
     for (int i = 0; i < nObjetos; i++){
@@ -296,7 +400,15 @@ void Leitor::salvar(Topology* cena, std::string nomeArquivo){
         ListFace *facesDoObjeto = cena->ObjectArray[i]->getListFace();
 
         for (int k = 0; k < facesDoObjeto->numberFaces(); k++){
+
+            Material *materialAtual;
+
             Face *faceAtual = facesDoObjeto->getFace(k);
+
+            if (materialAtual != faceAtual->getMaterial()){
+                materialAtual = faceAtual->getMaterial();
+                fprintf(arquivo,"usemtl %s\n",materialAtual->getName().c_str());
+            }
 
             Vertex *vertice1 = faceAtual->getVertice1();
             Vertex *vertice2 = faceAtual->getVertice2();
@@ -327,6 +439,75 @@ void Leitor::salvar(Topology* cena, std::string nomeArquivo){
     }
 
     fclose(arquivo);
-    cout << "Arquivo exportado com sucesso!\n";
+    cout << "Arquivos exportados com sucesso!\n";
+}
+
+ListMaterial* Leitor::lerMaterial(std::string nomeArquivo){
+
+    //Primeiro passo: pegar o nome do arquivo, remover o .obj e adicionar o .mtl =D
+
+    int tamNome = nomeArquivo.size();
+
+    string novoNome = "";
+
+    for (int i = 0; i < (tamNome-4); i++){
+        novoNome = novoNome + nomeArquivo[i];
+    }
+    //Adicionar .mtl:
+    novoNome.append(".mtl");
+
+    FILE *arquivo;
+    ListMaterial *lista = new ListMaterial();
+
+    arquivo = fopen(novoNome.c_str(),"r");
+
+    char atual;
+    char trash[100];
+    double r,g,b,ni,ns,d,illum;
+    string nomeMtl;
+    char nomeMtlVET[100];
+
+    while (!feof(arquivo)){
+
+        atual = fgetc(arquivo);
+
+        if ((atual == '#') || (atual == '\n')){
+            fseek(arquivo,-1,SEEK_CUR);
+            fgets(trash,100,arquivo);
+        }
+        else{
+            fseek(arquivo,-1,SEEK_CUR);
+            fscanf(arquivo,"newmtl %s\n",nomeMtlVET);
+            nomeMtl.assign(nomeMtlVET,strlen(nomeMtlVET));
+
+            fscanf(arquivo,"Ns %lf\n",&ns);
+
+            fscanf(arquivo,"Ka %lf %lf %lf\n",&r,&g,&b);
+            Vector *Ka = new Vector(r,g,b);
+
+            fscanf(arquivo,"Kd %lf %lf %lf\n",&r,&g,&b);
+            Vector *Kd = new Vector(r,g,b);
+
+            fscanf(arquivo,"Ks %lf %lf %lf\n",&r,&g,&b);
+            Vector *Ks = new Vector(r,g,b);
+
+            fscanf(arquivo,"Ni %lf\n",&ni);
+
+            fscanf(arquivo,"d %lf\n",&d);
+
+            fscanf(arquivo,"illum %lf\n",&illum);
+
+            Material *materialAtual = new Material(nomeMtl,Kd,Ka,Ks,ns,ni,d);
+            lista->addMaterial(materialAtual);
+
+        }
+
+
+    }
+
+    fclose(arquivo);
+
+    return lista;
+
 }
 

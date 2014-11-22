@@ -63,3 +63,19 @@ bool ListMaterial::isEmpty(){
 int ListMaterial::getSize(){
 	return this->size;
 }
+
+Material** ListMaterial::toVector(){
+
+    NodeMaterial *currentNode = this->first;
+    Material **mtlVector = new Material*[this->size];
+
+    for (int i = 0;i < this->size; i++){
+
+        mtlVector[i] = currentNode->material;
+        currentNode = currentNode->next;
+
+    }
+
+    return mtlVector;
+
+}

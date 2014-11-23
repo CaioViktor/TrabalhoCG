@@ -32,9 +32,10 @@ void ObjectClass::drawObject( unsigned int modeExibitionValue, Matrix* viewProje
       
     if(modeExibitionValue == GL_POLYGON)
         this->list_face->drawSolid(viewProjection, illumination, camPosition, opengl);
-    else
+    else{
         glColor3f(this->R,this->G,this->B);
         this->list_face->drawWired(viewProjection, opengl);
+    }
 }
 
 //Método para aplicar transformação no objeto

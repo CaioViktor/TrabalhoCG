@@ -136,9 +136,8 @@ Vector* Face::calculateColors(Illumination* illumination, Vector* camPosition){
 
 void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl){
 	glBegin(mode);
-	glShadeModel(GL_FLAT);
 
-	if(illumination != NULL && camPosition !=NULL){			
+	if(illumination != NULL && camPosition != NULL){			
 			Vector *colors = calculateColors(illumination,camPosition);
 			glColor3f(colors->getValue(0), colors->getValue(1), colors->getValue(2));
 			delete colors;

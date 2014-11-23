@@ -85,12 +85,11 @@ void draw(void) {
     cout << "Opengl modelView\n";
     for(int i = 0; i < 4 ; i++)
         cout << model[i] << "  " << model[i+4] << "  " << model[i+8] << "  " << model[i+12] << " \n";
-    cout << "--------------------------------------------------\n";
-    // carrega matriz identidade para não acumular transformações na câmera
-    //Desenha cena
+    cout << endl;
     Matrix *modelView = view->getModelViewMatrix();
     cout << "consegui a modelView\n";
     modelView->printMatrix();
+    cout << "--------------------------------------------------\n";
     Matrix *projection = view->getProjectionMatrix();
     
 
@@ -101,26 +100,28 @@ void draw(void) {
     cout << "opengl projection\n";
     for(int i = 0; i < 4 ; i++)
         cout << model[i] << "  " << model[i+4] << "  " << model[i+8] << "  " << model[i+12] << " \n";
-    cout << "--------------------------------------------------\n";
-    cout << "consegui a projection\n";
+    cout << "\nconsegui a projection\n";
     projection->printMatrix();
+    cout << "--------------------------------------------------\n";
 
     
     Matrix *viewProjection = projection->multiplyMatrix(modelView);
     cout << "Consegui viewProjection\n";
     viewProjection->printMatrix();
+    cout << "--------------------------------------------------\n\n\n\n\n";
     Vector* camPosition = new Vector(eyex,eyey,eyez);
 
     if(modeProjectionValue == PROJECTION_OPENGL)
         viewProjection = Matrix::getIdentity();
     else
         clearOpenGL();
-    
+    //Desenha cena
     for(int c = 0;c<numberObjects;c++)
         arrayObject[c]->drawObject(modeExibitionValue, viewProjection, illumination, camPosition);
 
     glFlush();
     setFrustum();
+    delete camPosition;
     //cout << "Display!" << endl;
 }
 //Configura os valores iniciais da Câmera
@@ -698,7 +699,7 @@ int main(int argc, char **argv) {
 
 
     //Criação da janela
-    mainWindow = glutCreateWindow("BRitish EmpiRE: V 1.6 Victorian");
+    mainWindow = glutCreateWindow("BRitish EmpiRE: V 2.0 Elizabeth");
     glutKeyboardFunc(input);
     glutMouseFunc(mouse);
     init();

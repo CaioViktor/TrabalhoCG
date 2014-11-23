@@ -364,7 +364,7 @@ void Leitor::salvar(Topology* cena, std::string nomeArquivo){
     arquivo = fopen(nomeArquivo.c_str(),"w");
 
     //Imprimir comentários iniciais:
-    fprintf(arquivo,"#BRrender 1.2 - Trabalho de Computacao Grafica - OBJ File: '%s'\n",nomeArquivo.c_str());
+    fprintf(arquivo,"#BRrender 2.0 - Trabalho de Computacao Grafica - OBJ File: '%s'\n",nomeArquivo.c_str());
 
     //Imprimir mtllib, que vai ser sempre o mesmo nome mais o .mtl
 

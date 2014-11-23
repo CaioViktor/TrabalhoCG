@@ -17,7 +17,7 @@ int modeProjectionValue = PROJECTION_OPENGL;
 int transformationSelected,opRotation;
 string objectName = "NULL",objectPosition = "X:0;Y:0;Z:0", objectFaces = "0",objectVertex = "0";
 char *nameSave;
-GLUI *glui;
+GLUI *glui,*glui_illu;;
 GLUI *gluiSave;
 GLUI_StaticText *textName, *textPosition, *textFace, *textVertex;
 GLUI_Spinner *coordinateX,*coordinateY,*coordinateZ,*radians,*scaleX,*scaleY,*scaleZ,*lightX,*lightY,*lightZ,*lightIntensityR,*lightIntensityG,*lightIntensityB;//*colorR,*colorG,*colorB;
@@ -625,18 +625,28 @@ void initGLUI(){
     glui->add_column_to_panel(buttonsPanel,false); 
     glui->add_button_to_panel(buttonsPanel,"Salvar Cena",0,(GLUI_Update_CB) clickSave); 
     selectObject();
-    glui->add_column(true); 
-    GLUI_Panel *cenePanel = glui->add_panel( "Luz" );
-    lightX = glui->add_spinner_to_panel(cenePanel ,  "X:" ,GLUI_SPINNER_FLOAT);
-    lightY = glui->add_spinner_to_panel(cenePanel ,  "Y:" ,GLUI_SPINNER_FLOAT);
-    lightZ = glui->add_spinner_to_panel(cenePanel ,  "Z:" ,GLUI_SPINNER_FLOAT);
+    // glui->add_column(true); 
+    
+    
+
+}
+void initGLUIIllum(){
+    glui_illu = GLUI_Master.create_glui_subwindow( mainWindow,GLUI_SUBWINDOW_RIGHT );
+    glui->set_main_gfx_window(mainWindow);
+
+    GLUI_Panel *cenePanel = glui_illu->add_panel( "Luz" );
+    glui_illu->add_statictext_to_panel(cenePanel,"Posicao");
+    lightX = glui_illu->add_spinner_to_panel(cenePanel ,  "X:" ,GLUI_SPINNER_FLOAT);
+    lightY = glui_illu->add_spinner_to_panel(cenePanel ,  "Y:" ,GLUI_SPINNER_FLOAT);
+    lightZ = glui_illu->add_spinner_to_panel(cenePanel ,  "Z:" ,GLUI_SPINNER_FLOAT);
     lightX->set_float_val(lightXV);
     lightY->set_float_val(lightYV);
     lightZ->set_float_val(lightZV);
 
-    lightIntensityR = glui->add_spinner_to_panel(cenePanel ,  "R:" ,GLUI_SPINNER_FLOAT);
-    lightIntensityG = glui->add_spinner_to_panel(cenePanel ,  "G:" ,GLUI_SPINNER_FLOAT);
-    lightIntensityB = glui->add_spinner_to_panel(cenePanel ,  "B:" ,GLUI_SPINNER_FLOAT);
+    glui_illu->add_statictext_to_panel(cenePanel,"Intensidade");
+    lightIntensityR = glui_illu->add_spinner_to_panel(cenePanel ,  "R:" ,GLUI_SPINNER_FLOAT);
+    lightIntensityG = glui_illu->add_spinner_to_panel(cenePanel ,  "G:" ,GLUI_SPINNER_FLOAT);
+    lightIntensityB = glui_illu->add_spinner_to_panel(cenePanel ,  "B:" ,GLUI_SPINNER_FLOAT);
     lightIntensityR->set_float_val(lightIntensityRV);
     lightIntensityG->set_float_val(lightIntensityGV);
     lightIntensityB->set_float_val(lightIntensityBV);
@@ -645,9 +655,7 @@ void initGLUI(){
     lightIntensityG->set_float_limits(0,1,GLUI_LIMIT_CLAMP);
     lightIntensityB->set_float_limits(0,1,GLUI_LIMIT_CLAMP);
 
-    glui->add_button_to_panel(cenePanel,"Configurar",0,(GLUI_Update_CB) setLight); 
-    
-
+    glui_illu->add_button_to_panel(cenePanel,"Configurar",0,(GLUI_Update_CB) setLight); 
 }
 
 void initGLUISave(){
@@ -703,10 +711,11 @@ int main(int argc, char **argv) {
     glutKeyboardFunc(input);
     glutMouseFunc(mouse);
     init();
+    initGLUI();
+    initGLUIIllum();
     glutReshapeFunc(reshape);
     //Chamada da função de desenhar
     glutDisplayFunc(draw);
-    initGLUI();
     // Loop require by OpenGL
     glutMainLoop();
     return 0;

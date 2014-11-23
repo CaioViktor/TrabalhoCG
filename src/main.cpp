@@ -5,7 +5,7 @@ Controle da window, inteface de usuário e chamadas de procedimentos
 #include "../lib/main.h"
 //Declarações da Janela
 GLfloat eyex,eyey,eyez,centrox, centroy, centroz,rotationX,rotationY,rotationZ,eyexV,eyeyV,eyezV,centroxV, centroyV, centrozV;
-double lightXV = 0 ,lightYV = 20 ,lightZV = 10, lightIntensityRV = 1,lightIntensityGV = 1,lightIntensityBV = 1;
+double lightXV = 0 ,lightYV = 4 ,lightZV = 5, lightIntensityRV = 1,lightIntensityGV = 1,lightIntensityBV = 1;
 int sizeX,sizeY;
 int mainWindow,objSelected,modeExibitionFlag;
 unsigned int modeExibitionValue = GL_LINE_LOOP;
@@ -37,7 +37,7 @@ View *view = new View(PROJECTION_PESPECTIVE);
 
 //Iluminação
 
-Illumination *illumination = new Illumination(new Vector(0,20,10),new Vector(0.3,0.3,0.3),new Vector(1,1,1));
+Illumination *illumination = new Illumination(new Vector(0,4,5),new Vector(0.3,0.3,0.3),new Vector(1,1,1));
 
 //Declarações Gerais FIM
 

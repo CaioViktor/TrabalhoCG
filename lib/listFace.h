@@ -69,10 +69,13 @@ public:
 	*/
 	void drawSolid(Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl);
 	
+	void drawSolidGouraud(Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl);
 
 	/**
 	*	\return O número de faces contidas na lista.
 	*/
 	int numberFaces();
+
+	void calculateVertexNormals();
 };
 

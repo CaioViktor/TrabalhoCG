@@ -523,8 +523,12 @@ void applyTransformation(){
 void selectModeExibition(){
     if(modeExibitionFlag == 0)
         modeExibitionValue = GL_LINE_LOOP;
-    else
-        modeExibitionValue = GL_POLYGON;
+    if(modeExibitionFlag == 1){
+        modeExibitionValue = GL_POLYGON;    
+    }
+    if(modeExibitionFlag == 2){
+        modeExibitionValue = GL_POLYGON_GOU;    
+    }
     //cout << modeExibitionValue << endl;
     render();
 }
@@ -569,6 +573,7 @@ void initGLUI(){
     GLUI_Listbox *modeExibition = glui->add_listbox("Modo de Exibicao: ",&modeExibitionFlag, 0, (GLUI_Update_CB) selectModeExibition );
     modeExibition->add_item(0,"Aramado");
     modeExibition->add_item(1,"Solido");
+    modeExibition->add_item(2,"Solido/Gouraud");
     GLUI_Listbox *modeProjection = glui->add_listbox("Modo de Projecao: ",&modeProjectionValue, PROJECTION_OPENGL, (GLUI_Update_CB) selectModeProjection );
     modeProjection->add_item(PROJECTION_OPENGL,"OpenGL");
     modeProjection->add_item(PROJECTION_PESPECTIVE,"Pespectiva");

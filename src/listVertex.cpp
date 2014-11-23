@@ -98,3 +98,12 @@ void ListVertex::transformation(Matrix *matrix){
 int ListVertex::numberVertex(){
 	return this->number;
 };
+
+void ListVertex::resetNormals(){
+	Node *currentNode = this->first;
+	while(currentNode != NULL){
+		Vertex *current = currentNode->vertex;
+		current->resetNormal();
+		currentNode = currentNode->next;
+	}
+};

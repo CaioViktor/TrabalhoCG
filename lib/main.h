@@ -2,6 +2,7 @@
 #define PROJECTION_PESPECTIVE 1
 #define PROJECTION_ORTOGONAL 2
 #define PROJECTION_PESPECTIVE_LOOK 3
+#define GL_POLYGON_GOU 4
 
 #include <GL/gl.h>
 #include <GL/glut.h>

@@ -67,4 +67,6 @@ public:
 	*	\result O número de vértices existentes na lista
 	*/
 	int numberVertex();
+
+	void resetNormals();
 };

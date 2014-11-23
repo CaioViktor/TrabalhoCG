@@ -29,6 +29,7 @@ public:
 	*/
 	void draw(unsigned int mode, Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl);
 
+	void drawGouraud(unsigned int mode, Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl);
 	/**
 	*Imprime os vértices da face.
 	*/
@@ -79,6 +80,8 @@ public:
 	Vector* calculateCentroid();
 
 	Vector* calculateColors(Illumination* illumination, Vector* camPosition);
+
+	void sumNormalToVertexs(Vector *n);
 
 private:
 	/**

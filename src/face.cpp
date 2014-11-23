@@ -176,6 +176,60 @@ void Face::draw(unsigned int mode, Matrix* viewProjection, Illumination* illumin
 	glEnd();
 }
 
+
+void Face::drawGouraud(unsigned int mode, Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl){
+	glClearColor(0.0, 0.0, 0.0, 0.0);
+	glShadeModel(GL_SMOOTH);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glBegin(mode);
+
+	Vector *colors1 = vertice1->calculateColors(illumination,camPosition, this->material);
+	Vector *colors2 = vertice2->calculateColors(illumination,camPosition, this->material);
+	Vector *colors3 = vertice3->calculateColors(illumination,camPosition, this->material);
+	
+	if(opengl){
+		glColor3f(colors1->getValue(0), colors1->getValue(1), colors1->getValue(2));
+		glVertex3f(vertice1->getCoordinateXd(),vertice1->getCoordinateYd(),vertice1->getCoordinateZd());
+		glColor3f(colors2->getValue(0), colors2->getValue(1), colors2->getValue(2));
+		glVertex3f(vertice2->getCoordinateXd(),vertice2->getCoordinateYd(),vertice2->getCoordinateZd());
+		glColor3f(colors3->getValue(0), colors3->getValue(1), colors3->getValue(2));
+		glVertex3f(vertice3->getCoordinateXd(),vertice3->getCoordinateYd(),vertice3->getCoordinateZd());
+	}
+
+
+	else{
+		
+		Vector *vertex  = vertice1->toVector3()->multiplyMatrix(viewProjection);
+		vertex->divisionW();
+		//vertex->normalize3();
+		glColor3f(colors1->getValue(0), colors1->getValue(1), colors1->getValue(2));
+		glVertex3f(vertex->getValue(0),vertex->getValue(1),vertex->getValue(2));
+
+		
+		Vector *vertex2 = vertice2->toVector3()->multiplyMatrix(viewProjection);
+		vertex2->divisionW();
+		// vertex2->normalize3();
+		glColor3f(colors2->getValue(0), colors2->getValue(1), colors2->getValue(2));
+		glVertex3f(vertex2->getValue(0),vertex2->getValue(1),vertex2->getValue(2));
+
+
+		Vector *vertex3 = vertice3->toVector3()->multiplyMatrix(viewProjection);
+		vertex3->divisionW();
+		// vertex3->normalize3();
+		glColor3f(colors3->getValue(0), colors3->getValue(1), colors3->getValue(2));
+		glVertex3f(vertex3->getValue(0),vertex3->getValue(1),vertex3->getValue(2));
+
+		delete vertex;
+		delete vertex2;
+		delete vertex3;
+	}
+	
+	delete colors1;
+	delete colors2;
+	delete colors3;
+	glEnd();
+}
+
 // Autor: Caio Viktor. imprime as coordenadas dos vértices contidos na face
 void Face::showVertexs(){
 	if(this->vertice1 != NULL)
@@ -184,4 +238,10 @@ void Face::showVertexs(){
 		this->vertice2->showVertex();
 	if(this->vertice3 != NULL)
 		this->vertice3->showVertex();
+}
+
+void Face::sumNormalToVertexs(Vector *n){
+	this->vertice1->sumNormal(n);
+	this->vertice2->sumNormal(n);
+	this->vertice3->sumNormal(n);
 }

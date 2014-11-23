@@ -8,6 +8,7 @@ Vertex::Vertex(){
 	this->y = 0;
 	this->z = 0;
 	this->w = 1;
+	this->normal = new Vector(0,0,0);
 	//cout << "Vertice construido com sucesso." << endl;
 }
 //constroi um vertice nos pontos especificados pelos parâmetros, apenas as três dimensões serão levadas em consideração a quarta coordenada será setada como 0.
@@ -16,6 +17,7 @@ Vertex::Vertex(double coordinateX,double coordinateY,double coordinateZ){
 	this->y = coordinateY;
 	this->z = coordinateZ;
 	this->w = 1;
+	this->normal = new Vector(0,0,0);
 	//cout << "Vertice construido com sucesso." << endl;
 }
 //constroi um vertice nos pontos especificados pelos parâmetros. É necessário que seja passada a quata coordena
@@ -24,6 +26,7 @@ Vertex::Vertex(double coordinateX,double coordinateY,double coordinateZ,double c
 	this->y = coordinateY;
 	this->z = coordinateZ;
 	this->w = coordinateW;
+	this->normal = new Vector(0,0,0);
 	//cout << "Vertice construido com sucesso." << endl;
 }
 //destrutor da classe Vertex
@@ -114,4 +117,76 @@ Vector* Vertex::toVector3(){
 	else
 		newVector->setValue(3,1);
 	return newVector;
+}
+
+void Vertex::resetNormal(){
+	delete normal;
+	normal = new Vector(0,0,0);
+}
+void Vertex::sumNormal(Vector *n){
+	normal->setValue(0, normal->getValue(0)+ n->getValue(0));
+	normal->setValue(1, normal->getValue(1)+ n->getValue(1));
+	normal->setValue(2, normal->getValue(2)+ n->getValue(2));
+}
+Vector* Vertex::calculateColors(Illumination *illumination, Vector* camPosition, Material *material){
+	float Ir, Ig, Ib;
+	double dot1;
+	double dot2;
+
+	Vector *centroid;
+	Vector *lightPosition;
+	Vector *v;
+	Vector *l;
+	Vector *r;
+
+
+	centroid = new Vector(this->x,this->y,this->z);
+
+	normal->normalize3();
+	
+
+	// normal->divisionZ();
+
+	lightPosition = illumination->getLightPosition();
+
+	l = new Vector(
+			lightPosition->getValue(0) - centroid->getValue(0),
+			lightPosition->getValue(1) - centroid->getValue(1),
+			lightPosition->getValue(2) - centroid->getValue(2));
+
+	l->normalize3();
+
+
+	v = new Vector(
+		camPosition->getValue(0) - centroid->getValue(0),
+		camPosition->getValue(1) - centroid->getValue(1),
+		camPosition->getValue(2) - centroid->getValue(2));
+	v->normalize3();
+
+	dot1 = l->dot3(normal);
+
+	r = normal->multiplyDouble(2*dot1);
+	r = (*r)-(*l);
+	// r->normalize3();
+
+	dot2 = v->dot3(r);
+	Ir  = material->getKa()->getValue(0) * illumination->getLightAmbient()->getValue(0);
+	Ir += material->getKd()->getValue(0) * illumination->getLightIntesity()->getValue(0) * fmax(0,dot1);
+	Ir += material->getKs()->getValue(0) * illumination->getLightIntesity()->getValue(0) * fmax(0,(pow(dot2,(material->getNs()))));
+
+	Ig  = material->getKa()->getValue(1) * illumination->getLightAmbient()->getValue(1);
+	Ig += material->getKd()->getValue(1) * illumination->getLightIntesity()->getValue(1) * fmax(0,dot1);
+	Ig += material->getKs()->getValue(1) * illumination->getLightIntesity()->getValue(1) * fmax(0,(pow(dot2,(material->getNs()))));
+
+	Ib  = material->getKa()->getValue(2) * illumination->getLightAmbient()->getValue(2);
+	Ib += material->getKd()->getValue(2) * illumination->getLightIntesity()->getValue(2) * fmax(0,dot1);
+	Ib += material->getKs()->getValue(2) * illumination->getLightIntesity()->getValue(2) * fmax(0,(pow(dot2,(material->getNs()))));
+	
+	//delete centroid;
+	//delete normal;
+	delete v;
+	//delete l; Nao consigo deletar esse porque se trata de um ponteiro prodigio... tsc tsc
+	delete r;
+
+	return new Vector(fmin(Ir,1), fmin(Ig,1), fmin(Ib,1));
 }

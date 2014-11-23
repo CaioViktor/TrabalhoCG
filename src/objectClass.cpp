@@ -30,11 +30,17 @@ ObjectClass::ObjectClass(){
 void ObjectClass::drawObject( unsigned int modeExibitionValue, Matrix* viewProjection, Illumination *illumination, Vector* camPosition){
     bool opengl = (*viewProjection) == (*Matrix::getIdentity());
       
-    if(modeExibitionValue == GL_POLYGON)
-        this->list_face->drawSolid(viewProjection, illumination, camPosition, opengl);
-    else{
+    if(modeExibitionValue == GL_POLYGON){
+        this->list_face->drawSolid(viewProjection, illumination, camPosition, opengl);  
+    }
+    if(modeExibitionValue == GL_LINE_LOOP){
         glColor3f(this->R,this->G,this->B);
         this->list_face->drawWired(viewProjection, opengl);
+    }
+    if(modeExibitionValue == GL_POLYGON_GOU){
+        this->list_face->calculateVertexNormals();
+        this->list_face->drawSolidGouraud(viewProjection, illumination, camPosition, opengl);
+        this->list_vertex->resetNormals();
     }
 }
 

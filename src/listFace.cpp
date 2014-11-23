@@ -102,7 +102,29 @@ void ListFace::drawSolid(Matrix* viewProjection, Illumination *illumination, Vec
 	}
 	//cout << "Face desenhada sólida\n";
 }
+
+void ListFace::drawSolidGouraud(Matrix* viewProjection, Illumination* illumination, Vector* camPosition, bool opengl){
+	NodeFace *currentNode = this->first;
+	if(illumination != NULL && camPosition !=NULL){
+		while(currentNode != NULL){
+				Face *current = currentNode->face;
+				current->drawGouraud(GL_POLYGON, viewProjection, illumination, camPosition, opengl);
+				currentNode = currentNode->next;
+		}
+	}
+}
 //Retorna o número de faces existentes na lista
 int ListFace::numberFaces(){
 	return this->number;
+}
+
+void ListFace::calculateVertexNormals(){
+	NodeFace *currentNode = this->first;
+	while(currentNode != NULL){
+		Face *current = currentNode->face;
+		Vector *n = current->calculateNormal();
+		current->sumNormalToVertexs(n);
+		delete n;
+		currentNode = currentNode->next;
+	}
 }

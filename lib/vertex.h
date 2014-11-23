@@ -4,9 +4,12 @@
 *\author Caio Viktor
 *\brief Implementa a estrutra de vértice utilizada na construção de figuras geométricas pelo OpenGl
 */
+class Illumination;
+class Material;
 
 class Vertex{
 	double x,y,z,w;
+	Vector* normal;
 public:
 	/**
 	*	Constrói um vértice na origem do sistema de coodenadas.
@@ -111,4 +114,8 @@ public:
 	*/
 	Vector* toVector();
 	Vector* toVector3();
+
+	void resetNormal();
+	void sumNormal (Vector *n);
+	Vector* calculateColors(Illumination *illumination, Vector* camPosition, Material *material);
 };

@@ -632,7 +632,7 @@ void initGLUI(){
 }
 void initGLUIIllum(){
     glui_illu = GLUI_Master.create_glui_subwindow( mainWindow,GLUI_SUBWINDOW_RIGHT );
-    glui->set_main_gfx_window(mainWindow);
+    glui_illu->set_main_gfx_window(mainWindow);
 
     GLUI_Panel *cenePanel = glui_illu->add_panel( "Luz" );
     glui_illu->add_statictext_to_panel(cenePanel,"Posicao");
@@ -711,8 +711,8 @@ int main(int argc, char **argv) {
     glutKeyboardFunc(input);
     glutMouseFunc(mouse);
     init();
-    initGLUI();
     initGLUIIllum();
+    initGLUI();
     glutReshapeFunc(reshape);
     //Chamada da função de desenhar
     glutDisplayFunc(draw);
